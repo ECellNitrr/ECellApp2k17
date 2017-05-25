@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:checkableBehavior="single"
+        android:id="@+id/menu_group"
+        >
+        <item
+            android:id="@+id/about_vision"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Vision"/>
+        <item
+            android:id="@+id/about_team"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Team"/>
+        <item
+            android:id="@+id/about_contact_us"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Contact Us"/>
+        <item
+            android:id="@+id/about_aboutus"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="About Us"/>
+        <item
+            android:id="@+id/about_past"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Past"/>
+
+    </group>
+</menu>
