@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:checkableBehavior="single"
+        android:id="@+id/menu_group"
+        >
+        <item
+            android:id="@+id/event_talks"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Talks"/>
+        <item
+            android:id="@+id/event_wallstreet"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="WallStreet"/>
+        <item
+            android:id="@+id/event_bquiz"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="B-Quiz"/>
+        <item
+            android:id="@+id/event_4"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Event-4"/>
+    </group>
+
+</menu>
