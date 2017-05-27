@@ -8,7 +8,7 @@
     android:weightSum="10"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.iket.ecellapp2k17.Home"
+    tools:context="com.example.iket.ecellapp2k17.home.view.Home"
     tools:showIn="@layout/app_bar_home">
 
     <RelativeLayout
@@ -30,9 +30,11 @@
         <android.support.v7.widget.RecyclerView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
             android:layout_margin="16dp"
             android:id="@+id/home_recycler"
+
+
+
             />
     </android.support.v7.widget.CardView>
 
