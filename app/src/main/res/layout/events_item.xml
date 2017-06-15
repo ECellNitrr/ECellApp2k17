@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/eventImage"
+        android:src="@drawable/ecell_logo"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/eventTitle"
+        android:text="Wallstreet"
+        android:textSize="65sp"
+        android:textStyle="bold"
+        android:padding="8dp"
+        android:layout_centerHorizontal="true"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/eventBody"
+        android:textSize="30sp"
+        android:padding="8dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/eventTitle"
+        android:text="Event Body"/>
+
+
+</RelativeLayout>
