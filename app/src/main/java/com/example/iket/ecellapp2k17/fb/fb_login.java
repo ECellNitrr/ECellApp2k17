@@ -8,8 +8,7 @@ import android.content.Intent;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.example.iket.ecellapp2k17.Home;
+import com.example.iket.ecellapp2k17.home.Home;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -27,8 +26,6 @@ import org.json.JSONObject;
 
 
 import com.example.iket.ecellapp2k17.R;
-
-import static com.example.iket.ecellapp2k17.R.id.picture;
 
 public class fb_login extends AppCompatActivity {
 

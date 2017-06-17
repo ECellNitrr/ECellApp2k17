@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.example.iket.ecellapp2k17.Home;
+import com.example.iket.ecellapp2k17.home.Home;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.fb.fb_login;
 import com.facebook.AccessToken;
@@ -37,7 +37,6 @@ public class SplashScreen extends Activity {
                     startActivity(intent);
         }
         else {
-
                     Intent intent = new Intent(SplashScreen.this, fb_login.class);
                     startActivity(intent);
              }

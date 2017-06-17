@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-
     tools:context="com.example.iket.ecellapp2k17.splash_screen.SplashScreen">
 
 
@@ -34,7 +33,6 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:src="@drawable/ecell_logo"
-        android:layout_marginTop="32dp"
-        android:layout_below="@+id/textView3"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerInParent="true" />
+
 </RelativeLayout>

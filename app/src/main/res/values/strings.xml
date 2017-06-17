@@ -7,4 +7,7 @@
     <string name="nitrr">NIT RAIPUR</string>
     <string name="ecell">THE ENTREPRENEURSHIP CELL</string>
     <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
