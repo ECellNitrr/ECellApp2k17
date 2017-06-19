@@ -7,6 +7,13 @@
     <string name="nitrr">NIT RAIPUR</string>
     <string name="ecell">THE ENTREPRENEURSHIP CELL</string>
     <string name="action_settings">Settings</string>
+    <string-array name="tabitemList">
+        <item>PROFILE</item>
+        <item>EVENTS</item>
+        <item>BLOGS</item>
+        <item>SPONSORS</item>
+        <item>ABOUT US</item>
+    </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
