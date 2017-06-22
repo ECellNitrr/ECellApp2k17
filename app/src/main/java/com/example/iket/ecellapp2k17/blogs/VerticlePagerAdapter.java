@@ -41,7 +41,7 @@ public class VerticlePagerAdapter extends PagerAdapter {
     public Object instantiateItem(ViewGroup container, int position) {
         View itemView = mLayoutInflater.inflate(R.layout.blog_card, container, false);
 
-        TextView label = (TextView) itemView.findViewById(R.id.blog_test);
+        TextView label = (TextView) itemView.findViewById(R.id.blogTitle);
 
         if (position % 2 == 0) {
             label.setText(mResources[0]);
