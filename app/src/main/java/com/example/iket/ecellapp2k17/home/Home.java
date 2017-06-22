@@ -16,7 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.iket.ecellapp2k17.R;
-import com.example.iket.ecellapp2k17.blogs.BlogFragment;
+import com.example.iket.ecellapp2k17.blogs.view.BlogFragment;
 
 import java.util.ArrayList;
 
