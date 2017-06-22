@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:checkableBehavior="single"
+        android:id="@+id/menu_group"
+        >
+        <item
+            android:id="@+id/title_sponsor"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Title Sponsors"/>
+        <item
+            android:id="@+id/become_our_sponsor"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Become Our Sponsor"/>
+    </group>
+</menu>

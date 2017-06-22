@@ -41,7 +41,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         tabitemList.add("BLOGS");
         tabitemList.add("SPONSORS");
         tabitemList.add("ABOUT US");
-        horizontalAdapter=new HorizontalAdapter(tabitemList);
+        horizontalAdapter=new HorizontalAdapter(tabitemList,this);
         LinearLayoutManager horizontalLayoutManagaer
                 = new LinearLayoutManager(Home.this, LinearLayoutManager.HORIZONTAL, false);
 
@@ -50,33 +50,19 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        navigationView= (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.inflateMenu(R.menu.events_menu);
 
-        setFragment(new BlogFragment(),"Blogs");
+        setFragment(new BlogFragment(),"Blogs",3);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-
-        navigationView= (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-        setNavigationMenu(0);
     }
 
-    public void setNavigationMenu(int data) {
-        menu=navigationView.getMenu();
-        menu.setGroupVisible(R.id.menu_group,false);
-        switch (data)
-        {
-            case 0:
-                navigationView.inflateMenu(R.menu.events_menu);
-                break;
-            case 1:
-                navigationView.inflateMenu(R.menu.about_us_menu);
-        }
-
-    }
 
     @Override
     public void onBackPressed() {
@@ -94,32 +80,48 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-//        if (id == R.id.nav_camera) {
-//            // Handle the camera action
-//        } else if (id == R.id.nav_gallery) {
-//
-//        } else if (id == R.id.nav_slideshow) {
-//
-//        } else if (id == R.id.nav_manage) {
-//
-//        } else if (id == R.id.nav_share) {
-//
-//        } else if (id == R.id.nav_send) {
-//
-//        }
+        if (id == R.id.about_vision) {
+            // Handle the camera action
+        } else if (id == R.id.recent_blogs) {
+
+        } else if (id == R.id.become_our_sponsor) {
+
+        } else if (id == R.id.log_out) {
+
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
-    public void setFragment(Fragment fragment, String title) {
+    public void setFragment(Fragment fragment, String title, int data) {
         if (fragment != null) {
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.container, fragment);
             fragmentTransaction.commit();
             getSupportActionBar().setTitle(title);
+        }
+        menu=navigationView.getMenu();
+        menu.setGroupVisible(R.id.menu_group,false);
+        switch (data)
+        {
+            case 1:
+                navigationView.inflateMenu(R.menu.profile_menu);
+                break;
+            case 2:
+                navigationView.inflateMenu(R.menu.events_menu);
+                break;
+            case 3:
+                navigationView.inflateMenu(R.menu.blogs_menu);
+                break;
+            case 4:
+                navigationView.inflateMenu(R.menu.spons_menu);
+                break;
+            case 5:
+                navigationView.inflateMenu(R.menu.about_us_menu);
+                break;
         }
 
     }
