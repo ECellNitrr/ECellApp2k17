@@ -15,7 +15,7 @@ import com.example.iket.ecellapp2k17.about_us.AboutUsFragment;
 import com.example.iket.ecellapp2k17.blogs.view.BlogFragment;
 import com.example.iket.ecellapp2k17.events.view.EventsFragment;
 import com.example.iket.ecellapp2k17.profile.ProfileFragment;
-import com.example.iket.ecellapp2k17.sponsors.SponsFragment;
+import com.example.iket.ecellapp2k17.sponsors.view.SponsFragment;
 
 import java.util.List;
 

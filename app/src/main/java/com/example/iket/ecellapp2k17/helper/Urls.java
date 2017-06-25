@@ -9,4 +9,5 @@ public class Urls {
     public static final String BASE_URL = "";
     public static final String REQUEST_BLOGS = "blogs/";
     public static final String REQUEST_EVENTS = "events/";
+    public static final String REQUEST_SPONS = "spons/";
 }
