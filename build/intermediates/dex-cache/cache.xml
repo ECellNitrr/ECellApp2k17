@@ -3,93 +3,282 @@
 
     <item
         is-multidex="true"
-        jar="/home/samveg/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/adapter-rxjava/2.0.2/a60c039ba54c73d1133b72178e1b04133c73d13d/adapter-rxjava-2.0.2.jar"
+        jar="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="a60c039ba54c73d1133b72178e1b04133c73d13d">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/adapter-rxjava-2.0.2_f1d91b02347de91d19657cf490108025b4af0707/classes.dex" />
+        sha1="3c8e898d31bc7a53544f49024dc6d8163bfecdcb">
+        <dex dex="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_8c6ab218ecf574a4d93c4dc170441f8298536696\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/samveg/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/logging-interceptor/3.2.0/a56f28d5b7fab623c6c1d2afa08dd496d873ac21/logging-interceptor-3.2.0.jar"
+        jar="C:\Users\lenovo\.android\build-cache\94c4e9e546d40d0bae7e53f58b19c03f51bc0009\output\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="a56f28d5b7fab623c6c1d2afa08dd496d873ac21">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/logging-interceptor-3.2.0_826a3239fd0cda83d3bd3e0f4ab8d6cdbee765d1/classes.dex" />
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_6dcc2370bc8d80735078cae8bf5402c79b16de75\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/samveg/ECellApp2k17/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jar="C:\Users\lenovo\.android\build-cache\b3502bc3716c84005c4275a2398c3d3c3505e57e\output\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="12920f9016b8b05acbc2af7cdc13cef6946fe7d3">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_86b780cdc27a272629f7f2ec9a4b34b4ab492038/classes.dex" />
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_9d0ef2fde364f76636dae9a59a6e3efae8816f34\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/samveg/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/converter-gson/2.0.2/f8d87f15b94b8d74e7ccf61d7eedb558811cdb30/converter-gson-2.0.2.jar"
+        jar="C:\Users\lenovo\.android\build-cache\cf50d6fb413b2ad494e88aadbe4908ab976d7283\output\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="f8d87f15b94b8d74e7ccf61d7eedb558811cdb30">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/converter-gson-2.0.2_8e4550ab36dffc385ff3c41e9b82d809e401f0cd/classes.dex" />
+        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
+        <dex dex="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_fa273151d9fe45df07e2428833221637b4048e00\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/samveg/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.0.2/43eeae0b9fb087bb3194ba59ab63a38a32fbf3e/retrofit-2.0.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="043eeae0b9fb087bb3194ba59ab63a38a32fbf3e">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/retrofit-2.0.2_99c1b4627a49806fb7ffa12e5d403e0ca7be2697/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/samveg/ECellApp2k17/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d5e854fa5cffb99bf1a73d55ad2ce34decdfd5d4">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_f281a4803f980ce5919b394e18662ec59fa03202/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/samveg/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.1.1/b494968f6050d494de55dc3ce005e59c7eb40012/rxjava-1.1.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="b494968f6050d494de55dc3ce005e59c7eb40012">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/rxjava-1.1.1_5cb3efe887b3bc7d7d426460db6170cbde5ddc61/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/samveg/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.11.0/840897fcd7223a8143f1d9b6f69714e7be34fd50/okio-1.11.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="840897fcd7223a8143f1d9b6f69714e7be34fd50">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/okio-1.11.0_2037c0892b0aefdbd2de39db2cebe8a49aecb92c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/samveg/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.6.0/69edde9fc4b01c9fd51d25b83428837478c27254/okhttp-3.6.0.jar"
+        jar="C:\Users\lenovo\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.6.0\69edde9fc4b01c9fd51d25b83428837478c27254\okhttp-3.6.0.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="69edde9fc4b01c9fd51d25b83428837478c27254">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/okhttp-3.6.0_eea44886778ab6137600a4233abe03fac2aa3293/classes.dex" />
+        <dex dex="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-3.6.0_1a58b7eb1f6475f2061e32654ffd8d01cd8c49dd\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/samveg/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.0/c4ba5371a29ac9b2ad6129b1d39ea38750043eff/gson-2.8.0.jar"
+        jar="C:\Users\lenovo\.gradle\caches\modules-2\files-2.1\io.reactivex\rxjava\1.1.1\b494968f6050d494de55dc3ce005e59c7eb40012\rxjava-1.1.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b494968f6050d494de55dc3ce005e59c7eb40012">
+        <dex dex="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\transforms\dex\debug\folders\1000\10\rxjava-1.1.1_f1a08f0df98face3363466ebf03a01237375ec37\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\lenovo\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.3.1_283b98a2f80d9b1e1b6a84a5c5721ac5c08af401\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\lenovo\.android\build-cache\0d080bd36db5fa45349473ac817638c4a62e73e2\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d5cbc9214ee567ea6ef56fb2707d48e58d240fc2">
+        <dex dex="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b7929d8667d9d4d019b9253278a8e38bdf18505a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="12920f9016b8b05acbc2af7cdc13cef6946fe7d3">
+        <dex dex="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_fd97ab0afb8703840bcfd600ddd7da5b7e9b7004\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\lenovo\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\converter-gson\2.0.2\f8d87f15b94b8d74e7ccf61d7eedb558811cdb30\converter-gson-2.0.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f8d87f15b94b8d74e7ccf61d7eedb558811cdb30">
+        <dex dex="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\transforms\dex\debug\folders\1000\10\converter-gson-2.0.2_26fada3b9c8ea7ee7c2d8e5195bc19108f0c2ccc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\lenovo\.android\build-cache\e26a5b0a6fa48d5005a7332a738eb1190f9ca743\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_5bc301abd1725e7736248b6c89a385d3f94b1297\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\lenovo\.android\build-cache\068c567e2069a3f996a9d59d119ee53e46cb5a18\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_324735625bcb01c6927cf7c7b68b0d407aec1327\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\lenovo\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.7.0\9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4\glide-3.7.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
+        <dex dex="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\transforms\dex\debug\folders\1000\10\glide-3.7.0_6847dc5645c19615c623fcdef96473b3b9ad1f8e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\lenovo\.android\build-cache\e2fe66d841c1a98dbe337aac8c7046cf74afbbe2\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e3e2e1ede3d842f0a9d8d691b674efed5410321c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\lenovo\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\retrofit\2.0.2\43eeae0b9fb087bb3194ba59ab63a38a32fbf3e\retrofit-2.0.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="043eeae0b9fb087bb3194ba59ab63a38a32fbf3e">
+        <dex dex="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\transforms\dex\debug\folders\1000\10\retrofit-2.0.2_9338a2f913a8266405b1db4ae8b9a2ecc9d57bfd\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\lenovo\.android\build-cache\1b71c609951c2c0966a18fbb627b706fe1a11651\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="95519720620b553f63afc789beba9ad582807f7c">
+        <dex dex="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c8a3592bfed59644f1efa0d04f9e19d4008ed3b9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\lenovo\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-applinks\1.4.0\8ad21bf21784dacce5f2043afb97218cc377e835\bolts-applinks-1.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8ad21bf21784dacce5f2043afb97218cc377e835">
+        <dex dex="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\transforms\dex\debug\folders\1000\10\bolts-applinks-1.4.0_14ae7df27ad302e643963a9586483df19d1a7617\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\lenovo\.android\build-cache\4c24998aab3f2416c1becfa22ad8b9068611873f\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b281173f7213f957d3aedb53f207c8180991f9a6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\lenovo\.android\build-cache\9f436342ed8eabc19e2d2d43baa9a63771ed5d23\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f74f8e5c3e93cfa300c1ada25f6e45f8ced52460\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\lenovo\.android\build-cache\d4f643a6857ab93b23cd97ef5eee19030c25a9cd\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
+        <dex dex="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_1578d88189e8a9b783bd218bc7fbb9f73190122b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\lenovo\.android\build-cache\fc61b60c2696b1b4759d1df8a4a9a825c8fb4e86\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_6dd099162a4346eb35d43cdaa9a058a24f0cf062\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\lenovo\.android\build-cache\9a6b67dc9872a41fa8162f6144cb4d4295dee596\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="94ba691efc31bf53264db0716d9c9ec03843ea31">
+        <dex dex="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_57d6d79eab94c7a3daab5d026aea85400fe97cd0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\lenovo\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.4.0\d85884acf6810a3bbbecb587f239005cbc846dc4\bolts-tasks-1.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\transforms\dex\debug\folders\1000\10\bolts-tasks-1.4.0_ef15d82e81c34ce0ff192753187f7fa9c5af6814\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\lenovo\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\transforms\dex\debug\folders\1000\10\constraint-layout-solver-1.0.2_1e55431a6aec09ea9231570cbc71d3ca88bbe03e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\lenovo\.android\build-cache\1b2f2c530274133ff01c5beeff5a9e28e564dbe1\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8a372c4191f80489770a231f7be4820b204b886a">
+        <dex dex="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c0dc9df62aa63099f617b5754ae9e6f4658ac8ae\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\lenovo\.android\build-cache\ac200587b29207e616b28f6e4209c3f2677974ac\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_52c88b16f9e4e2fd8dfcbc87f4d1cdfd09c0f8a3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\lenovo\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\logging-interceptor\3.2.0\a56f28d5b7fab623c6c1d2afa08dd496d873ac21\logging-interceptor-3.2.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a56f28d5b7fab623c6c1d2afa08dd496d873ac21">
+        <dex dex="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\transforms\dex\debug\folders\1000\10\logging-interceptor-3.2.0_fbb4ec97734f07fa644cf7d0efea506d37416955\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\lenovo\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.8.0\c4ba5371a29ac9b2ad6129b1d39ea38750043eff\gson-2.8.0.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="c4ba5371a29ac9b2ad6129b1d39ea38750043eff">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/gson-2.8.0_971c36270117ee2e536105e08c9f1f9708f042aa/classes.dex" />
+        <dex dex="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.8.0_93ddd6f8eed7e01ec83911fb2c6579a735e57853\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\lenovo\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\adapter-rxjava\2.0.2\a60c039ba54c73d1133b72178e1b04133c73d13d\adapter-rxjava-2.0.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a60c039ba54c73d1133b72178e1b04133c73d13d">
+        <dex dex="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\transforms\dex\debug\folders\1000\10\adapter-rxjava-2.0.2_ce236c2d25c5d99b02e02d7271b6ce7cb07e527f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\lenovo\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.11.0\840897fcd7223a8143f1d9b6f69714e7be34fd50\okio-1.11.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="840897fcd7223a8143f1d9b6f69714e7be34fd50">
+        <dex dex="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\transforms\dex\debug\folders\1000\10\okio-1.11.0_120ee54aad16766d30309761c007c96fe4f73ba6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\lenovo\.android\build-cache\b336ff5d7370b8289ecc27118e41c89bb3b351e8\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_34d318bed6f7436022bfdc581707f7f16fbb1315\classes.dex" />
     </item>
 
 </items>
