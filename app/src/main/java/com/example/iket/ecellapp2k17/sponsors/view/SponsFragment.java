@@ -13,6 +13,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.iket.ecellapp2k17.R;
+import com.example.iket.ecellapp2k17.sponsors.model.MockSpons;
 import com.example.iket.ecellapp2k17.sponsors.model.RetrofitSponsProvider;
 import com.example.iket.ecellapp2k17.sponsors.presenter.SponsPresenter;
 import com.example.iket.ecellapp2k17.sponsors.presenter.SponsPresenterImpl;
@@ -87,7 +88,7 @@ public class SponsFragment extends Fragment implements SponsInterface {
         View view= inflater.inflate(R.layout.fragment_spons, container, false);
 
         ButterKnife.bind(this,view);
-        sponsPresenter=new SponsPresenterImpl(this,new RetrofitSponsProvider());
+        sponsPresenter=new SponsPresenterImpl(this,new MockSpons());
 
         adapter = new SponsAdapter(getContext());
 
@@ -95,6 +96,7 @@ public class SponsFragment extends Fragment implements SponsInterface {
 
         recyclerView.setLayoutManager(lLayout);
         recyclerView.setAdapter(adapter);
+
         sponsPresenter.requestSpons();
 
 
