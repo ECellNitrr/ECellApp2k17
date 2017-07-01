@@ -4,6 +4,8 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -156,5 +158,14 @@ public class SponsFragment extends Fragment implements SponsInterface {
     public void setData(List<SponsData> sponsDataList) {
         adapter.setData(sponsDataList);
         adapter.notifyDataSetChanged();
+    }
+
+    public void setFragment(Fragment fragment, String title, int data) {
+        if (fragment != null) {
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container, fragment);
+            fragmentTransaction.commit();
+        }
     }
 }

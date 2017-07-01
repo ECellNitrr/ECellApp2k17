@@ -73,6 +73,5 @@ public class GlideImageLoader implements ImageLoader {
 
         });
     }
-
 }
 

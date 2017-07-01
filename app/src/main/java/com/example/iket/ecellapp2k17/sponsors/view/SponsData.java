@@ -9,6 +9,7 @@ public class SponsData {
     private String image1;
     private int id;
 
+
     public SponsData(String image1, String image2) {
         this.image1 = image1;
         this.id=id;

@@ -2,130 +2,22 @@
 <items version="2" >
 
     <item
-        is-multidex="false"
-        jar="/home/samveg/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife-annotations/8.6.0/48efa6f14074e1a6b16e02ac05eba3fc5c7c7ec8/butterknife-annotations-8.6.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="48efa6f14074e1a6b16e02ac05eba3fc5c7c7ec8">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/pre-dexed/debug/butterknife-annotations-8.6.0_88e7451f0b83a5d1a172e38f580d67219e6bf6ff.jar" />
-    </item>
-    <item
         is-multidex="true"
-        jar="/home/samveg/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife-annotations/8.6.0/48efa6f14074e1a6b16e02ac05eba3fc5c7c7ec8/butterknife-annotations-8.6.0.jar"
+        jar="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="48efa6f14074e1a6b16e02ac05eba3fc5c7c7ec8">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/butterknife-annotations-8.6.0_88e7451f0b83a5d1a172e38f580d67219e6bf6ff/classes.dex" />
+        sha1="b84ed4ed26d27ef618debd885a9db53cc656c9af">
+        <dex dex="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_8c6ab218ecf574a4d93c4dc170441f8298536696\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/samveg/ECellApp2k17/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jar="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="12920f9016b8b05acbc2af7cdc13cef6946fe7d3">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_86b780cdc27a272629f7f2ec9a4b34b4ab492038/classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/samveg/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.6.0/69edde9fc4b01c9fd51d25b83428837478c27254/okhttp-3.6.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="69edde9fc4b01c9fd51d25b83428837478c27254">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/pre-dexed/debug/okhttp-3.6.0_eea44886778ab6137600a4233abe03fac2aa3293.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/samveg/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.0.2/43eeae0b9fb087bb3194ba59ab63a38a32fbf3e/retrofit-2.0.2.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="043eeae0b9fb087bb3194ba59ab63a38a32fbf3e">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/pre-dexed/debug/retrofit-2.0.2_99c1b4627a49806fb7ffa12e5d403e0ca7be2697.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/samveg/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/logging-interceptor/3.2.0/a56f28d5b7fab623c6c1d2afa08dd496d873ac21/logging-interceptor-3.2.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="a56f28d5b7fab623c6c1d2afa08dd496d873ac21">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/pre-dexed/debug/logging-interceptor-3.2.0_826a3239fd0cda83d3bd3e0f4ab8d6cdbee765d1.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/samveg/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/adapter-rxjava/2.0.2/a60c039ba54c73d1133b72178e1b04133c73d13d/adapter-rxjava-2.0.2.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="a60c039ba54c73d1133b72178e1b04133c73d13d">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/pre-dexed/debug/adapter-rxjava-2.0.2_f1d91b02347de91d19657cf490108025b4af0707.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/samveg/.android/build-cache/06e790fe1a3de2d2983f8ac5731261d0170fb0c5/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="be587097e648eabfb7f9eca23ab03369894e2d5d">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_7961081293e5af4c7cd26814446d67974296bc31.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/samveg/.android/build-cache/06e790fe1a3de2d2983f8ac5731261d0170fb0c5/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="be587097e648eabfb7f9eca23ab03369894e2d5d">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_7961081293e5af4c7cd26814446d67974296bc31/classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/samveg/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.11.0/840897fcd7223a8143f1d9b6f69714e7be34fd50/okio-1.11.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="840897fcd7223a8143f1d9b6f69714e7be34fd50">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/pre-dexed/debug/okio-1.11.0_2037c0892b0aefdbd2de39db2cebe8a49aecb92c.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/samveg/ECellApp2k17/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ff9e4c561e90528532a73babb61c19d508b9ee36">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_f281a4803f980ce5919b394e18662ec59fa03202/classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/samveg/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/converter-gson/2.0.2/f8d87f15b94b8d74e7ccf61d7eedb558811cdb30/converter-gson-2.0.2.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="f8d87f15b94b8d74e7ccf61d7eedb558811cdb30">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/pre-dexed/debug/converter-gson-2.0.2_8e4550ab36dffc385ff3c41e9b82d809e401f0cd.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/samveg/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.1.1/b494968f6050d494de55dc3ce005e59c7eb40012/rxjava-1.1.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="b494968f6050d494de55dc3ce005e59c7eb40012">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/pre-dexed/debug/rxjava-1.1.1_5cb3efe887b3bc7d7d426460db6170cbde5ddc61.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/samveg/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.0/c4ba5371a29ac9b2ad6129b1d39ea38750043eff/gson-2.8.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c4ba5371a29ac9b2ad6129b1d39ea38750043eff">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/pre-dexed/debug/gson-2.8.0_971c36270117ee2e536105e08c9f1f9708f042aa.jar" />
+        <dex dex="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_fd97ab0afb8703840bcfd600ddd7da5b7e9b7004\classes.dex" />
     </item>
 
 </items>
