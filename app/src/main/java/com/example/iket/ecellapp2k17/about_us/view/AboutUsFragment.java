@@ -1,4 +1,4 @@
-package com.example.iket.ecellapp2k17.about_us;
+package com.example.iket.ecellapp2k17.about_us.view;
 
 import android.content.Context;
 import android.net.Uri;
@@ -9,6 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.iket.ecellapp2k17.R;
+import com.example.iket.ecellapp2k17.about_us.model.MockAboutUs;
+import com.example.iket.ecellapp2k17.about_us.model.data.AboutUsData;
+import com.example.iket.ecellapp2k17.about_us.presenter.AboutUsPresenter;
+import com.example.iket.ecellapp2k17.about_us.presenter.AboutUsPresenterImpl;
+import com.example.iket.ecellapp2k17.helper.VerticalViewPager;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -18,7 +25,7 @@ import com.example.iket.ecellapp2k17.R;
  * Use the {@link AboutUsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AboutUsFragment extends Fragment {
+public class AboutUsFragment extends Fragment implements AboutUsInterface{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -28,6 +35,9 @@ public class AboutUsFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    VerticalViewPager verticalViewPager;
+    VerticalPagerAdapter verticalPagerAdapter;
+    AboutUsPresenter aboutUsPresenter;
     private OnFragmentInteractionListener mListener;
 
     public AboutUsFragment() {
@@ -65,7 +75,15 @@ public class AboutUsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_about_us, container, false);
+        View view = inflater.inflate(R.layout.fragment_about_us, container, false);
+        verticalViewPager=(VerticalViewPager)view.findViewById(R.id.about_us_viewPager);
+        verticalPagerAdapter=new VerticalPagerAdapter(getContext());
+        verticalViewPager.setAdapter(verticalPagerAdapter);
+        // blogsPresenter=new BlogsPresenterImpl(new RetrofitBlogsProvider(),this);
+
+        aboutUsPresenter =new AboutUsPresenterImpl(new MockAboutUs(),this);
+        aboutUsPresenter.requestData();
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -84,6 +102,22 @@ public class AboutUsFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void setData(List<AboutUsData> aboutUsDataList) {
+        verticalPagerAdapter.setAboutUsDataList(aboutUsDataList);
+        verticalPagerAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void showMessage(String message) {
+
+    }
+
+    @Override
+    public void ShowProgressBar(boolean show) {
+
     }
 
     /**
