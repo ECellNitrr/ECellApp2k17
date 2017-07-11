@@ -22,7 +22,8 @@
         android:orientation="vertical">
     <TextView
         android:id="@+id/user_name"
-        android:textColor="@color/white"
+        android:textColor="#ffffff"
+        android:background="@android:color/transparent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/user_email"
@@ -32,7 +33,8 @@
         android:textSize="28sp" />
     <TextView
         android:id="@+id/user_email"
-        android:textColor="@color/white"
+        android:textColor="#ffffff"
+        android:background="@android:color/transparent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -43,11 +45,12 @@
     <android.support.design.widget.TabLayout
         android:id="@+id/tabLayout"
         android:layout_below="@+id/profile_image"
-        android:background="@color/charcoal"
+        android:background="#333333"
         app:tabTextColor="@color/white"
         app:tabSelectedTextColor="@color/white"
         android:layout_width="match_parent"
-        android:layout_height="40sp"
+        android:layout_height="50sp"
+        app:tabIndicatorColor="#ff0000"
         />
     <android.support.v4.view.ViewPager
         android:layout_width="match_parent"
