@@ -17,7 +17,7 @@
         android:text="B QUIZ"
         android:layout_marginTop="8dp"
         android:textSize="32sp"
-        android:id="@+id/title"
+        android:id="@+id/bquiz_title"
         android:layout_centerInParent="true"
         />
     <TextView
@@ -28,9 +28,9 @@
         android:textColor="@color/white"
         android:text="32"
         android:background="@drawable/circle_background"
-        android:id="@+id/timer"
+        android:id="@+id/bquiz_timer"
         android:layout_marginBottom="-40dp"
-        android:layout_below="@+id/title"
+        android:layout_below="@+id/bquiz_title"
         android:elevation="10dp"
         android:textSize="40sp"
         android:gravity="center"
@@ -40,7 +40,7 @@
         android:layout_height="match_parent"
         app:cardBackgroundColor="@color/brown"
         android:id="@+id/bquiz_card"
-        android:layout_below="@+id/timer"
+        android:layout_below="@+id/bquiz_timer"
         android:layout_above="@+id/bquiz_answer"
         android:layout_marginBottom="4dp"
         android:layout_marginLeft="32dp"
@@ -141,6 +141,12 @@
         android:text="Your session will be terminated if you switch apps"
         android:textSize="16sp"
         android:gravity="center"
+        android:layout_centerInParent="true"
+        />
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bquiz_progressbar"
         android:layout_centerInParent="true"
         />
 </RelativeLayout>
