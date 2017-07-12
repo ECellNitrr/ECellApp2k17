@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.iket.ecellapp2k17.helper.SharedPrefs;
 import com.example.iket.ecellapp2k17.home.Home;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
@@ -27,12 +28,17 @@ import org.json.JSONObject;
 
 import com.example.iket.ecellapp2k17.R;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 public class fb_login extends AppCompatActivity {
 
     CallbackManager callbackManager;
     LoginButton loginButton;
     ImageView imageView;
     ProfilePictureView profile_pic;
+    String userName;
+    private SharedPrefs sharedPrefs;
 
 
     @Override
@@ -41,6 +47,7 @@ public class fb_login extends AppCompatActivity {
         FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_fb_login);
 
+        sharedPrefs = new SharedPrefs(this);
         loginButton = (LoginButton) findViewById(R.id.login_button);
         profile_pic = (ProfilePictureView) findViewById(R.id.picture);
         //imageView = (ImageView) findViewById(R.id.picture);
@@ -78,12 +85,15 @@ public class fb_login extends AppCompatActivity {
                 try {
                     if(json != null){
 
+                        String userName=json.getString("username");
                         profile_pic.setProfileId(json.getString("id"));
-                     //Glide.with(fb_login.this).load( "http://graph.facebook.com/"+json.getString("id")+"/picture?type=small").into(imageView);
-
+                        URL image_value= new URL("http://graph.facebook.com/" + userName + "/picture" );
+                        sharedPrefs.setPhotoUrl(image_value.toString());
                     }
 
                 } catch (JSONException e) {
+                    e.printStackTrace();
+                } catch (MalformedURLException e) {
                     e.printStackTrace();
                 }
             }
