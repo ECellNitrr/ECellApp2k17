@@ -101,7 +101,6 @@ public class SponsFragment extends Fragment implements SponsInterface {
 
         sponsPresenter.requestSpons();
 
-
         return view;
     }
 
