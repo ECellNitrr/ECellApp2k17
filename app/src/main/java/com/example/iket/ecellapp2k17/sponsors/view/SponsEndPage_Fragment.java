@@ -1,5 +1,6 @@
 package com.example.iket.ecellapp2k17.sponsors.view;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
@@ -16,10 +17,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.sponsors.model.MockSpons;
 import com.example.iket.ecellapp2k17.sponsors.presenter.SponsPresenter;
 import com.example.iket.ecellapp2k17.sponsors.presenter.SponsPresenterImpl;
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 /**
  * Created by vrihas on 6/27/2017.
@@ -34,8 +37,9 @@ public class SponsEndPage_Fragment extends Fragment{
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    Button button;
-    ImageView imageView;
+    private Button button;
+    private ImageView imageView;
+    private Context context;
     private SponsPresenter sponsPresenter;
 
     public SponsEndPage_Fragment(){
@@ -65,15 +69,9 @@ public class SponsEndPage_Fragment extends Fragment{
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.spons_end_page, container, false);
         imageView = (ImageView) view.findViewById(R.id.sponsImage);
-        //Rounded Corner imageview
-        Bitmap mbitmap = ((BitmapDrawable) getResources().getDrawable(R.drawable.login_ecell)).getBitmap();
-        Bitmap imageRounded = Bitmap.createBitmap(mbitmap.getWidth(), mbitmap.getHeight(), mbitmap.getConfig());
-        Canvas canvas = new Canvas(imageRounded);
-        Paint mpaint = new Paint();
-        mpaint.setAntiAlias(true);
-        mpaint.setShader(new BitmapShader(mbitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP));
-        canvas.drawRoundRect((new RectF(0, 0, mbitmap.getWidth(), mbitmap.getHeight())), 100, 100, mpaint);// Round Image Corner 100 100 100 100
-        imageView.setImageBitmap(imageRounded);
+
+        Glide.with(this).load(R.drawable.sample_logo) //.load(url)
+                .into(imageView);
 
         button = (Button) view.findViewById(R.id.sponsButton);
         button.setOnClickListener(new View.OnClickListener() {
