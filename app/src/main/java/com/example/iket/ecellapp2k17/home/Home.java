@@ -36,11 +36,11 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         home_recycler = (RecyclerView) findViewById(R.id.home_recycler);
 //        samveg:- Add arraay in string.xml file
         tabitemList=new ArrayList<>();
-        tabitemList.add("PROFILE");
-        tabitemList.add("EVENTS");
-        tabitemList.add("BLOGS");
-        tabitemList.add("SPONSORS");
-        tabitemList.add("ABOUT US");
+        tabitemList.add("R.drawable.profile_icon");
+        tabitemList.add("R.drawable.events_icon");
+        tabitemList.add("R.drawable.blogs_icon");
+        tabitemList.add("R.drawable.sponsors_icon");
+        tabitemList.add("R.drawable.aboutus");
         horizontalAdapter=new HorizontalAdapter(tabitemList,this);
         LinearLayoutManager horizontalLayoutManagaer
                 = new LinearLayoutManager(Home.this, LinearLayoutManager.HORIZONTAL, false);
