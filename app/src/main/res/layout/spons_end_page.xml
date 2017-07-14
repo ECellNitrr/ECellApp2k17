@@ -20,7 +20,7 @@
             app:cardElevation="17dp"
             app:cardPreventCornerOverlap="true"
             android:shadowColor="#000"
-            android:shadowDx="250dp"
+            android:shadowDx="250"
             android:shadowDy="100"
             android:shadowRadius="150"
             android:layout_above="@+id/sponsTitle"

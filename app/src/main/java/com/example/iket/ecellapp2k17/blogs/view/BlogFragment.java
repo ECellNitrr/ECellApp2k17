@@ -1,8 +1,10 @@
 package com.example.iket.ecellapp2k17.blogs.view;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +30,8 @@ import java.util.List;
  * create an instance of this fragment.
  */
 public class BlogFragment extends Fragment implements BlogsInterface {
+
+    private FloatingActionButton fab;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -69,14 +73,26 @@ public class BlogFragment extends Fragment implements BlogsInterface {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_blog, container, false);
+
+        fab = (FloatingActionButton)view.findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setTargetFragment(new AddABlog(),10);
+            }
+        });
+
         verticalViewPager=(VerticalViewPager)view.findViewById(R.id.blogs_viewPager);
         verticlePagerAdapter=new VerticlePagerAdapter(getContext());
         verticalViewPager.setAdapter(verticlePagerAdapter);
@@ -92,6 +108,8 @@ public class BlogFragment extends Fragment implements BlogsInterface {
             mListener.onFragmentInteraction(uri);
         }
     }
+
+
 
     @Override
     public void onAttach(Context context) {

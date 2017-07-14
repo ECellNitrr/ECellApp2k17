@@ -3,11 +3,20 @@
 
     <item
         is-multidex="true"
+        jar="/home/samveg/.android/build-cache/335dc7e3ad5e4b7e417ca1d6e483f03fb6f9089d/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3305fe8fabbf56b45fa503d29d691bc84290ff23">
+        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_9512c7d472433f1f266461045e71398cae7f75d6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/samveg/ECellApp2k17/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="f084767b27f890e67e825d4a7294c767f78a35cf">
+        sha1="46df6e7d59c65fefe49d6ce73b6ee41f8bf0bdb7">
         <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_f281a4803f980ce5919b394e18662ec59fa03202/classes.dex" />
     </item>
     <item
