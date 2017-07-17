@@ -24,8 +24,8 @@
         android:layout_height="match_parent"
         android:layout_weight="9"
         android:layout_marginBottom="-20dp"
-        app:cardBackgroundColor="@color/colorPrimary"
-        app:cardCornerRadius="20dp"
+        app:cardBackgroundColor="#B3B3B3"
+        app:cardCornerRadius="0sp"
         >
         <android.support.v7.widget.RecyclerView
             android:layout_width="wrap_content"
