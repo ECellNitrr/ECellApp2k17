@@ -9,17 +9,58 @@
     <android.support.v7.widget.CardView
         android:id="@+id/spons_card"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="2dp"
-        card_view:cardCornerRadius="4dp"
-        >
-        <ImageView
+        android:layout_height="60sp"
+        android:padding="8dp"
+        card_view:cardCornerRadius="4dp">
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/image1"
-            android:scaleType="fitCenter"
-            android:layout_gravity="center"
-            />
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/circleImg"
+                android:layout_width="10sp"
+                android:layout_height="10sp"
+                android:src="@drawable/circle"
+                android:layout_centerVertical="true" />
+
+            <ImageView
+                android:id="@+id/rcImg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="15sp"
+                android:paddingRight="15sp"
+                android:paddingTop="5sp"
+                android:paddingBottom="5sp"
+                android:layout_toRightOf="@+id/circleImg"
+                android:src="@drawable/rounded_corner" />
+
+            <ImageView
+                android:id="@+id/sponsImage"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/sample_logo"
+                android:layout_marginLeft="40dp"
+                android:layout_marginStart="40dp"
+                android:layout_toRightOf="@+id/circleImg"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentTop="true" />
+
+            <TextView
+                android:id="@+id/sponsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="32dp"
+                android:text="OYO Rooms"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+
+        </RelativeLayout>
     </android.support.v7.widget.CardView>
 
 </LinearLayout>

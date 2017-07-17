@@ -51,12 +51,12 @@ public class SponsAdapter extends RecyclerView.Adapter<SponsAdapter.MyViewHolder
 
         SponsData sponsData=sponsDataList.get(position);
         imageLoader.loadImage(sponsData.getImage1(), holder.image1);
-        holder.image1.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                ((Home)context).setFragment(new SponsEndPage_Fragment(),"OYO",1);
-            }
-        });
+//        holder.image1.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v) {
+//                ((Home)context).setFragment(new SponsEndPage_Fragment(),"OYO",1);
+//            }
+//        });
 
         }
 
@@ -73,7 +73,7 @@ public class SponsAdapter extends RecyclerView.Adapter<SponsAdapter.MyViewHolder
         private ImageView image1;
         private MyViewHolder(View itemView) {
             super(itemView);
-            image1= (ImageView) itemView.findViewById(R.id.image1);
+            image1= (ImageView) itemView.findViewById(R.id.sponsImage);
         }
     }
 

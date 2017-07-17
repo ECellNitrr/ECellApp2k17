@@ -2,6 +2,8 @@ package com.example.iket.ecellapp2k17.profile.view;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -19,9 +21,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 
+import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
+import com.example.iket.ecellapp2k17.helper.SharedPrefs;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -38,6 +43,11 @@ public class ProfileFragment extends Fragment{
 
     //This is our viewPager
     private ViewPager viewPager;
+
+    //This is the profile picture
+    private ImageView imageView;
+
+    private SharedPrefs sharedPrefs;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -89,6 +99,11 @@ public class ProfileFragment extends Fragment{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_profile, container, false);
+
+        sharedPrefs = new SharedPrefs(getContext());
+
+        imageView = (ImageView) view.findViewById(R.id.profile_image);
+        Glide.with(this).load(sharedPrefs.getPhotoUrl()).into(imageView);
         TabsPagerAdapter adapter=new TabsPagerAdapter(getActivity().getSupportFragmentManager());
         tabLayout = (TabLayout)view.findViewById(R.id.tabLayout);
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);

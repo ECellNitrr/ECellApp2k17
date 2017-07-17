@@ -65,15 +65,7 @@ public class SponsEndPage_Fragment extends Fragment{
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.spons_end_page, container, false);
         imageView = (ImageView) view.findViewById(R.id.sponsImage);
-        //Rounded Corner imageview
-        Bitmap mbitmap = ((BitmapDrawable) getResources().getDrawable(R.drawable.login_ecell)).getBitmap();
-        Bitmap imageRounded = Bitmap.createBitmap(mbitmap.getWidth(), mbitmap.getHeight(), mbitmap.getConfig());
-        Canvas canvas = new Canvas(imageRounded);
-        Paint mpaint = new Paint();
-        mpaint.setAntiAlias(true);
-        mpaint.setShader(new BitmapShader(mbitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP));
-        canvas.drawRoundRect((new RectF(0, 0, mbitmap.getWidth(), mbitmap.getHeight())), 100, 100, mpaint);// Round Image Corner 100 100 100 100
-        imageView.setImageBitmap(imageRounded);
+
 
         button = (Button) view.findViewById(R.id.sponsButton);
         button.setOnClickListener(new View.OnClickListener() {
