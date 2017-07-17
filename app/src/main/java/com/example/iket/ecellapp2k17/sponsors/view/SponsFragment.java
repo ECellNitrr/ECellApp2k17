@@ -11,9 +11,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+
+import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.sponsors.model.MockSpons;
 import com.example.iket.ecellapp2k17.sponsors.model.RetrofitSponsProvider;
@@ -46,9 +50,11 @@ public class SponsFragment extends Fragment implements SponsInterface {
     RecyclerView recyclerView;
     @BindView(R.id.progressBar_spons)
     ProgressBar progressBar;
+
     private SponsPresenter sponsPresenter;
     private SponsAdapter adapter;
     private GridLayoutManager lLayout;
+    private ImageView image2;
 
     private OnFragmentInteractionListener mListener;
 
@@ -88,7 +94,8 @@ public class SponsFragment extends Fragment implements SponsInterface {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_spons, container, false);
-
+        image2 = (ImageView) view.findViewById(R.id.spons_img);
+        Glide.with(this).load(R.drawable.spons).into(image2);
         ButterKnife.bind(this,view);
         sponsPresenter=new SponsPresenterImpl(this,new MockSpons());
 

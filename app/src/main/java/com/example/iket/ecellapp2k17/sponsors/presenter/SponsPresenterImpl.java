@@ -1,8 +1,10 @@
 package com.example.iket.ecellapp2k17.sponsors.presenter;
 
+import com.example.iket.ecellapp2k17.sponsors.model.MockSpons;
 import com.example.iket.ecellapp2k17.sponsors.model.SponsProvider;
 import com.example.iket.ecellapp2k17.sponsors.view.OnSponsReceived;
 import com.example.iket.ecellapp2k17.sponsors.view.SponsData;
+import com.example.iket.ecellapp2k17.sponsors.view.SponsEndPage_Fragment;
 import com.example.iket.ecellapp2k17.sponsors.view.SponsInterface;
 
 import java.util.List;
@@ -19,6 +21,8 @@ public class SponsPresenterImpl implements SponsPresenter {
         this.sponsInterface = sponsInterface;
         this.sponsProvider = sponsProvider;
     }
+
+
 
     @Override
     public void requestSpons() {
