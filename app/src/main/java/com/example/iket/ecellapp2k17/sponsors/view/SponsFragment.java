@@ -50,7 +50,6 @@ public class SponsFragment extends Fragment implements SponsInterface {
     RecyclerView recyclerView;
     @BindView(R.id.progressBar_spons)
     ProgressBar progressBar;
-
     private SponsPresenter sponsPresenter;
     private SponsAdapter adapter;
     private GridLayoutManager lLayout;
