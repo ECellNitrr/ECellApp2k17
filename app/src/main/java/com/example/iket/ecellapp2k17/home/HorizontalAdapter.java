@@ -29,13 +29,13 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
     private Context context;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView item_name;
+//        public TextView item_name;
         public ImageView tab_img;
         public RelativeLayout layout;
 
         public MyViewHolder(View view) {
             super(view);
-            item_name = (TextView) view.findViewById(R.id.item_name);
+  //          item_name = (TextView) view.findViewById(R.id.item_name);
             tab_img   = (ImageView) view.findViewById(R.id.tab_img);
             layout=(RelativeLayout)view.findViewById(R.id.tab_relative_layout);
         }
@@ -56,7 +56,7 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
-        holder.item_name.setText(horizontalList.get(position));
+//        holder.item_name.setText(horizontalList.get(position));
         holder.tab_img.setImageURI(Uri.parse(horizontalList.get(position)));
         holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override

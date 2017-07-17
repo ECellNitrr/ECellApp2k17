@@ -5,7 +5,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:id="@+id/tab_relative_layout"
-    android:background="@color/colorPrimaryDark"
+    android:background="#B3B3B3"
     android:layout_margin="8dp"
     >
 
@@ -15,14 +15,6 @@
         android:paddingLeft="50dp"
         android:layout_centerHorizontal="true"
         android:id="@+id/tab_img"
-        android:layout_marginRight="20dp"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:layout_alignBottom="@+id/tab_img"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/item_name"
         android:layout_marginRight="20dp"
         />
 
