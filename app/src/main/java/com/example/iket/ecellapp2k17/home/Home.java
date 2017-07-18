@@ -17,6 +17,7 @@ import android.view.MenuItem;
 
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.blogs.view.BlogFragment;
+import com.facebook.appevents.AppEventsLogger;
 
 import java.util.ArrayList;
 
@@ -61,6 +62,19 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        AppEventsLogger.activateApp(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        AppEventsLogger.deactivateApp(this);
     }
 
 

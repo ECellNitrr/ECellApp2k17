@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import com.example.iket.ecellapp2k17.blogs.model.data.BlogData;
 import com.example.iket.ecellapp2k17.blogs.presenter.BlogsPresenter;
 import com.example.iket.ecellapp2k17.blogs.presenter.BlogsPresenterImpl;
 import com.example.iket.ecellapp2k17.helper.VerticalViewPager;
+import com.example.iket.ecellapp2k17.home.Home;
 
 import java.util.List;
 
@@ -89,7 +91,9 @@ public class BlogFragment extends Fragment implements BlogsInterface {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setTargetFragment(new AddABlog(),10);
+                Home home=new Home();
+                home.setFragment(new AddABlog(),"AddABlog",4);
+
             }
         });
 
