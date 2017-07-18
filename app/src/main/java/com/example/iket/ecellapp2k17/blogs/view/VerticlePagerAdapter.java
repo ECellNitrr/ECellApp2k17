@@ -5,6 +5,7 @@ import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -51,6 +52,10 @@ public class VerticlePagerAdapter extends PagerAdapter {
         TextView owner=(TextView)itemView.findViewById(R.id.blog_owner);
         TextView date=(TextView)itemView.findViewById(R.id.blog_date);
         TextView body=(TextView)itemView.findViewById(R.id.blog_body);
+        ImageView swipe_bottom=(ImageView)itemView.findViewById(R.id.swipe_blog);
+
+        if(position==blogDataList.size()-1)
+            swipe_bottom.setVisibility(View.INVISIBLE);
         title.setText(data.getBlogTitle());
         owner.setText(data.getBlogOwner());
         date.setText(data.getBlogDate());

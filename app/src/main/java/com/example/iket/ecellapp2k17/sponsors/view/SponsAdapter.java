@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.iket.ecellapp2k17.R;
 
@@ -26,6 +27,7 @@ public class SponsAdapter extends RecyclerView.Adapter<SponsAdapter.MyViewHolder
     private Context context;
     private LayoutInflater layoutInflater;
     private ImageLoader imageLoader;
+    private ImageView image1;
     public  LinearLayout layout;
     public SponsAdapter(Context context) {
         this.context = context;
@@ -41,7 +43,7 @@ public class SponsAdapter extends RecyclerView.Adapter<SponsAdapter.MyViewHolder
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View itemView = layoutInflater.inflate(R.layout.activity_spons_item, parent, false);
+        View itemView = layoutInflater.inflate(R.layout.spons_item, parent, false);
         return new MyViewHolder(itemView);
     }
 
@@ -51,10 +53,19 @@ public class SponsAdapter extends RecyclerView.Adapter<SponsAdapter.MyViewHolder
 
         SponsData sponsData=sponsDataList.get(position);
         imageLoader.loadImage(sponsData.getImage1(), holder.image1);
-        holder.image1.setOnClickListener(new View.OnClickListener(){
+
+//        holder.image1.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v) {
+//                ((Home)context).setFragment(new SponsEndPage_Fragment(),"OYO",1);
+//            }
+//        });
+
+        holder.sTitle.setText(sponsData.getsTitle());
+        holder.rcimage.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                ((Home)context).setFragment(new SponsEndPage_Fragment(),"OYO",1);
+                ((Home)context).addFragment(new SponsEndPage_Fragment(),"Sponsor Details",15);
             }
         });
 
@@ -70,10 +81,14 @@ public class SponsAdapter extends RecyclerView.Adapter<SponsAdapter.MyViewHolder
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        private ImageView image1;
+        private ImageView image1,rcimage,cimage;
+        private TextView sTitle;
         private MyViewHolder(View itemView) {
             super(itemView);
             image1= (ImageView) itemView.findViewById(R.id.sponsImage);
+            rcimage = (ImageView) itemView.findViewById(R.id.rcImg);
+            cimage = (ImageView) itemView.findViewById(R.id.circleImg);
+            sTitle = (TextView)  itemView.findViewById(R.id.sponsTitle);
         }
     }
 

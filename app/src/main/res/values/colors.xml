@@ -7,6 +7,7 @@
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="darkBackground">#99000000</color>
+    <color name="dak_grey">#696969</color>
     <color name="charcoal">#333327</color>
     <color name="brown">#8B4513</color>
 </resources>

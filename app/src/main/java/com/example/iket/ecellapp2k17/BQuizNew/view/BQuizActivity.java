@@ -85,9 +85,10 @@ public class BQuizActivity extends AppCompatActivity implements BQuizView {
         setContentView(R.layout.activity_bquiz__intro);
         ButterKnife.bind(this);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
+            countDown(32);
         //    bQuizPresenter = new BQuizPresenterImpl(this, new RetrofitBquizProvider());
             sharedPrefs = new SharedPrefs(this);
-        bQuizPresenter.getBquizData(sharedPrefs.getAccessToken());
+//        bQuizPresenter.getBquizData(sharedPrefs.getAccessToken());
 
         //submitAnswerPresenter = new SubmitAnswerPresenterImpl(this, new RetrofitSubmitAnswerProvider());
         imageLoader = new GlideImageLoader(this);
@@ -219,8 +220,7 @@ public class BQuizActivity extends AppCompatActivity implements BQuizView {
         time *= 1000;
            countDownTimer=new CountDownTimer(time, 1000) {
             public void onTick(long millisUntilFinished) {
-
-                timer.setText("Remaining Time "+millisUntilFinished / 60000 + " : " + (millisUntilFinished / 1000) % 60);
+                timer.setText(""+millisUntilFinished / 60000 + " : " + (millisUntilFinished / 1000) % 60);
 
             }
 

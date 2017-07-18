@@ -1,13 +1,12 @@
 <component name="libraryTable">
   <library name="appcompat-v7-25.3.1">
     <CLASSES>
-      <root url="file://$USER_HOME$/.android/build-cache/13d422c0df00849ff641b2161c6a220ba913ccfe/output/res" />
-      <root url="jar://$USER_HOME$/.android/build-cache/13d422c0df00849ff641b2161c6a220ba913ccfe/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/4e96d83be3661b20e00d2343e0220da706b07381/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/4e96d83be3661b20e00d2343e0220da706b07381/output/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
       <root url="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/appcompat-v7/25.3.1/appcompat-v7-25.3.1-sources.jar!/" />
-      <root url="file://$PROJECT_DIR$/app/src/main/res/drawable" />
     </SOURCES>
   </library>
 </component>

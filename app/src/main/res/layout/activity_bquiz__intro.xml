@@ -21,18 +21,18 @@
         android:layout_centerInParent="true"
         />
     <TextView
-        android:layout_width="80dp"
+        android:layout_width="100dp"
         android:layout_height="80dp"
         android:layout_marginTop="4dp"
         android:layout_centerInParent="true"
         android:textColor="@color/white"
-        android:text="32"
+        android:text="00:32"
         android:background="@drawable/circle_background"
         android:id="@+id/bquiz_timer"
         android:layout_marginBottom="-40dp"
         android:layout_below="@+id/bquiz_title"
         android:elevation="10dp"
-        android:textSize="40sp"
+        android:textSize="24sp"
         android:gravity="center"
         />
     <android.support.v7.widget.CardView
