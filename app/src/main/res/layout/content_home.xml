@@ -23,15 +23,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="9"
-        android:layout_marginBottom="-20dp"
-        app:cardBackgroundColor="#B3B3B3"
-        app:cardCornerRadius="0sp"
+        app:cardBackgroundColor="@color/darkBackground"
         >
         <android.support.v7.widget.RecyclerView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/home_recycler"
-            android:layout_marginBottom="12dp"
+            android:layout_gravity="center"
+            android:foregroundGravity="center"
+            android:layout_margin="4dp"
             />
     </android.support.v7.widget.CardView>
 

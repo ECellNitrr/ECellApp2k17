@@ -1,36 +1,46 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.iket.ecellapp2k17.sponsors.view.SponsFragment">
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/spons_relative_layout">
+
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="150sp"
-        android:id="@+id/spons_img"
-        android:background="@drawable/layerlist"
-        />
+        android:layout_height="200dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/spons"
+        android:elevation="1dp"
+        android:id="@+id/spons_img" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Our Sponsors"
-            android:textSize="30sp"
-            android:paddingLeft="35sp"
+            android:background="@drawable/rounded_curve"
+            android:textSize="30dp"
+            android:paddingLeft="35dp"
             android:layout_below="@+id/spons_img"
             android:id="@+id/sponsText"/>
+
+        <TextView
+            android:layout_width="3dp"
+            android:layout_height="80dp"
+            android:background="@color/dak_grey"
+            android:layout_marginLeft="19dp"
+            android:layout_above="@+id/recycler_view_spons"
+            />
 
     <android.support.v7.widget.RecyclerView
 
         android:id="@+id/recycler_view_spons"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="20sp"
-        android:paddingTop="15sp"
-        android:scrollbars="vertical"
+        android:layout_height="match_parent"
         android:layout_below="@+id/sponsText"/>
 
     <ProgressBar
@@ -39,7 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/sponsText"/>
+
     </RelativeLayout>
 
-
-</FrameLayout>
+</ScrollView>

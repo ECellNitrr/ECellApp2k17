@@ -12,9 +12,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+
+import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.sponsors.model.MockSpons;
 import com.example.iket.ecellapp2k17.sponsors.model.RetrofitSponsProvider;
@@ -48,6 +52,8 @@ public class SponsFragment extends Fragment implements SponsInterface {
     private SponsPresenter sponsPresenter;
     private SponsAdapter adapter;
     private LinearLayoutManager linearLayoutManager;
+    private GridLayoutManager lLayout;
+    private ImageView image2;
     private OnFragmentInteractionListener mListener;
     public SponsFragment() {
         // Required empty public constructor
@@ -87,6 +93,9 @@ public class SponsFragment extends Fragment implements SponsInterface {
         View view= inflater.inflate(R.layout.fragment_spons, container, false);
         recyclerView=(RecyclerView) view.findViewById(R.id.recycler_view_spons);
         progressBar= (ProgressBar) view.findViewById(R.id.progressBar_spons);
+
+        image2 = (ImageView) view.findViewById(R.id.spons_img);
+        Glide.with(this).load(R.drawable.spons).into(image2);
 
         sponsPresenter=new SponsPresenterImpl(this,new MockSpons());
 

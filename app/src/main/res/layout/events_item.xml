@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="#FFFFFF">
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="150dp"
         android:id="@+id/eventImage"
         android:src="@drawable/login_ecell"
 
@@ -16,19 +16,27 @@
         android:layout_height="wrap_content"
         android:id="@+id/eventTitle"
         android:text="Wallstreet"
-        android:textSize="65sp"
+        android:textSize="40sp"
         android:textStyle="bold"
         android:padding="8dp"
         android:layout_centerHorizontal="true"/>
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="270sp"
         android:id="@+id/eventBody"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:padding="8dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/eventTitle"
         android:text="Event Body"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:id="@+id/swipe_blog"
+        android:layout_below="@id/eventBody"
+        android:src="@drawable/down"
+        android:tint="@color/dak_grey"
+    />
 
 
 </LinearLayout>

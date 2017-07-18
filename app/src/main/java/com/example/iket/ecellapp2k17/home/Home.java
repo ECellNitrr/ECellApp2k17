@@ -25,7 +25,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     private NavigationView navigationView;
     private Menu menu;
     private RecyclerView home_recycler;
-    private ArrayList<String> tabitemList;
+    private ArrayList<Integer> tabitemList;
     private HorizontalAdapter horizontalAdapter;
 
     @Override
@@ -36,11 +36,11 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         home_recycler = (RecyclerView) findViewById(R.id.home_recycler);
 //        samveg:- Add arraay in string.xml file
         tabitemList=new ArrayList<>();
-        tabitemList.add("R.drawable.profile_icon");
-        tabitemList.add("R.drawable.events_icon");
-        tabitemList.add("R.drawable.blogs_icon");
-        tabitemList.add("R.drawable.sponsors_icon");
-        tabitemList.add("R.drawable.aboutus");
+        tabitemList.add(R.drawable.profile_icon);
+        tabitemList.add(R.drawable.events_icon);
+        tabitemList.add(R.drawable.blogs_icon);
+        tabitemList.add(R.drawable.sponsors_icon);
+        tabitemList.add(R.drawable.aboutus);
         horizontalAdapter=new HorizontalAdapter(tabitemList,this);
         LinearLayoutManager horizontalLayoutManagaer
                 = new LinearLayoutManager(Home.this, LinearLayoutManager.HORIZONTAL, false);
@@ -103,6 +103,24 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             fragmentTransaction.commit();
             getSupportActionBar().setTitle(title);
         }
+        navigation_menu(data);
+
+    }
+
+    public void addFragment(Fragment fragment, String title, int data) {
+        if (fragment != null) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container, fragment);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+            getSupportActionBar().setTitle(title);
+        }
+        navigation_menu(data);
+    }
+
+    void navigation_menu(int data)
+    {
         menu=navigationView.getMenu();
         menu.setGroupVisible(R.id.menu_group,false);
         switch (data)
@@ -123,18 +141,6 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 navigationView.inflateMenu(R.menu.about_us_menu);
                 break;
         }
-
     }
 
-    void addFragment(Fragment fragment, String title) {
-        if (fragment != null) {
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.container, fragment);
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commit();
-            getSupportActionBar().setTitle(title);
-        }
-
-    }
 }

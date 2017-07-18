@@ -8,15 +8,21 @@ public class SponsData {
 
     private String image1;
     private int id;
+    private String sTitle;
 
 
-    public SponsData(String image1, String image2) {
+    public SponsData(String image1, String sTitle) {
         this.image1 = image1;
+        this.sTitle = sTitle;
         this.id=id;
     }
 
     public int getId() {
         return id;
+    }
+
+    public String getsTitle(){
+        return  sTitle;
     }
 
     public String getImage1() {

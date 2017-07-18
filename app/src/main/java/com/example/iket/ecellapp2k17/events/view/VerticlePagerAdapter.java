@@ -15,7 +15,7 @@ import com.example.iket.ecellapp2k17.R;
  */
 
 public class VerticlePagerAdapter extends PagerAdapter {
-    String mResources[] = {"Hello page 1","Hello page 2"};
+    String mResources[] = {"Wall Street","E summit"};
 
     Context mContext;
     LayoutInflater mLayoutInflater;

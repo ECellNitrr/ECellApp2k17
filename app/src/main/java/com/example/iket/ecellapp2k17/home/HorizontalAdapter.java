@@ -3,6 +3,7 @@ package com.example.iket.ecellapp2k17.home;
 import android.content.Context;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.about_us.view.AboutUsFragment;
 import com.example.iket.ecellapp2k17.blogs.view.BlogFragment;
@@ -17,6 +19,7 @@ import com.example.iket.ecellapp2k17.events.view.EventsFragment;
 import com.example.iket.ecellapp2k17.profile.view.ProfileFragment;
 import com.example.iket.ecellapp2k17.sponsors.view.SponsFragment;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,24 +28,23 @@ import java.util.List;
 
 public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.MyViewHolder> {
 
-    private List<String> horizontalList;
+    private List<Integer> horizontalList=new ArrayList<>();
     private Context context;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-//        public TextView item_name;
+
         public ImageView tab_img;
         public RelativeLayout layout;
 
         public MyViewHolder(View view) {
             super(view);
-  //          item_name = (TextView) view.findViewById(R.id.item_name);
             tab_img   = (ImageView) view.findViewById(R.id.tab_img);
             layout=(RelativeLayout)view.findViewById(R.id.tab_relative_layout);
         }
     }
 
 
-    public HorizontalAdapter(List<String> horizontalList,Context context) {
+    public HorizontalAdapter(List<Integer> horizontalList, Context context) {
         this.horizontalList = horizontalList;
         this.context=context;
     }
@@ -56,8 +58,8 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
-//        holder.item_name.setText(horizontalList.get(position));
-        holder.tab_img.setImageURI(Uri.parse(horizontalList.get(position)));
+
+        Glide.with(context).load(horizontalList.get(position)).into(holder.tab_img);
         holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,6 +89,7 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
 
     @Override
     public int getItemCount() {
+
         return horizontalList.size();
     }
 }
