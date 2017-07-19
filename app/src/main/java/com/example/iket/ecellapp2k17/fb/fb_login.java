@@ -2,10 +2,14 @@ package com.example.iket.ecellapp2k17.fb;
 
 
 
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
-import android.widget.ImageView;
+import android.util.Base64;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.example.iket.ecellapp2k17.helper.SharedPrefs;
@@ -15,6 +19,7 @@ import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.login.LoginManager;
@@ -30,26 +35,47 @@ import com.example.iket.ecellapp2k17.R;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class fb_login extends AppCompatActivity {
 
     CallbackManager callbackManager;
     LoginButton loginButton;
-    ImageView imageView;
+    //ImageView imageView;
     ProfilePictureView profile_pic;
-    String userName;
+    //String userName;
     private SharedPrefs sharedPrefs;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        try {
+            PackageInfo info = getPackageManager().getPackageInfo(
+                    "com.facebook.samples.loginhowto",
+                    PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+
+        } catch (NoSuchAlgorithmException e) {
+
+        }
+
+
         FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_fb_login);
 
+
+
         sharedPrefs = new SharedPrefs(this);
         loginButton = (LoginButton) findViewById(R.id.login_button);
-        profile_pic = (ProfilePictureView) findViewById(R.id.picture);
+        //profile_pic = (ProfilePictureView) findViewById(R.id.picture);
         //imageView = (ImageView) findViewById(R.id.picture);
         callbackManager = CallbackManager.Factory.create();
 
@@ -71,6 +97,8 @@ public class fb_login extends AppCompatActivity {
 
             @Override
             public void onError(FacebookException error) {
+
+                Toast.makeText(getApplicationContext(),"Something went wrong !!",Toast.LENGTH_SHORT).show();
 
             }
         });
