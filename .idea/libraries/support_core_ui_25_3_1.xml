@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="support-core-ui-25.3.1">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.android/build-cache/16d07f83cafc1af94970d96bec67f1b05f4e04bc/output/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.android/build-cache/16d07f83cafc1af94970d96bec67f1b05f4e04bc/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/b3502bc3716c84005c4275a2398c3d3c3505e57e/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/b3502bc3716c84005c4275a2398c3d3c3505e57e/output/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

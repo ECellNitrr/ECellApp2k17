@@ -15,7 +15,7 @@ public class MockSpons implements SponsProvider{
     @Override
     public void reqSpons(OnSponsReceived onSponsReceived) {
         List<SponsData> dataList=new ArrayList<>();
-        SponsData data=new SponsData("http://www.endeavourpto.org/wp-content/uploads/2016/08/become-a-sponsor-1.png","Become Sponsor");
+        SponsData data=new SponsData("http://www.endeavourpto.org/wp-content/uploads/2016/08/become-a-sponsor-1.png","Become Sponsor","http://goo.gl/gEgYUd","Description about the Sponsor","Body of the Sponsor","https://www.facebook.com/ecellnitrr/");
         dataList.add(data);
         dataList.add(data);
         dataList.add(data);

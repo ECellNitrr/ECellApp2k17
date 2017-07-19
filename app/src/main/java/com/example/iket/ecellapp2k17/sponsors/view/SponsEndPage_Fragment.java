@@ -31,6 +31,8 @@ import com.example.iket.ecellapp2k17.sponsors.presenter.SponsPresenterImpl;
 import java.util.ArrayList;
 import java.util.List;
 
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
+
 /**
  * Created by vrihas on 6/27/2017.
  */
@@ -45,18 +47,16 @@ public class SponsEndPage_Fragment extends Fragment implements SponsInterface{
     private String mParam1;
     private String mParam2;
     private Button button;
-    private ImageView image1;
-    private TextView textTitle;
+    private ImageView image1,bg_spons;
+    private TextView textTitle,spons_desc,spons_body;
     private Context context;
     private SponsPresenter sponsPresenter;
-    private   SponsData sponsData;
-    private RelativeLayout relativeLayout;
-
 
 
     public SponsEndPage_Fragment(){
         //Required empty constructor
     }
+
 
     public static SponsEndPage_Fragment newInstance(String param1, String param2) {
         SponsEndPage_Fragment sponsEndPage_fragment = new SponsEndPage_Fragment();
@@ -82,43 +82,45 @@ public class SponsEndPage_Fragment extends Fragment implements SponsInterface{
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.spons_end_page, container, false);
         image1 = (ImageView) view.findViewById(R.id.sponsImage);
-        Glide.with(this).load(R.drawable.sample_logo).into(image1);
+        bg_spons = (ImageView) view.findViewById(R.id.bgSpons);
         textTitle = (TextView) view.findViewById(R.id.sponsTitle);
-//        textTitle.setText(sponsData.getsTitle());
-       //Glide.with(this)
-        //   .load(R.drawable.spons_endpage).into(new LinearLayoutTarget(this, (RelativeLayout) yourLinearLayoutInstanceHere));
-/*
-        Glide.with(this).load(R.drawable.spons_endpage).asBitmap().into(new SimpleTarget<Bitmap>(250, 250) {
-            @Override
-            public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
-                Drawable drawable = new BitmapDrawable(resource);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                    relativeLayout.setBackground(drawable);
-                }
-            }
-        });
-
-*/
-
-
+        spons_desc = (TextView) view.findViewById(R.id.sponsDesc);
+        spons_body = (TextView) view.findViewById(R.id.sponsBody);
         button = (Button) view.findViewById(R.id.sponsButton);
+
+        sponsPresenter=new SponsPresenterImpl(this,new MockSpons());
+        sponsPresenter.requestSpons();
+
+
+        return view;
+    }
+
+    @Override
+    public void setData(List<SponsData> sponsDataList) {
+
+        final SponsData sponsData =sponsDataList.get(0);
+        textTitle.setText(sponsData.getsTitle());
+        spons_desc.setText(sponsData.getSpons_desc());
+        spons_body.setText(sponsData.getSpons_body());
+
+        Glide.with(this).load(R.drawable.spons_endpage).into(bg_spons);//  sponsData.getBg_spons()
+        int radius = 30; // corner radius, higher value = more rounded
+        int margin = 5; // crop margin, set to 0 for corners with no crop
+        Glide.with(this)
+                .load(R.drawable.sample_logo)  //sponsData.getImage1
+                .bitmapTransform(new RoundedCornersTransformation(context, radius, margin))
+                .into(image1);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
                 intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                intent.setData(Uri.parse("http://www.yourURL.com"));//Url will be provided..
+                intent.setData(Uri.parse(sponsData.getWebsite_url()));
                 startActivity(intent);
             }
         });
-        sponsPresenter=new SponsPresenterImpl(this,new MockSpons());
-        sponsPresenter.requestSpons();
-        return view;
-    }
-
-    @Override
-    public void setData(List<SponsData> sponsDataList) {
 
     }
 
@@ -131,6 +133,7 @@ public class SponsEndPage_Fragment extends Fragment implements SponsInterface{
     public void showMessage(String message) {
 
     }
+
 }
 
 
