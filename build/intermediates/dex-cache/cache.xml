@@ -2,58 +2,31 @@
 <items version="2" >
 
     <item
-        is-multidex="true"
-        jar="/home/samveg/ECellApp2k17/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_86b780cdc27a272629f7f2ec9a4b34b4ab492038/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/samveg/.android/build-cache/0d428cd604bb6048f98e7e1089a140044d358d98/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="807751a24cf96566fd8675517c94d8463cf364db">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_c754f8a0e4ebbc925a9243ccd1edfeb793a9bbff/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/samveg/ECellApp2k17/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e0892d6d46657be9e1c112589add3c9dbd554065">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_f281a4803f980ce5919b394e18662ec59fa03202/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/samveg/.android/build-cache/20706a39503ee8efbd17cc6e777ab2cbfb1bf229/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0e0e8918eb74e3ee9e82eef6430a4359b2b577d3">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_bbc52eae64d2768ca6906573d80272d903435edc/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/samveg/.android/build-cache/af7932e52865ea72d1e51914422f8846994cca9b/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="914f5d3e3ace66080e59613708f06d129a222e25">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_f0d1e5ad5fb13e8de34a4e35d888551e07d1cd85/classes.dex" />
-    </item>
-    <item
         is-multidex="false"
-        jar="/home/samveg/.android/build-cache/335dc7e3ad5e4b7e417ca1d6e483f03fb6f9089d/output/jars/classes.jar"
+        jar="/home/iket/.android/build-cache/8dcfcaa3d5e8294a328f0495e2d137aa62f56983/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="3305fe8fabbf56b45fa503d29d691bc84290ff23">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_9512c7d472433f1f266461045e71398cae7f75d6.jar" />
+        sha1="914f5d3e3ace66080e59613708f06d129a222e25">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_6d3c486dd45269f3cb160eee75578ce47666d455.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/iket/.android/build-cache/4c636331dda76df5119f03c17fe657350d59e993/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="807751a24cf96566fd8675517c94d8463cf364db">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_cdc3be2440ebd74660a591e297141a92e672f2c5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/iket/.android/build-cache/b9b257eb9dd149edb02bd03b60756ea204385db9/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0e0e8918eb74e3ee9e82eef6430a4359b2b577d3">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_9c357e75a2e7d6772cc620a2e5829b0ce85bc6cb.jar" />
     </item>
 
 </items>
