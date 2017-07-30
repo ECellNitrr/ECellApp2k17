@@ -97,6 +97,7 @@ public class SponsFragment extends Fragment implements SponsInterface {
         image2 = (ImageView) view.findViewById(R.id.spons_img);
         Glide.with(this).load(R.drawable.spons).into(image2);
 
+
         sponsPresenter=new SponsPresenterImpl(this,new MockSpons());
 
         adapter = new SponsAdapter(getContext());

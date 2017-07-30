@@ -22,7 +22,7 @@ import java.util.List;
  * Created by samveg on 23/6/17.
  */
 
-public class SponsAdapter extends RecyclerView.Adapter<SponsAdapter.MyViewHolder>{
+public class    SponsAdapter extends RecyclerView.Adapter<SponsAdapter.MyViewHolder>{
     private List<SponsData> sponsDataList= new ArrayList<>();
     private Context context;
     private LayoutInflater layoutInflater;

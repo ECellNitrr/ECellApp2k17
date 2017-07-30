@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.iket.ecellapp2k17.sponsors.view.SponsEndPage_Fragment">
 
     <RelativeLayout
@@ -11,29 +10,21 @@
         android:layout_height="match_parent"
         android:id="@+id/relativeLayout">
 
-        <android.support.v7.widget.CardView
-            android:id="@+id/imgCard"
-            android:layout_width="270sp"
-            android:layout_height="160sp"
-            android:layout_marginBottom="15dp"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="17dp"
-            app:cardPreventCornerOverlap="true"
-            android:shadowColor="#000"
-            android:shadowDx="250"
-            android:shadowDy="100"
-            android:shadowRadius="150"
-            android:layout_above="@+id/sponsTitle"
-            android:layout_centerHorizontal="true">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/bgSpons"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"/>
+
 
             <ImageView
                 android:id="@+id/sponsImage"
-                android:layout_width="269sp"
-                android:layout_height="159sp"
-                android:layout_alignEnd="@+id/imgCard"
-                android:layout_alignParentTop="true"
-                android:layout_alignRight="@+id/imgCard" />
-        </android.support.v7.widget.CardView>
+                android:layout_width="280dp"
+                android:layout_height="190dp"
+                android:scaleType="fitXY"
+                android:layout_above="@+id/sponsTitle"
+                android:layout_centerHorizontal="true" />
 
         <TextView
             android:id="@+id/sponsTitle"
@@ -41,7 +32,7 @@
             android:layout_height="wrap_content"
             android:text="Title"
             android:textColor="#B71C1C"
-            android:textSize="45sp"
+            android:textSize="40dp"
             android:layout_marginTop="22dp"
             android:layout_marginBottom="31dp"
             android:layout_alignBottom="@+id/sponsDesc"
@@ -54,7 +45,7 @@
             android:layout_marginBottom="10dp"
             android:text="Description"
             android:textColor="#000000"
-            android:textSize="30sp"
+            android:textSize="25dp"
             android:layout_above="@+id/sponsBody"
             android:layout_centerHorizontal="true" />
 
@@ -67,7 +58,7 @@
             android:layout_marginBottom="68dp"
             android:text="Body"
             android:textColor="#000000"
-            android:textSize="25sp" />
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/sponsButton"
