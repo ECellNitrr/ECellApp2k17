@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
 
 import static android.app.Activity.RESULT_OK;
@@ -40,7 +41,7 @@ public class AddABlog extends Fragment {
     private OnFragmentInteractionListener mListener;
     private EditText write_blog;
     private Button btn_insertImage;
-    private ImageView load_blogImage;
+    private ImageView addABlog_bg;
 
     public AddABlog() {
         // Required empty public constructor
@@ -78,7 +79,6 @@ public class AddABlog extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_add_ablog, container, false);
-        load_blogImage = (ImageView)view.findViewById(R.id.blog_img);
         btn_insertImage = (Button)  view.findViewById(R.id.insert_img);
         btn_insertImage.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -88,6 +88,9 @@ public class AddABlog extends Fragment {
             }
         });
 
+        addABlog_bg = (ImageView) view.findViewById(R.id.addBlog_bg);
+        Glide.with(this).load(R.drawable.add_blog_bg_white).into(addABlog_bg);
+
         return view;
     }
 
@@ -96,7 +99,7 @@ public class AddABlog extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && data != null){
             Uri selected_image = data.getData();
-            load_blogImage.setImageURI(selected_image);
+            //load_blogImage.setImageURI(selected_image);
         }
     }
 
