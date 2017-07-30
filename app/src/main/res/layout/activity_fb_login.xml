@@ -1,10 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:weightSum="10"
+    android:id="@+id/linearLayout"
+    android:orientation="vertical"
     tools:context="com.example.iket.ecellapp2k17.fb.fb_login">
+
+
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="75sp"
+        android:layout_marginBottom="20sp"
+        android:layout_weight="2"
+        android:src="@drawable/ecell_logo"
+        android:id="@+id/e_cell_logo" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:weightSum="1">
+        <ImageView
+            android:layout_width="100sp"
+            android:layout_height="35sp"
+            android:layout_marginLeft="30sp"
+            android:layout_weight="0.5"
+            android:layout_marginTop="30sp"
+            android:src="@drawable/user_black"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40sp"
+            android:layout_marginRight="60sp"
+            android:layout_marginTop="30sp"
+            android:layout_weight="0.5"
+            android:hint="Mobile Number"
+            android:gravity="center"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:weightSum="1">
+        <ImageView
+            android:layout_width="100sp"
+            android:layout_height="35sp"
+            android:layout_marginLeft="30sp"
+            android:layout_weight="0.5"
+            android:src="@drawable/password_black"
+            android:visibility="gone"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40sp"
+            android:layout_marginRight="60sp"
+            android:layout_weight="0.5"
+            android:hint="Password"
+            android:gravity="center"
+            android:visibility="gone"/>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="285sp"
+        android:layout_height="30sp"
+        android:layout_marginLeft="40sp"
+        android:textSize="22sp"
+        android:background="@drawable/button_rounded_corner2"
+        android:text="Log In"
+        android:layout_weight="1"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="12sp"
+        android:text="Forgot Password?"
+        android:textSize="12sp"
+
+        android:background="@android:color/transparent"
+        android:layout_weight="1"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:layout_marginTop="20sp"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:text="Or"
+        android:textStyle="bold"/>
 
 
 
@@ -13,6 +97,9 @@
         android:id="@+id/login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"/>
+        android:layout_marginTop="20sp"
+        android:layout_gravity="center"/>
 
-</RelativeLayout>
+
+
+</LinearLayout>

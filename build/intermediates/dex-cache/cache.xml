@@ -3,6 +3,24 @@
 
     <item
         is-multidex="true"
+        jar="/home/samveg/ECellApp2k17/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7502e040b7dcf5e73ddae753eef378b0dcfa302">
+        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_f281a4803f980ce5919b394e18662ec59fa03202/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/samveg/.android/build-cache/bde5a64338ef83b4dfc96015418f2d22e6220381/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ebe3b1f14fa79ba3cd1588acda4e6517ee9fe611">
+        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_ccb706340746242e09d3d37f845ca3142f820586/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/samveg/ECellApp2k17/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
@@ -12,48 +30,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/samveg/.android/build-cache/0d428cd604bb6048f98e7e1089a140044d358d98/output/jars/classes.jar"
+        jar="/home/samveg/.android/build-cache/fedacbdfb24b20e80be2ff0614d57a710c64cd86/output/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="807751a24cf96566fd8675517c94d8463cf364db">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_c754f8a0e4ebbc925a9243ccd1edfeb793a9bbff/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/samveg/ECellApp2k17/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e0892d6d46657be9e1c112589add3c9dbd554065">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_f281a4803f980ce5919b394e18662ec59fa03202/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/samveg/.android/build-cache/20706a39503ee8efbd17cc6e777ab2cbfb1bf229/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0e0e8918eb74e3ee9e82eef6430a4359b2b577d3">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_bbc52eae64d2768ca6906573d80272d903435edc/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/samveg/.android/build-cache/af7932e52865ea72d1e51914422f8846994cca9b/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="914f5d3e3ace66080e59613708f06d129a222e25">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_f0d1e5ad5fb13e8de34a4e35d888551e07d1cd85/classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/samveg/.android/build-cache/335dc7e3ad5e4b7e417ca1d6e483f03fb6f9089d/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="3305fe8fabbf56b45fa503d29d691bc84290ff23">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_9512c7d472433f1f266461045e71398cae7f75d6.jar" />
+        sha1="eb9f1cef6b29492df701111c555908cb53dece35">
+        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_652204ec72445621c96dbf9d23251873fe3eb588/classes.dex" />
     </item>
 
 </items>

@@ -30,6 +30,8 @@
         </activity>
         <activity android:name=".home.Home" >
 
+
+
         </activity>
         <activity android:name=".fb.fb_login">
             android:configChanges=
