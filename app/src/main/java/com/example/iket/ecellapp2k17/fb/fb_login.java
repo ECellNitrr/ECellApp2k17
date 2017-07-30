@@ -10,8 +10,10 @@ import android.os.Bundle;
 import android.content.Intent;
 import android.util.Base64;
 import android.util.Log;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.helper.SharedPrefs;
 import com.example.iket.ecellapp2k17.home.Home;
 import com.facebook.AccessToken;
@@ -19,7 +21,6 @@ import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
-import com.facebook.appevents.AppEventsLogger;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.login.LoginManager;
@@ -38,6 +39,12 @@ import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import jp.wasabeef.glide.transformations.CropCircleTransformation;
+
+import static com.example.iket.ecellapp2k17.R.id.linearLayout;
+
 public class fb_login extends AppCompatActivity {
 
     CallbackManager callbackManager;
@@ -46,15 +53,21 @@ public class fb_login extends AppCompatActivity {
     ProfilePictureView profile_pic;
     //String userName;
     private SharedPrefs sharedPrefs;
+    @BindView(linearLayout)
+    LinearLayout ll;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        ButterKnife.bind(this);
+
+        ll.setBackgroundResource(R.drawable.login_bg);
+
         try {
             PackageInfo info = getPackageManager().getPackageInfo(
-                    "com.facebook.samples.loginhowto",
+                    "com.example.iket.ecellapp2k17.fb",
                     PackageManager.GET_SIGNATURES);
             for (Signature signature : info.signatures) {
                 MessageDigest md = MessageDigest.getInstance("SHA");

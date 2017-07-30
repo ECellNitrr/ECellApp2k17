@@ -13,6 +13,7 @@ public class SharedPrefs {
     private static final String PREF_NAME = "AndroidHiveLogin";
     private static final String KEY_IS_LOGGEDIN = "isLoggedIn";
     private static final String KEY_USERNAME = "username";
+    private static final String KEY_MOBILE = "mobile";
     private static final String KEY_EMAIL = "email";
     private static final String KEY_PHOTO_URL = "photoUrl";
     private static final String KEY_USER_ID = "userId";
@@ -128,6 +129,19 @@ public class SharedPrefs {
     public void setLoginType(int loginType) {
         editor.putInt(KEY_LOGIN_TYPE, loginType);
         editor.commit();
+    }
+
+    public String getMobile() {
+
+        return pref.getString(KEY_MOBILE, "NA");
+
+    }
+
+    public void setMobile(String userName) {
+
+        editor.putString(KEY_MOBILE, userName);
+        editor.commit();
+
     }
 
 }
