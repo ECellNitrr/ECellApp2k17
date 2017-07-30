@@ -13,4 +13,6 @@ public class Urls {
     public static final String REQUEST_SPONS = "spons/";
     public static final String REQUEST_BQUIZ_DATA ="";
     public static final String REQUEST_SUBMIT_ANSWER ="";
+    public static final String REQUEST_LOGIN ="";
+    public static final String Request_VERIFY="";
 }

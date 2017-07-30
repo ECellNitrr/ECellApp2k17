@@ -63,5 +63,6 @@ dependencies {
     compile 'com.github.markushi:circlebutton:1.1'
     testCompile 'junit:junit:4.12'
 
+    compile "com.android.support:appcompat-v7:22.1.0"
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
 }
