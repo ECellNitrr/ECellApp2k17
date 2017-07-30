@@ -2,6 +2,7 @@
 <items version="2" >
 
     <item
+<<<<<<< HEAD
         is-multidex="false"
         jar="/home/iket/.android/build-cache/8dcfcaa3d5e8294a328f0495e2d137aa62f56983/output/jars/classes.jar"
         jumboMode="false"
@@ -27,6 +28,24 @@
         revision="25.0.2"
         sha1="0e0e8918eb74e3ee9e82eef6430a4359b2b577d3">
         <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_9c357e75a2e7d6772cc620a2e5829b0ce85bc6cb.jar" />
+=======
+        is-multidex="true"
+        jar="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="12920f9016b8b05acbc2af7cdc13cef6946fe7d3">
+        <dex dex="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_fd97ab0afb8703840bcfd600ddd7da5b7e9b7004\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4d6851636fab4aa28bbbea3a416227f8ade1bd3b">
+        <dex dex="C:\Users\lenovo\AndroidStudioProjects\ECellApp2k17\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_8c6ab218ecf574a4d93c4dc170441f8298536696\classes.dex" />
+>>>>>>> 50ae389abc520b3c2a2b5a33f5b953fa5211d9dc
     </item>
 
 </items>
