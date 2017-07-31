@@ -2,6 +2,7 @@
 <items version="2" >
 
     <item
+<<<<<<< HEAD
         is-multidex="false"
         jar="/home/iket/.android/build-cache/647766792c7b9f9207ebaf46a040ffb4ebbc6d29/output/jars/classes.jar"
         jumboMode="false"
@@ -9,6 +10,42 @@
         revision="25.0.2"
         sha1="474cccf169297d49fff89fd35b7634a7a9d1031c">
         <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_56b917de0deaeb5975c424bf859afdc49cbf3e1d.jar" />
+=======
+        is-multidex="true"
+        jar="/home/samveg/ECellApp2k17/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7502e040b7dcf5e73ddae753eef378b0dcfa302">
+        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_f281a4803f980ce5919b394e18662ec59fa03202/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/samveg/.android/build-cache/bde5a64338ef83b4dfc96015418f2d22e6220381/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ebe3b1f14fa79ba3cd1588acda4e6517ee9fe611">
+        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_ccb706340746242e09d3d37f845ca3142f820586/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/samveg/ECellApp2k17/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_86b780cdc27a272629f7f2ec9a4b34b4ab492038/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/samveg/.android/build-cache/fedacbdfb24b20e80be2ff0614d57a710c64cd86/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="eb9f1cef6b29492df701111c555908cb53dece35">
+        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_652204ec72445621c96dbf9d23251873fe3eb588/classes.dex" />
+>>>>>>> 036559cbd6a618872fca321bb2fc2192592b8244
     </item>
 
 </items>

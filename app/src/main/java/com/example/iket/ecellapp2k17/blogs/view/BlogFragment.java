@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,7 +35,7 @@ import java.util.List;
  */
 public class BlogFragment extends Fragment implements BlogsInterface {
 
-    private FloatingActionButton fab;
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -42,10 +44,13 @@ public class BlogFragment extends Fragment implements BlogsInterface {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private NavigationView navigationView;
     VerticalViewPager verticalViewPager;
     VerticlePagerAdapter verticlePagerAdapter;
     BlogsPresenter blogsPresenter;
+    private FloatingActionButton fab;
     private OnFragmentInteractionListener mListener;
+    private Context context;
 
     public BlogFragment() {
         // Required empty public constructor
@@ -87,12 +92,12 @@ public class BlogFragment extends Fragment implements BlogsInterface {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_blog, container, false);
 
+        navigationView = (NavigationView) view.findViewById(R.id.nav_view);
         fab = (FloatingActionButton)view.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Home home=new Home();
-                home.setFragment(new AddABlog(),"AddABlog",4);
+                addFragment(new AddABlog(),"Add A Blog",16);
 
             }
         });
@@ -156,4 +161,17 @@ public class BlogFragment extends Fragment implements BlogsInterface {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
+
+   public void addFragment(Fragment fragment, String title, int data) {
+        if (fragment != null) {
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_fragment, fragment);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+
+        }
+    }
+
 }
