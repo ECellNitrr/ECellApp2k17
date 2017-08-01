@@ -94,6 +94,7 @@ public class BlogFragment extends Fragment implements BlogsInterface {
 
         navigationView = (NavigationView) view.findViewById(R.id.nav_view);
         fab = (FloatingActionButton)view.findViewById(R.id.fab);
+        fab.setVisibility(View.VISIBLE);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -123,6 +124,7 @@ public class BlogFragment extends Fragment implements BlogsInterface {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+
     }
 
     @Override
@@ -170,7 +172,6 @@ public class BlogFragment extends Fragment implements BlogsInterface {
             fragmentTransaction.replace(R.id.container_fragment, fragment);
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
-
         }
     }
 

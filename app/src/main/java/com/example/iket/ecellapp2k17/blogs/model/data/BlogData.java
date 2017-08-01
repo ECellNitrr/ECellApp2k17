@@ -9,23 +9,33 @@ public class BlogData {
     String blogOwner;
     String blogDate;
     String blogBody;
+    String blogImage;
 
-    public BlogData(String blogTitle, String blogOwner, String blogDate, String blogBody){
+    public BlogData(String blogTitle, String blogOwner, String blogDate, String blogBody, String blogImage) {
         this.blogTitle = blogTitle;
         this.blogOwner = blogOwner;
         this.blogDate = blogDate;
         this.blogBody = blogBody;
+        this.blogImage = blogImage;
     }
-    public String getBlogTitle(){
+
+    public String getBlogTitle() {
         return blogTitle;
     }
-    public  String getBlogOwner(){
+
+    public String getBlogOwner() {
         return blogOwner;
     }
-    public String getBlogDate(){
+
+    public String getBlogDate() {
         return blogDate;
     }
-    public String getBlogBody(){
+
+    public String getBlogBody() {
         return blogBody;
+    }
+
+    public String getBlogImage() {
+        return blogImage;
     }
 }
