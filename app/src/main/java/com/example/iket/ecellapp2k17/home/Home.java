@@ -42,6 +42,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         tabitemList.add(R.drawable.blogs_icon);
         tabitemList.add(R.drawable.sponsors_icon);
         tabitemList.add(R.drawable.aboutus);
+        tabitemList.add(R.drawable.aboutus);
         horizontalAdapter=new HorizontalAdapter(tabitemList,this);
         LinearLayoutManager horizontalLayoutManagaer
                 = new LinearLayoutManager(Home.this, LinearLayoutManager.HORIZONTAL, false);

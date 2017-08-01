@@ -1,6 +1,7 @@
 package com.example.iket.ecellapp2k17.home;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -12,6 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.iket.ecellapp2k17.BQuizNew.view.BQuizActivity;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.about_us.view.AboutUsFragment;
 import com.example.iket.ecellapp2k17.blogs.view.BlogFragment;
@@ -80,6 +82,10 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
                     case 4:
                         ((Home)context).setFragment(new AboutUsFragment(),"AboutUs",5);
                         break;
+                    case 5:
+                        Intent bquiz=new Intent(context, BQuizActivity.class);
+                        context.startActivity(bquiz);
+
                 }
 
             }

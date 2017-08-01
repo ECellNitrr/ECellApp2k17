@@ -1,6 +1,7 @@
 package com.example.iket.ecellapp2k17.sponsors.view;
 
 import android.content.Context;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,13 +23,12 @@ import java.util.List;
  * Created by samveg on 23/6/17.
  */
 
-public class    SponsAdapter extends RecyclerView.Adapter<SponsAdapter.MyViewHolder>{
+public class SponsAdapter extends RecyclerView.Adapter<SponsAdapter.MyViewHolder>{
     private List<SponsData> sponsDataList= new ArrayList<>();
     private Context context;
     private LayoutInflater layoutInflater;
     private ImageLoader imageLoader;
-    private ImageView image1;
-    public  LinearLayout layout;
+
     public SponsAdapter(Context context) {
         this.context = context;
         layoutInflater = LayoutInflater.from(context);
@@ -52,17 +52,11 @@ public class    SponsAdapter extends RecyclerView.Adapter<SponsAdapter.MyViewHol
     public void onBindViewHolder(final MyViewHolder holder, int position) {
 
         SponsData sponsData=sponsDataList.get(position);
-        imageLoader.loadImage(sponsData.getImage1(), holder.image1);
 
-//        holder.image1.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v) {
-//                ((Home)context).setFragment(new SponsEndPage_Fragment(),"OYO",1);
-//            }
-//        });
+        holder.sponsTitle.setText(sponsData.getsTitle());
 
-        holder.sTitle.setText(sponsData.getsTitle());
-        holder.rcimage.setOnClickListener(new View.OnClickListener(){
+        imageLoader.loadImage(sponsData.getImage1(), holder.sponsImage);
+        holder.sponsImage.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 ((Home)context).addFragment(new SponsEndPage_Fragment(),"Sponsor Details",15);
@@ -81,14 +75,12 @@ public class    SponsAdapter extends RecyclerView.Adapter<SponsAdapter.MyViewHol
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        private ImageView image1,rcimage,cimage;
-        private TextView sTitle;
+        private ImageView sponsImage,background;
+        private TextView sponsTitle,sponsName;
         private MyViewHolder(View itemView) {
             super(itemView);
-            image1= (ImageView) itemView.findViewById(R.id.sponsImage);
-            rcimage = (ImageView) itemView.findViewById(R.id.rcImg);
-            cimage = (ImageView) itemView.findViewById(R.id.circleImg);
-            sTitle = (TextView)  itemView.findViewById(R.id.sponsTitle);
+            sponsImage= (ImageView) itemView.findViewById(R.id.sponsImage);
+            sponsTitle=(TextView)itemView.findViewById(R.id.sponsTitle);
         }
     }
 

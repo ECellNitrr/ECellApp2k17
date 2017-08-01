@@ -47,13 +47,13 @@ public class SponsFragment extends Fragment implements SponsInterface {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    RecyclerView recyclerView;
+    RecyclerView recyclerView,gridRecycler;
     ProgressBar progressBar;
+
     private SponsPresenter sponsPresenter;
     private SponsAdapter adapter;
     private LinearLayoutManager linearLayoutManager;
     private GridLayoutManager lLayout;
-    private ImageView image2;
     private OnFragmentInteractionListener mListener;
     public SponsFragment() {
         // Required empty public constructor
@@ -92,20 +92,20 @@ public class SponsFragment extends Fragment implements SponsInterface {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_spons, container, false);
         recyclerView=(RecyclerView) view.findViewById(R.id.recycler_view_spons);
+        gridRecycler=(RecyclerView)view.findViewById(R.id.grid_recycler_view_spons);
+
         progressBar= (ProgressBar) view.findViewById(R.id.progressBar_spons);
 
-        image2 = (ImageView) view.findViewById(R.id.spons_img);
-        Glide.with(this).load(R.drawable.spons).into(image2);
-
-
         sponsPresenter=new SponsPresenterImpl(this,new MockSpons());
-
         adapter = new SponsAdapter(getContext());
+        lLayout=new GridLayoutManager(getContext(),2);
 
         linearLayoutManager=new LinearLayoutManager(getContext());
 
+        gridRecycler.setLayoutManager(lLayout);
         recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.setAdapter(adapter);
+//        recyclerView.setAdapter(adapter);
+        gridRecycler.setAdapter(adapter);
         sponsPresenter.requestSpons();
         return view;
     }
@@ -151,7 +151,6 @@ public class SponsFragment extends Fragment implements SponsInterface {
         }
         else
             progressBar.setVisibility(View.GONE);
-
     }
 
     @Override
