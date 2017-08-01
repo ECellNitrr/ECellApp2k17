@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     private EditText editTextMobile;
     private ProgressBar progressBar;
-    private String mobile;
+    public String mobile;
     private LoginData loginData;
     private SharedPrefs sharedPrefs;
 
