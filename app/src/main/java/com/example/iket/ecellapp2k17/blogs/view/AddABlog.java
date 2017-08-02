@@ -114,6 +114,7 @@ public class AddABlog extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
 
+
     }
 
     @Override

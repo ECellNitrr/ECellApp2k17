@@ -122,12 +122,12 @@ public class BQuizActivity extends AppCompatActivity implements BQuizView {
     protected void onStop()
     {
         super.onStop();
+        countDownTimer.cancel();
 
         if(i==1)
         {
             countDownTimer.cancel();
             submitAnswerPresenter.submitAnswer(questionId, getAnswer(), sharedPrefs.getAccessToken());
-
             i=0;
         }
     }
