@@ -3,12 +3,30 @@
 
     <item
         is-multidex="false"
+        jar="/home/iket/.android/build-cache/1a7992779abecbcc9d2ae2d33ae91e7c83d4f5b5/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="783127c8b1d23b84cccc3dc776ca4637d4aba900">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_86694967d73dd6f62232373256dbdd528cdb67f7.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/home/iket/.android/build-cache/54ac1fed48c9ea3438d8f36902ad6eb130b1c6a9/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="3305fe8fabbf56b45fa503d29d691bc84290ff23">
         <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_81bfe86f99bcd14ed7db29238f75ff93b169fb98.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/iket/.android/build-cache/69bd791376b737a41fdf2f2ad4706724f8cc3dbd/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a8f3fc8480295347e08d9951805209719363d282">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_881d2c84177cf10f92cf1d3df1938d1ef2a5fa87.jar" />
     </item>
     <item
         is-multidex="false"
