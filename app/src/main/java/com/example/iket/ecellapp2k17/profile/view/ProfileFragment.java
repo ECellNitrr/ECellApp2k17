@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
 import android.support.design.widget.TabLayout;
@@ -25,8 +26,12 @@ import android.widget.ImageView;
 
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.SimpleTarget;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.helper.SharedPrefs;
+import com.example.iket.ecellapp2k17.helper.image_loaders.GlideImageLoader;
+import com.intrusoft.library.FrissonView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -38,14 +43,8 @@ import com.example.iket.ecellapp2k17.helper.SharedPrefs;
  */
 public class ProfileFragment extends Fragment{
 
-    //This is our tablayout
-    private TabLayout tabLayout;
-
-    //This is our viewPager
-    private ViewPager viewPager;
-
-    //This is the profile picture
     private ImageView imageView;
+    private FrissonView wave;
 
     private SharedPrefs sharedPrefs;
 
@@ -99,19 +98,23 @@ public class ProfileFragment extends Fragment{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_profile, container, false);
-
-        sharedPrefs = new SharedPrefs(getContext());
-
-        imageView = (ImageView) view.findViewById(R.id.profile_image);
-        Glide.with(this).load(sharedPrefs.getPhotoUrl()).into(imageView);
-        TabsPagerAdapter adapter=new TabsPagerAdapter(getActivity().getSupportFragmentManager());
-        tabLayout = (TabLayout)view.findViewById(R.id.tabLayout);
-        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-        //Initializing viewPager
-        viewPager = (ViewPager)view.findViewById(R.id.profile_viewPager);
-        //Adding adapter to pager
-        viewPager.setAdapter(adapter);
-        tabLayout.setupWithViewPager(viewPager);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            getActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+        }
+        imageView=(ImageView)view.findViewById(R.id.center_image);
+        wave= (FrissonView) view.findViewById(R.id.wave);
+        GlideImageLoader glideImageLoader=new GlideImageLoader(getContext());
+        glideImageLoader.load_circular_image("https://scontent.fbho1-1.fna.fbcdn.net/v/t1.0-9/20228230_1167680323365891_2137180005250019764_n.jpg?oh=b5be19ba7e81e5e8eceaba6d5b9aec39&oe=59F6E5E1",imageView);
+        Glide.with(getContext())
+                .load("https://scontent.fbho1-1.fna.fbcdn.net/v/t1.0-9/20228230_1167680323365891_2137180005250019764_n.jpg?oh=b5be19ba7e81e5e8eceaba6d5b9aec39&oe=59F6E5E1")
+                .asBitmap()
+                .into(new SimpleTarget<Bitmap>(SimpleTarget.SIZE_ORIGINAL, SimpleTarget.SIZE_ORIGINAL) {
+                    @Override
+                    public void onResourceReady(Bitmap bitmap, GlideAnimation anim) {
+                        
+                        wave.setBitmap(bitmap);
+                    }
+                });
         return view;
     }
 

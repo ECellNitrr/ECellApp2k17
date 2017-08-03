@@ -1,62 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:frisson="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.iket.ecellapp2k17.profile.view.ProfileFragment">
+    android:background="#fff"
+    >
 
-    <ImageView
-        android:id="@+id/profile_image"
+    <com.intrusoft.library.FrissonView
+        android:id="@+id/wave"
         android:layout_width="match_parent"
-        android:layout_height="280sp"
-        android:layout_centerHorizontal="true"
-        app:srcCompat="@drawable/login_ecell"
-        android:layout_alignParentTop="true" />
+        android:layout_height="300dp"
+        android:scaleType="centerCrop"
+        frisson:tideCount="3"
+        frisson:tideHeight="50dp"
+        frisson:alphaValue="70"
+        frisson:autoTint="true"/>
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="120dp"
+        frisson:cardCornerRadius="50dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:id="@+id/center_image"
+            />
+    </android.support.v7.widget.CardView>
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/image"
+        android:layout_marginLeft="28dp"
+        android:layout_toRightOf="@+id/image"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="User Name"
+        android:textColor="#ccffffff"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/image"
+        android:background="@drawable/border"
+        android:gravity="center"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="Log Out"
+        android:textColor="#ccffffff" />
+
     <LinearLayout
-        android:layout_above="@+id/tabLayout"
-        android:background="@color/darkBackground"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="2dp"
+        android:layout_below="@id/wave"
+        android:layout_marginTop="5dp"
         android:orientation="vertical">
-    <TextView
-        android:id="@+id/user_name"
-        android:textColor="#ffffff"
-        android:background="@android:color/transparent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/user_email"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:text="Name of User"
-        android:textSize="28sp" />
-    <TextView
-        android:id="@+id/user_email"
-        android:textColor="#ffffff"
-        android:background="@android:color/transparent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:text="Email Of user"
-        android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="26dp"
+            android:drawableLeft="@drawable/ic_mail"
+            android:drawablePadding="24dp"
+            android:gravity="center"
+            android:text="email.address@gmail.com"
+            android:textColor="#880E4F" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="26dp"
+            android:drawableLeft="@drawable/ic_menu_share"
+            android:drawablePadding="24dp"
+            android:gravity="center"
+            android:text="phone number"
+            android:textColor="#880E4F" />
     </LinearLayout>
-
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tabLayout"
-        android:layout_below="@+id/profile_image"
-        android:background="#333333"
-        app:tabTextColor="@color/white"
-        app:tabSelectedTextColor="@color/white"
-        android:layout_width="match_parent"
-        android:layout_height="50sp"
-        app:tabIndicatorColor="#ff0000"
-        />
-    <android.support.v4.view.ViewPager
-        android:layout_width="match_parent"
-        android:layout_below="@id/tabLayout"
-        android:id="@+id/profile_viewPager"
-        android:layout_height="match_parent">
-
-    </android.support.v4.view.ViewPager>
 </RelativeLayout>

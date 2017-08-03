@@ -91,8 +91,6 @@ public class BlogFragment extends Fragment implements BlogsInterface {
 
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_blog, container, false);
-
-        navigationView = (NavigationView) view.findViewById(R.id.nav_view);
         fab = (FloatingActionButton)view.findViewById(R.id.fab);
         fab.setVisibility(View.VISIBLE);
         fab.setOnClickListener(new View.OnClickListener() {
