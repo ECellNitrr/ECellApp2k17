@@ -154,6 +154,7 @@ public class AddABlog extends BottomSheetDialogFragment implements AddABlogView{
     public void onAttach(Context context) {
         super.onAttach(context);
 
+
     }
 
     @Override

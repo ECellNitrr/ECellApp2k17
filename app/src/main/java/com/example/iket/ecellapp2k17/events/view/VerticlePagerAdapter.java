@@ -9,13 +9,17 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.iket.ecellapp2k17.R;
+import com.example.iket.ecellapp2k17.events.model.data.EventsData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by samveg on 22/6/17.
  */
 
 public class VerticlePagerAdapter extends PagerAdapter {
-    String mResources[] = {"Wall Street","E summit"};
+    List<EventsData> listEvents=new ArrayList<>();
 
     Context mContext;
     LayoutInflater mLayoutInflater;
@@ -23,11 +27,17 @@ public class VerticlePagerAdapter extends PagerAdapter {
     public VerticlePagerAdapter(Context context) {
         mContext = context;
         mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+    }
+
+    void setData(List<EventsData> eventsDatas)
+    {
+        this.listEvents=eventsDatas;
     }
 
     @Override
     public int getCount() {
-        return 10;
+        return listEvents.size();
     }
 
     @Override
@@ -39,14 +49,9 @@ public class VerticlePagerAdapter extends PagerAdapter {
     public Object instantiateItem(ViewGroup container, int position) {
         View itemView = mLayoutInflater.inflate(R.layout.events_item, container, false);
 
+        EventsData data=listEvents.get(position);
         TextView label = (TextView) itemView.findViewById(R.id.eventTitle);
-
-        if (position % 2 == 0) {
-            label.setText(mResources[0]);
-        }
-        else{
-            label.setText(mResources[1]);
-        }
+        label.setText(data.getEventName());
 
         container.addView(itemView);
 

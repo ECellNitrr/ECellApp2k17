@@ -100,8 +100,6 @@ public class SponsEndPage_Fragment extends Fragment implements SponsInterface{
 
         final SponsData sponsData =sponsDataList.get(0);
         textTitle.setText(sponsData.getsTitle());
-        spons_desc.setText(sponsData.getSpons_desc());
-        spons_body.setText(sponsData.getSpons_body());
 
         Glide.with(this).load(R.drawable.spons_endpage).into(bg_spons);//  sponsData.getBg_spons()
         int radius = 30; // corner radius, higher value = more rounded

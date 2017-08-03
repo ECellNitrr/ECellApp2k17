@@ -14,6 +14,10 @@ import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.helper.Keys;
 import com.example.iket.ecellapp2k17.helper.SharedPrefs;
 import com.example.iket.ecellapp2k17.home.Home;
+import com.example.iket.ecellapp2k17.login.presenter.LoginData;
+import com.example.iket.ecellapp2k17.login.presenter.LoginDataImp;
+import com.example.iket.ecellapp2k17.login.provider.RetrofitLoginHelper;
+import com.example.iket.ecellapp2k17.login.view.LoginActivity;
 import com.example.iket.ecellapp2k17.otp_verify.model.OtpData;
 import com.example.iket.ecellapp2k17.otp_verify.presenter.OtpVerifyPresenter;
 import com.example.iket.ecellapp2k17.otp_verify.presenter.OtpVerifyPresenterImp;
@@ -24,6 +28,7 @@ public class OtpActivity extends AppCompatActivity implements OtpView{
     private Button button;
     private Button button2;
     private Button button3;
+    private LoginData loginData;
     private EditText editTextOtp;
     private ProgressBar progressBar;
     private ImageView otpImage;
@@ -60,9 +65,9 @@ public class OtpActivity extends AppCompatActivity implements OtpView{
         otpVerifyPresenter.otpData(otp_number, message);
     }
     public void resend(View v) {
-        otp_number = editTextOtp.getText().toString();
-        otpVerifyPresenter = new OtpVerifyPresenterImp(this, new RetrofitOtpVerifyHelper());
-        otpVerifyPresenter.otpData(otp_number, message);
+
+        LoginActivity loginActivity = new LoginActivity();
+        loginActivity.proceed(v);
     }
 
     @Override
