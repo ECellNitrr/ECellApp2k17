@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -50,6 +51,7 @@ public class BlogFragment extends Fragment implements BlogsInterface {
     BlogsPresenter blogsPresenter;
     private FloatingActionButton fab;
     private OnFragmentInteractionListener mListener;
+    private FragmentManager fm = getFragmentManager();
     private Context context;
 
     public BlogFragment() {
@@ -91,16 +93,21 @@ public class BlogFragment extends Fragment implements BlogsInterface {
 
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_blog, container, false);
+        final BottomSheetDialogFragment bottomSheetDialogFragment =  AddABlog.newInstance("","");
 
         navigationView = (NavigationView) view.findViewById(R.id.nav_view);
         fab = (FloatingActionButton)view.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                addFragment(new AddABlog(),"Add A Blog",16);
+                //addFragment(new AddABlog(),"Add A Blog",16);
+                //AddABlog addABlog = new AddABlog();
+                //addABlog.show(fm,"Add A Blog");
+                bottomSheetDialogFragment.show(getChildFragmentManager(),bottomSheetDialogFragment.getTag());
 
             }
         });
+
 
         verticalViewPager=(VerticalViewPager)view.findViewById(R.id.blogs_viewPager);
         verticlePagerAdapter=new VerticlePagerAdapter(getContext());

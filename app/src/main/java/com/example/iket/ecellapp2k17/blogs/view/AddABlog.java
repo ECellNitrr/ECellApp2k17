@@ -5,16 +5,28 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.design.widget.BottomSheetDialogFragment;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatDialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
+import com.example.iket.ecellapp2k17.blogs.model.RetrofitAddBlogsProvider;
+import com.example.iket.ecellapp2k17.blogs.model.RetrofitBlogsProvider;
+import com.example.iket.ecellapp2k17.blogs.model.data.AddBlogsData;
+import com.example.iket.ecellapp2k17.blogs.model.data.BlogData;
+import com.example.iket.ecellapp2k17.blogs.presenter.AddBlogsPresenter;
+import com.example.iket.ecellapp2k17.blogs.presenter.AddBlogsPresenterImpl;
+import com.example.iket.ecellapp2k17.blogs.presenter.BlogsPresenterImpl;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -26,7 +38,7 @@ import static android.app.Activity.RESULT_OK;
  * Use the {@link AddABlog#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AddABlog extends Fragment {
+public class AddABlog extends BottomSheetDialogFragment implements AddABlogView{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -39,9 +51,12 @@ public class AddABlog extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
-    private EditText write_blog;
-    private Button btn_insertImage;
+    private EditText editText_blogTitle,editText_blogType,editText_blogBody;
+    private Button btn_insertImage,btn_post;
     private ImageView addABlog_bg;
+    private String blogTitle,blogType,blogBody;
+    private AddBlogsPresenter addBlogsPresenter;
+    private ProgressBar progressBar;
 
     public AddABlog() {
         // Required empty public constructor
@@ -79,12 +94,36 @@ public class AddABlog extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_add_ablog, container, false);
+        editText_blogTitle = (EditText) view.findViewById(R.id.etxt_title);
+        editText_blogType = (EditText) view.findViewById(R.id.etxt_blogType);
+        editText_blogBody = (EditText) view.findViewById(R.id.etxt_blogBody);
+        progressBar = (ProgressBar) view.findViewById(R.id.progressBar_blogs);
+
+        getDialog().setTitle("Add A Blog");
         btn_insertImage = (Button)  view.findViewById(R.id.insert_img);
         btn_insertImage.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(galleryIntent,RESULT_LOAD_IMAGE);
+            }
+        });
+
+        btn_post = (Button) view.findViewById(R.id.post_blog);
+        btn_post.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                blogTitle = editText_blogTitle.getText().toString();
+                blogType = editText_blogType.getText().toString();
+                blogBody = editText_blogBody.getText().toString();
+                if(blogTitle.isEmpty() || blogType.isEmpty() || blogBody.isEmpty()){
+                    Toast.makeText(getContext(),"Fields cannot be Empty..!",Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    addBlogsPresenter = new AddBlogsPresenterImpl(AddABlog.this,new RetrofitAddBlogsProvider());
+                    addBlogsPresenter.addBlogsData(blogTitle,blogType,blogBody);
+                }
+
             }
         });
 
@@ -99,6 +138,7 @@ public class AddABlog extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && data != null){
             Uri selected_image = data.getData();
+            Toast.makeText(getContext(),"Your Image has been selected",Toast.LENGTH_SHORT).show();
             //load_blogImage.setImageURI(selected_image);
         }
     }
@@ -137,13 +177,23 @@ public class AddABlog extends Fragment {
         void onFragmentInteraction(Uri uri);
     }
 
-    /*
-     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Your image is displayed here.!"
-        android:layout_below="@+id/addBlog"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"/>
-     */
+    @Override
+    public void showProgressBar(boolean show) {
+        if (show){
+            progressBar.setVisibility(View.INVISIBLE);
+        }
+        else {
+            progressBar.setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    public void showMessage(String message) {
+        Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void AddBlogsStatus(AddBlogsData addBlogsData) {
+        Toast.makeText(getContext()," Your Blog has been Submitted Successfully ",Toast.LENGTH_SHORT).show();
+    }
 }

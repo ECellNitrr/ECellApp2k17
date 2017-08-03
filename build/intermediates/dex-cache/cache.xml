@@ -3,39 +3,39 @@
 
     <item
         is-multidex="true"
-        jar="/home/samveg/ECellApp2k17/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jar="/home/vrihas/ECellApp2k17/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="d7502e040b7dcf5e73ddae753eef378b0dcfa302">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_f281a4803f980ce5919b394e18662ec59fa03202/classes.dex" />
+        sha1="192750919205bf4cf29cc802c15716ad0e1d943e">
+        <dex dex="/home/vrihas/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_ec7ce60115cd4db1153e8d67a4988e084b4baac1/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/samveg/.android/build-cache/bde5a64338ef83b4dfc96015418f2d22e6220381/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ebe3b1f14fa79ba3cd1588acda4e6517ee9fe611">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_ccb706340746242e09d3d37f845ca3142f820586/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/samveg/ECellApp2k17/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_86b780cdc27a272629f7f2ec9a4b34b4ab492038/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/samveg/.android/build-cache/fedacbdfb24b20e80be2ff0614d57a710c64cd86/output/jars/classes.jar"
+        jar="/home/vrihas/.android/build-cache/66f4c62251e83bc408c5312a0ef14e1e2e6488ef/output/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="eb9f1cef6b29492df701111c555908cb53dece35">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_652204ec72445621c96dbf9d23251873fe3eb588/classes.dex" />
+        <dex dex="/home/vrihas/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_f4c915104d4c14770a7df0800afd1f3e596c0fbf/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/vrihas/.android/build-cache/fef5bb20ddf7c7a36a8a16868945bbe91ce5aa52/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ebe3b1f14fa79ba3cd1588acda4e6517ee9fe611">
+        <dex dex="/home/vrihas/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_ff9480c16ddab3604e42bfe366334108f711bb91/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/vrihas/ECellApp2k17/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="/home/vrihas/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_12ef3f026be58c581be7008cf783fbdcb0c3a20d/classes.dex" />
     </item>
 
 </items>
