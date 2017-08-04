@@ -56,7 +56,7 @@ public class AboutUsFragment extends Fragment implements AboutUsInterface{
     ImageView past_work_chip;
 
     RecyclerView recyclerView;
-    private RecyclerAdapter recyclerAdapter;
+//    private RecyclerAdapter recyclerAdapter;
     private RecyclerView.LayoutManager layoutManager;
 
     AboutUsPresenter aboutUsPresenter;
@@ -108,12 +108,12 @@ public class AboutUsFragment extends Fragment implements AboutUsInterface{
 //        recyclerAdapter=new RecyclerAdapter(getContext());
 //        recyclerView.setAdapter(recyclerAdapter);
 
-        ButterKnife.bind(this,view);
-        Glide.with(getContext()).load(R.drawable.vision).bitmapTransform(new CropCircleTransformation(getContext())).into(vision_chip);
-        Glide.with(getContext()).load(R.drawable.contact_us).bitmapTransform(new CropCircleTransformation(getContext())).into(contact_us_chip);
-        Glide.with(getContext()).load(R.drawable.past_work).bitmapTransform(new CropCircleTransformation(getContext())).into(past_work_chip);
-        Glide.with(getContext()).load(R.drawable.team).bitmapTransform(new CropCircleTransformation(getContext())).into(team_chip);
-        // blogsPresenter=new BlogsPresenterImpl(new RetrofitBlogsProvider(),this);
+//        ButterKnife.bind(this,view);
+//        Glide.with(getContext()).load(R.drawable.vision).bitmapTransform(new CropCircleTransformation(getContext())).into(vision_chip);
+//        Glide.with(getContext()).load(R.drawable.contact_us).bitmapTransform(new CropCircleTransformation(getContext())).into(contact_us_chip);
+//        Glide.with(getContext()).load(R.drawable.past_work).bitmapTransform(new CropCircleTransformation(getContext())).into(past_work_chip);
+//        Glide.with(getContext()).load(R.drawable.team).bitmapTransform(new CropCircleTransformation(getContext())).into(team_chip);
+//        // blogsPresenter=new BlogsPresenterImpl(new RetrofitBlogsProvider(),this);
 
         aboutUsPresenter =new AboutUsPresenterImpl(new MockAboutUs(),this);
 //        aboutUsPresenter.requestData();
@@ -140,8 +140,8 @@ public class AboutUsFragment extends Fragment implements AboutUsInterface{
 
     @Override
     public void setData(List<AboutUsData> aboutUsDataList) {
-        recyclerAdapter.setData(aboutUsDataList);
-        recyclerAdapter.notifyDataSetChanged();
+//        recyclerAdapter.setData(aboutUsDataList);
+//        recyclerAdapter.notifyDataSetChanged();
     }
 
     @Override
