@@ -15,6 +15,7 @@ import com.example.iket.ecellapp2k17.about_us.model.data.AboutUsData;
 import com.example.iket.ecellapp2k17.about_us.presenter.AboutUsPresenter;
 import com.example.iket.ecellapp2k17.about_us.presenter.AboutUsPresenterImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static android.R.attr.data;
@@ -40,7 +41,7 @@ public class VisionFragment extends Fragment implements AboutUsInterface{
 
     TextView vision_Body;
     AboutUsPresenter aboutUsPresenter;
-    AboutUsData data;
+    private List<AboutUsData> data=new ArrayList<>();
 
     private OnFragmentInteractionListener mListener;
 
@@ -84,7 +85,8 @@ public class VisionFragment extends Fragment implements AboutUsInterface{
         aboutUsPresenter =new AboutUsPresenterImpl(new MockAboutUs(),this);
         aboutUsPresenter.requestData();
 
-        vision_Body.setText(data.getVisionBody());
+        AboutUsData listData =  data.get(5);
+        vision_Body.setText(listData.getVisionBody());
         return view;
     }
 
@@ -108,8 +110,8 @@ public class VisionFragment extends Fragment implements AboutUsInterface{
     }
 
     @Override
-    public void setData(List<AboutUsData> aboutUsDataList) {
-
+    public void setData(List<AboutUsData> data) {
+            this.data=data;
     }
 
     @Override
