@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80sp"
+        android:orientation="horizontal"
+        android:background="#ffffff"
+        android:weightSum="4">
+        <ImageView
+            android:id="@+id/vision_img"
+            android:layout_width="80dip"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:onClick="go_to_vision"
+            android:layout_weight="1"
+            android:elevation="10dp"/>
+        <ImageView
+            android:id="@+id/team_img"
+            android:layout_width="80sp"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:onClick="go_to_team"
+            android:layout_weight="1"
+            android:elevation="10dp"/>
+        <ImageView
+            android:id="@+id/past_work_img"
+            android:layout_width="80sp"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:onClick="go_to_past_work"
+            android:layout_weight="1"
+            android:elevation="10dp"/>
+        <ImageView
+            android:id="@+id/contact_us_img"
+            android:layout_width="80sp"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:onClick="go_to_contact_us"
+            android:layout_weight="1"
+            android:elevation="10dp"/>
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        android:layout_marginBottom="5dp"/>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        card_view:cardBackgroundColor="@color/black"
+        card_view:cardCornerRadius="4dp"
+        card_view:cardElevation="10dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/member_img"
+                android:layout_width="150dp"
+                android:layout_height="match_parent" />
+            <TextView
+                android:id="@+id/member_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/member_img"
+                android:layout_marginTop="50dp"
+                android:text="Samveg Thaker"
+                android:textColor="#ffffff"/>
+            <TextView
+                android:id="@+id/member_position"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/member_img"
+                android:layout_below="@+id/member_name"
+                android:text="Executive Member"
+                android:textColor="#ffffff"/>
+            <TextView
+                android:id="@+id/member_contact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/member_img"
+                android:layout_below="@+id/member_position"
+                android:text="8962833132"
+                android:textColor="#ffffff"/>
+            <TextView
+                android:id="@+id/member_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/member_img"
+                android:layout_below="@+id/member_contact"
+                android:text="thakersamveg608@gmail.com"
+                android:textColor="#ffffff"/>
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>
