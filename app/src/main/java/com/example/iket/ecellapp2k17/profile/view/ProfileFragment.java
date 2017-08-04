@@ -111,7 +111,7 @@ public class ProfileFragment extends Fragment{
                 .into(new SimpleTarget<Bitmap>(SimpleTarget.SIZE_ORIGINAL, SimpleTarget.SIZE_ORIGINAL) {
                     @Override
                     public void onResourceReady(Bitmap bitmap, GlideAnimation anim) {
-                        
+
                         wave.setBitmap(bitmap);
                     }
                 });

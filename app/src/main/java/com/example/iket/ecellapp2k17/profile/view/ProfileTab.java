@@ -17,7 +17,7 @@ public class ProfileTab extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.profile_tab_item, container, false);
+        return inflater.inflate(R.layout.section_spons, container, false);
     }
 
 }

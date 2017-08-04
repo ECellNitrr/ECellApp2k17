@@ -2,33 +2,24 @@ package com.example.iket.ecellapp2k17.sponsors.view;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.animation.GlideAnimation;
-import com.bumptech.glide.request.target.SimpleTarget;
 import com.example.iket.ecellapp2k17.R;
-import com.example.iket.ecellapp2k17.helper.image_loaders.GlideImageLoader;
-import com.example.iket.ecellapp2k17.helper.image_loaders.ImageLoader;
 import com.example.iket.ecellapp2k17.sponsors.model.MockSpons;
+import com.example.iket.ecellapp2k17.sponsors.model.data.ResponseSpons;
+import com.example.iket.ecellapp2k17.sponsors.model.data.SponsData;
 import com.example.iket.ecellapp2k17.sponsors.presenter.SponsPresenter;
 import com.example.iket.ecellapp2k17.sponsors.presenter.SponsPresenterImpl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
@@ -37,7 +28,7 @@ import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
  * Created by vrihas on 6/27/2017.
  */
 
-public class SponsEndPage_Fragment extends Fragment implements SponsInterface{
+public class SponsEndPage_Fragment extends Fragment{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -50,7 +41,6 @@ public class SponsEndPage_Fragment extends Fragment implements SponsInterface{
     private ImageView image1,bg_spons;
     private TextView textTitle,spons_desc,spons_body;
     private Context context;
-    private SponsPresenter sponsPresenter;
 
 
     public SponsEndPage_Fragment(){
@@ -88,24 +78,17 @@ public class SponsEndPage_Fragment extends Fragment implements SponsInterface{
         spons_body = (TextView) view.findViewById(R.id.sponsBody);
         button = (Button) view.findViewById(R.id.sponsButton);
 
-        sponsPresenter=new SponsPresenterImpl(this,new MockSpons());
-        sponsPresenter.requestSpons();
-
-
         return view;
     }
 
-    @Override
-    public void setData(List<SponsData> sponsDataList) {
 
-        final SponsData sponsData =sponsDataList.get(0);
-        textTitle.setText(sponsData.getsTitle());
+    public void setData(final SponsData data) {
 
         Glide.with(this).load(R.drawable.spons_endpage).into(bg_spons);//  sponsData.getBg_spons()
         int radius = 30; // corner radius, higher value = more rounded
         int margin = 5; // crop margin, set to 0 for corners with no crop
         Glide.with(this)
-                .load(R.drawable.sample_logo)  //sponsData.getImage1
+                .load(data.getImage1())  //sponsData.getImage1
                 .bitmapTransform(new RoundedCornersTransformation(context, radius, margin))
                 .into(image1);
 
@@ -115,20 +98,10 @@ public class SponsEndPage_Fragment extends Fragment implements SponsInterface{
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
                 intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                intent.setData(Uri.parse(sponsData.getWebsite_url()));
+                intent.setData(Uri.parse(data.getWebsite_url()));
                 startActivity(intent);
             }
         });
-
-    }
-
-    @Override
-    public void showLoading(boolean show) {
-
-    }
-
-    @Override
-    public void showMessage(String message) {
 
     }
 

@@ -8,6 +8,8 @@ import java.util.List;
 
 public class BlogFeed {
     private List<BlogData> blogs;
+    private boolean success;
+    private String message;
 
     public BlogFeed(List<BlogData> blogs) {
         this.blogs = blogs;

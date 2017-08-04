@@ -4,7 +4,9 @@ import com.example.iket.ecellapp2k17.helper.Cache;
 import com.example.iket.ecellapp2k17.helper.Urls;
 import com.example.iket.ecellapp2k17.sponsors.api.RequestApiSpons;
 import com.example.iket.ecellapp2k17.sponsors.view.OnSponsReceived;
-import com.example.iket.ecellapp2k17.sponsors.view.ResponseSpons;
+import com.example.iket.ecellapp2k17.sponsors.model.data.ResponseSpons;
+
+import java.util.List;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -34,16 +36,17 @@ public class RetrofitSponsProvider implements SponsProvider {
                 .build();
 
         final RequestApiSpons request = retrofit.create(RequestApiSpons.class);
-        Call<ResponseSpons> call=request.getSpons();
+        Call <List<ResponseSpons>> call=request.getSpons();
 
-        call.enqueue(new Callback<ResponseSpons>() {
+        call.enqueue(new Callback<List<ResponseSpons>>() {
             @Override
-            public void onResponse(Call<ResponseSpons> call, Response<ResponseSpons> response) {
-                onSponsReceived.onSuccess(response.body().getSpons());
+            public void onResponse(Call<List<ResponseSpons>> call, Response<List<ResponseSpons>> response) {
+                onSponsReceived.onSuccess(response.body());
             }
 
             @Override
-            public void onFailure(Call<ResponseSpons> call, Throwable t) {
+            public void onFailure(Call<List<ResponseSpons>> call, Throwable t) {
+
                 onSponsReceived.onFailure();
                 t.printStackTrace();
             }

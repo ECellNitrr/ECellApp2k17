@@ -66,6 +66,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="/home/iket/.android/build-cache/7f770bebeccd9ca0edcc8e8fe0a10132d5d2dd73/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8caaa885c5f74a2555333b2f770b56c1a8d9aa87">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_0c3604ea867c7d481d7a87ddd3fa403872b53d72.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/home/iket/.android/build-cache/93cd51d51a431382992e361c211b671a20918731/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
