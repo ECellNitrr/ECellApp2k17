@@ -95,7 +95,7 @@ public class BlogFragment extends Fragment implements BlogsInterface {
         View view= inflater.inflate(R.layout.fragment_blog, container, false);
         final BottomSheetDialogFragment bottomSheetDialogFragment =  AddABlog.newInstance("","");
 
-        navigationView = (NavigationView) view.findViewById(R.id.nav_view);
+      //  navigationView = (NavigationView) view.findViewById(R.id.nav_view);
         fab = (FloatingActionButton)view.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

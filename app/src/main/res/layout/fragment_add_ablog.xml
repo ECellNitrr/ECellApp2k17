@@ -96,7 +96,8 @@
             android:background="@drawable/shape"
             android:ems="10"
             android:gravity="start"
-            android:hint="Your Blog Goes here" />
+            android:hint="Your Blog Goes here"
+            android:inputType="textMultiLine"/>
 
         <Button
             android:id="@+id/insert_img"

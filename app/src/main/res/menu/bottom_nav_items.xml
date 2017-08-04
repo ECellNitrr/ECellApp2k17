@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+      android:id="@+id/profile"
+      android:icon="@drawable/profile_icon"
+        android:title=""
+        android:enabled="true"
+        app:showAsAction="always"/>
+    <item
+      android:id="@+id/events"
+        android:icon="@drawable/events_icon"
+        android:title=""
+        android:enabled="true"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/blogs"
+        android:icon="@drawable/blogs_icon"
+        android:title=""
+        android:enabled="true"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/sponsors"
+        android:icon="@drawable/sponsors_icon"
+        android:title=""
+        android:enabled="true"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/aboutus"
+        android:icon="@drawable/aboutus"
+        android:title=""
+        android:enabled="true"
+        app:showAsAction="always"/>
+
+</menu>
