@@ -16,7 +16,7 @@
         frisson:tideCount="3"
         frisson:tideHeight="50dp"
         frisson:alphaValue="70"
-        frisson:autoTint="true"/>
+        frisson:autoTint="false"/>
 
 
     <android.support.v7.widget.CardView

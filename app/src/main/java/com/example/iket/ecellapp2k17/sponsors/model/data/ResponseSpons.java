@@ -18,5 +18,11 @@ public class ResponseSpons {
         this.section_name = section_name;
     }
 
+    public List<SponsData> getSpons() {
+        return spons;
+    }
 
+    public String getSection_name() {
+        return section_name;
+    }
 }

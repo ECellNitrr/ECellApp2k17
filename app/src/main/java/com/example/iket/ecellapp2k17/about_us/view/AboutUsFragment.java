@@ -4,6 +4,8 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,8 +37,10 @@ public class AboutUsFragment extends Fragment implements AboutUsInterface{
     private String mParam1;
     private String mParam2;
 
-    VerticalViewPager verticalViewPager;
-    VerticalPagerAdapter verticalPagerAdapter;
+    RecyclerView recyclerView;
+    private RecyclerView.Adapter recyclerAdapter;
+    private RecyclerView.LayoutManager layoutManager;
+
     AboutUsPresenter aboutUsPresenter;
     private OnFragmentInteractionListener mListener;
 
@@ -75,14 +79,21 @@ public class AboutUsFragment extends Fragment implements AboutUsInterface{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_about_us, container, false);
-        verticalViewPager=(VerticalViewPager)view.findViewById(R.id.about_us_viewPager);
-        verticalPagerAdapter=new VerticalPagerAdapter(getContext());
-        verticalViewPager.setAdapter(verticalPagerAdapter);
+        View view = inflater.inflate(R.layout.fragment_events, container, false);
+//        recyclerView=(RecyclerView) view.findViewById(R.id.recycler_view_team);
+
+//        recyclerView.setHasFixedSize(true);
+
+        layoutManager = new LinearLayoutManager(getContext());
+//        recyclerView.setLayoutManager(layoutManager);
+
+//        recyclerAdapter=new RecyclerAdapter(getContext());
+//        recyclerView.setAdapter(recyclerAdapter);
+
         // blogsPresenter=new BlogsPresenterImpl(new RetrofitBlogsProvider(),this);
 
         aboutUsPresenter =new AboutUsPresenterImpl(new MockAboutUs(),this);
-        aboutUsPresenter.requestData();
+//        aboutUsPresenter.requestData();
         return view;
     }
 
@@ -106,8 +117,8 @@ public class AboutUsFragment extends Fragment implements AboutUsInterface{
 
     @Override
     public void setData(List<AboutUsData> aboutUsDataList) {
-        verticalPagerAdapter.setAboutUsDataList(aboutUsDataList);
-        verticalPagerAdapter.notifyDataSetChanged();
+    //    recyclerAdapter.setData(aboutUsDataList);
+        recyclerAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -118,8 +129,18 @@ public class AboutUsFragment extends Fragment implements AboutUsInterface{
     @Override
     public void ShowProgressBar(boolean show) {
 
+
     }
 
+    public void go_to_vision(){
+
+    }
+    public void go_to_contact_us(){
+
+    }
+    public void go_to_past_work(){
+
+    }
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated

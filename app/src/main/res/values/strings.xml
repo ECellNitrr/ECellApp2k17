@@ -8,6 +8,8 @@
     <string name="nitrr">NIT Raipur</string>
     <string name="ecell">The Entrepreneurship Cell</string>
     <string name="action_settings">Settings</string>
+    <string name="failure_message">Unable to connect to server ! Please check your Internet Connection .</string>
+
     <string-array name="tabitemList">
         <item>PROFILE</item>
         <item>EVENTS</item>

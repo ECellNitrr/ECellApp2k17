@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -11,9 +13,21 @@
             android:id="@+id/addBlog_bg"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="fitXY" />
+            android:scaleType="fitXY"
+            android:foregroundGravity="center"
+            android:adjustViewBounds="true"/>
 
-        <TextView
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
             android:id="@+id/addBlog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -82,7 +96,8 @@
             android:background="@drawable/shape"
             android:ems="10"
             android:gravity="start"
-            android:hint="Your Blog Goes here" />
+            android:hint="Your Blog Goes here"
+            android:inputType="textMultiLine"/>
 
         <Button
             android:id="@+id/insert_img"
@@ -109,8 +124,24 @@
             android:layout_marginTop="15dp"
             android:layout_toRightOf="@+id/insert_img"/>
 
+        <ProgressBar
+            android:id="@+id/progressBar_blogs"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_blogType"
+            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="32dp"
+            android:layout_toEndOf="@+id/txt_title"
+            android:layout_toRightOf="@+id/txt_title"
+            android:visibility="gone"/>
+
+            </RelativeLayout>
+
+        </android.support.v4.widget.NestedScrollView>
 
     </RelativeLayout>
 
 
-</FrameLayout>
+</android.support.design.widget.CoordinatorLayout>
