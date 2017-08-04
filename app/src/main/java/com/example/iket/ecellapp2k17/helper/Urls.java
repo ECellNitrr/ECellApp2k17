@@ -8,6 +8,7 @@ public class Urls {
 
     public static final String BASE_URL = "";
     public static final String REQUEST_BLOGS = "blogs/";
+    public static final String REQUEST_ADD_BLOGS = "addblogs/";
     public static final String REQUEST_EVENTS = "events/";
     public static final String REQUEST_ABOUTUS = "aboutus/";
     public static final String REQUEST_SPONS = "spons/";
