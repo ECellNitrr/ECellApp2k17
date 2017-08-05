@@ -5,9 +5,11 @@ import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.events.model.data.EventsData;
 
@@ -23,6 +25,8 @@ public class VerticlePagerAdapter extends PagerAdapter {
 
     Context mContext;
     LayoutInflater mLayoutInflater;
+    private ImageView events_bg;
+    private TextView event_body,event_venue;
 
     public VerticlePagerAdapter(Context context) {
         mContext = context;
@@ -48,11 +52,16 @@ public class VerticlePagerAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         View itemView = mLayoutInflater.inflate(R.layout.events_item, container, false);
-
         EventsData data=listEvents.get(position);
+
+        events_bg = (ImageView) itemView.findViewById(R.id.eventImage);
+        event_body = (TextView) itemView.findViewById(R.id.eventBody);
+        event_venue = (TextView) itemView.findViewById(R.id.eventLocaion);
         TextView label = (TextView) itemView.findViewById(R.id.eventTitle);
         label.setText(data.getEventName());
-
+        event_body.setText(data.getDescription());
+        event_venue.setText(data.getVenue());
+        Glide.with(mContext).load(data.getImage()).into(events_bg);
         container.addView(itemView);
 
         return itemView;

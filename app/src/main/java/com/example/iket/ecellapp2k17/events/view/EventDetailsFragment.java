@@ -1,33 +1,24 @@
-package com.example.iket.ecellapp2k17.about_us.view;
+package com.example.iket.ecellapp2k17.events.view;
 
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.iket.ecellapp2k17.R;
-import com.example.iket.ecellapp2k17.about_us.model.MockAboutUs;
-import com.example.iket.ecellapp2k17.about_us.model.data.AboutUsData;
-import com.example.iket.ecellapp2k17.about_us.presenter.AboutUsPresenter;
-import com.example.iket.ecellapp2k17.about_us.presenter.AboutUsPresenterImpl;
-import com.example.iket.ecellapp2k17.helper.VerticalViewPager;
-
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link AboutUsFragment.OnFragmentInteractionListener} interface
+ * {@link EventDetailsFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link AboutUsFragment#newInstance} factory method to
+ * Use the {@link EventDetailsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AboutUsFragment extends Fragment implements AboutUsInterface{
+public class EventDetailsFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -37,14 +28,9 @@ public class AboutUsFragment extends Fragment implements AboutUsInterface{
     private String mParam1;
     private String mParam2;
 
-    RecyclerView recyclerView;
-    private RecyclerView.Adapter recyclerAdapter;
-    private RecyclerView.LayoutManager layoutManager;
-
-    AboutUsPresenter aboutUsPresenter;
     private OnFragmentInteractionListener mListener;
 
-    public AboutUsFragment() {
+    public EventDetailsFragment() {
         // Required empty public constructor
     }
 
@@ -54,11 +40,11 @@ public class AboutUsFragment extends Fragment implements AboutUsInterface{
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment AboutUsFragment.
+     * @return A new instance of fragment EventDetailsFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static AboutUsFragment newInstance(String param1, String param2) {
-        AboutUsFragment fragment = new AboutUsFragment();
+    public static EventDetailsFragment newInstance(String param1, String param2) {
+        EventDetailsFragment fragment = new EventDetailsFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -79,22 +65,7 @@ public class AboutUsFragment extends Fragment implements AboutUsInterface{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-       View view = inflater.inflate(R.layout.fragment_about_us, container, false);
-        recyclerView=(RecyclerView) view.findViewById(R.id.recycler_view_team);
-
-        recyclerView.setHasFixedSize(true);
-
-        layoutManager = new LinearLayoutManager(getContext());
-        recyclerView.setLayoutManager(layoutManager);
-
-        recyclerAdapter=new RecyclerAdapter(getContext());
-        recyclerView.setAdapter(recyclerAdapter);
-
-        // blogsPresenter=new BlogsPresenterImpl(new RetrofitBlogsProvider(),this);
-
-        aboutUsPresenter =new AboutUsPresenterImpl(new MockAboutUs(),this);
-        aboutUsPresenter.requestData();
-       return view;
+        return inflater.inflate(R.layout.fragment_event_details, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -115,32 +86,6 @@ public class AboutUsFragment extends Fragment implements AboutUsInterface{
         mListener = null;
     }
 
-    @Override
-    public void setData(List<AboutUsData> aboutUsDataList) {
-    //    recyclerAdapter.setData(aboutUsDataList);
-        recyclerAdapter.notifyDataSetChanged();
-    }
-
-    @Override
-    public void showMessage(String message) {
-
-    }
-
-    @Override
-    public void ShowProgressBar(boolean show) {
-
-
-    }
-
-    public void go_to_vision(){
-
-    }
-    public void go_to_contact_us(){
-
-    }
-    public void go_to_past_work(){
-
-    }
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated

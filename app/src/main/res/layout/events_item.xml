@@ -1,42 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="#FFFFFF">
 
-    <ImageView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:id="@+id/eventImage"
-        android:src="@drawable/login_ecell"
+        android:layout_height="match_parent">
 
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/eventTitle"
-        android:text="Wallstreet"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:padding="8dp"
-        android:layout_centerHorizontal="true"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="270sp"
-        android:id="@+id/eventBody"
-        android:textSize="25sp"
-        android:padding="8dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/eventTitle"
-        android:text="Event Body"/>
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:id="@+id/swipe_blog"
-        android:layout_below="@id/eventBody"
-        android:src="@drawable/down"
-        android:tint="@color/dak_grey"
-    />
+        <ImageView
+            android:id="@+id/eventImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+             />
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true">
+
+            <TextView
+                android:id="@+id/eventTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="220dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
+                android:padding="8dp"
+                android:text="Wallstreet"
+                android:textColor="@color/black"
+                android:textSize="45dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/eventBody"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:text="Event Body"
+                android:textSize="22dp"
+                android:layout_marginTop="54dp"
+                android:layout_alignTop="@+id/eventTitle"
+                android:layout_alignLeft="@+id/eventTitle"
+                android:layout_alignStart="@+id/eventTitle"
+                android:layout_marginLeft="14dp"
+                android:layout_marginStart="14dp" />
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:id="@+id/locImage"
+                android:src="@drawable/location_icon"
+                android:layout_below="@+id/eventBody"
+                android:layout_alignLeft="@+id/eventBody"
+                android:layout_alignStart="@+id/eventBody" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/eventLocaion"
+                android:text="location of event"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:layout_marginLeft="8dp"
+                android:layout_alignBottom="@+id/locImage"
+                android:layout_toRightOf="@+id/locImage"
+                android:layout_toEndOf="@+id/locImage" />
+
+            <Button
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_eventDetails"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/button_rounded_corner_event"
+                android:layout_above="@+id/swipe_blog"
+                android:layout_centerHorizontal="true"
+                android:text="Know More"
+                android:textColor="@color/white"/>
+
+            <ImageView
+                android:id="@+id/swipe_blog"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_marginBottom="29dp"
+                android:src="@drawable/down"
+                android:tint="@color/dak_grey"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+        </RelativeLayout>
+    </RelativeLayout>
 
 </LinearLayout>
