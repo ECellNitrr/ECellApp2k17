@@ -55,7 +55,7 @@ public class VerticlePagerAdapter extends PagerAdapter {
         TextView owner=(TextView)itemView.findViewById(R.id.blog_owner);
         TextView date=(TextView)itemView.findViewById(R.id.blog_date);
         TextView body=(TextView)itemView.findViewById(R.id.blog_body);
-        ImageView blogImage= (ImageView) itemView.findViewById(R.id.blogImage);
+        ImageView blogImage= (ImageView) itemView.findViewById(R.id.blog_image);
 //        ImageView swipe_bottom=(ImageView)itemView.findViewById(R.id.swipe_blog);
 
 //        if(position==blogDataList.size()-1)

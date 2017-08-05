@@ -1,18 +1,18 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context="com.example.iket.ecellapp2k17.about_us.view.AboutUsFragment">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.example.iket.ecellapp2k17.about_us.view.AboutUsFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="blig"
-        />
+
 
     <com.example.iket.ecellapp2k17.helper.VerticalViewPager
         android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:id="@+id/about_us_viewPager"/>
+        android:id="@+id/about_us_viewPager">
+
+
+        </com.example.iket.ecellapp2k17.helper.VerticalViewPager>
 
 </FrameLayout>

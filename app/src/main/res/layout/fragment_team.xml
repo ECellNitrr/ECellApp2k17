@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80sp"
+        android:orientation="horizontal"
+        android:background="#ffffff"
+        android:weightSum="4">
+        <ImageView
+            android:id="@+id/vision_img"
+            android:layout_width="80dip"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:onClick="go_to_vision"
+            android:layout_weight="1"
+            android:elevation="10dp"/>
+        <ImageView
+            android:id="@+id/team_img"
+            android:layout_width="80sp"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:onClick="go_to_team"
+            android:layout_weight="1"
+            android:elevation="10dp"/>
+        <ImageView
+            android:id="@+id/past_work_img"
+            android:layout_width="80sp"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:onClick="go_to_past_work"
+            android:layout_weight="1"
+            android:elevation="10dp"/>
+        <ImageView
+            android:id="@+id/contact_us_img"
+            android:layout_width="80sp"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:onClick="go_to_contact_us"
+            android:layout_weight="1"
+            android:elevation="10dp"/>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view_team"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
+
+    </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>
