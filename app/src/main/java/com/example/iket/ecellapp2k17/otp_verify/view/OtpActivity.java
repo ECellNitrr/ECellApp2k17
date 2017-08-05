@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.helper.Keys;
 import com.example.iket.ecellapp2k17.helper.SharedPrefs;
@@ -22,6 +23,14 @@ import com.example.iket.ecellapp2k17.otp_verify.model.OtpData;
 import com.example.iket.ecellapp2k17.otp_verify.presenter.OtpVerifyPresenter;
 import com.example.iket.ecellapp2k17.otp_verify.presenter.OtpVerifyPresenterImp;
 import com.example.iket.ecellapp2k17.otp_verify.provider.RetrofitOtpVerifyHelper;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+import static com.example.iket.ecellapp2k17.R.id.e_cell_logo;
+import static com.example.iket.ecellapp2k17.R.id.login_background;
+import static com.example.iket.ecellapp2k17.R.id.mobile_img;
+import static com.example.iket.ecellapp2k17.R.id.otp_img;
 
 public class OtpActivity extends AppCompatActivity implements OtpView{
 
@@ -36,10 +45,24 @@ public class OtpActivity extends AppCompatActivity implements OtpView{
     private OtpVerifyPresenter otpVerifyPresenter;
     private SharedPrefs sharedPrefs;
 
+    @BindView(login_background)
+    ImageView lb;
+    @BindView(mobile_img)
+    ImageView mi;
+    @BindView(otp_img)
+    ImageView oi;
+    @BindView(e_cell_logo)
+    ImageView ecl;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fb_login);
+        ButterKnife.bind(this);
+        Glide.with(this).load(R.drawable.login_bg).into(lb);
+        Glide.with(this).load(R.drawable.user_black).into(mi);
+        Glide.with(this).load(R.drawable.password_black).into(oi);
+        Glide.with(this).load(R.drawable.ecell_logo).into(ecl);
 
         if (getIntent() != null) {
             Bundle bundle = getIntent().getExtras();

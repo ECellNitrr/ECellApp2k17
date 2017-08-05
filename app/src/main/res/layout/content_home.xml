@@ -30,14 +30,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="9"
+            android:background="@color/black"
             android:id="@+id/tabLayout"
-            app:tabMode="fixed"
-            app:tabGravity="fill"
-            android:elevation="6dp">
-
+            app:tabMode="scrollable"
+            app:tabGravity="center"
+            android:elevation="2dp">
         </android.support.design.widget.TabLayout>
-
-
-
-
 </LinearLayout>

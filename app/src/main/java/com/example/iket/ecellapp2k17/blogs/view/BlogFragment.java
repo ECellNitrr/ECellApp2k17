@@ -169,6 +169,9 @@ public class BlogFragment extends Fragment implements BlogsInterface {
         void onFragmentInteraction(Uri uri);
     }
 
+    public void open_blog(View view){
+
+    }
 
    public void addFragment(Fragment fragment, String title, int data) {
         if (fragment != null) {

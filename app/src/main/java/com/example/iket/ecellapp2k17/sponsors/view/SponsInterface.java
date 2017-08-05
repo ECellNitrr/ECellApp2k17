@@ -1,5 +1,8 @@
 package com.example.iket.ecellapp2k17.sponsors.view;
 
+import com.example.iket.ecellapp2k17.sponsors.model.data.ResponseSpons;
+import com.example.iket.ecellapp2k17.sponsors.model.data.SponsData;
+
 import java.util.List;
 
 /**
@@ -9,5 +12,5 @@ import java.util.List;
 public interface SponsInterface {
     void showLoading(boolean show);
     void showMessage(String message);
-    void setData(List<SponsData> sponsDataList);
+    void setData(List<ResponseSpons> sponsDataList);
 }

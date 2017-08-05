@@ -1,7 +1,9 @@
 package com.example.iket.ecellapp2k17.sponsors.api;
 
 import com.example.iket.ecellapp2k17.helper.Urls;
-import com.example.iket.ecellapp2k17.sponsors.view.ResponseSpons;
+import com.example.iket.ecellapp2k17.sponsors.model.data.ResponseSpons;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -12,5 +14,5 @@ import retrofit2.http.GET;
 
 public interface RequestApiSpons {
     @GET(Urls.REQUEST_SPONS)
-    Call<ResponseSpons> getSpons();
+    Call <List<ResponseSpons>> getSpons();
 }

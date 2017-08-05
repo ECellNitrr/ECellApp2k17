@@ -14,5 +14,4 @@ public interface AboutUsRequestAPI {
     @GET(Urls.REQUEST_ABOUTUS)
     Call<AboutUsData> getData();
 
-
 }

@@ -68,19 +68,19 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
                 switch (position)
                 {
                     case 0:
-                        ((Home)context).setFragment(new ProfileFragment(),"Profile",1);
+                        ((Home)context).setFragment(new ProfileFragment());
                         break;
                     case 1:
-                        ((Home)context).setFragment(new EventsFragment(),"Events",2);
+                        ((Home)context).setFragment(new EventsFragment());
                         break;
                     case 2:
-                        ((Home)context).setFragment(new BlogFragment(),"Blogs",3);
+                        ((Home)context).setFragment(new BlogFragment());
                         break;
                     case 3:
-                        ((Home)context).setFragment(new SponsFragment(),"Sponsors",4);
+                        ((Home)context).setFragment(new SponsFragment());
                         break;
                     case 4:
-                        ((Home)context).setFragment(new AboutUsFragment(),"AboutUs",5);
+                        ((Home)context).setFragment(new AboutUsFragment());
                         break;
                     case 5:
                         Intent bquiz=new Intent(context, BQuizActivity.class);

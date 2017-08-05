@@ -9,7 +9,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.about_us.model.MockAboutUs;
 import com.example.iket.ecellapp2k17.about_us.model.data.AboutUsData;
@@ -18,6 +20,10 @@ import com.example.iket.ecellapp2k17.about_us.presenter.AboutUsPresenterImpl;
 import com.example.iket.ecellapp2k17.helper.VerticalViewPager;
 
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -37,8 +43,20 @@ public class AboutUsFragment extends Fragment implements AboutUsInterface{
     private String mParam1;
     private String mParam2;
 
+    @BindView(R.id.vision_img)
+    ImageView vision_chip;
+
+    @BindView(R.id.contact_us_img)
+    ImageView contact_us_chip;
+
+    @BindView(R.id.team_img)
+    ImageView team_chip;
+
+    @BindView(R.id.past_work_img)
+    ImageView past_work_chip;
+
     RecyclerView recyclerView;
-    private RecyclerView.Adapter recyclerAdapter;
+//    private RecyclerAdapter recyclerAdapter;
     private RecyclerView.LayoutManager layoutManager;
 
     AboutUsPresenter aboutUsPresenter;
@@ -79,22 +97,27 @@ public class AboutUsFragment extends Fragment implements AboutUsInterface{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-       View view = inflater.inflate(R.layout.fragment_about_us, container, false);
-        recyclerView=(RecyclerView) view.findViewById(R.id.recycler_view_team);
+        View view = inflater.inflate(R.layout.fragment_events, container, false);
+//        recyclerView=(RecyclerView) view.findViewById(R.id.recycler_view_team);
 
-        recyclerView.setHasFixedSize(true);
+//        recyclerView.setHasFixedSize(true);
 
         layoutManager = new LinearLayoutManager(getContext());
-        recyclerView.setLayoutManager(layoutManager);
+//        recyclerView.setLayoutManager(layoutManager);
 
-        recyclerAdapter=new RecyclerAdapter(getContext());
-        recyclerView.setAdapter(recyclerAdapter);
+//        recyclerAdapter=new RecyclerAdapter(getContext());
+//        recyclerView.setAdapter(recyclerAdapter);
 
-        // blogsPresenter=new BlogsPresenterImpl(new RetrofitBlogsProvider(),this);
+//        ButterKnife.bind(this,view);
+//        Glide.with(getContext()).load(R.drawable.vision).bitmapTransform(new CropCircleTransformation(getContext())).into(vision_chip);
+//        Glide.with(getContext()).load(R.drawable.contact_us).bitmapTransform(new CropCircleTransformation(getContext())).into(contact_us_chip);
+//        Glide.with(getContext()).load(R.drawable.past_work).bitmapTransform(new CropCircleTransformation(getContext())).into(past_work_chip);
+//        Glide.with(getContext()).load(R.drawable.team).bitmapTransform(new CropCircleTransformation(getContext())).into(team_chip);
+//        // blogsPresenter=new BlogsPresenterImpl(new RetrofitBlogsProvider(),this);
 
         aboutUsPresenter =new AboutUsPresenterImpl(new MockAboutUs(),this);
-        aboutUsPresenter.requestData();
-       return view;
+//        aboutUsPresenter.requestData();
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -117,8 +140,8 @@ public class AboutUsFragment extends Fragment implements AboutUsInterface{
 
     @Override
     public void setData(List<AboutUsData> aboutUsDataList) {
-    //    recyclerAdapter.setData(aboutUsDataList);
-        recyclerAdapter.notifyDataSetChanged();
+//        recyclerAdapter.setData(aboutUsDataList);
+//        recyclerAdapter.notifyDataSetChanged();
     }
 
     @Override

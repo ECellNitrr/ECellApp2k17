@@ -4,31 +4,29 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 
-import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.sponsors.model.MockSpons;
-import com.example.iket.ecellapp2k17.sponsors.model.RetrofitSponsProvider;
+import com.example.iket.ecellapp2k17.sponsors.model.data.ResponseSpons;
+import com.example.iket.ecellapp2k17.sponsors.model.data.SponsData;
 import com.example.iket.ecellapp2k17.sponsors.presenter.SponsPresenter;
 import com.example.iket.ecellapp2k17.sponsors.presenter.SponsPresenterImpl;
+import com.example.iket.ecellapp2k17.sponsors.view.viewholder.HeaderViewHolder;
+import com.example.iket.ecellapp2k17.sponsors.view.viewholder.SponsItemViewholder;
 
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
+import io.github.luizgrp.sectionedrecyclerviewadapter.SectionParameters;
+import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapter;
+import io.github.luizgrp.sectionedrecyclerviewadapter.StatelessSection;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -47,13 +45,11 @@ public class SponsFragment extends Fragment implements SponsInterface {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    RecyclerView recyclerView,gridRecycler;
+    RecyclerView recyclerView;
     ProgressBar progressBar;
 
     private SponsPresenter sponsPresenter;
-    private SponsAdapter adapter;
-    private LinearLayoutManager linearLayoutManager;
-    private GridLayoutManager lLayout;
+    private SectionedRecyclerViewAdapter sectionAdapter;
     private OnFragmentInteractionListener mListener;
     public SponsFragment() {
         // Required empty public constructor
@@ -92,20 +88,25 @@ public class SponsFragment extends Fragment implements SponsInterface {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_spons, container, false);
         recyclerView=(RecyclerView) view.findViewById(R.id.recycler_view_spons);
-        gridRecycler=(RecyclerView)view.findViewById(R.id.grid_recycler_view_spons);
-
         progressBar= (ProgressBar) view.findViewById(R.id.progressBar_spons);
 
         sponsPresenter=new SponsPresenterImpl(this,new MockSpons());
-        adapter = new SponsAdapter(getContext());
-        lLayout=new GridLayoutManager(getContext(),2);
 
-        linearLayoutManager=new LinearLayoutManager(getContext());
-
-        gridRecycler.setLayoutManager(lLayout);
-        recyclerView.setLayoutManager(linearLayoutManager);
-//        recyclerView.setAdapter(adapter);
-        gridRecycler.setAdapter(adapter);
+        sectionAdapter = new SectionedRecyclerViewAdapter();
+        GridLayoutManager glm = new GridLayoutManager(getContext(), 2);
+        glm.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                switch(sectionAdapter.getSectionItemViewType(position)) {
+                    case SectionedRecyclerViewAdapter.VIEW_TYPE_HEADER:
+                        return 2;
+                    default:
+                        return 1;
+                }
+            }
+        });
+        recyclerView.setLayoutManager(glm);
+        recyclerView.setAdapter(sectionAdapter);
         sponsPresenter.requestSpons();
         return view;
     }
@@ -129,16 +130,6 @@ public class SponsFragment extends Fragment implements SponsInterface {
         mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
@@ -159,8 +150,70 @@ public class SponsFragment extends Fragment implements SponsInterface {
     }
 
     @Override
-    public void setData(List<SponsData> sponsDataList) {
-        adapter.setData(sponsDataList);
-        adapter.notifyDataSetChanged();
+    public void setData(List<ResponseSpons> sponsDataList) {
+        for(int i=0;i<sponsDataList.size();i++)
+            sectionAdapter.addSection(new SponsSection(sponsDataList.get(i).getSection_name(),sponsDataList.get(i).getSpons()));
+        sectionAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+
+
+    private class SponsSection extends StatelessSection {
+        String title;
+        List<SponsData> list;
+
+        SponsSection(String title, List<SponsData> list) {
+            super(new SectionParameters.Builder(R.layout.spons_item)
+                    .headerResourceId(R.layout.section_spons)
+                    .build());
+
+            this.title = title;
+            this.list = list;
+        }
+
+        @Override
+        public int getContentItemsTotal() {
+            return list.size();
+        }
+
+        @Override
+        public RecyclerView.ViewHolder getItemViewHolder(View view) {
+            return new SponsItemViewholder(view);
+        }
+
+        @Override
+        public void onBindItemViewHolder(RecyclerView.ViewHolder holder, final int position) {
+            final SponsItemViewholder itemHolder = (SponsItemViewholder) holder;
+
+            String name = list.get(position).getSponsName();
+
+            itemHolder.spons_name.setText(name);
+
+            itemHolder.rootView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(getContext(), String.format("Clicked on position #%s of Section %s",
+                            sectionAdapter.getPositionInSection(itemHolder.getAdapterPosition()), title),
+                            Toast.LENGTH_SHORT).show();
+//                    new SponsEndPage_Fragment().setData(list.get(position));
+                }
+            });
+        }
+
+        @Override
+        public RecyclerView.ViewHolder getHeaderViewHolder(View view) {
+            return new HeaderViewHolder(view);
+        }
+
+        @Override
+        public void onBindHeaderViewHolder(RecyclerView.ViewHolder holder) {
+            HeaderViewHolder headerHolder = (HeaderViewHolder) holder;
+            headerHolder.sponsTitle.setText(title);
+        }
     }
 }

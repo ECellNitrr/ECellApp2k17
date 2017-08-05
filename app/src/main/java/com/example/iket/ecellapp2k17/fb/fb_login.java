@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.content.Intent;
 import android.util.Base64;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -43,7 +44,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
+import static com.example.iket.ecellapp2k17.R.id.e_cell_logo;
 import static com.example.iket.ecellapp2k17.R.id.linearLayout;
+import static com.example.iket.ecellapp2k17.R.id.login_background;
+import static com.example.iket.ecellapp2k17.R.id.mobile_img;
+import static com.example.iket.ecellapp2k17.R.id.otp_img;
+import static com.example.iket.ecellapp2k17.helper.MyApplication.getContext;
 
 public class fb_login extends AppCompatActivity {
 
@@ -53,17 +59,18 @@ public class fb_login extends AppCompatActivity {
     ProfilePictureView profile_pic;
     //String userName;
     private SharedPrefs sharedPrefs;
-    @BindView(linearLayout)
-    LinearLayout ll;
-
+    @BindView(login_background)
+    ImageView lb;
+    @BindView(mobile_img)
+    ImageView mi;
+    @BindView(otp_img)
+    ImageView oi;
+    @BindView(e_cell_logo)
+    ImageView ecl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        ButterKnife.bind(this);
-
-        ll.setBackgroundResource(R.drawable.login_bg);
 
         try {
             PackageInfo info = getPackageManager().getPackageInfo(
@@ -84,7 +91,11 @@ public class fb_login extends AppCompatActivity {
         FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_fb_login);
 
-
+        ButterKnife.bind(this);
+        Glide.with(this).load(R.drawable.login_bg).fitCenter().into(lb);
+        Glide.with(this).load(R.drawable.user_black).fitCenter().into(mi);
+        Glide.with(this).load(R.drawable.password_black).fitCenter().into(oi);
+        Glide.with(this).load(R.drawable.ecell_logo).fitCenter().into(ecl);
 
         sharedPrefs = new SharedPrefs(this);
         loginButton = (LoginButton) findViewById(R.id.login_button);
