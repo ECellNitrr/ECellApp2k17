@@ -3,8 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:clickable="true"
-    android:onClick="open_blog"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <android.support.v7.widget.CardView
@@ -15,13 +13,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#"
+            android:background="#e4e4e4"
             android:orientation="vertical">
             
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="280sp"
+                android:layout_height="260sp"
                 android:scaleType="fitXY"
+                android:layout_gravity="center"
                 android:id="@+id/blog_image"/>
 
             <TextView
