@@ -60,7 +60,7 @@ public class VerticlePagerAdapter extends PagerAdapter {
 
 //        if(position==blogDataList.size()-1)
 //            swipe_bottom.setVisibility(View.INVISIBLE);
-        Glide.with(mContext).load(data.getBlogImage()).bitmapTransform(new RoundedCornersTransformation( mContext,20,0)).into(blogImage);
+        Glide.with(mContext).load(data.getBlogImage()).into(blogImage);
         title.setText(data.getBlogTitle());
         owner.setText(data.getBlogOwner());
         date.setText(data.getBlogDate());
