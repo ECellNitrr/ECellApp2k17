@@ -3,13 +3,14 @@ package com.example.iket.ecellapp2k17.profile.view;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 //import android.support.v4.app.FragmentStatePagerAdapter;
 
 /**
  * Created by samveg on 1/7/17.
  */
 
-public class TabsPagerAdapter extends FragmentPagerAdapter {
+public class TabsPagerAdapter extends FragmentStatePagerAdapter {
 
     //integer to count number of tabs
     final int TAB_COUNT = 2;
@@ -24,12 +25,13 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
 //Returning the current tabs
         switch (position) {
             case 0:
-                return new ProfileTab();
+//                return new ProfileTab();
             case 1:
-                return new SettingsTab();
+//                return new SettingsTab();
             default:
-                return new ProfileTab();
+//                return new ProfileTab();
         }
+        return new ProfileFragment();
     }
 
     @Override

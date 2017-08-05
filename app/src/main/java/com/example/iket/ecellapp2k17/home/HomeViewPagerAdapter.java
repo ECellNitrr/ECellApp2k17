@@ -19,7 +19,6 @@ public class HomeViewPagerAdapter extends FragmentPagerAdapter {
     }
 
     private final List<Fragment> mFragmentList = new ArrayList<>();
-    private final List<String> mFragmentTitleList = new ArrayList<>();
 
     @Override
     public Fragment getItem(int position) {
@@ -28,21 +27,12 @@ public class HomeViewPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return mFragmentList.size();
-    }
-
-    @Override
-    public CharSequence getPageTitle(int position) {
-        //return mFragmentTitleList.get(position);
-        return null;
+        return 0;
     }
 
 
-    public void addFrag(Fragment fragment, String title) {
+    public void addFrag(Fragment fragment) {
         mFragmentList.add(fragment);
-        mFragmentTitleList.add(title);
     }
-
-
  }
 
