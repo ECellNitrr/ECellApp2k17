@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static android.R.attr.data;
+import static com.example.iket.ecellapp2k17.R.id.vision_body;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -78,16 +79,15 @@ public class VisionFragment extends Fragment implements AboutUsInterface{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-//        View view = inflater.inflate(R.layout.fragment_vision, container, false);
-//        vision_Body = (TextView) view.findViewById(vision_body);
+        View view = inflater.inflate(R.layout.fragment_vision, container, false);
+        vision_Body = (TextView) view.findViewById(vision_body);
 
         aboutUsPresenter =new AboutUsPresenterImpl(new MockAboutUs(),this);
         aboutUsPresenter.requestData();
 
         AboutUsData listData =  data.get(5);
-//        vision_Body.setText(listData.getVisionBody());
-//        return view;
-        return null;
+        vision_Body.setText(listData.getVisionBody());
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

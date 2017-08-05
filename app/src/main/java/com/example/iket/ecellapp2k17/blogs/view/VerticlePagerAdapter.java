@@ -25,7 +25,6 @@ import java.util.List;
 
 public class VerticlePagerAdapter extends PagerAdapter {
 
-    String mResources[] = {"Hello page 1","Hello page 2"};
 
     private List<BlogData> blogDataList = new ArrayList<>();
     Context mContext;
@@ -64,11 +63,8 @@ public class VerticlePagerAdapter extends PagerAdapter {
         TextView date=(TextView)itemView.findViewById(R.id.blog_date);
         TextView body=(TextView)itemView.findViewById(R.id.blog_body);
         ImageView blogImage= (ImageView) itemView.findViewById(R.id.blog_image);
-//        ImageView swipe_bottom=(ImageView)itemView.findViewById(R.id.swipe_blog);
 
-//        if(position==blogDataList.size()-1)
-//            swipe_bottom.setVisibility(View.INVISIBLE);
-        Glide.with(mContext).load(data.getBlogImage()).bitmapTransform(new RoundedCornersTransformation( mContext,20,0)).into(blogImage);
+        Glide.with(mContext).load(data.getBlogImage()).into(blogImage);
         title.setText(data.getBlogTitle());
         owner.setText(data.getBlogOwner());
         date.setText(data.getBlogDate());

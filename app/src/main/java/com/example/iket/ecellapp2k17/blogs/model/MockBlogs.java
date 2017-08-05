@@ -21,6 +21,9 @@ public class MockBlogs implements BlogsProvider{
         dataList.add(data);
         dataList.add(data);
         dataList.add(data);
+        dataList.add(data);
+        dataList.add(data);
+        dataList.add(data);
         onBlogsReceived.onSuccess(dataList);
     }
 }

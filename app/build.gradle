@@ -31,7 +31,10 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
-    
+
+    //compile group: 'com.jakewharton', name: 'butterknife', version: '7.0.1'
+
+
 
 
 

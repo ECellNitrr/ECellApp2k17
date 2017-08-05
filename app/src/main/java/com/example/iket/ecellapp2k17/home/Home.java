@@ -35,7 +35,7 @@ public class Home extends AppCompatActivity{
 
     private HomeViewPagerAdapter homeViewPagerAdapter;
     private Context context;
-    private int[] tabIcons = {R.drawable.profile_icon_white,R.drawable.events_icon_white,R.drawable.blogs_icon_white,R.drawable.sponsors_icon_white,R.drawable.about_us_white,R.drawable.about_us_white,R.drawable.about_us_white};
+    private int[] tabIcons = {R.drawable.esummit,R.drawable.events_icon_white,R.drawable.blogs_icon_white,R.drawable.sponsors_icon_white,R.drawable.about_us_white,R.drawable.about_us_white,R.drawable.profile_icon_white,};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
