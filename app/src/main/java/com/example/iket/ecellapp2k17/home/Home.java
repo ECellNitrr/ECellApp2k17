@@ -18,6 +18,7 @@ import com.example.iket.ecellapp2k17.BQuizNew.view.BQuizActivity;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.about_us.view.AboutUsFragment;
 import com.example.iket.ecellapp2k17.blogs.view.BlogFragment;
+import com.example.iket.ecellapp2k17.esummit.EsummitFragment;
 import com.example.iket.ecellapp2k17.events.view.EventsFragment;
 import com.example.iket.ecellapp2k17.profile.view.ProfileFragment;
 import com.example.iket.ecellapp2k17.sponsors.view.SponsFragment;
@@ -52,7 +53,7 @@ public class Home extends AppCompatActivity{
                 switch (i)
                 {
                     case 0:
-                        setFragment(new ProfileFragment());
+                        setFragment(new EsummitFragment());
                         break;
                     case 1:
                         setFragment(new EventsFragment());
