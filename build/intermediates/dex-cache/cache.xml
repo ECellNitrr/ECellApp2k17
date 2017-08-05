@@ -3,12 +3,21 @@
 
     <item
         is-multidex="false"
+<<<<<<< HEAD
         jar="/home/iket/.android/build-cache/e14140d3f831f4ea942139ee7f07663d60bc156e/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="d5cbc9214ee567ea6ef56fb2707d48e58d240fc2">
         <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_65cc055d4a09d0a2cf7884921efd547e313f6d33.jar" />
+=======
+        jar="/home/samveg/.android/build-cache/e66fd2959840ed6c1f4ef0be751d53ba6226e797/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8caaa885c5f74a2555333b2f770b56c1a8d9aa87">
+        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_3df0c3bfef5f1aacd3e120ea079ea80930a1fb17.jar" />
+>>>>>>> f426afd3a5511f5ad9ae06278cde9a89f1d91522
     </item>
 
 </items>
