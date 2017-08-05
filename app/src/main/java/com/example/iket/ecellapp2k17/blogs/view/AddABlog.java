@@ -1,5 +1,6 @@
 package com.example.iket.ecellapp2k17.blogs.view;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -38,7 +39,7 @@ import static android.app.Activity.RESULT_OK;
  * Use the {@link AddABlog#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AddABlog extends BottomSheetDialogFragment implements AddABlogView{
+public class AddABlog extends android.support.v4.app.DialogFragment implements AddABlogView{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -81,8 +82,23 @@ public class AddABlog extends BottomSheetDialogFragment implements AddABlogView{
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+
+        Dialog d = getDialog();
+        if (d != null) {
+            int width = ViewGroup.LayoutParams.MATCH_PARENT;
+            int height = ViewGroup.LayoutParams.MATCH_PARENT;
+            d.getWindow().setLayout(width, height);
+        }
+
+
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setStyle(DialogFragment.STYLE_NORMAL, R.style.dialog_theme);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);

@@ -82,6 +82,8 @@ public class EventsFragment extends Fragment implements EventsInterface {
         View view= inflater.inflate(R.layout.fragment_events, container, false);
         progressBar=(ProgressBar)view.findViewById(R.id.events_progressbar);
         dotsLayout=(LinearLayout)view.findViewById(R.id.events_dots);
+
+
         verticlePagerAdapter=new VerticlePagerAdapter(getContext());
         verticalViewPager=(VerticalViewPager)view.findViewById(R.id.events_viewPager);
         verticalViewPager.setAdapter(verticlePagerAdapter);
