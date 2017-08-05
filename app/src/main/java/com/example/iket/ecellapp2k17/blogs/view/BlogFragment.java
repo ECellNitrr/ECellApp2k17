@@ -94,15 +94,10 @@ public class BlogFragment extends Fragment implements BlogsInterface {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_blog, container, false);
         final BottomSheetDialogFragment bottomSheetDialogFragment =  AddABlog.newInstance("","");
-
-      //  navigationView = (NavigationView) view.findViewById(R.id.nav_view);
         fab = (FloatingActionButton)view.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //addFragment(new AddABlog(),"Add A Blog",16);
-                //AddABlog addABlog = new AddABlog();
-                //addABlog.show(fm,"Add A Blog");
                 bottomSheetDialogFragment.show(getChildFragmentManager(),bottomSheetDialogFragment.getTag());
 
             }
@@ -171,17 +166,6 @@ public class BlogFragment extends Fragment implements BlogsInterface {
 
     public void open_blog(View view){
 
-    }
-
-   public void addFragment(Fragment fragment, String title, int data) {
-        if (fragment != null) {
-            FragmentManager fragmentManager = getFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.container_fragment, fragment);
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commit();
-
-        }
     }
 
 }
