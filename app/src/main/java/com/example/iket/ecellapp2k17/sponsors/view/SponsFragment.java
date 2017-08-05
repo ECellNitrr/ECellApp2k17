@@ -13,6 +13,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 
+import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.sponsors.model.MockSpons;
 import com.example.iket.ecellapp2k17.sponsors.model.data.ResponseSpons;
@@ -89,9 +90,7 @@ public class SponsFragment extends Fragment implements SponsInterface {
         View view= inflater.inflate(R.layout.fragment_spons, container, false);
         recyclerView=(RecyclerView) view.findViewById(R.id.recycler_view_spons);
         progressBar= (ProgressBar) view.findViewById(R.id.progressBar_spons);
-
         sponsPresenter=new SponsPresenterImpl(this,new MockSpons());
-
         sectionAdapter = new SectionedRecyclerViewAdapter();
         GridLayoutManager glm = new GridLayoutManager(getContext(), 2);
         glm.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
@@ -191,9 +190,9 @@ public class SponsFragment extends Fragment implements SponsInterface {
             final SponsItemViewholder itemHolder = (SponsItemViewholder) holder;
 
             String name = list.get(position).getSponsName();
-
+            String image=list.get(position).getImage1();
             itemHolder.spons_name.setText(name);
-
+            Glide.with(getContext()).load(list.get(position).getImage1()).into(itemHolder.imageView);
             itemHolder.rootView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

@@ -18,6 +18,7 @@ import com.example.iket.ecellapp2k17.BQuizNew.view.BQuizActivity;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.about_us.view.AboutUsFragment;
 import com.example.iket.ecellapp2k17.blogs.view.BlogFragment;
+import com.example.iket.ecellapp2k17.esummit.EsummitFragment;
 import com.example.iket.ecellapp2k17.events.view.EventsFragment;
 import com.example.iket.ecellapp2k17.profile.view.ProfileFragment;
 import com.example.iket.ecellapp2k17.sponsors.view.SponsFragment;
@@ -33,8 +34,6 @@ public class Home extends AppCompatActivity{
     @BindView(R.id.tabLayout)
     TabLayout tabLayout;
 
-    private HomeViewPagerAdapter homeViewPagerAdapter;
-    private Context context;
     private int[] tabIcons = {R.drawable.esummit,R.drawable.events_icon_white,R.drawable.blogs_icon_white,R.drawable.sponsors_icon_white,R.drawable.about_us_white,R.drawable.about_us_white,R.drawable.profile_icon_white,};
 
     @Override
@@ -52,7 +51,7 @@ public class Home extends AppCompatActivity{
                 switch (i)
                 {
                     case 0:
-                        setFragment(new ProfileFragment());
+                        setFragment(new EsummitFragment());
                         break;
                     case 1:
                         setFragment(new EventsFragment());
@@ -64,15 +63,14 @@ public class Home extends AppCompatActivity{
                         setFragment(new SponsFragment());
                         break;
                     case 4:
-                        setFragment(new AboutUsFragment());
-                        break;
-                    case 5:
                         Intent bquiz=new Intent(Home.this, BQuizActivity.class);
                         startActivity(bquiz);
-                    default:
-                        setFragment(new BlogFragment());
+                    case 5:
+                        setFragment(new AboutUsFragment());
                         break;
-
+                    case 6:
+                        setFragment(new ProfileFragment());
+                        break;
                 }
             }
 
@@ -112,7 +110,7 @@ public class Home extends AppCompatActivity{
         }
     }
 
-    public void addFragment(Fragment fragment) {
+    public void addFragment(Fragment fragment, String s, int i) {
         if (fragment != null) {
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
