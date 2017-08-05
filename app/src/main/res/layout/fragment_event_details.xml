@@ -4,10 +4,21 @@
     android:layout_height="match_parent"
     tools:context="com.example.iket.ecellapp2k17.events.view.EventDetailsFragment">
 
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <Button
+        android:id="@+id/register"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:background="@drawable/button_rounded_corner_event"
+        android:textColor="@color/white"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="83dp" />
+</RelativeLayout>
+
 
 </LinearLayout>

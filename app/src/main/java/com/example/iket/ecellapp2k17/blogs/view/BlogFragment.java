@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
@@ -93,7 +95,6 @@ public class BlogFragment extends Fragment implements BlogsInterface {
 
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_blog, container, false);
-        final BottomSheetDialogFragment bottomSheetDialogFragment =  AddABlog.newInstance("","");
 
       //  navigationView = (NavigationView) view.findViewById(R.id.nav_view);
         fab = (FloatingActionButton)view.findViewById(R.id.fab);
@@ -103,7 +104,9 @@ public class BlogFragment extends Fragment implements BlogsInterface {
                 //addFragment(new AddABlog(),"Add A Blog",16);
                 //AddABlog addABlog = new AddABlog();
                 //addABlog.show(fm,"Add A Blog");
-                bottomSheetDialogFragment.show(getChildFragmentManager(),bottomSheetDialogFragment.getTag());
+                FragmentManager fm = getFragmentManager();
+                AddABlog addABlog = new AddABlog();
+                addABlog.show(fm,"Add A Blog");
 
             }
         });

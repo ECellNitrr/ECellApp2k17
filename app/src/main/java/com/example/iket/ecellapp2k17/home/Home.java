@@ -112,7 +112,7 @@ public class Home extends AppCompatActivity{
         }
     }
 
-    public void addFragment(Fragment fragment) {
+    public void addFragment(Fragment fragment, String s, int i) {
         if (fragment != null) {
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
