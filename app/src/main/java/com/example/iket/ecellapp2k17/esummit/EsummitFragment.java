@@ -76,10 +76,12 @@ public class EsummitFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_esummit, container, false);
         ButterKnife.bind(this,view);
         Glide.with(this).load(R.drawable.esummit).into(esummit_logo);
-        final TypeWriterTextView animationText = (TypeWriterTextView) view.findViewById(R.id.type_writer_text);
-        animationText.setText("");
-        animationText.setCharacterDelay(120);
-        animationText.displayTextWithAnimation("Trek To The Zenith Of Glory.");
+
+            final TypeWriterTextView animationText = (TypeWriterTextView) view.findViewById(R.id.type_writer_text);
+            animationText.setText("");
+            animationText.setCharacterDelay(120);
+            animationText.displayTextWithAnimation("A Trek To The Zenith Of Glory!");
+
         return view;
     }
 
