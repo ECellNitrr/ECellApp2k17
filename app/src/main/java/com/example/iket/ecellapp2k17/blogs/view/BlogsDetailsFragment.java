@@ -3,13 +3,23 @@ package com.example.iket.ecellapp2k17.blogs.view;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.iket.ecellapp2k17.R;
+
+import java.util.zip.Inflater;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,6 +40,11 @@ public class BlogsDetailsFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    LayoutInflater layoutInflater;
+
+    private String postUrl = "http://google.com/";
+    private WebView webView;
+    private ProgressBar progressBar;
 
     public BlogsDetailsFragment() {
         // Required empty public constructor
@@ -66,6 +81,19 @@ public class BlogsDetailsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View itemView = inflater.inflate(R.layout.activity_blogs_more, container, false);
+        webView = (WebView) itemView.findViewById(R.id.webView);
+        webView.setWebViewClient(new WebViewClient());
+        progressBar = (ProgressBar) itemView.findViewById(R.id.progressBar);
+
+        Toolbar toolbar = (Toolbar) itemView.findViewById(R.id.toolbar);
+        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        initCollapsingToolbar(itemView);
+
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.loadUrl(postUrl);
+        webView.setHorizontalScrollBarEnabled(false);
 
         return itemView;
     }
@@ -101,5 +129,34 @@ public class BlogsDetailsFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+
+    private void initCollapsingToolbar(View v) {
+        final CollapsingToolbarLayout collapsingToolbar = (CollapsingToolbarLayout) v.findViewById(R.id.collapsing_toolbar);
+        collapsingToolbar.setTitle(" ");
+        AppBarLayout appBarLayout = (AppBarLayout) v.findViewById(R.id.appbar);
+        appBarLayout.setExpanded(true);
+
+        // hiding & showing the txtPostTitle when toolbar expanded & collapsed
+        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            boolean isShow = false;
+            int scrollRange = -1;
+
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                if (scrollRange == -1) {
+                    scrollRange = appBarLayout.getTotalScrollRange();
+                }
+                if (scrollRange + verticalOffset == 0) {
+                    collapsingToolbar.setTitle("Web View");
+                    isShow = true;
+                } else if (isShow) {
+                    collapsingToolbar.setTitle(" ");
+                    isShow = false;
+                }
+            }
+        });
+
     }
 }

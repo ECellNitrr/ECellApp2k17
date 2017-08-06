@@ -7,8 +7,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
+import com.example.iket.ecellapp2k17.helper.TypeWriterTextView;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,6 +35,8 @@ public class EsummitFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    @BindView(R.id.esummit_img)
+    ImageView esummit_logo;
 
     public EsummitFragment() {
         // Required empty public constructor
@@ -65,7 +73,16 @@ public class EsummitFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_esummit, container, false);
+        View view = inflater.inflate(R.layout.fragment_esummit, container, false);
+        ButterKnife.bind(this,view);
+        Glide.with(this).load(R.drawable.esummit).into(esummit_logo);
+
+            final TypeWriterTextView animationText = (TypeWriterTextView) view.findViewById(R.id.type_writer_text);
+            animationText.setText("");
+            animationText.setCharacterDelay(120);
+            animationText.displayTextWithAnimation("A Trek To The Zenith Of Glory!");
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -78,12 +95,7 @@ public class EsummitFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
+
     }
 
     @Override

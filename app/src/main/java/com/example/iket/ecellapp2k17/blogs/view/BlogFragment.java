@@ -55,7 +55,7 @@ public class BlogFragment extends Fragment implements BlogsInterface {
     private OnFragmentInteractionListener mListener;
     private FragmentManager fm = getFragmentManager();
     private Context context;
-
+    private Home home;
     public BlogFragment() {
         // Required empty public constructor
     }
@@ -177,6 +177,9 @@ public class BlogFragment extends Fragment implements BlogsInterface {
     }
 
     public void open_blog(View view){
+
+        home = new Home();
+        home.setFragment(new BlogsDetailsFragment());
 
     }
 
