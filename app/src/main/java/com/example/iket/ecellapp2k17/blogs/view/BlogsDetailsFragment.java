@@ -30,7 +30,6 @@ public class BlogsDetailsFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
-    LayoutInflater layoutInflater;
 
     public BlogsDetailsFragment() {
         // Required empty public constructor
@@ -66,7 +65,7 @@ public class BlogsDetailsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View itemView = layoutInflater.inflate(R.layout.activity_blogs_more, container, false);
+        View itemView = inflater.inflate(R.layout.activity_blogs_more, container, false);
 
         return itemView;
     }

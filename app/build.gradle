@@ -32,7 +32,6 @@ dependencies {
     })
 
 
-    //compile group: 'com.jakewharton', name: 'butterknife', version: '7.0.1'
 
 
 
@@ -40,9 +39,7 @@ dependencies {
 
 
 
-    compile 'com.github.bumptech.glide:glide:3.7.0'
 
-    compile 'com.android.support:support-v4:25.3.1'
     
     
     
