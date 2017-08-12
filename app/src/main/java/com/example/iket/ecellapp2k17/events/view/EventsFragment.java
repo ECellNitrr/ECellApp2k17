@@ -89,6 +89,7 @@ public class EventsFragment extends Fragment implements EventsInterface {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_events, container, false);
+        Log.d("Events",mParam1+mParam2);
         progressBar=(ProgressBar)view.findViewById(R.id.events_progressbar);
         event_recyclerView = (RecyclerView) view.findViewById(R.id.event_recycler_view);
         event_recyclerView.setHasFixedSize(true);
@@ -127,25 +128,7 @@ public class EventsFragment extends Fragment implements EventsInterface {
         mListener = null;
 
     }
-/*
-    private void addBottomDots(int currentPage) {
-        dots = new TextView[4];
-        int[] colorsActive = getResources().getIntArray(R.array.array_dot_active);
-        int[] colorsInactive = getResources().getIntArray(R.array.array_dot_inactive);
-        dotsLayout.removeAllViews();
-        for (int i = 0; i < dots.length; i++) {
-            dots[i] = new TextView(getContext());
-            dots[i].setText(Html.fromHtml("&#8226;"));
-            dots[i].setTextSize(35);
-            dots[i].setTextColor(colorsInactive[currentPage]);
-            //    dots[i].setTextColor(Color.WHITE);
-            dotsLayout.addView(dots[i]);
-        }
-        if (dots.length > 0)
-            //          dots[currentPage].setTextColor(ContextCompat.getColor(this,R.color.white));
-            dots[currentPage].setTextColor(colorsActive[currentPage]);
-    }
-*/
+
     @Override
     public void SetData(List<EventsData> eventDataList) {
         eventsAdapter.setData(eventDataList);
