@@ -4,13 +4,26 @@ import android.app.Dialog;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.StyleRes;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
+import com.example.iket.ecellapp2k17.events.model.MockData;
+import com.example.iket.ecellapp2k17.events.model.data.EventsData;
+import com.example.iket.ecellapp2k17.events.presenter.EventPresenterImpl;
+import com.example.iket.ecellapp2k17.events.presenter.EventsPresenter;
+import com.example.iket.ecellapp2k17.helper.Keys;
+import com.example.iket.ecellapp2k17.helper.RecyclerViewClickListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,6 +43,12 @@ public class EventDetailsFragment extends android.support.v4.app.DialogFragment 
     private String mParam1;
     private String mParam2;
 
+
+    private ImageView event_details_bg;
+    private TextView event_details_desc,event_details_loc,event_details_name;
+    private EventsPresenter eventsPresenter;
+    private List<EventsData> data = new ArrayList<>();
+
     private OnFragmentInteractionListener mListener;
 
     public EventDetailsFragment() {
@@ -48,7 +67,7 @@ public class EventDetailsFragment extends android.support.v4.app.DialogFragment 
     public static EventDetailsFragment newInstance(String param1, String param2) {
         EventDetailsFragment fragment = new EventDetailsFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM1,param1 );
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
@@ -61,6 +80,7 @@ public class EventDetailsFragment extends android.support.v4.app.DialogFragment 
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+
         }
     }
 
@@ -79,7 +99,30 @@ public class EventDetailsFragment extends android.support.v4.app.DialogFragment 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_event_details, container, false);
+
+       View view =  inflater.inflate(R.layout.fragment_event_details, container, false);
+
+        event_details_bg = (ImageView) view.findViewById(R.id.eventImage);
+        event_details_desc = (TextView) view.findViewById(R.id.eventTitle);
+        event_details_loc = (TextView) view.findViewById(R.id.eventLocaion);
+        event_details_name = (TextView) view.findViewById(R.id.eventTitle);
+
+       // eventsPresenter=new EventPresenterImpl(this,new MockData());
+     /*
+        Bundle bundle = getArguments();
+        int pos = bundle.getInt(Keys.KEY_CATEGORY_ID);
+      */
+        String num = getArguments().getString("ARG_PARAM1","event");
+        int pos = Integer.parseInt(num);
+        EventsData eventsData = data.get(pos);
+        Glide.with(this).load(eventsData.getImage()).into(event_details_bg);
+        event_details_name.setText(eventsData.getEventName());
+        event_details_desc.setText(eventsData.getDescription());
+        event_details_loc.setText(eventsData.getVenue());
+
+        //eventsPresenter.requestEvents();
+
+          return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -114,4 +157,5 @@ public class EventDetailsFragment extends android.support.v4.app.DialogFragment 
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
 }
