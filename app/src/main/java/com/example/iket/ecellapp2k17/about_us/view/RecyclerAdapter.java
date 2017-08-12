@@ -25,7 +25,6 @@ import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
 
-
     private List<AboutUsData> data=new ArrayList<>();
     private LayoutInflater layoutInflater;
     Context context;

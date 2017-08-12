@@ -84,7 +84,6 @@ public class VisionFragment extends Fragment implements AboutUsInterface{
 
         aboutUsPresenter =new AboutUsPresenterImpl(new MockAboutUs(),this);
         aboutUsPresenter.requestData();
-
         AboutUsData listData =  data.get(5);
         vision_Body.setText(listData.getVisionBody());
         return view;
