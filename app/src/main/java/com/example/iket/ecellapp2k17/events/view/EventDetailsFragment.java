@@ -67,7 +67,7 @@ public class EventDetailsFragment extends android.support.v4.app.DialogFragment 
     public static EventDetailsFragment newInstance(String param1, String param2) {
         EventDetailsFragment fragment = new EventDetailsFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM1,param1 );
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
@@ -112,13 +112,15 @@ public class EventDetailsFragment extends android.support.v4.app.DialogFragment 
         Bundle bundle = getArguments();
         int pos = bundle.getInt(Keys.KEY_CATEGORY_ID);
       */
-        EventsData eventsData = data.get(8);
+        String num = getArguments().getString("ARG_PARAM1","event");
+        int pos = Integer.parseInt(num);
+        EventsData eventsData = data.get(pos);
         Glide.with(this).load(eventsData.getImage()).into(event_details_bg);
         event_details_name.setText(eventsData.getEventName());
         event_details_desc.setText(eventsData.getDescription());
         event_details_loc.setText(eventsData.getVenue());
 
-        eventsPresenter.requestEvents();
+        //eventsPresenter.requestEvents();
 
           return view;
     }

@@ -63,14 +63,16 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+/*
                 Bundle bundle = new Bundle();
                 bundle.putInt(Keys.KEY_CATEGORY_ID,category_id);
                 EventDetailsFragment eventDetailsFragment = new EventDetailsFragment();
                 eventDetailsFragment.setArguments(bundle);
 
-
-                ((Home)context).setFragment(new EventDetailsFragment());
+*/              String key = String.valueOf(position);
+                EventDetailsFragment eventDetailsFragment = new EventDetailsFragment();
+                eventDetailsFragment.newInstance(key,"param2");
+                ((Home)context).addFragment(new EventDetailsFragment(),"Event Details",0);
             }
         });
 
