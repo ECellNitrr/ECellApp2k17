@@ -127,25 +127,7 @@ public class EventsFragment extends Fragment implements EventsInterface {
         mListener = null;
 
     }
-/*
-    private void addBottomDots(int currentPage) {
-        dots = new TextView[4];
-        int[] colorsActive = getResources().getIntArray(R.array.array_dot_active);
-        int[] colorsInactive = getResources().getIntArray(R.array.array_dot_inactive);
-        dotsLayout.removeAllViews();
-        for (int i = 0; i < dots.length; i++) {
-            dots[i] = new TextView(getContext());
-            dots[i].setText(Html.fromHtml("&#8226;"));
-            dots[i].setTextSize(35);
-            dots[i].setTextColor(colorsInactive[currentPage]);
-            //    dots[i].setTextColor(Color.WHITE);
-            dotsLayout.addView(dots[i]);
-        }
-        if (dots.length > 0)
-            //          dots[currentPage].setTextColor(ContextCompat.getColor(this,R.color.white));
-            dots[currentPage].setTextColor(colorsActive[currentPage]);
-    }
-*/
+
     @Override
     public void SetData(List<EventsData> eventDataList) {
         eventsAdapter.setData(eventDataList);
