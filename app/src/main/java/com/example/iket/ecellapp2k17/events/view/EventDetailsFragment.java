@@ -112,9 +112,9 @@ public class EventDetailsFragment extends android.support.v4.app.DialogFragment 
         Bundle bundle = getArguments();
         int pos = bundle.getInt(Keys.KEY_CATEGORY_ID);
       */
-        String num = getArguments().getString("ARG_PARAM1","event");
-        int pos = Integer.parseInt(num);
-        EventsData eventsData = data.get(pos);
+//        String num = getArguments().getString("ARG_PARAM1","event");
+  //      int pos = Integer.parseInt(num);
+        EventsData eventsData = data.get(1);
         Glide.with(this).load(eventsData.getImage()).into(event_details_bg);
         event_details_name.setText(eventsData.getEventName());
         event_details_desc.setText(eventsData.getDescription());
