@@ -1,6 +1,8 @@
 package com.example.iket.ecellapp2k17.blogs.view;
 
 import android.content.Context;
+import android.net.Uri;
+import android.support.customtabs.CustomTabsIntent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -23,6 +25,8 @@ import com.example.iket.ecellapp2k17.home.Home;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.iket.ecellapp2k17.helper.MyApplication.getContext;
+
 public class VerticlePagerAdapter extends PagerAdapter {
 
 
@@ -30,6 +34,8 @@ public class VerticlePagerAdapter extends PagerAdapter {
     Context mContext;
     LayoutInflater mLayoutInflater;
     private CardView blogCard;
+
+    private String url = "http://google.com/";
 
     public VerticlePagerAdapter(Context context) {
         mContext = context;
@@ -70,12 +76,22 @@ public class VerticlePagerAdapter extends PagerAdapter {
         date.setText(data.getBlogDate());
         body.setText(data.getBlogBody());
         container.addView(itemView);
+
 //        blogCard.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
 //                ((Home)mContext).addFragment(new BlogsDetailsFragment(),"More Blogs",18);
 //            }
 //        });
+        blogCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+                CustomTabsIntent customTabsIntent = builder.build();
+                customTabsIntent.launchUrl(mContext, Uri.parse(url));
+            }
+        });
 
         return itemView;
     }

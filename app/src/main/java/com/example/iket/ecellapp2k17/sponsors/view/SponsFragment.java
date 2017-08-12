@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -199,6 +200,7 @@ public class SponsFragment extends Fragment implements SponsInterface {
                     Toast.makeText(getContext(), String.format("Clicked on position #%s of Section %s",
                             sectionAdapter.getPositionInSection(itemHolder.getAdapterPosition()), title),
                             Toast.LENGTH_SHORT).show();
+                    Log.d("Spons",""+list.get(position).getWebsite_url());
 //                    new SponsEndPage_Fragment().setData(list.get(position));
                 }
             });

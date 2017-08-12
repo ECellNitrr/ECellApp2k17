@@ -40,7 +40,7 @@ public class Home extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        setFragment(new BlogFragment());
+        setFragment(new EsummitFragment());
         ButterKnife.bind(this);
         setupTabIcons();
         tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#FF5722"));
@@ -65,6 +65,7 @@ public class Home extends AppCompatActivity{
                     case 4:
                         Intent bquiz=new Intent(Home.this, BQuizActivity.class);
                         startActivity(bquiz);
+                        break;
                     case 5:
                         setFragment(new AboutUsFragment());
                         break;

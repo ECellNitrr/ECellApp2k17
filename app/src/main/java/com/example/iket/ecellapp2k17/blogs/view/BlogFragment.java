@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.customtabs.CustomTabsIntent;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -47,15 +48,19 @@ public class BlogFragment extends Fragment implements BlogsInterface {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+
     private NavigationView navigationView;
     VerticalViewPager verticalViewPager;
     VerticlePagerAdapter verticlePagerAdapter;
     BlogsPresenter blogsPresenter;
+
     private FloatingActionButton fab;
+
     private OnFragmentInteractionListener mListener;
     private FragmentManager fm = getFragmentManager();
     private Context context;
-
+    private Home home;
     public BlogFragment() {
         // Required empty public constructor
     }
@@ -174,10 +179,6 @@ public class BlogFragment extends Fragment implements BlogsInterface {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
-    }
-
-    public void open_blog(View view){
-
     }
 
 }

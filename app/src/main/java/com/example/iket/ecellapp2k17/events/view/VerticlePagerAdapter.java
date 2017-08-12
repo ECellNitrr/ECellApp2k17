@@ -1,7 +1,6 @@
 package com.example.iket.ecellapp2k17.events.view;
 
 import android.content.Context;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +9,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
@@ -55,7 +53,8 @@ public class VerticlePagerAdapter extends PagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        View itemView = mLayoutInflater.inflate(R.layout.events_item, container, false);
+
+        View itemView = mLayoutInflater.inflate(R.layout.fragment_team, container, false);
         EventsData data=listEvents.get(position);
 
         events_bg = (ImageView) itemView.findViewById(R.id.eventImage);

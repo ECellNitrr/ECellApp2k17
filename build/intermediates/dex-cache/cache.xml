@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/home/iket/.android/build-cache/e84fe0d8cf9081b8f9455c179679249a1c2b92f2/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="98684c2dd540ae9d80457028a4fce156e8f9b7d3">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_6dbb6bc694e958883e3faaf2a2b7e7c4e631902d.jar" />
+    </item>
+
+</items>
