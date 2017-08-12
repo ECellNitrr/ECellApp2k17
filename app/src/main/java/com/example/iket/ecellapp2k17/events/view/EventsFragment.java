@@ -4,6 +4,10 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,8 +26,11 @@ import com.example.iket.ecellapp2k17.helper.VerticalViewPager;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
- * Created by samveg on 16/6/17.
+ * Created by vrihas on 16/6/17.
  */
 
 public class EventsFragment extends Fragment implements EventsInterface {
@@ -35,12 +42,14 @@ public class EventsFragment extends Fragment implements EventsInterface {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    VerticalViewPager verticalViewPager;
-    private TextView[] dots;
-    private LinearLayout dotsLayout;
+    RecyclerView event_recyclerView;
+    private LinearLayoutManager linearLayoutManager;
+
+
     private EventsPresenter eventsPresenter;
+    private EventsAdapter eventsAdapter;
     private ProgressBar progressBar;
-    private VerticlePagerAdapter verticlePagerAdapter;
+
 
     private EventsFragment.OnFragmentInteractionListener mListener;
 
@@ -81,31 +90,21 @@ public class EventsFragment extends Fragment implements EventsInterface {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_events, container, false);
         progressBar=(ProgressBar)view.findViewById(R.id.events_progressbar);
-        dotsLayout=(LinearLayout)view.findViewById(R.id.events_dots);
+        event_recyclerView = (RecyclerView) view.findViewById(R.id.event_recycler_view);
+        event_recyclerView.setHasFixedSize(true);
 
 
-        verticlePagerAdapter=new VerticlePagerAdapter(getContext());
-        verticalViewPager=(VerticalViewPager)view.findViewById(R.id.events_viewPager);
-        verticalViewPager.setAdapter(verticlePagerAdapter);
-        addBottomDots(0);
+        linearLayoutManager = new LinearLayoutManager(getContext());
+        eventsAdapter = new EventsAdapter(getContext());
+
         eventsPresenter=new EventPresenterImpl(this,new MockData());
+
+        event_recyclerView.setLayoutManager(linearLayoutManager);
+        event_recyclerView.setAdapter(eventsAdapter);
+
+
+
         eventsPresenter.requestEvents();
-        VerticalViewPager.OnPageChangeListener viewPagerPageChangeListener = new VerticalViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageSelected(int position) {
-                addBottomDots(position);
-            }
-
-            @Override
-            public void onPageScrolled(int arg0, float arg1, int arg2) {
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int arg0) {
-            }
-        };
-        verticalViewPager.addOnPageChangeListener(viewPagerPageChangeListener);
 
         return view;
     }
@@ -128,7 +127,7 @@ public class EventsFragment extends Fragment implements EventsInterface {
         mListener = null;
 
     }
-
+/*
     private void addBottomDots(int currentPage) {
         dots = new TextView[4];
         int[] colorsActive = getResources().getIntArray(R.array.array_dot_active);
@@ -146,11 +145,11 @@ public class EventsFragment extends Fragment implements EventsInterface {
             //          dots[currentPage].setTextColor(ContextCompat.getColor(this,R.color.white));
             dots[currentPage].setTextColor(colorsActive[currentPage]);
     }
-
+*/
     @Override
     public void SetData(List<EventsData> eventDataList) {
-        verticlePagerAdapter.setData(eventDataList);
-        verticlePagerAdapter.notifyDataSetChanged();
+        eventsAdapter.setData(eventDataList);
+        eventsAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -170,4 +169,5 @@ public class EventsFragment extends Fragment implements EventsInterface {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
 }
