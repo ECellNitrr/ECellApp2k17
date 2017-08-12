@@ -16,34 +16,27 @@
             android:id="@+id/vision_img"
             android:layout_width="80dip"
             android:layout_height="match_parent"
-            android:clickable="true"
-            android:onClick="go_to_vision"
             android:layout_weight="1"
             android:elevation="10dp"/>
         <ImageView
             android:id="@+id/team_img"
             android:layout_width="80sp"
             android:layout_height="match_parent"
-            android:clickable="true"
-            android:onClick="go_to_team"
             android:layout_weight="1"
             android:elevation="10dp"/>
         <ImageView
             android:id="@+id/past_work_img"
             android:layout_width="80sp"
             android:layout_height="match_parent"
-            android:clickable="true"
-            android:onClick="go_to_past_work"
             android:layout_weight="1"
             android:elevation="10dp"/>
         <ImageView
             android:id="@+id/contact_us_img"
             android:layout_width="80sp"
             android:layout_height="match_parent"
-            android:clickable="true"
-            android:onClick="go_to_contact_us"
             android:layout_weight="1"
-            android:elevation="10dp"/>
+            android:elevation="10dp"
+            />
 
     </LinearLayout>
 
