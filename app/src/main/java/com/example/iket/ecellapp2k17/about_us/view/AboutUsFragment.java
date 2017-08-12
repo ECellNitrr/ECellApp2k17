@@ -4,6 +4,8 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -18,7 +20,9 @@ import com.example.iket.ecellapp2k17.about_us.model.data.AboutUsData;
 import com.example.iket.ecellapp2k17.about_us.presenter.AboutUsPresenter;
 import com.example.iket.ecellapp2k17.about_us.presenter.AboutUsPresenterImpl;
 import com.example.iket.ecellapp2k17.helper.VerticalViewPager;
+import com.example.iket.ecellapp2k17.home.Home;
 
+import java.lang.reflect.Field;
 import java.util.List;
 
 import butterknife.BindView;
@@ -61,6 +65,8 @@ public class AboutUsFragment extends Fragment implements AboutUsInterface{
 
     AboutUsPresenter aboutUsPresenter;
     private OnFragmentInteractionListener mListener;
+
+    private Home home;
 
     public AboutUsFragment() {
         // Required empty public constructor
@@ -115,6 +121,16 @@ public class AboutUsFragment extends Fragment implements AboutUsInterface{
         Glide.with(getContext()).load(R.drawable.team).bitmapTransform(new CropCircleTransformation(getContext())).into(team_chip);
         // blogsPresenter=new BlogsPresenterImpl(new RetrofitBlogsProvider(),this);
 
+        contact_us_chip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                home = new Home();
+                home.setFragment(new ContactUsFragment());
+
+            }
+        });
+
         aboutUsPresenter =new AboutUsPresenterImpl(new MockAboutUs(),this);
         aboutUsPresenter.requestData();
         return view;
@@ -156,9 +172,6 @@ public class AboutUsFragment extends Fragment implements AboutUsInterface{
     }
 
     public void go_to_vision(){
-
-    }
-    public void go_to_contact_us(){
 
     }
     public void go_to_past_work(){
