@@ -1,15 +1,26 @@
 package com.example.iket.ecellapp2k17.blogs.view;
 
+import android.Manifest;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.design.widget.BottomSheetDialogFragment;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatDialogFragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +39,8 @@ import com.example.iket.ecellapp2k17.blogs.model.data.BlogData;
 import com.example.iket.ecellapp2k17.blogs.presenter.AddBlogsPresenter;
 import com.example.iket.ecellapp2k17.blogs.presenter.AddBlogsPresenterImpl;
 import com.example.iket.ecellapp2k17.blogs.presenter.BlogsPresenterImpl;
+
+import java.io.IOException;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -52,12 +65,15 @@ public class AddABlog extends android.support.v4.app.DialogFragment implements A
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
-    private EditText editText_blogTitle,editText_blogType,editText_blogBody;
+    private EditText editText_blogTitle,editText_blogBody;
     private Button btn_insertImage,btn_post;
-    private ImageView addABlog_bg;
+    private ImageView addABlog_bg,uploaded_img;
     private String blogTitle,blogBody;
     private AddBlogsPresenter addBlogsPresenter;
     private ProgressBar progressBar;
+    private Bitmap bitmap;
+    private Uri file_image;
+    private static final int STORAGE_PERMISSION_CODE = 123;
 
     public AddABlog() {
         // Required empty public constructor
@@ -113,6 +129,7 @@ public class AddABlog extends android.support.v4.app.DialogFragment implements A
         editText_blogTitle = (EditText) view.findViewById(R.id.etxt_title);
         editText_blogBody = (EditText) view.findViewById(R.id.etxt_blogBody);
         progressBar = (ProgressBar) view.findViewById(R.id.progressBar_blogs);
+        uploaded_img=(ImageView)view.findViewById(R.id.uploaded_img);
 
         getDialog().setTitle("Add A Blog");
         btn_insertImage = (Button)  view.findViewById(R.id.insert_img);
@@ -135,7 +152,7 @@ public class AddABlog extends android.support.v4.app.DialogFragment implements A
                 }
                 else{
                     addBlogsPresenter = new AddBlogsPresenterImpl(AddABlog.this,new RetrofitAddBlogsProvider());
-                    addBlogsPresenter.addBlogsData(blogTitle,blogBody);
+                    addBlogsPresenter.addBlogsData(blogTitle,blogBody,file_image.toString());
                 }
 
             }
@@ -143,7 +160,6 @@ public class AddABlog extends android.support.v4.app.DialogFragment implements A
 
         addABlog_bg = (ImageView) view.findViewById(R.id.addBlog_bg);
         Glide.with(this).load(R.drawable.add_blog_bg_white).into(addABlog_bg);
-
         return view;
     }
 
@@ -151,10 +167,34 @@ public class AddABlog extends android.support.v4.app.DialogFragment implements A
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && data != null){
-            Uri selected_image = data.getData();
+            file_image = data.getData();
+            Log.d("Blogs",file_image.toString());
+            
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(getContext().getContentResolver(), file_image);
+                Bitmap resized = Bitmap.createScaledBitmap(bitmap, 100, 100, true);
+                Bitmap conv_bm = getRoundedRectBitmap(resized, 100);
+                uploaded_img.setImageBitmap(conv_bm);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
             Toast.makeText(getContext(),"Your Image has been selected",Toast.LENGTH_SHORT).show();
             //load_blogImage.setImageURI(selected_image);
         }
+    }
+
+    private void requestStoragePermission() {
+        if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
+            return;
+
+        if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(), Manifest.permission.READ_EXTERNAL_STORAGE)) {
+            //If the user has denied the permission previously your code will come to this block
+            //Here you can explain why you need this permission
+            //Explain here why you need this permission
+        }
+        //And finally ask for the permission
+        ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -210,5 +250,28 @@ public class AddABlog extends android.support.v4.app.DialogFragment implements A
     @Override
     public void AddBlogsStatus(AddBlogsData addBlogsData) {
         Toast.makeText(getContext()," Your Blog has been Submitted Successfully ",Toast.LENGTH_SHORT).show();
+    }
+
+    public static Bitmap getRoundedRectBitmap(Bitmap bitmap, int pixels) {
+        Bitmap result = null;
+        try {
+            result = Bitmap.createBitmap(99, 99, Bitmap.Config.ARGB_8888);
+            Canvas canvas = new Canvas(result);
+
+            int color = 0xff424242;
+            Paint paint = new Paint();
+            Rect rect = new Rect(0, 0, 150, 150);
+
+            paint.setAntiAlias(true);
+            canvas.drawARGB(0, 0, 0, 0);
+            paint.setColor(color);
+            canvas.drawCircle(50, 50, 50, paint);
+            paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+            canvas.drawBitmap(bitmap, rect, rect, paint);
+
+        } catch (NullPointerException e) {
+        } catch (OutOfMemoryError o) {
+        }
+        return result;
     }
 }

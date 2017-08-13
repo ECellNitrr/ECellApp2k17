@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.events.model.data.EventsData;
 import com.example.iket.ecellapp2k17.helper.image_loaders.GlideImageLoader;
@@ -54,14 +55,13 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
         final EventsData eventsData = data.get(position);
        imageLoader.loadImage(eventsData.getMeta(),holder.event_image);
 
-      //  Glide.with(context).load(eventsData.getMeta()).into(holder.event_image);
-        holder.event_name.setText(eventsData.getEventName());
+        Glide.with(context).load(eventsData.getMeta()).into(holder.event_image);
+//        holder.event_name.setText(eventsData.getEventName());
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 EventDetailsFragment eventDetailsFragment=new EventDetailsFragment();
                 eventDetailsFragment.setData(eventsData);
-//                ((Home)context).addFragment(new EventDetailsFragment().newInstance("fvgfd","sdvsd"));
                 ((Home)context).addFragment(eventDetailsFragment);
             }
         });
@@ -80,7 +80,6 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
         public MyViewHolder(View itemView){
             super(itemView);
             event_image = (ImageView) itemView.findViewById(R.id.eventImg);
-            event_name = (TextView)  itemView.findViewById(R.id.eventName);
             relativeLayout = (RelativeLayout) itemView.findViewById(R.id.event_relativeLayout);
         }
     }

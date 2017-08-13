@@ -29,7 +29,7 @@ import static com.example.iket.ecellapp2k17.R.id.vision_body;
  * Use the {@link VisionFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class VisionFragment extends Fragment implements AboutUsInterface{
+public class VisionFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -40,7 +40,7 @@ public class VisionFragment extends Fragment implements AboutUsInterface{
     private String mParam2;
 
     TextView vision_Body;
-    AboutUsPresenter aboutUsPresenter;
+  //  AboutUsPresenter aboutUsPresenter;
     private List<AboutUsData> data=new ArrayList<>();
 
     private OnFragmentInteractionListener mListener;
@@ -81,11 +81,12 @@ public class VisionFragment extends Fragment implements AboutUsInterface{
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_vision, container, false);
         vision_Body = (TextView) view.findViewById(vision_body);
-
+/*
         aboutUsPresenter =new AboutUsPresenterImpl(new MockAboutUs(),this);
         aboutUsPresenter.requestData();
         AboutUsData listData =  data.get(5);
         vision_Body.setText(listData.getVisionBody());
+*/
         return view;
     }
 
@@ -107,22 +108,6 @@ public class VisionFragment extends Fragment implements AboutUsInterface{
         super.onDetach();
         mListener = null;
     }
-
-    @Override
-    public void setData(List<AboutUsData> data) {
-            this.data=data;
-    }
-
-    @Override
-    public void showMessage(String message) {
-
-    }
-
-    @Override
-    public void ShowProgressBar(boolean show) {
-
-    }
-
 
     /**
      * This interface must be implemented by activities that contain this

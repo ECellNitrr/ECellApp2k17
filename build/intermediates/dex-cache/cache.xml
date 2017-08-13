@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/home/samveg/.android/build-cache/f29f241be81006c94d834faf3feb455b812c3436/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="149b55009a48ccb62c669e6d0ddfd550e96987d7">
+        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_3e6414ba395e787e91ad59dc9a7ef08e70de132c.jar" />
+    </item>
+
+</items>

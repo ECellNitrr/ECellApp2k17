@@ -1,16 +1,19 @@
-package com.example.iket.ecellapp2k17.esummit;
+package com.example.iket.ecellapp2k17.esummit.view;
 
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
+import com.example.iket.ecellapp2k17.about_us.view.RecyclerAdapter;
 import com.example.iket.ecellapp2k17.helper.TypewriterView;
 
 import butterknife.BindView;
@@ -37,6 +40,15 @@ public class EsummitFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
     @BindView(R.id.esummit_img)
     ImageView esummit_logo;
+
+    @BindView(R.id.esummit_title)
+    TextView esummit_title;
+    @BindView(R.id.esummit_desc)
+    TextView esummit_desc;
+
+    RecyclerView recyclerView;
+    private RecyclerAdapter recyclerAdapter;
+    private LinearLayoutManager layoutManager;
 
     TypewriterView typewriterView;
 
@@ -77,8 +89,16 @@ public class EsummitFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_esummit, container, false);
         ButterKnife.bind(this,view);
-        Glide.with(this).load(R.drawable.esummit).into(esummit_logo);
+//        Glide.with(this).load(R.drawable.esummit).into(esummit_logo);
 
+        recyclerView=(RecyclerView) view.findViewById(R.id.recycler_view_speakers);
+
+        recyclerView.setHasFixedSize(true);
+
+        layoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerAdapter=new RecyclerAdapter(getContext());
+        recyclerView.setAdapter(recyclerAdapter);
         typewriterView = (TypewriterView) view.findViewById(R.id.type_writer_text);
         setAnim();
         return view;
@@ -105,14 +125,14 @@ public class EsummitFragment extends Fragment {
 
     void setAnim()
     {
-        typewriterView.setText("");
         typewriterView.setEnabled(false);
         typewriterView
                 .type("A trek to the Zenith of Glory.").pause()
                 .delete("A trek to the Zenith of Glory.").pause(500)
                 .type("NIT Raipur!").pause(500)
                 .delete("NIT Raipur!")
-                .type("9th-10th September,2017.").pause(10000)
+                .type("9th-10th September,2017.").pause(1000)
+                .delete("9th-10th September,2017.")
                 .run(new Runnable() {
                     @Override
                     public void run() {

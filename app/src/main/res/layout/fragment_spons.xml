@@ -7,6 +7,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
+        android:background="@drawable/e_summit_bg"
         android:layout_height="match_parent"
         android:id="@+id/spons_relative_layout">
 

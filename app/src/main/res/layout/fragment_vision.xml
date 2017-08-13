@@ -7,7 +7,8 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#F3E5F5">
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -17,19 +18,26 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="250dp"
+                    android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:textSize="50dp"
                     android:gravity="center"
+                    android:textColor="@color/black"
+                    android:background="#CE93D8"
                     android:layout_gravity="center_horizontal"
                     android:text="VISION"/>
+
                 <TextView
                     android:id="@+id/vision_body"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="25dp"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"/>
+                    android:gravity="center"
+                    android:textSize="18dp"
+                    android:textColor="@color/black"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:text="@string/vision_text" />
             </LinearLayout>
         </ScrollView>
     </FrameLayout>

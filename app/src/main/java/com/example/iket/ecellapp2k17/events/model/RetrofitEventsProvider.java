@@ -26,11 +26,10 @@ public class RetrofitEventsProvider implements EventsProvider {
 
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-        OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor)
-                .addInterceptor(Cache.REWRITE_CACHE_CONTROL_INTERCEPTOR).cache(Cache.provideCache()).build();
+        OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Urls.BASE_URL)
+                .baseUrl(Urls.BASE_URL+"events/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build();

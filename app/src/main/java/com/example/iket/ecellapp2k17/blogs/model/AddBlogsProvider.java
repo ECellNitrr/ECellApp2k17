@@ -7,6 +7,6 @@ import com.example.iket.ecellapp2k17.blogs.view.AddABlogCallback;
  */
 
 public interface AddBlogsProvider {
-    void getBlogResponse(String blogTitle, String blogBody, AddABlogCallback addABlogCallback);
+    void getBlogResponse(String blogTitle, String blogBody,String file_image, AddABlogCallback addABlogCallback);
     void  onDestroy();
 }

@@ -75,7 +75,7 @@ public class VerticlePagerAdapter extends PagerAdapter {
         BlogData data=blogDataList.get(position);
 
         TextView title = (TextView) itemView.findViewById(R.id.blog_title);
-        TextView owner=(TextView)itemView.findViewById(R.id.blog_owner);
+//        TextView owner=(TextView)itemView.findViewById(R.id.blog_owner);
         TextView date=(TextView)itemView.findViewById(R.id.blog_date);
         TextView body=(TextView)itemView.findViewById(R.id.blog_body);
         TextView read_more=(TextView)itemView.findViewById(R.id.blog_read_more);
@@ -86,7 +86,7 @@ public class VerticlePagerAdapter extends PagerAdapter {
 
         Glide.with(mContext).load(data.getBlogImage()).into(blogImage);
         title.setText(data.getBlogTitle());
-        owner.setText(data.getBlogOwner());
+//        owner.setText(data.getBlogOwner());
         date.setText(data.getBlogDate());
         body.setText(data.getBlogBody());
         container.addView(itemView);
