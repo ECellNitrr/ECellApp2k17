@@ -4,6 +4,8 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -103,22 +105,32 @@ public class AboutUsFragment extends Fragment{
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(getContext(), "Team fragment will be here", Toast.LENGTH_SHORT).show();
-            }
+                FragmentManager fragmentManager = getChildFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.about_us_container,new TeamFragment());
+                fragmentTransaction.commit();
+                }
         });
         contact_us_chip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(getContext(), "Contact us will be here", Toast.LENGTH_SHORT).show();
-            }
+                FragmentManager fragmentManager = getChildFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.about_us_container,new ContactUsFragment());
+                fragmentTransaction.commit();
+
+                }
         });
         vision_chip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(getContext(), "Vision will be here", Toast.LENGTH_SHORT).show();
-            }
+                FragmentManager fragmentManager = getChildFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.about_us_container,new VisionFragment());
+                fragmentTransaction.commit();
+                }
         });
         return view;
     }
