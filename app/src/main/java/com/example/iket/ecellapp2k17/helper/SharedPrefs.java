@@ -17,6 +17,7 @@ public class SharedPrefs {
     private static final String KEY_EMAIL = "email";
     private static final String KEY_PHOTO_URL = "photoUrl";
     private static final String KEY_USER_ID = "userId";
+    private static final String FIRSTBLOG="isFirstBlog";
     private static final String KEY_LOGIN_TYPE = "loginType";
     private static final String KEY_FCM = "fcm";
     private static final String KEY_ACCESS_TOKEN = "access_token";
@@ -56,6 +57,17 @@ public class SharedPrefs {
     public String getUsername() {
 
         return pref.getString(KEY_USERNAME, "Not Available");
+    }
+
+    public boolean isFirstBlog() {
+
+        return pref.getBoolean(FIRSTBLOG, true);
+    }
+
+    public void setFirstblog(boolean bool)
+    {
+        editor.putBoolean(FIRSTBLOG,bool);
+        editor.commit();
     }
 
     public void setFCM(String fcm) {

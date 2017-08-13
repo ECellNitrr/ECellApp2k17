@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
@@ -22,6 +23,7 @@ import com.example.iket.ecellapp2k17.events.presenter.EventPresenterImpl;
 import com.example.iket.ecellapp2k17.events.presenter.EventsPresenter;
 import com.example.iket.ecellapp2k17.helper.Keys;
 import com.example.iket.ecellapp2k17.helper.RecyclerViewClickListener;
+import com.example.iket.ecellapp2k17.sponsors.model.data.SponsData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +45,7 @@ public class EventDetailsFragment extends android.support.v4.app.DialogFragment 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    EventsData eventsData;
 
 
     private ImageView event_details_bg;
@@ -102,12 +105,12 @@ public class EventDetailsFragment extends android.support.v4.app.DialogFragment 
         // Inflate the layout for this fragment
 
        View view =  inflater.inflate(R.layout.fragment_event_details, container, false);
-
-        Log.d("events",mParam1+mParam2);
         event_details_bg = (ImageView) view.findViewById(R.id.eventImage);
         event_details_desc = (TextView) view.findViewById(R.id.eventTitle);
         event_details_loc = (TextView) view.findViewById(R.id.eventLocaion);
         event_details_name = (TextView) view.findViewById(R.id.eventTitle);
+
+        Glide.with(getContext()).load(eventsData.getImage()).into(event_details_bg);
 
        // eventsPresenter=new EventPresenterImpl(this,new MockData());
      /*
@@ -137,6 +140,11 @@ public class EventDetailsFragment extends android.support.v4.app.DialogFragment 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+    }
+
+    void setData(EventsData data)
+    {
+        eventsData=data;
     }
 
     @Override
