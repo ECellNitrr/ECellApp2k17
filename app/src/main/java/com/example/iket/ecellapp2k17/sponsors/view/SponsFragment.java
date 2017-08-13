@@ -16,8 +16,9 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
+import com.example.iket.ecellapp2k17.home.Home;
 import com.example.iket.ecellapp2k17.sponsors.model.MockSpons;
-import com.example.iket.ecellapp2k17.sponsors.model.data.ResponseSpons;
+import com.example.iket.ecellapp2k17.sponsors.model.data.SponsHeading;
 import com.example.iket.ecellapp2k17.sponsors.model.data.SponsData;
 import com.example.iket.ecellapp2k17.sponsors.presenter.SponsPresenter;
 import com.example.iket.ecellapp2k17.sponsors.presenter.SponsPresenterImpl;
@@ -150,7 +151,7 @@ public class SponsFragment extends Fragment implements SponsInterface {
     }
 
     @Override
-    public void setData(List<ResponseSpons> sponsDataList) {
+    public void setData(List<SponsHeading> sponsDataList) {
         for(int i=0;i<sponsDataList.size();i++)
             sectionAdapter.addSection(new SponsSection(sponsDataList.get(i).getSection_name(),sponsDataList.get(i).getSpons()));
         sectionAdapter.notifyDataSetChanged();
@@ -200,6 +201,9 @@ public class SponsFragment extends Fragment implements SponsInterface {
                     Toast.makeText(getContext(), String.format("Clicked on position #%s of Section %s",
                             sectionAdapter.getPositionInSection(itemHolder.getAdapterPosition()), title),
                             Toast.LENGTH_SHORT).show();
+                    SponsEndPage_Fragment sponsEndPage_fragment=new SponsEndPage_Fragment();
+                    sponsEndPage_fragment.setData(list.get(position));
+                    ((Home)getContext()).addFragment(sponsEndPage_fragment);
                     Log.d("Spons",""+list.get(position).getWebsite_url());
 //                    new SponsEndPage_Fragment().setData(list.get(position));
                 }

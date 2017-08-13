@@ -8,7 +8,7 @@ public class SponsData {
 
     private String image1;
     private int id;
-    private String sponsName,website_url;
+    private String sponsName,website_url,body;
 
 
     public SponsData(String image1, String sTitle,String website_url) {
