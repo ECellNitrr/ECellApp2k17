@@ -49,7 +49,7 @@ public class EventDetailsFragment extends android.support.v4.app.DialogFragment 
     EventsData eventsData;
 
 
-    private ImageView event_details_bg;
+    private ImageView event_details_bg,event_details_location_img;
     private TextView event_details_desc,event_details_loc,event_details_name,event_details_date,event_details_time;
     private EventsPresenter eventsPresenter;
     private List<EventsData> data = new ArrayList<>();
@@ -107,6 +107,7 @@ public class EventDetailsFragment extends android.support.v4.app.DialogFragment 
 
        View view =  inflater.inflate(R.layout.fragment_event_details, container, false);
         event_details_bg = (ImageView) view.findViewById(R.id.eventImage);
+        event_details_location_img = (ImageView) view.findViewById(R.id.locImage);
         event_details_desc = (TextView) view.findViewById(R.id.eventBody);
         event_details_loc = (TextView) view.findViewById(R.id.eventLocation);
         event_details_name = (TextView) view.findViewById(R.id.eventTitle);
@@ -118,26 +119,8 @@ public class EventDetailsFragment extends android.support.v4.app.DialogFragment 
         event_details_loc.setText(eventsData.getVenue());
         event_details_date.setText(eventsData.getDate());
         event_details_time.setText(eventsData.getTime());
+        Glide.with(getContext()).load(R.drawable.location_icon).into(event_details_location_img);
         Glide.with(getContext()).load(eventsData.getImage()).into(event_details_bg);
-
-       // eventsPresenter=new EventPresenterImpl(this,new MockData());
-     /*
-        Bundle bundle = getArguments();
-        int pos = bundle.getInt(Keys.KEY_CATEGORY_ID);
-      */
-      //   String num = getArguments().getString("ARG_PARAM1","event");
-      //   int pos = Integer.parseInt(num);
-      // EventsData eventsData = data.get(pos);
-      //  Glide.with(this).load(eventsData.getImage()).into(event_details_bg);
-      //  event_details_name.setText(eventsData.getEventName());
-      //  event_details_desc.setText(eventsData.getDescription());
-      //  event_details_loc.setText(eventsData.getVenue());
-/*
-        <ImageView
-            android:id="@+id/eventImage"
-            android:layout_widthetVenue());
-*/
-        //eventsPresenter.requestEvents();
 
           return view;
     }
