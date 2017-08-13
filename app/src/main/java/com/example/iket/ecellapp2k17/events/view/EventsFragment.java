@@ -102,9 +102,6 @@ public class EventsFragment extends Fragment implements EventsInterface {
 
         event_recyclerView.setLayoutManager(linearLayoutManager);
         event_recyclerView.setAdapter(eventsAdapter);
-
-
-
         eventsPresenter.requestEvents();
 
         return view;

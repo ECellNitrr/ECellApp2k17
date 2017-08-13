@@ -56,7 +56,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
-        EventsData eventsData = data.get(position);
+        final EventsData eventsData = data.get(position);
        imageLoader.loadImage(eventsData.getImage(), holder.event_image);
 
       //  Glide.with(context).load(eventsData.getImage()).into(holder.event_image);
@@ -64,20 +64,18 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                EventDetailsFragment events=new EventDetailsFragment();
-//               events.newInstance("pos",position+"");
-                ((Home)context).addFragment(new EventDetailsFragment().newInstance("fvgfd","sdvsd"),"fvdv",2);
+                EventDetailsFragment eventDetailsFragment=new EventDetailsFragment();
+                eventDetailsFragment.setData(eventsData);
+//                ((Home)context).addFragment(new EventDetailsFragment().newInstance("fvgfd","sdvsd"));
+                ((Home)context).addFragment(eventDetailsFragment);
             }
         });
-
-
     }
 
     @Override
     public int getItemCount() {
         return data.size();
     }
-
 
     public  static class MyViewHolder extends RecyclerView.ViewHolder{
 

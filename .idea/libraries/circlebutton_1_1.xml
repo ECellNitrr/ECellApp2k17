@@ -6,7 +6,7 @@
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$APPLICATION_HOME_DIR$/gradle/gradle-3.2/caches/modules-2/files-2.1/com.github.markushi/circlebutton/1.1/7b6c063310b73b71bdd8dc34b52f188cdf2b6aa/circlebutton-1.1-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.markushi/circlebutton/1.1/7b6c063310b73b71bdd8dc34b52f188cdf2b6aa/circlebutton-1.1-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

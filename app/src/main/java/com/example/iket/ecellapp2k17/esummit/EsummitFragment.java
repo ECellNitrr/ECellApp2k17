@@ -78,9 +78,9 @@ public class EsummitFragment extends Fragment {
         Glide.with(this).load(R.drawable.esummit).into(esummit_logo);
 
             final TypeWriterTextView animationText = (TypeWriterTextView) view.findViewById(R.id.type_writer_text);
-            animationText.setText("");
-            animationText.setCharacterDelay(120);
-            animationText.displayTextWithAnimation("A Trek To The Zenith Of Glory!");
+                animationText.setText("");
+                animationText.setCharacterDelay(120);
+                animationText.displayTextWithAnimation("A Trek To The Zenith Of Glory!");
 
         return view;
     }

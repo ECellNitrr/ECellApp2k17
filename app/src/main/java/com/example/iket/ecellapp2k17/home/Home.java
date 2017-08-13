@@ -34,7 +34,7 @@ public class Home extends AppCompatActivity{
     @BindView(R.id.tabLayout)
     TabLayout tabLayout;
 
-    private int[] tabIcons = {R.drawable.esummit,R.drawable.events_icon_white,R.drawable.blogs_icon_white,R.drawable.sponsors_icon_white,R.drawable.about_us_white,R.drawable.about_us_white,R.drawable.profile_icon_white,};
+    private int[] tabIcons = {R.drawable.e_summit_ic,R.drawable.events_icon_white,R.drawable.blogs_icon_white,R.drawable.sponsors_icon_white,R.drawable.about_us_white,R.drawable.about_us_white,R.drawable.profile_icon_white,};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,7 +111,7 @@ public class Home extends AppCompatActivity{
         }
     }
 
-    public void addFragment(Fragment fragment, String s, int i) {
+    public void addFragment(Fragment fragment) {
         if (fragment != null) {
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

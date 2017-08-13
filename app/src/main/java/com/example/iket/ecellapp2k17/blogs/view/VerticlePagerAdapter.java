@@ -7,20 +7,28 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.PagerAdapter;
+import android.support.v7.view.menu.ShowableListMenu;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.ForwardingListener;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.blogs.model.data.BlogData;
+import com.example.iket.ecellapp2k17.helper.SharedPrefs;
 import com.example.iket.ecellapp2k17.helper.image_loaders.GlideImageLoader;
 import com.example.iket.ecellapp2k17.helper.image_loaders.RoundedCornersTransformation;
 import com.example.iket.ecellapp2k17.home.Home;
+import com.tomergoldst.tooltips.ToolTip;
+import com.tomergoldst.tooltips.ToolTipsManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,11 +72,16 @@ public class VerticlePagerAdapter extends PagerAdapter {
         blogCard = (CardView) itemView.findViewById(R.id.blogCard);
 
         BlogData data=blogDataList.get(position);
+
         TextView title = (TextView) itemView.findViewById(R.id.blog_title);
         TextView owner=(TextView)itemView.findViewById(R.id.blog_owner);
         TextView date=(TextView)itemView.findViewById(R.id.blog_date);
         TextView body=(TextView)itemView.findViewById(R.id.blog_body);
+        TextView read_more=(TextView)itemView.findViewById(R.id.blog_read_more);
         ImageView blogImage= (ImageView) itemView.findViewById(R.id.blog_image);
+        RelativeLayout layout = (RelativeLayout) itemView.findViewById(R.id.blog_relative_layout);
+        TextView info=(TextView)itemView.findViewById(R.id.info);
+        info.setVisibility(View.GONE);
 
         Glide.with(mContext).load(data.getBlogImage()).into(blogImage);
         title.setText(data.getBlogTitle());
@@ -83,16 +96,28 @@ public class VerticlePagerAdapter extends PagerAdapter {
 //                ((Home)mContext).addFragment(new BlogsDetailsFragment(),"More Blogs",18);
 //            }
 //        });
-        blogCard.setOnClickListener(new View.OnClickListener() {
+
+        read_more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
                 CustomTabsIntent customTabsIntent = builder.build();
                 customTabsIntent.launchUrl(mContext, Uri.parse(url));
             }
         });
 
+
+        final ToolTipsManager mToolTipsManager;
+        mToolTipsManager = new ToolTipsManager();
+        final ToolTip.Builder builder = new ToolTip.Builder(mContext,read_more,layout, "" , ToolTip.GRAVITY_CENTER);
+        builder.setGravity(ToolTip.ALIGN_CENTER);
+        blogCard.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                mToolTipsManager.show(builder.build());
+                return false;
+            }
+        });
         return itemView;
     }
 
