@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -102,11 +103,12 @@ public class AboutUsFragment extends Fragment{
 //        Glide.with(getContext()).load(R.drawable.past_work).bitmapTransform(new CropCircleTransformation(getContext())).into(past_work_chip);
         Glide.with(getContext()).load(R.drawable.team).bitmapTransform(new CropCircleTransformation(getContext())).into(team_chip);
 
+        vision_chip.setPressed(true);
         FragmentManager fragmentManager = getChildFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.about_us_container,new VisionFragment());
         fragmentTransaction.commit();
-
+/*
         team_chip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -137,6 +139,51 @@ public class AboutUsFragment extends Fragment{
                 fragmentTransaction.replace(R.id.about_us_container,new VisionFragment());
                 fragmentTransaction.commit();
                 }
+        });
+*/
+        team_chip.setOnTouchListener(new View.OnTouchListener() {
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                team_chip.setPressed(true);
+                vision_chip.setPressed(false);
+                contact_us_chip.setPressed(false);
+                FragmentManager fragmentManager = getChildFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.about_us_container,new TeamFragment());
+                fragmentTransaction.commit();
+                return true;
+            }
+        });
+
+        vision_chip.setOnTouchListener(new View.OnTouchListener() {
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                vision_chip.setPressed(true);
+                team_chip.setPressed(false);
+                contact_us_chip.setPressed(false);
+                FragmentManager fragmentManager = getChildFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.about_us_container,new VisionFragment());
+                fragmentTransaction.commit();
+                return true;
+            }
+        });
+
+        contact_us_chip.setOnTouchListener(new View.OnTouchListener() {
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                team_chip.setPressed(false);
+                vision_chip.setPressed(false);
+                contact_us_chip.setPressed(true);
+                FragmentManager fragmentManager = getChildFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.about_us_container,new ContactUsFragment());
+                fragmentTransaction.commit();
+                return true;
+            }
         });
         return view;
     }

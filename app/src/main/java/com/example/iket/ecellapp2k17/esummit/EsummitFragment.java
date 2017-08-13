@@ -112,6 +112,7 @@ public class EsummitFragment extends Fragment {
                 .type("NIT Raipur!").pause(500)
                 .delete("NIT Raipur!")
                 .type("9th-10th September,2017.").pause(1000)
+                .delete("9th-10th September,2017.")
                 .run(new Runnable() {
                     @Override
                     public void run() {
