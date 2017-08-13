@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.events.model.MockData;
+import com.example.iket.ecellapp2k17.events.model.RetrofitEventsProvider;
 import com.example.iket.ecellapp2k17.events.model.data.EventsData;
 import com.example.iket.ecellapp2k17.events.presenter.EventPresenterImpl;
 import com.example.iket.ecellapp2k17.events.presenter.EventsPresenter;
@@ -93,13 +94,11 @@ public class EventsFragment extends Fragment implements EventsInterface {
         progressBar=(ProgressBar)view.findViewById(R.id.events_progressbar);
         event_recyclerView = (RecyclerView) view.findViewById(R.id.event_recycler_view);
         event_recyclerView.setHasFixedSize(true);
-
-
         linearLayoutManager = new LinearLayoutManager(getContext());
         eventsAdapter = new EventsAdapter(getContext());
 
         eventsPresenter=new EventPresenterImpl(this,new MockData());
-
+//        eventsPresenter=new EventPresenterImpl(this,new RetrofitEventsProvider());
         event_recyclerView.setLayoutManager(linearLayoutManager);
         event_recyclerView.setAdapter(eventsAdapter);
         eventsPresenter.requestEvents();

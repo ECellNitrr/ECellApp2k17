@@ -5,17 +5,15 @@ package com.example.iket.ecellapp2k17.events.model.data;
  */
 
 public class EventsData {
-    private String name,description,date,time,venue,image;
-
-
-    public EventsData(String name, String date, String time, String venue, String description, String image) {
-        this.name =name;
-        this.image=image;
+    private String title,description,date,time,venue, meta;
+    
+    public EventsData(String name, String date, String time, String venue, String description, String meta) {
+        this.title =name;
+        this.meta = meta;
         this.date=date;
         this.venue=venue;
         this.time=time;
         this.description=description;
-
     }
     public EventsData() {
     }
@@ -33,9 +31,9 @@ public class EventsData {
         return venue;
     }
 
-    public String getImage() {
+    public String getMeta() {
 
-        return image;
+        return meta;
     }
     public String getTime(){
         return time;
@@ -54,12 +52,12 @@ public class EventsData {
     }
 
     public String getEventName() {
-        return name;
+        return title;
     }
 
 
 
     public void setEventName(String name) {
-        this.name = name;
+        this.title = name;
     }
 }

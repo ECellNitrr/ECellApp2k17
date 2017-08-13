@@ -5,6 +5,6 @@ package com.example.iket.ecellapp2k17.blogs.presenter;
  */
 
 public interface AddBlogsPresenter {
-    void addBlogsData(String blogTitle, String blogType, String blogBody);
+    void addBlogsData(String blogTitle, String blogBody);
     void onDestroy();
 }

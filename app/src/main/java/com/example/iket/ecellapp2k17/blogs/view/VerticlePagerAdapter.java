@@ -91,12 +91,6 @@ public class VerticlePagerAdapter extends PagerAdapter {
         body.setText(data.getBlogBody());
         container.addView(itemView);
 
-//        blogCard.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                ((Home)mContext).addFragment(new BlogsDetailsFragment(),"More Blogs",18);
-//            }
-//        });
 
         read_more.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,17 +123,4 @@ public class VerticlePagerAdapter extends PagerAdapter {
     public void destroyItem(ViewGroup container, int position, Object object) {
         container.removeView((LinearLayout) object);
     }
-/*
-    public void addFragment(Fragment fragment, String title, int data) {
-        if (fragment != null) {
-            FragmentManager fragmentManager = getFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.container_fragment, fragment);
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commit();
-
-        }
-    }
-*/
-
 }

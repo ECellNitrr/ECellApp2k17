@@ -1,7 +1,6 @@
 package com.example.iket.ecellapp2k17.events.view;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,12 +9,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
-import com.example.iket.ecellapp2k17.esummit.EsummitFragment;
 import com.example.iket.ecellapp2k17.events.model.data.EventsData;
-import com.example.iket.ecellapp2k17.helper.Keys;
-import com.example.iket.ecellapp2k17.helper.RecyclerViewClickListener;
 import com.example.iket.ecellapp2k17.helper.image_loaders.GlideImageLoader;
 import com.example.iket.ecellapp2k17.helper.image_loaders.ImageLoader;
 import com.example.iket.ecellapp2k17.home.Home;
@@ -57,9 +52,9 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
         final EventsData eventsData = data.get(position);
-       imageLoader.loadImage(eventsData.getImage(), holder.event_image);
+       imageLoader.loadImage(eventsData.getMeta(),holder.event_image);
 
-      //  Glide.with(context).load(eventsData.getImage()).into(holder.event_image);
+      //  Glide.with(context).load(eventsData.getMeta()).into(holder.event_image);
         holder.event_name.setText(eventsData.getEventName());
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override

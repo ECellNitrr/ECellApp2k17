@@ -55,7 +55,7 @@ public class AddABlog extends android.support.v4.app.DialogFragment implements A
     private EditText editText_blogTitle,editText_blogType,editText_blogBody;
     private Button btn_insertImage,btn_post;
     private ImageView addABlog_bg;
-    private String blogTitle,blogType,blogBody;
+    private String blogTitle,blogBody;
     private AddBlogsPresenter addBlogsPresenter;
     private ProgressBar progressBar;
 
@@ -111,7 +111,6 @@ public class AddABlog extends android.support.v4.app.DialogFragment implements A
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_add_ablog, container, false);
         editText_blogTitle = (EditText) view.findViewById(R.id.etxt_title);
-        editText_blogType = (EditText) view.findViewById(R.id.etxt_blogType);
         editText_blogBody = (EditText) view.findViewById(R.id.etxt_blogBody);
         progressBar = (ProgressBar) view.findViewById(R.id.progressBar_blogs);
 
@@ -130,14 +129,13 @@ public class AddABlog extends android.support.v4.app.DialogFragment implements A
             @Override
             public void onClick(View v) {
                 blogTitle = editText_blogTitle.getText().toString();
-                blogType = editText_blogType.getText().toString();
                 blogBody = editText_blogBody.getText().toString();
-                if(blogTitle.isEmpty() || blogType.isEmpty() || blogBody.isEmpty()){
+                if(blogTitle.isEmpty() || blogBody.isEmpty()){
                     Toast.makeText(getContext(),"Fields cannot be Empty..!",Toast.LENGTH_SHORT).show();
                 }
                 else{
                     addBlogsPresenter = new AddBlogsPresenterImpl(AddABlog.this,new RetrofitAddBlogsProvider());
-                    addBlogsPresenter.addBlogsData(blogTitle,blogType,blogBody);
+                    addBlogsPresenter.addBlogsData(blogTitle,blogBody);
                 }
 
             }

@@ -108,15 +108,9 @@ public class BlogFragment extends Fragment implements BlogsInterface {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                //addFragment(new AddABlog(),"Add A Blog",16);
-                //AddABlog addABlog = new AddABlog();
-                //addABlog.show(fm,"Add A Blog");
                 FragmentManager fm = getFragmentManager();
                 AddABlog addABlog = new AddABlog();
                 addABlog.show(fm,"Add A Blog");
-
-
             }
         });
 

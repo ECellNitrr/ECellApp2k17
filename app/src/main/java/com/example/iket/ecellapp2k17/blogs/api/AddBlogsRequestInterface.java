@@ -17,6 +17,6 @@ import retrofit2.http.POST;
 public interface AddBlogsRequestInterface {
     @FormUrlEncoded
     @POST(Urls.REQUEST_ADD_BLOGS)
-    Call<AddBlogsData> getJson(@Field("blogTitle") String blogTtile, @Field("blogType") String blogType, @Field("blogBody") String blogBody);
+    Call<AddBlogsData> getJson(@Field("blogTitle") String blogTtile, @Field("blogBody") String blogBody);
 
 }

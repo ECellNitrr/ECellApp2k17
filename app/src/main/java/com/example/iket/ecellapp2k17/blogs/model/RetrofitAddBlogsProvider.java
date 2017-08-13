@@ -25,7 +25,7 @@ public class RetrofitAddBlogsProvider implements  AddBlogsProvider{
     private Call<AddBlogsData> call;
 
     @Override
-    public void getBlogResponse(String blogTitle, String blogType, String blogBody, final AddABlogCallback addABlogCallback) {
+    public void getBlogResponse(String blogTitle, String blogBody, final AddABlogCallback addABlogCallback) {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
@@ -34,7 +34,7 @@ public class RetrofitAddBlogsProvider implements  AddBlogsProvider{
                 addConverterFactory(GsonConverterFactory.create()).build();
         final AddBlogsRequestInterface addBlogsRequestInterface = retrofit.create(AddBlogsRequestInterface.class);
 
-        call = addBlogsRequestInterface.getJson(blogTitle,blogType,blogBody);
+        call = addBlogsRequestInterface.getJson(blogTitle,blogBody);
         call.enqueue(new Callback<AddBlogsData>() {
             @Override
             public void onResponse(Call<AddBlogsData> call, Response<AddBlogsData> response) {
