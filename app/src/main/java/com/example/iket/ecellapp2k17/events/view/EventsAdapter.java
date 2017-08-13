@@ -77,7 +77,6 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
     public  static class MyViewHolder extends RecyclerView.ViewHolder{
 
         public ImageView event_image;
-        public TextView event_name;
         public RelativeLayout relativeLayout;
         public MyViewHolder(View itemView){
             super(itemView);

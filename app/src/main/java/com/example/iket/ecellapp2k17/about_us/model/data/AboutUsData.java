@@ -6,24 +6,19 @@ package com.example.iket.ecellapp2k17.about_us.model.data;
 
 public class AboutUsData {
     String member_name;
-    String member_contact;
     String member_email;
     String member_position;
     String member_img_url;
-    String vision_body;
 
-    public AboutUsData(String member_contact,String member_email, String member_img_url,String member_name,String member_position,String vision_body){
-        this.member_contact=member_contact;
+
+    public AboutUsData(String member_email, String member_img_url,String member_name,String member_position){
+
         this.member_email=member_email;
         this.member_position=member_position;
         this.member_name=member_name;
         this.member_img_url=member_img_url;
-        this.vision_body=vision_body;
     }
 
-    public String getMember_contact() {
-        return member_contact;
-    }
 
     public String getMember_email() {
         return member_email;
@@ -40,5 +35,4 @@ public class AboutUsData {
     public String getMember_position() {
         return member_position;
     }
-    public String getVisionBody(){ return vision_body;}
 }
