@@ -59,7 +59,7 @@ public class VerticlePagerAdapter extends PagerAdapter {
 
         events_bg = (ImageView) itemView.findViewById(R.id.eventImage);
         event_body = (TextView) itemView.findViewById(R.id.eventBody);
-        event_venue = (TextView) itemView.findViewById(R.id.eventLocaion);
+        event_venue = (TextView) itemView.findViewById(R.id.eventLocation);
         TextView label = (TextView) itemView.findViewById(R.id.eventTitle);
         label.setText(data.getEventName());
         event_body.setText(data.getDescription());

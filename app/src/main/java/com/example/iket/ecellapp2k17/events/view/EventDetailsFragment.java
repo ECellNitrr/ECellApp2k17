@@ -2,6 +2,7 @@ package com.example.iket.ecellapp2k17.events.view;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.StyleRes;
@@ -49,7 +50,7 @@ public class EventDetailsFragment extends android.support.v4.app.DialogFragment 
 
 
     private ImageView event_details_bg;
-    private TextView event_details_desc,event_details_loc,event_details_name;
+    private TextView event_details_desc,event_details_loc,event_details_name,event_details_date,event_details_time;
     private EventsPresenter eventsPresenter;
     private List<EventsData> data = new ArrayList<>();
 
@@ -106,11 +107,17 @@ public class EventDetailsFragment extends android.support.v4.app.DialogFragment 
 
        View view =  inflater.inflate(R.layout.fragment_event_details, container, false);
         event_details_bg = (ImageView) view.findViewById(R.id.eventImage);
-        event_details_desc = (TextView) view.findViewById(R.id.eventTitle);
-        event_details_loc = (TextView) view.findViewById(R.id.eventLocaion);
+        event_details_desc = (TextView) view.findViewById(R.id.eventBody);
+        event_details_loc = (TextView) view.findViewById(R.id.eventLocation);
         event_details_name = (TextView) view.findViewById(R.id.eventTitle);
-        Glide.with(this).load(R.drawable.bquiz_bg).into(event_details_bg);
+        event_details_date = (TextView) view.findViewById(R.id.eventDate);
+        event_details_time = (TextView) view.findViewById(R.id.eventTime);
 
+        event_details_name.setText(eventsData.getEventName());
+        event_details_desc.setText(eventsData.getDescription());
+        event_details_loc.setText(eventsData.getVenue());
+        event_details_date.setText(eventsData.getDate());
+        event_details_time.setText(eventsData.getTime());
         Glide.with(getContext()).load(eventsData.getImage()).into(event_details_bg);
 
        // eventsPresenter=new EventPresenterImpl(this,new MockData());

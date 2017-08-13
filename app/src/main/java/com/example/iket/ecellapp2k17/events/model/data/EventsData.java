@@ -13,6 +13,7 @@ public class EventsData {
         this.image=image;
         this.date=date;
         this.venue=venue;
+        this.time=time;
         this.description=description;
 
     }
@@ -35,6 +36,9 @@ public class EventsData {
     public String getImage() {
 
         return image;
+    }
+    public String getTime(){
+        return time;
     }
 
     public void setDescription(String description) {
