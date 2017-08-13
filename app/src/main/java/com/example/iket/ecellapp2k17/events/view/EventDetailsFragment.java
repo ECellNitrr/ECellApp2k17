@@ -108,20 +108,25 @@ public class EventDetailsFragment extends android.support.v4.app.DialogFragment 
         event_details_desc = (TextView) view.findViewById(R.id.eventTitle);
         event_details_loc = (TextView) view.findViewById(R.id.eventLocaion);
         event_details_name = (TextView) view.findViewById(R.id.eventTitle);
+        Glide.with(this).load(R.drawable.bquiz_bg).into(event_details_bg);
 
        // eventsPresenter=new EventPresenterImpl(this,new MockData());
      /*
         Bundle bundle = getArguments();
         int pos = bundle.getInt(Keys.KEY_CATEGORY_ID);
       */
-//        String num = getArguments().getString("ARG_PARAM1","event");
-//        int pos = Integer.parseInt(num);
-//        EventsData eventsData = data.get(pos);
-//        Glide.with(this).load(eventsData.getImage()).into(event_details_bg);
-//        event_details_name.setText(eventsData.getEventName());
-//        event_details_desc.setText(eventsData.getDescription());
-//        event_details_loc.setText(eventsData.getVenue());
-
+      //   String num = getArguments().getString("ARG_PARAM1","event");
+      //   int pos = Integer.parseInt(num);
+      // EventsData eventsData = data.get(pos);
+      //  Glide.with(this).load(eventsData.getImage()).into(event_details_bg);
+      //  event_details_name.setText(eventsData.getEventName());
+      //  event_details_desc.setText(eventsData.getDescription());
+      //  event_details_loc.setText(eventsData.getVenue());
+/*
+        <ImageView
+            android:id="@+id/eventImage"
+            android:layout_widthetVenue());
+*/
         //eventsPresenter.requestEvents();
 
           return view;
@@ -159,5 +164,6 @@ public class EventDetailsFragment extends android.support.v4.app.DialogFragment 
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
 
 }
