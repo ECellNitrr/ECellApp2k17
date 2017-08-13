@@ -1,7 +1,7 @@
 package com.example.iket.ecellapp2k17.sponsors.presenter;
 
 import com.example.iket.ecellapp2k17.sponsors.model.SponsProvider;
-import com.example.iket.ecellapp2k17.sponsors.model.data.ResponseSpons;
+import com.example.iket.ecellapp2k17.sponsors.model.data.SponsHeading;
 import com.example.iket.ecellapp2k17.sponsors.view.OnSponsReceived;
 import com.example.iket.ecellapp2k17.sponsors.view.SponsInterface;
 
@@ -33,7 +33,7 @@ public class SponsPresenterImpl implements SponsPresenter {
             }
 
             @Override
-            public void onSuccess(List<ResponseSpons> sponsDataList) {
+            public void onSuccess(List<SponsHeading> sponsDataList) {
                 sponsInterface.setData(sponsDataList);
                 sponsInterface.showLoading(false);
             }

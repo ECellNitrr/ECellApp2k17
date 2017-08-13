@@ -1,9 +1,9 @@
 package com.example.iket.ecellapp2k17.sponsors.view;
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.customtabs.CustomTabsIntent;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,13 +14,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
-import com.example.iket.ecellapp2k17.sponsors.model.MockSpons;
-import com.example.iket.ecellapp2k17.sponsors.model.data.ResponseSpons;
 import com.example.iket.ecellapp2k17.sponsors.model.data.SponsData;
-import com.example.iket.ecellapp2k17.sponsors.presenter.SponsPresenter;
-import com.example.iket.ecellapp2k17.sponsors.presenter.SponsPresenterImpl;
-
-import java.util.List;
 
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
@@ -39,9 +33,9 @@ public class SponsEndPage_Fragment extends Fragment{
     private String mParam2;
     private Button button;
     private ImageView image1,bg_spons;
+    private SponsData sponsData;
     private TextView textTitle,spons_desc,spons_body;
     private Context context;
-
 
     public SponsEndPage_Fragment(){
         //Required empty constructor
@@ -78,31 +72,30 @@ public class SponsEndPage_Fragment extends Fragment{
         spons_body = (TextView) view.findViewById(R.id.sponsBody);
         button = (Button) view.findViewById(R.id.sponsButton);
 
-        return view;
-    }
-
-
-    public void setData(final SponsData data) {
 
         Glide.with(this).load(R.drawable.spons_endpage).into(bg_spons);//  sponsData.getBg_spons()
         int radius = 30; // corner radius, higher value = more rounded
-        int margin = 5; // crop margin, set to 0 for corners with no crop
+        int margin = 5;
         Glide.with(this)
-                .load(data.getImage1())  //sponsData.getImage1
+                .load(sponsData.getImage1())  //sponsData.getImage1
                 .bitmapTransform(new RoundedCornersTransformation(context, radius, margin))
                 .into(image1);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_VIEW);
-                intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                intent.setData(Uri.parse(data.getWebsite_url()));
-                startActivity(intent);
+                CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+                CustomTabsIntent customTabsIntent = builder.build();
+                customTabsIntent.launchUrl(getContext(),Uri.parse(sponsData.getWebsite_url()));
             }
         });
 
+        return view;
+    }
+
+
+    public void setData(final SponsData data) {
+        sponsData=data;
     }
 
 }

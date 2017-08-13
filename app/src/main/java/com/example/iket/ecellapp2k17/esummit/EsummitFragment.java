@@ -11,7 +11,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
-import com.example.iket.ecellapp2k17.helper.TypeWriterTextView;
+import com.example.iket.ecellapp2k17.helper.TypewriterView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,6 +37,8 @@ public class EsummitFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
     @BindView(R.id.esummit_img)
     ImageView esummit_logo;
+
+    TypewriterView typewriterView;
 
     public EsummitFragment() {
         // Required empty public constructor
@@ -77,11 +79,8 @@ public class EsummitFragment extends Fragment {
         ButterKnife.bind(this,view);
         Glide.with(this).load(R.drawable.esummit).into(esummit_logo);
 
-            final TypeWriterTextView animationText = (TypeWriterTextView) view.findViewById(R.id.type_writer_text);
-                animationText.setText("");
-                animationText.setCharacterDelay(120);
-                animationText.displayTextWithAnimation("A Trek To The Zenith Of Glory!");
-
+        typewriterView = (TypewriterView) view.findViewById(R.id.type_writer_text);
+        setAnim();
         return view;
     }
 
@@ -102,6 +101,24 @@ public class EsummitFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    void setAnim()
+    {
+        typewriterView.setText("");
+        typewriterView
+                .type("A trek to the Zenith of Glory.").pause()
+                .delete("A trek to the Zenith of Glory.").pause(500)
+                .type("NIT Raipur!").pause(500)
+                .delete("NIT Raipur!")
+                .type("9th-10th September,2017.").pause(1000)
+                .run(new Runnable() {
+                    @Override
+                    public void run() {
+                        setAnim();
+                    }
+                });
+
     }
 
     /**

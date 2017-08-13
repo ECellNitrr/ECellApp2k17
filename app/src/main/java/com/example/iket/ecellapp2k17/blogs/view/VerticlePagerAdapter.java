@@ -2,6 +2,7 @@ package com.example.iket.ecellapp2k17.blogs.view;
 
 import android.content.Context;
 import android.net.Uri;
+import android.os.Handler;
 import android.support.customtabs.CustomTabsIntent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -109,15 +110,18 @@ public class VerticlePagerAdapter extends PagerAdapter {
 
         final ToolTipsManager mToolTipsManager;
         mToolTipsManager = new ToolTipsManager();
-        final ToolTip.Builder builder = new ToolTip.Builder(mContext,read_more,layout, "" , ToolTip.GRAVITY_CENTER);
-        builder.setGravity(ToolTip.ALIGN_CENTER);
-        blogCard.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                mToolTipsManager.show(builder.build());
-                return false;
-            }
-        });
+        final ToolTip.Builder builder = new ToolTip.Builder(mContext,blogImage,layout, "Swipe up to read next blog." , ToolTip.POSITION_BELOW);
+        builder.setBackgroundColor(R.color.dak_grey);
+
+        if(position==0) {
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    mToolTipsManager.show(builder.build());
+                }
+            },3000);
+        }
         return itemView;
     }
 
