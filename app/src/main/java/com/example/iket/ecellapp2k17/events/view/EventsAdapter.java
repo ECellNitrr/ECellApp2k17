@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
+import com.example.iket.ecellapp2k17.esummit.EsummitFragment;
 import com.example.iket.ecellapp2k17.events.model.data.EventsData;
 import com.example.iket.ecellapp2k17.helper.Keys;
 import com.example.iket.ecellapp2k17.helper.RecyclerViewClickListener;
@@ -63,16 +64,9 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-/*
-                Bundle bundle = new Bundle();
-                bundle.putInt(Keys.KEY_CATEGORY_ID,category_id);
-                EventDetailsFragment eventDetailsFragment = new EventDetailsFragment();
-                eventDetailsFragment.setArguments(bundle);
-
-*/              String key = String.valueOf(position);
-                EventDetailsFragment eventDetailsFragment = new EventDetailsFragment();
-                eventDetailsFragment.newInstance(key,"param2");
-                ((Home)context).addFragment(new EventDetailsFragment(),"Event Details",0);
+//                EventDetailsFragment events=new EventDetailsFragment();
+//               events.newInstance("pos",position+"");
+                ((Home)context).addFragment(new EventDetailsFragment().newInstance("fvgfd","sdvsd"),"fvdv",2);
             }
         });
 

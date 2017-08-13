@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
@@ -17,7 +18,7 @@ import com.example.iket.ecellapp2k17.about_us.model.MockAboutUs;
 import com.example.iket.ecellapp2k17.about_us.model.data.AboutUsData;
 import com.example.iket.ecellapp2k17.about_us.presenter.AboutUsPresenter;
 import com.example.iket.ecellapp2k17.about_us.presenter.AboutUsPresenterImpl;
-import com.example.iket.ecellapp2k17.helper.VerticalViewPager;
+import com.example.iket.ecellapp2k17.home.Home;
 
 import java.util.List;
 
@@ -33,7 +34,7 @@ import jp.wasabeef.glide.transformations.CropCircleTransformation;
  * Use the {@link AboutUsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AboutUsFragment extends Fragment implements AboutUsInterface{
+public class AboutUsFragment extends Fragment{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -55,13 +56,7 @@ public class AboutUsFragment extends Fragment implements AboutUsInterface{
     @BindView(R.id.past_work_img)
     ImageView past_work_chip;
 
-    RecyclerView recyclerView;
-    private RecyclerAdapter recyclerAdapter;
-    private RecyclerView.LayoutManager layoutManager;
-
-    AboutUsPresenter aboutUsPresenter;
     private OnFragmentInteractionListener mListener;
-
     public AboutUsFragment() {
         // Required empty public constructor
     }
@@ -97,26 +92,34 @@ public class AboutUsFragment extends Fragment implements AboutUsInterface{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_team, container, false);
-        recyclerView=(RecyclerView) view.findViewById(R.id.recycler_view_team);
-
-        recyclerView.setHasFixedSize(true);
-
-        layoutManager = new LinearLayoutManager(getContext());
-        recyclerView.setLayoutManager(layoutManager);
-
-        recyclerAdapter=new RecyclerAdapter(getContext());
-        recyclerView.setAdapter(recyclerAdapter);
-
+        View view = inflater.inflate(R.layout.fragment_about_us, container, false);
         ButterKnife.bind(this,view);
         Glide.with(getContext()).load(R.drawable.vision).bitmapTransform(new CropCircleTransformation(getContext())).into(vision_chip);
         Glide.with(getContext()).load(R.drawable.contact_us).bitmapTransform(new CropCircleTransformation(getContext())).into(contact_us_chip);
-        Glide.with(getContext()).load(R.drawable.past_work).bitmapTransform(new CropCircleTransformation(getContext())).into(past_work_chip);
+//        Glide.with(getContext()).load(R.drawable.past_work).bitmapTransform(new CropCircleTransformation(getContext())).into(past_work_chip);
         Glide.with(getContext()).load(R.drawable.team).bitmapTransform(new CropCircleTransformation(getContext())).into(team_chip);
-        // blogsPresenter=new BlogsPresenterImpl(new RetrofitBlogsProvider(),this);
 
-        aboutUsPresenter =new AboutUsPresenterImpl(new MockAboutUs(),this);
-        aboutUsPresenter.requestData();
+        team_chip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(getContext(), "Team fragment will be here", Toast.LENGTH_SHORT).show();
+            }
+        });
+        contact_us_chip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(getContext(), "Contact us will be here", Toast.LENGTH_SHORT).show();
+            }
+        });
+        vision_chip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(getContext(), "Vision will be here", Toast.LENGTH_SHORT).show();
+            }
+        });
         return view;
     }
 
@@ -138,42 +141,6 @@ public class AboutUsFragment extends Fragment implements AboutUsInterface{
         mListener = null;
     }
 
-    @Override
-    public void setData(List<AboutUsData> aboutUsDataList) {
-        recyclerAdapter.setData(aboutUsDataList);
-        recyclerAdapter.notifyDataSetChanged();
-    }
-
-    @Override
-    public void showMessage(String message) {
-
-    }
-
-    @Override
-    public void ShowProgressBar(boolean show) {
-
-
-    }
-
-    public void go_to_vision(){
-
-    }
-    public void go_to_contact_us(){
-
-    }
-    public void go_to_past_work(){
-
-    }
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);

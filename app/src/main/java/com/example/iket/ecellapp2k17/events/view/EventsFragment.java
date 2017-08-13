@@ -89,6 +89,7 @@ public class EventsFragment extends Fragment implements EventsInterface {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_events, container, false);
+        Log.d("Events",mParam1+mParam2);
         progressBar=(ProgressBar)view.findViewById(R.id.events_progressbar);
         event_recyclerView = (RecyclerView) view.findViewById(R.id.event_recycler_view);
         event_recyclerView.setHasFixedSize(true);

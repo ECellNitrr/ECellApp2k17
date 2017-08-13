@@ -76,6 +76,13 @@ public class VerticlePagerAdapter extends PagerAdapter {
         date.setText(data.getBlogDate());
         body.setText(data.getBlogBody());
         container.addView(itemView);
+
+//        blogCard.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                ((Home)mContext).addFragment(new BlogsDetailsFragment(),"More Blogs",18);
+//            }
+//        });
         blogCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

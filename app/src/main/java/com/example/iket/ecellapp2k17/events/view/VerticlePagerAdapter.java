@@ -54,7 +54,7 @@ public class VerticlePagerAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
 
-        View itemView = mLayoutInflater.inflate(R.layout.fragment_team, container, false);
+        View itemView = mLayoutInflater.inflate(R.layout.fragment_about_us, container, false);
         EventsData data=listEvents.get(position);
 
         events_bg = (ImageView) itemView.findViewById(R.id.eventImage);

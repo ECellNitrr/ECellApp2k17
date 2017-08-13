@@ -1,48 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context="com.example.iket.ecellapp2k17.about_us.view.TeamFragment">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="80sp"
-        android:orientation="horizontal"
-        android:background="#ffffff"
-        android:weightSum="4">
-        <ImageView
-            android:id="@+id/vision_img"
-            android:layout_width="80dip"
-            android:layout_height="match_parent"
-            android:clickable="true"
-            android:onClick="go_to_vision"
-            android:layout_weight="1"
-            android:elevation="10dp"/>
-        <ImageView
-            android:id="@+id/team_img"
-            android:layout_width="80sp"
-            android:layout_height="match_parent"
-            android:clickable="true"
-            android:onClick="go_to_team"
-            android:layout_weight="1"
-            android:elevation="10dp"/>
-        <ImageView
-            android:id="@+id/past_work_img"
-            android:layout_width="80sp"
-            android:layout_height="match_parent"
-            android:clickable="true"
-            android:onClick="go_to_past_work"
-            android:layout_weight="1"
-            android:elevation="10dp"/>
-        <ImageView
-            android:id="@+id/contact_us_img"
-            android:layout_width="80sp"
-            android:layout_height="match_parent"
-            android:clickable="true"
-            android:onClick="go_to_contact_us"
-            android:layout_weight="1"
-            android:elevation="10dp"/>
-
-    </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view_team"
@@ -52,4 +13,4 @@
 
     </android.support.v7.widget.RecyclerView>
 
-</LinearLayout>
+</FrameLayout>

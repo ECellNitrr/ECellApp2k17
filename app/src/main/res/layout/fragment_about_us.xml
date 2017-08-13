@@ -1,18 +1,49 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.example.iket.ecellapp2k17.about_us.view.AboutUsFragment">
+    >
 
-
-
-    <com.example.iket.ecellapp2k17.helper.VerticalViewPager
-        android:layout_height="match_parent"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:id="@+id/about_us_viewPager">
+        android:layout_height="70sp"
+        android:layout_margin="4dp"
+        android:orientation="horizontal"
+        android:padding="4dp"
+        android:background="#ffffff"
+        android:weightSum="3">
+        <ImageView
+            android:id="@+id/vision_img"
+            android:layout_width="80dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:elevation="10dp"/>
+        <ImageView
+            android:id="@+id/team_img"
+            android:layout_width="80sp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:elevation="10dp"/>
+        <ImageView
+            android:id="@+id/past_work_img"
+            android:layout_width="80sp"
+            android:visibility="gone"
+            android:layout_height="match_parent"
+            android:elevation="10dp"/>
+        <ImageView
+            android:id="@+id/contact_us_img"
+            android:layout_width="80sp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:elevation="10dp"
+            />
 
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/about_us_container"
+        >
+    </RelativeLayout>
 
-        </com.example.iket.ecellapp2k17.helper.VerticalViewPager>
-
-</FrameLayout>
+</LinearLayout>

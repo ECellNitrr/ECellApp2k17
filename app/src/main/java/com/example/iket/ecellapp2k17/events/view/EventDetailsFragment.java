@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.StyleRes;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -102,6 +103,7 @@ public class EventDetailsFragment extends android.support.v4.app.DialogFragment 
 
        View view =  inflater.inflate(R.layout.fragment_event_details, container, false);
 
+        Log.d("events",mParam1+mParam2);
         event_details_bg = (ImageView) view.findViewById(R.id.eventImage);
         event_details_desc = (TextView) view.findViewById(R.id.eventTitle);
         event_details_loc = (TextView) view.findViewById(R.id.eventLocaion);
@@ -113,12 +115,12 @@ public class EventDetailsFragment extends android.support.v4.app.DialogFragment 
         int pos = bundle.getInt(Keys.KEY_CATEGORY_ID);
       */
 //        String num = getArguments().getString("ARG_PARAM1","event");
-  //      int pos = Integer.parseInt(num);
-        EventsData eventsData = data.get(1);
-        Glide.with(this).load(eventsData.getImage()).into(event_details_bg);
-        event_details_name.setText(eventsData.getEventName());
-        event_details_desc.setText(eventsData.getDescription());
-        event_details_loc.setText(eventsData.getVenue());
+//        int pos = Integer.parseInt(num);
+//        EventsData eventsData = data.get(pos);
+//        Glide.with(this).load(eventsData.getImage()).into(event_details_bg);
+//        event_details_name.setText(eventsData.getEventName());
+//        event_details_desc.setText(eventsData.getDescription());
+//        event_details_loc.setText(eventsData.getVenue());
 
         //eventsPresenter.requestEvents();
 

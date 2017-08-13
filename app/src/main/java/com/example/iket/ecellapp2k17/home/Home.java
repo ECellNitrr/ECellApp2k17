@@ -34,15 +34,13 @@ public class Home extends AppCompatActivity{
     @BindView(R.id.tabLayout)
     TabLayout tabLayout;
 
-    
-    private Context context;
     private int[] tabIcons = {R.drawable.esummit,R.drawable.events_icon_white,R.drawable.blogs_icon_white,R.drawable.sponsors_icon_white,R.drawable.about_us_white,R.drawable.about_us_white,R.drawable.profile_icon_white,};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        setFragment(new BlogFragment());
+        setFragment(new EsummitFragment());
         ButterKnife.bind(this);
         setupTabIcons();
         tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#FF5722"));
@@ -65,15 +63,15 @@ public class Home extends AppCompatActivity{
                         setFragment(new SponsFragment());
                         break;
                     case 4:
-                        setFragment(new AboutUsFragment());
-                        break;
-                    case 5:
                         Intent bquiz=new Intent(Home.this, BQuizActivity.class);
                         startActivity(bquiz);
-                    default:
-                        setFragment(new BlogFragment());
                         break;
-
+                    case 5:
+                        setFragment(new AboutUsFragment());
+                        break;
+                    case 6:
+                        setFragment(new ProfileFragment());
+                        break;
                 }
             }
 
