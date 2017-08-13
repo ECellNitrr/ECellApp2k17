@@ -17,26 +17,29 @@
             android:layout_width="80dip"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:elevation="10dp"/>
+            android:elevation="10dp"
+            android:background="@drawable/highlight"/>
         <ImageView
             android:id="@+id/team_img"
             android:layout_width="80sp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:elevation="10dp"/>
+            android:elevation="10dp"
+            android:background="@drawable/highlight"/>
         <ImageView
             android:id="@+id/past_work_img"
             android:layout_width="80sp"
             android:visibility="gone"
             android:layout_height="match_parent"
-            android:elevation="10dp"/>
+            android:elevation="10dp"
+            android:background="@drawable/highlight"/>
         <ImageView
             android:id="@+id/contact_us_img"
             android:layout_width="80sp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:elevation="10dp"
-            />
+            android:background="@drawable/highlight"/>
 
     </LinearLayout>
     <RelativeLayout
