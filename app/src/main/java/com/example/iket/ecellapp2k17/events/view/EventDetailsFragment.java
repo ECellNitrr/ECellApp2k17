@@ -2,29 +2,20 @@ package com.example.iket.ecellapp2k17.events.view;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.StyleRes;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
-import com.example.iket.ecellapp2k17.events.model.MockData;
 import com.example.iket.ecellapp2k17.events.model.data.EventsData;
-import com.example.iket.ecellapp2k17.events.presenter.EventPresenterImpl;
 import com.example.iket.ecellapp2k17.events.presenter.EventsPresenter;
-import com.example.iket.ecellapp2k17.helper.Keys;
-import com.example.iket.ecellapp2k17.helper.RecyclerViewClickListener;
-import com.example.iket.ecellapp2k17.sponsors.model.data.SponsData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -119,8 +110,12 @@ public class EventDetailsFragment extends android.support.v4.app.DialogFragment 
         event_details_loc.setText(eventsData.getVenue());
         event_details_date.setText(eventsData.getDate());
         event_details_time.setText(eventsData.getTime());
+        Glide.with(getContext()).load(eventsData.getMeta()).into(event_details_bg);
+
+        //eventsPresenter.requestEvents();
+
         Glide.with(getContext()).load(R.drawable.location_icon).into(event_details_location_img);
-        Glide.with(getContext()).load(eventsData.getImage()).into(event_details_bg);
+//        Glide.with(getContext()).load(eventsData.getImage()).into(event_details_bg);
 
           return view;
     }

@@ -10,12 +10,24 @@ import java.util.List;
 
 public class EventsList {
     private List<EventsData> events;
+    private String message;
+    private boolean success;
 
-    EventsList(List<EventsData> events) {
+    public EventsList(List<EventsData> events, String message, boolean success) {
         this.events = events;
+        this.message = message;
+        this.success = success;
     }
 
     public List<EventsData> getEvents() {
         return events;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public boolean isSuccess() {
+        return success;
     }
 }

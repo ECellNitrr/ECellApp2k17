@@ -20,7 +20,9 @@
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".BQuizNew.view.BQuizActivity" />
-        <activity android:name=".home.Home">
+        <activity android:name=".home.Home"
+                  android:screenOrientation="portrait"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -42,7 +44,6 @@
 
         <activity android:name=".login.view.LoginActivity" />
         <activity android:name=".otp_verify.view.OtpActivity" />
-        <activity android:name=".about_us.view.TeamAdapter"></activity>
     </application>
 
 </manifest>
