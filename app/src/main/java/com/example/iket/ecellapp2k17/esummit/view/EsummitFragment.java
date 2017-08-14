@@ -144,12 +144,12 @@ public class EsummitFragment extends Fragment implements ViewInterface{
         typewriterView.setText("");
         typewriterView.setEnabled(false);
         typewriterView
-                .type("A trek to the Zenith of Glory.").pause()
-                .delete("A trek to the Zenith of Glory.").pause(500)
+                .type("A trek to the Zenith of Glory").pause()
+                .delete("A trek to the Zenith of Glory").pause(500)
                 .type("NIT Raipur!").pause(500)
                 .delete("NIT Raipur!")
-                .type("9th-10th September,2017.").pause(1000)
-                .delete("9th-10th September,2017.")
+                .type("9th-10th September,2017").pause(1000)
+                .delete("9th-10th September,2017")
                 .run(new Runnable() {
                     @Override
                     public void run() {

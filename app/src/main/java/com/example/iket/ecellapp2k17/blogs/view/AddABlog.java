@@ -6,7 +6,9 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.BottomSheetDialogFragment;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatDialogFragment;
@@ -52,9 +54,9 @@ public class AddABlog extends BottomSheetDialogFragment implements AddABlogView{
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
-    private EditText editText_blogTitle,editText_blogBody;
+    private EditText editText_blogTitle,editText_blogType,editText_blogBody;
     private Button btn_insertImage,btn_post;
-    private ImageView addABlog_bg,selected_image;
+    private ImageView addABlog_bg;
     private String blogTitle,blogType,blogBody;
     private AddBlogsPresenter addBlogsPresenter;
     private ProgressBar progressBar;
@@ -80,7 +82,7 @@ public class AddABlog extends BottomSheetDialogFragment implements AddABlogView{
         fragment.setArguments(args);
         return fragment;
     }
-/*
+
     @Override
     public void onStart() {
         super.onStart();
@@ -94,7 +96,7 @@ public class AddABlog extends BottomSheetDialogFragment implements AddABlogView{
 
 
     }
-*/
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,20 +106,32 @@ public class AddABlog extends BottomSheetDialogFragment implements AddABlogView{
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
+/*
+    @Override
+    public void setupDialog(Dialog dialog, int style) {
+        super.setupDialog(dialog, style);
+        View view = View.inflate(getContext(),R.layout.fragment_add_ablog,null);
+        dialog.setContentView(view);
 
+        CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams) ((View) view.getParent()).getLayoutParams();
+        //CoordinatorLayout.Behavior behavior = params.getBehavior();
+
+    }
+*/
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_add_ablog, container, false);
         editText_blogTitle = (EditText) view.findViewById(R.id.etxt_title);
+     //   editText_blogType = (EditText) view.findViewById(R.id.etxt_blogType);
         editText_blogBody = (EditText) view.findViewById(R.id.etxt_blogBody);
-        addABlog_bg = (ImageView) view.findViewById(R.id.addBlog_bg);
-        selected_image = (ImageView) view.findViewById(R.id.uploaded_img);
+       // addABlog_bg = (ImageView) view.findViewById(R.id.addBlog_bg);
         progressBar = (ProgressBar) view.findViewById(R.id.progressBar_blogs);
 
-        getDialog().setTitle("Add A Blog");
-        Glide.with(this).load(R.drawable.add_blog_bg_white).into(addABlog_bg);
+
+//        getDialog().setTitle("Add A Blog");
+       // Glide.with(this).load(R.drawable.add_blog_bg_white).into(addABlog_bg);
         btn_insertImage = (Button)  view.findViewById(R.id.insert_img);
         btn_insertImage.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -132,6 +146,7 @@ public class AddABlog extends BottomSheetDialogFragment implements AddABlogView{
             @Override
             public void onClick(View v) {
                 blogTitle = editText_blogTitle.getText().toString();
+                blogType = editText_blogType.getText().toString();
                 blogBody = editText_blogBody.getText().toString();
                 if(blogTitle.isEmpty() || blogType.isEmpty() || blogBody.isEmpty()){
                     Toast.makeText(getContext(),"Fields cannot be Empty..!",Toast.LENGTH_SHORT).show();
@@ -140,11 +155,8 @@ public class AddABlog extends BottomSheetDialogFragment implements AddABlogView{
                     addBlogsPresenter = new AddBlogsPresenterImpl(AddABlog.this,new RetrofitAddBlogsProvider());
                     addBlogsPresenter.addBlogsData(blogTitle,blogType,blogBody);
                 }
-
             }
         });
-
-
 
         return view;
     }
@@ -155,7 +167,7 @@ public class AddABlog extends BottomSheetDialogFragment implements AddABlogView{
         if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && data != null){
             Uri selected_image = data.getData();
             Toast.makeText(getContext(),"Your Image has been selected",Toast.LENGTH_SHORT).show();
-           // load_blogImage.setImageURI(selected_image);
+            //load_blogImage.setImageURI(selected_image);
         }
     }
 
