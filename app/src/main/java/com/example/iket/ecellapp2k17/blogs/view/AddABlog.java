@@ -52,9 +52,9 @@ public class AddABlog extends BottomSheetDialogFragment implements AddABlogView{
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
-    private EditText editText_blogTitle,editText_blogType,editText_blogBody;
+    private EditText editText_blogTitle,editText_blogBody;
     private Button btn_insertImage,btn_post;
-    private ImageView addABlog_bg;
+    private ImageView addABlog_bg,selected_image;
     private String blogTitle,blogType,blogBody;
     private AddBlogsPresenter addBlogsPresenter;
     private ProgressBar progressBar;
@@ -112,8 +112,10 @@ public class AddABlog extends BottomSheetDialogFragment implements AddABlogView{
         View view =  inflater.inflate(R.layout.fragment_add_ablog, container, false);
         editText_blogTitle = (EditText) view.findViewById(R.id.etxt_title);
     //    editText_blogType = (EditText) view.findViewById(R.id.etxt_blogType);
+
         editText_blogBody = (EditText) view.findViewById(R.id.etxt_blogBody);
         addABlog_bg = (ImageView) view.findViewById(R.id.addBlog_bg);
+        selected_image = (ImageView) view.findViewById(R.id.uploaded_img);
         progressBar = (ProgressBar) view.findViewById(R.id.progressBar_blogs);
 
         getDialog().setTitle("Add A Blog");
@@ -132,7 +134,6 @@ public class AddABlog extends BottomSheetDialogFragment implements AddABlogView{
             @Override
             public void onClick(View v) {
                 blogTitle = editText_blogTitle.getText().toString();
-                blogType = editText_blogType.getText().toString();
                 blogBody = editText_blogBody.getText().toString();
                 if(blogTitle.isEmpty() || blogType.isEmpty() || blogBody.isEmpty()){
                     Toast.makeText(getContext(),"Fields cannot be Empty..!",Toast.LENGTH_SHORT).show();
@@ -156,7 +157,7 @@ public class AddABlog extends BottomSheetDialogFragment implements AddABlogView{
         if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && data != null){
             Uri selected_image = data.getData();
             Toast.makeText(getContext(),"Your Image has been selected",Toast.LENGTH_SHORT).show();
-            //load_blogImage.setImageURI(selected_image);
+           // load_blogImage.setImageURI(selected_image);
         }
     }
 

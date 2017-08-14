@@ -7,9 +7,17 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.iket.ecellapp2k17.R;
+import com.example.iket.ecellapp2k17.about_us.model.RetrofitProviderAboutUs;
+import com.example.iket.ecellapp2k17.about_us.model.RetrofitProviderContactUs;
+import com.example.iket.ecellapp2k17.about_us.presenter.ContactUsPresenter;
+import com.example.iket.ecellapp2k17.about_us.presenter.ContactUsPresenterImpl;
 
 import java.lang.reflect.Field;
 
@@ -21,7 +29,7 @@ import java.lang.reflect.Field;
  * Use the {@link ContactUsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ContactUsFragment extends Fragment {
+public class ContactUsFragment extends Fragment implements ContactUsView{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -30,6 +38,14 @@ public class ContactUsFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private ContactUsPresenter contactUsPresenter;
+
+    private EditText user_name,user_email,user_msg;
+    private Button send_msg;
+    private Context context;
+    private ProgressBar progressBar_contactus;
+    private String name,email,body;
 
     private OnFragmentInteractionListener mListener;
 
@@ -68,7 +84,52 @@ public class ContactUsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_contact_us,container,false);
+        context = getContext();
+        user_name = (EditText) view.findViewById(R.id.etxt_name);
+        user_email = (EditText)view.findViewById(R.id.etxt_email);
+        user_msg = (EditText)view.findViewById(R.id.etxt_msg);
+        send_msg = (Button) view.findViewById(R.id.btn_send);
+        progressBar_contactus = (ProgressBar) view.findViewById(R.id.progBar);
+
+        send_msg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                name = user_name.getText().toString();
+                email = user_email.getText().toString();
+                body = user_msg.getText().toString();
+                if (name.isEmpty() || email.isEmpty() || body.isEmpty()){
+                    showProgressBar(false);
+                    showError("Fields cannot be empty");
+                }
+                else {
+                    contactUsPresenter = new ContactUsPresenterImpl(ContactUsFragment.this,new RetrofitProviderContactUs());
+                    contactUsPresenter.getContactData(name,email,body);
+                }
+            }
+        });
+
         return view;
+    }
+
+    @Override
+    public void showProgressBar(boolean show) {
+        if (show){
+            progressBar_contactus.setVisibility(View.VISIBLE);
+        }else {
+            progressBar_contactus.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    @Override
+    public void showStatus(boolean status) {
+        if (status){
+            Toast.makeText(getContext(),"Your Message has been sent successfully !",Toast.LENGTH_LONG).show();
+        }
+    }
+
+    @Override
+    public void showError(String message) {
+        Toast.makeText(getContext(),message,Toast.LENGTH_LONG).show();
     }
 
     // TODO: Rename method, update argument and hook method into UI event
