@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="circlebutton-1.1">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.android/build-cache/fef5bb20ddf7c7a36a8a16868945bbe91ce5aa52/output/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.android/build-cache/fef5bb20ddf7c7a36a8a16868945bbe91ce5aa52/output/res" />
+      <root url="file://$USER_HOME$/.android/build-cache/bde5a64338ef83b4dfc96015418f2d22e6220381/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/bde5a64338ef83b4dfc96015418f2d22e6220381/output/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
