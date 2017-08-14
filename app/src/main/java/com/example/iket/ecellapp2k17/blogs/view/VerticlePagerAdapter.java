@@ -43,6 +43,7 @@ public class VerticlePagerAdapter extends PagerAdapter {
     Context mContext;
     LayoutInflater mLayoutInflater;
     private CardView blogCard;
+    private int length;
 
     private String url = "http://google.com/";
 
@@ -82,6 +83,15 @@ public class VerticlePagerAdapter extends PagerAdapter {
         ImageView blogImage= (ImageView) itemView.findViewById(R.id.blog_image);
         RelativeLayout layout = (RelativeLayout) itemView.findViewById(R.id.blog_relative_layout);
         TextView info=(TextView)itemView.findViewById(R.id.info);
+        length = (data.getBlogBody()).length();
+        if(length>370)
+        {
+            read_more.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            read_more.setVisibility(View.GONE);
+        }
         info.setVisibility(View.GONE);
 
         Glide.with(mContext).load(data.getBlogImage()).into(blogImage);
