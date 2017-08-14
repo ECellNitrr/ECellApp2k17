@@ -91,7 +91,7 @@ public class EsummitFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_esummit, container, false);
         ButterKnife.bind(this,view);
         Glide.with(this).load(R.drawable.esummit).into(esummit_logo);
-
+/*
         recyclerView=(RecyclerView) view.findViewById(R.id.recycler_view_team);
 
         recyclerView.setHasFixedSize(true);
@@ -100,7 +100,7 @@ public class EsummitFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         recyclerAdapter=new RecyclerAdapter(getContext());
         recyclerView.setAdapter(recyclerAdapter);
-
+*/
         esummit_title.setEnabled(false);
         esummit_desc.setEnabled(false);
         typewriterView = (TypewriterView) view.findViewById(R.id.type_writer_text);
@@ -130,7 +130,6 @@ public class EsummitFragment extends Fragment {
     void setAnim()
     {
         typewriterView.setText("");
-    //    typewriterView.setEnabled(false);
         typewriterView
                 .type("A trek to the Zenith of Glory.").pause()
                 .delete("A trek to the Zenith of Glory.").pause(500)
