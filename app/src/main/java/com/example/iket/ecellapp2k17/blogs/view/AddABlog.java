@@ -124,7 +124,7 @@ public class AddABlog extends BottomSheetDialogFragment implements AddABlogView{
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_add_ablog, container, false);
         editText_blogTitle = (EditText) view.findViewById(R.id.etxt_title);
-     //   editText_blogType = (EditText) view.findViewById(R.id.etxt_blogType);
+
         editText_blogBody = (EditText) view.findViewById(R.id.etxt_blogBody);
        // addABlog_bg = (ImageView) view.findViewById(R.id.addBlog_bg);
         progressBar = (ProgressBar) view.findViewById(R.id.progressBar_blogs);
