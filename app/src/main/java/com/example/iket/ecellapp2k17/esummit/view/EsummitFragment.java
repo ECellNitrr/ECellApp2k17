@@ -92,9 +92,7 @@ public class EsummitFragment extends Fragment {
 //        Glide.with(this).load(R.drawable.esummit).into(esummit_logo);
 
         recyclerView=(RecyclerView) view.findViewById(R.id.recycler_view_speakers);
-
         recyclerView.setHasFixedSize(true);
-
         layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerAdapter=new RecyclerAdapter(getContext());
