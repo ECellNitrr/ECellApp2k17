@@ -56,7 +56,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
        imageLoader.loadImage(eventsData.getMeta(),holder.event_image);
 
         Glide.with(context).load(eventsData.getMeta()).into(holder.event_image);
-//        holder.event_name.setText(eventsData.getEventName());
+        holder.event_name.setText(eventsData.getEventName());
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,10 +76,12 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
 
         public ImageView event_image;
         public RelativeLayout relativeLayout;
+        public TextView event_name;
         public MyViewHolder(View itemView){
             super(itemView);
             event_image = (ImageView) itemView.findViewById(R.id.eventImg);
             relativeLayout = (RelativeLayout) itemView.findViewById(R.id.event_relativeLayout);
+            event_name = (TextView) itemView.findViewById(R.id.eventName);
         }
     }
 }

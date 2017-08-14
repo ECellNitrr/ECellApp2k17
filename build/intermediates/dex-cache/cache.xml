@@ -2,13 +2,13 @@
 <items version="2" >
 
     <item
-        is-multidex="true"
-        jar="/home/vrihas/ECellApp2k17/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="/home/samveg/.android/build-cache/b8b5f1cbb1807452ba14c524398af2bf9bff62cb/output/jars/classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="96eefe73750ee7497784d1d80b73dd75cf0f244f">
-        <dex dex="/home/vrihas/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_ec7ce60115cd4db1153e8d67a4988e084b4baac1/classes.dex" />
+        sha1="97c40cd494770cd1cdb0f879c8426269a2d76702">
+        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_688151ef10cb63054fd35e81ad3f7d84a3bbf1ce.jar" />
     </item>
 
 </items>
