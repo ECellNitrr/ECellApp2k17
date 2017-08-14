@@ -14,7 +14,7 @@ public class MockSpeakers implements EsummitProvider{
     @Override
     public void requestData(OnSpeakersRecieved onSpeakersRecieved) {
         List<SpeakerData> speakerDataList=new ArrayList<>();
-       SpeakerData data = new SpeakerData("Samveg Thaker","Test,test,test.","https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/14199330_589530031219744_1227788087780498651_n.jpg?oh=b2d79911108330201dc3f83488cbdbe3&oe=59F40693");
+       SpeakerData data = new SpeakerData("Samveg Thaker","Test,test,test.","https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/17200942_1288060997949315_9092226983798702660_n.jpg?oh=05a8f8f1689abfa0b16c8f3d4f4845bb&oe=5A2BE053");
         speakerDataList.add(data);
         speakerDataList.add(data);
         speakerDataList.add(data);

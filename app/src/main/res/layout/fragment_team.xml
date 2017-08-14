@@ -29,6 +29,13 @@
             android:layout_marginTop="10dp"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/faculty"/>
+        <ImageView
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/team_gradient"
+            android:layout_below="@+id/faculty"
+            android:layout_marginTop="10dp"/>
 
         <TextView
             android:id="@+id/facultyName"

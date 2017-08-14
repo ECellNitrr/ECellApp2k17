@@ -58,12 +58,16 @@
                 android:maxLines="10"
                 android:ellipsize="end"/>
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="125dp"
                 android:layout_height="wrap_content"
-                android:text="read more.."
-                android:textSize="16dp"
+                android:text="Read More"
+                android:textSize="20dp"
+                android:textColor="#ffffff"
+                android:gravity="center"
+                android:background="@drawable/button_rounded_corner2"
                 android:layout_centerInParent="true"
                 android:layout_alignParentBottom="true"
+                android:layout_marginBottom="10dp"
                 android:id="@+id/blog_read_more"
                 />
             <TextView
