@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/contact_container"
-    >
+    android:id="@+id/contact_container">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#FFFDE7">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
+        android:layout_marginBottom="20dp"
         android:text="Let's Talk Start Up"
         android:gravity="center"
         android:textColor="@color/black"
-        android:textSize="25dp"/>
+        android:textSize="25dp"
+        android:background="#FFF9C4"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -52,7 +59,7 @@
             android:gravity="center"
             android:textColor="@color/black"
             android:textSize="17dp"
-            android:text="Phone :"
+            android:text="Phone     :"
             />
         <TextView
             android:layout_width="match_parent"
@@ -77,7 +84,7 @@
             android:gravity="center"
             android:textColor="@color/black"
             android:textSize="17dp"
-            android:text="Email :"
+            android:text="Email       :"
             />
         <TextView
             android:layout_width="match_parent"
@@ -102,8 +109,7 @@
             android:gravity="center"
             android:textColor="@color/black"
             android:textSize="17dp"
-            android:text="Hour :"
-            />
+            android:text="Hour        :" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -112,4 +118,79 @@
             android:text="Monday - Friday:10AM-5PM"
             />
     </LinearLayout>
-</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Get In Touch!"
+            android:gravity="center"
+            android:textSize="25dp"
+            android:textColor="@color/black"
+            android:background="#FFF9C4"/>
+
+        <EditText
+            android:id="@+id/etxt_name"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@drawable/shape"
+            android:layout_marginTop="20dp"
+            android:hint="Your Name"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:paddingLeft="8dp"/>
+        <EditText
+            android:id="@+id/etxt_email"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/shape"
+            android:hint="Your Email"
+            android:padding="8dp" />
+
+        <EditText
+            android:id="@+id/etxt_msg"
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/shape"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:hint="Your Message"
+            android:gravity="start"
+            android:inputType="textMultiLine"
+            android:paddingLeft="8dp"
+            android:paddingTop="6dp"/>
+
+        <Button
+            android:id="@+id/btn_send"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Send Message"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/button_rounded_corner"
+            android:layout_marginTop="25dp"/>
+
+        <ProgressBar
+            android:id="@+id/progBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:visibility="gone"/>
+
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+
+</ScrollView>
