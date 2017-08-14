@@ -1,6 +1,5 @@
 package com.example.iket.ecellapp2k17.home;
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -10,7 +9,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 
 
@@ -18,7 +16,7 @@ import com.example.iket.ecellapp2k17.BQuizNew.view.BQuizActivity;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.about_us.view.AboutUsFragment;
 import com.example.iket.ecellapp2k17.blogs.view.BlogFragment;
-import com.example.iket.ecellapp2k17.esummit.EsummitFragment;
+import com.example.iket.ecellapp2k17.esummit.view.EsummitFragment;
 import com.example.iket.ecellapp2k17.events.view.EventsFragment;
 import com.example.iket.ecellapp2k17.profile.view.ProfileFragment;
 import com.example.iket.ecellapp2k17.sponsors.view.SponsFragment;

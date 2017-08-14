@@ -64,7 +64,7 @@ public class VerticlePagerAdapter extends PagerAdapter {
         label.setText(data.getEventName());
         event_body.setText(data.getDescription());
         event_venue.setText(data.getVenue());
-        Glide.with(mContext).load(data.getImage()).into(events_bg);
+        Glide.with(mContext).load(data.getMeta()).into(events_bg);
         container.addView(itemView);
 /*
         btn_event_details.setOnClickListener(new View.OnClickListener() {

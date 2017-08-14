@@ -1,4 +1,4 @@
-package com.example.iket.ecellapp2k17.esummit;
+package com.example.iket.ecellapp2k17.esummit.view;
 
 import android.content.Context;
 import android.net.Uri;
@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.about_us.view.RecyclerAdapter;
 import com.example.iket.ecellapp2k17.helper.TypewriterView;
@@ -90,9 +89,15 @@ public class EsummitFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_esummit, container, false);
         ButterKnife.bind(this,view);
+<<<<<<< HEAD:app/src/main/java/com/example/iket/ecellapp2k17/esummit/EsummitFragment.java
         Glide.with(this).load(R.drawable.esummit).into(esummit_logo);
 /*
         recyclerView=(RecyclerView) view.findViewById(R.id.recycler_view_team);
+=======
+//        Glide.with(this).load(R.drawable.esummit).into(esummit_logo);
+
+        recyclerView=(RecyclerView) view.findViewById(R.id.recycler_view_speakers);
+>>>>>>> 08f6f3bc692dfc3315c2894722f04cc792312b6a:app/src/main/java/com/example/iket/ecellapp2k17/esummit/view/EsummitFragment.java
 
         recyclerView.setHasFixedSize(true);
 
@@ -100,9 +105,12 @@ public class EsummitFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         recyclerAdapter=new RecyclerAdapter(getContext());
         recyclerView.setAdapter(recyclerAdapter);
+<<<<<<< HEAD:app/src/main/java/com/example/iket/ecellapp2k17/esummit/EsummitFragment.java
 */
         esummit_title.setEnabled(false);
         esummit_desc.setEnabled(false);
+=======
+>>>>>>> 08f6f3bc692dfc3315c2894722f04cc792312b6a:app/src/main/java/com/example/iket/ecellapp2k17/esummit/view/EsummitFragment.java
         typewriterView = (TypewriterView) view.findViewById(R.id.type_writer_text);
         setAnim();
         return view;
@@ -129,7 +137,11 @@ public class EsummitFragment extends Fragment {
 
     void setAnim()
     {
+<<<<<<< HEAD:app/src/main/java/com/example/iket/ecellapp2k17/esummit/EsummitFragment.java
         typewriterView.setText("");
+=======
+        typewriterView.setEnabled(false);
+>>>>>>> 08f6f3bc692dfc3315c2894722f04cc792312b6a:app/src/main/java/com/example/iket/ecellapp2k17/esummit/view/EsummitFragment.java
         typewriterView
                 .type("A trek to the Zenith of Glory.").pause()
                 .delete("A trek to the Zenith of Glory.").pause(500)
@@ -141,6 +153,7 @@ public class EsummitFragment extends Fragment {
                     @Override
                     public void run() {
                         setAnim();
+
                     }
                 });
 

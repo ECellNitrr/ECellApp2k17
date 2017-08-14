@@ -5,12 +5,15 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical" android:layout_width="match_parent"
         android:layout_height="match_parent"
+                  android:focusable="true"
+                  android:focusableInTouchMode="true"
         android:background="@drawable/e_summit_bg">
 
         <ImageView
             android:id="@+id/esummit_img"
             android:layout_width="200dp"
             android:layout_height="150dp"
+            android:src="@drawable/esummit"
             android:layout_gravity="center_horizontal"
             android:backgroundTint="@android:color/transparent"
             android:layout_marginTop="100dp" />
@@ -18,7 +21,6 @@
             android:id="@+id/esummit_title"
             android:layout_width="200dp"
             android:layout_height="75dp"
-            android:layout_marginTop="20dp"
             android:textSize="30dp"
             android:textColor="#ffffff"
             android:text="E-Summit'17"
@@ -38,6 +40,8 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:paddingLeft="20dp"
+            android:textSize="16sp"
+            android:gravity="center"
             android:paddingRight="20dp"
             android:layout_marginTop="100dp"
             android:text="The Entrepreneurship Summit is not just an event to provide platform where the students, faculty, investors, participants, speakers and start-ups can interact with each other and gain traction to improve them. We believe in a growth where everyone grows together and hence is this summit. The bright minds shall gain the motivation, resources and the pathway to realize their potential and convert their ideas into innovative start-ups."
@@ -45,15 +49,15 @@
             android:scrollbars="vertical"/>
         <TextView
             android:id="@+id/speakers_heading"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:textSize="30dp"
-            android:layout_gravity="center"
             android:layout_marginTop="25dp"
             android:textColor="#ffffff"
-            android:text="Speakers"/>
+            android:text="Our Speakers"/>
         <View
-            android:layout_width="120dp"
+            android:layout_width="200sp"
             android:layout_height="1dp"
             android:textColor="#ffffff"
             android:background="#ffffff"

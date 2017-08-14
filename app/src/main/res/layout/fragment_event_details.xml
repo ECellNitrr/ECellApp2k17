@@ -52,27 +52,25 @@
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="22dp" />
 
-
-
         <ImageView
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:id="@+id/locImage"
             android:elevation="2dp"
-            android:layout_marginTop="380dp"
+            android:layout_above="@+id/eventDate"
             android:layout_marginLeft="17dp"
             android:layout_marginStart="17dp"
-            android:layout_below="@+id/eventBody"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginBottom="14dp" />
+            />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/eventLocation"
-                android:text="location of event"
+                android:text="Venue"
                 android:textSize="20dp"
+                android:layout_above="@+id/eventDate"
                 android:elevation="2dp"
                 android:textColor="@color/white"
                 android:layout_marginLeft="12dp"
@@ -87,7 +85,7 @@
             android:text="Date"
             android:textColor="@color/white"
             android:textSize="20dp"
-            android:layout_below="@+id/eventLocation"
+            android:layout_above="@+id/eventTime"
             android:layout_alignLeft="@+id/eventLocation"
             android:layout_alignStart="@+id/eventLocation" />
         <TextView
@@ -95,13 +93,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Time"
+            android:layout_alignParentBottom="true"
             android:textColor="@color/white"
+            android:layout_alignLeft="@+id/eventDate"
             android:textSize="20dp"
-            android:layout_below="@+id/eventLocation"
-            android:layout_toRightOf="@+id/eventDate"
-            android:layout_toEndOf="@+id/eventDate"
-            android:layout_marginLeft="11dp"
-            android:layout_marginStart="11dp" />
+            android:layout_marginBottom="12dp"
+            />
 
             <Button
                 android:layout_width="150dp"

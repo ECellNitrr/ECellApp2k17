@@ -20,10 +20,11 @@
 
             <ImageView
                 android:id="@+id/sponsImage"
-                android:layout_width="280dp"
-                android:layout_height="190dp"
-                android:scaleType="fitXY"
-                android:layout_above="@+id/sponsTitle"
+                android:layout_width="260sp"
+                android:layout_height="160dp"
+                android:layout_margin="16dp"
+                android:scaleType="center"
+                android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true" />
 
         <TextView

@@ -198,14 +198,13 @@ public class SponsFragment extends Fragment implements SponsInterface {
             itemHolder.rootView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(getContext(), String.format("Clicked on position #%s of Section %s",
-                            sectionAdapter.getPositionInSection(itemHolder.getAdapterPosition()), title),
-                            Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getContext(), String.format("Clicked on position #%s of Section %s",
+//                            sectionAdapter.getPositionInSection(itemHolder.getAdapterPosition()), title),
+//                            Toast.LENGTH_SHORT).show();
                     SponsEndPage_Fragment sponsEndPage_fragment=new SponsEndPage_Fragment();
                     sponsEndPage_fragment.setData(list.get(position));
                     ((Home)getContext()).addFragment(sponsEndPage_fragment);
                     Log.d("Spons",""+list.get(position).getWebsite_url());
-//                    new SponsEndPage_Fragment().setData(list.get(position));
                 }
             });
         }
