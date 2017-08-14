@@ -2,15 +2,76 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
+             android:background="#424242"
              tools:context="com.example.iket.ecellapp2k17.about_us.view.TeamFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/faculty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Faculty Incharge"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:textSize="28dp"
+            android:textColor="@color/white" />
+
+        <ImageView
+            android:id="@+id/facultyImg"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/faculty"/>
+
+        <TextView
+            android:id="@+id/facultyName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/facultyImg"
+            android:text="DR. SUBHAS GANGULY"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textSize="15dp"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:id="@+id/facultyDept"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/facultyName"
+            android:text="Faculty Incharge E-Cell NIT Raipur"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textSize="15dp"/>
+
+        <TextView
+            android:id="@+id/Coordinators"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/facultyDept"
+            android:text="Head Coordinators"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="28dp"
+            android:layout_marginTop="18dp"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view_team"
+        android:layout_below="@+id/Coordinators"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical"
-        android:background="@color/black">
+        android:layout_marginTop="8dp">
 
     </android.support.v7.widget.RecyclerView>
 
+    </RelativeLayout>
+    </ScrollView>
 </FrameLayout>

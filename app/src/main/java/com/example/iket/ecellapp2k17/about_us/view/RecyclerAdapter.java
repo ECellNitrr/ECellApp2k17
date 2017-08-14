@@ -50,12 +50,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     @Override
     public void onBindViewHolder(RecyclerAdapter.ViewHolder holder, int position) {
 
-        AboutUsData listData =  data.get(position);
-        holder.member_name.setText(listData.getMember_name());
-        holder.member_contact_no.setText(listData.getMember_contact());
-        holder.member_email.setText(listData.getMember_email());
-        holder.member_position.setText(listData.getMember_position());
-        Glide.with(context).load(listData.getMember_img_url()).bitmapTransform(new CropCircleTransformation(context)).into(holder.member_image);
+        AboutUsData aboutUsData =  data.get(position);
+        holder.member_name.setText(aboutUsData.getMember_name());
+        if(position<4)
+        {
+            holder.member_email.setText(aboutUsData.getMember_email());
+        }
+        Glide.with(context).load(aboutUsData.getMember_img_url()).bitmapTransform(new CropCircleTransformation(context)).into(holder.member_image);
     }
 
     @Override
@@ -68,17 +69,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView member_image;
-        public TextView member_contact_no;
-        public TextView member_position;
         public TextView member_email;
         public TextView member_name;
         public ViewHolder(View itemView) {
             super(itemView);
-            member_image = (ImageView) itemView.findViewById(R.id.member_img);
-            member_contact_no = (TextView)itemView.findViewById(R.id.member_contact);
-            member_position = (TextView) itemView.findViewById(R.id.member_position);
-            member_email = (TextView) itemView.findViewById(R.id.member_email);
-            member_name = (TextView) itemView.findViewById(R.id.member_name);
+            member_image = (ImageView) itemView.findViewById(R.id.coordinatorImg);
+            member_email = (TextView) itemView.findViewById(R.id.coordinatorEmail);
+            member_name = (TextView) itemView.findViewById(R.id.coordinatorName);
         }
     }
 }
