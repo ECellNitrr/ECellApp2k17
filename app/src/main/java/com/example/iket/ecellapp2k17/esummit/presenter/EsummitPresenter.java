@@ -5,4 +5,5 @@ package com.example.iket.ecellapp2k17.esummit.presenter;
  */
 
 public interface EsummitPresenter {
+    void requestData();
 }

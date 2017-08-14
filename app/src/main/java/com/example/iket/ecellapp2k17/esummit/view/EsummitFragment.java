@@ -12,9 +12,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
-import com.example.iket.ecellapp2k17.about_us.view.RecyclerAdapter;
+import com.example.iket.ecellapp2k17.esummit.view.SpeakerAdapter;
+import com.example.iket.ecellapp2k17.esummit.model.MockSpeakers;
+import com.example.iket.ecellapp2k17.esummit.model.data.SpeakerData;
+import com.example.iket.ecellapp2k17.esummit.presenter.EsummitPresenter;
+import com.example.iket.ecellapp2k17.esummit.presenter.EsummitPresenterImpl;
 import com.example.iket.ecellapp2k17.helper.TypewriterView;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -27,7 +34,7 @@ import butterknife.ButterKnife;
  * Use the {@link EsummitFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class EsummitFragment extends Fragment {
+public class EsummitFragment extends Fragment implements ViewInterface{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -47,8 +54,10 @@ public class EsummitFragment extends Fragment {
     TextView esummit_desc;
 
     RecyclerView recyclerView;
-    private RecyclerAdapter recyclerAdapter;
+    private SpeakerAdapter recyclerAdapter;
     private LinearLayoutManager layoutManager;
+
+    EsummitPresenter esummitPresenter;
 
     TypewriterView typewriterView;
 
@@ -89,16 +98,22 @@ public class EsummitFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_esummit, container, false);
         ButterKnife.bind(this,view);
-//        Glide.with(this).load(R.drawable.esummit).into(esummit_logo);
+        Glide.with(this).load(R.drawable.esummit).into(esummit_logo);
 
         recyclerView=(RecyclerView) view.findViewById(R.id.recycler_view_speakers);
 
         recyclerView.setHasFixedSize(true);
 
-        layoutManager = new LinearLayoutManager(getContext());
+        layoutManager=new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
-        recyclerAdapter=new RecyclerAdapter(getContext());
+        recyclerAdapter = new SpeakerAdapter(getContext());
         recyclerView.setAdapter(recyclerAdapter);
+
+        esummitPresenter=new EsummitPresenterImpl(new MockSpeakers(),this);
+        esummitPresenter.requestData();
+
+        esummit_title.setEnabled(false);
+        esummit_desc.setEnabled(false);
         typewriterView = (TypewriterView) view.findViewById(R.id.type_writer_text);
         setAnim();
         return view;
@@ -125,6 +140,8 @@ public class EsummitFragment extends Fragment {
 
     void setAnim()
     {
+
+        typewriterView.setText("");
         typewriterView.setEnabled(false);
         typewriterView
                 .type("A trek to the Zenith of Glory.").pause()
@@ -140,6 +157,23 @@ public class EsummitFragment extends Fragment {
 
                     }
                 });
+
+    }
+
+    @Override
+    public void setData(List<SpeakerData> speakerDataList) {
+
+        recyclerAdapter.setData(speakerDataList);
+        recyclerAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void showMessage(String message) {
+
+    }
+
+    @Override
+    public void ShowProgressBar(boolean show) {
 
     }
 
