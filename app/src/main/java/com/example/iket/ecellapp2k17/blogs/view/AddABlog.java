@@ -39,7 +39,7 @@ import static android.app.Activity.RESULT_OK;
  * Use the {@link AddABlog#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AddABlog extends android.support.v4.app.DialogFragment implements AddABlogView{
+public class AddABlog extends BottomSheetDialogFragment implements AddABlogView{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -80,7 +80,7 @@ public class AddABlog extends android.support.v4.app.DialogFragment implements A
         fragment.setArguments(args);
         return fragment;
     }
-
+/*
     @Override
     public void onStart() {
         super.onStart();
@@ -94,7 +94,7 @@ public class AddABlog extends android.support.v4.app.DialogFragment implements A
 
 
     }
-
+*/
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,9 +113,11 @@ public class AddABlog extends android.support.v4.app.DialogFragment implements A
         editText_blogTitle = (EditText) view.findViewById(R.id.etxt_title);
         editText_blogType = (EditText) view.findViewById(R.id.etxt_blogType);
         editText_blogBody = (EditText) view.findViewById(R.id.etxt_blogBody);
+        addABlog_bg = (ImageView) view.findViewById(R.id.addBlog_bg);
         progressBar = (ProgressBar) view.findViewById(R.id.progressBar_blogs);
 
         getDialog().setTitle("Add A Blog");
+        Glide.with(this).load(R.drawable.add_blog_bg_white).into(addABlog_bg);
         btn_insertImage = (Button)  view.findViewById(R.id.insert_img);
         btn_insertImage.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -143,8 +145,7 @@ public class AddABlog extends android.support.v4.app.DialogFragment implements A
             }
         });
 
-        addABlog_bg = (ImageView) view.findViewById(R.id.addBlog_bg);
-        Glide.with(this).load(R.drawable.add_blog_bg_white).into(addABlog_bg);
+
 
         return view;
     }

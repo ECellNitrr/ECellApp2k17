@@ -4,7 +4,8 @@
               android:orientation="vertical"
               android:layout_margin="4dp"
               android:layout_width="match_parent"
-              android:layout_height="wrap_content">
+              android:layout_height="wrap_content"
+              android:background="#616161">
     
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
@@ -12,12 +13,14 @@
         
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="#424242">
             
             <ImageView
                 android:id="@+id/coordinatorImg"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_marginTop="8dp"
                 android:layout_centerHorizontal="true"/>
 
             <TextView
@@ -28,25 +31,17 @@
                 android:text="coordinator name"
                 android:gravity="center"
                 android:layout_marginTop="5dp"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="16dp" />
             
-            <TextView
-                android:id="@+id/coordinatorPost"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/coordinatorName"
-                android:text="coordinator post"
-                android:gravity="center"
-                android:textColor="@color/black"
-                android:textSize="16dp" />
+
             <TextView
                 android:id="@+id/coordinatorEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/coordinatorPost"
+                android:layout_below="@+id/coordinatorName"
                 android:gravity="center"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="16dp"
                 />
             

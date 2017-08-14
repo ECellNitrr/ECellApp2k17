@@ -15,7 +15,7 @@ public class MockAboutUs implements AboutUsProvider{
     @Override
     public void requestData(OnAboutusReceived onAboutusReceived) {
         List<AboutUsData> dataList=new ArrayList<>();
-        AboutUsData data = new AboutUsData("abc@gmail.com","http://social-media-for-development.org/wp-content/uploads/2012/11/blogging.jpg","Abhik Sarkar","Overall Coordinator");
+        AboutUsData data = new AboutUsData("abc@gmail.com","http://social-media-for-development.org/wp-content/uploads/2012/11/blogging.jpg","Abhik Sarkar");
         dataList.add(data);
         dataList.add(data);
         dataList.add(data);

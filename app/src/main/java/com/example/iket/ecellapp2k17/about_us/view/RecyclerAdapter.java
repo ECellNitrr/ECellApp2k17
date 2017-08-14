@@ -56,7 +56,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         {
             holder.member_email.setText(aboutUsData.getMember_email());
         }
-        holder.member_position.setText(aboutUsData.getMember_position());
         Glide.with(context).load(aboutUsData.getMember_img_url()).bitmapTransform(new CropCircleTransformation(context)).into(holder.member_image);
     }
 
@@ -70,13 +69,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView member_image;
-        public TextView member_position;
         public TextView member_email;
         public TextView member_name;
         public ViewHolder(View itemView) {
             super(itemView);
             member_image = (ImageView) itemView.findViewById(R.id.coordinatorImg);
-            member_position = (TextView) itemView.findViewById(R.id.coordinatorPost);
             member_email = (TextView) itemView.findViewById(R.id.coordinatorEmail);
             member_name = (TextView) itemView.findViewById(R.id.coordinatorName);
         }
