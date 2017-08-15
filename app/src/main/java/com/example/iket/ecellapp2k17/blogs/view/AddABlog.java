@@ -59,11 +59,10 @@ public class AddABlog extends BottomSheetDialogFragment implements AddABlogView{
     private OnFragmentInteractionListener mListener;
     private EditText editText_blogTitle,editText_blogType,editText_blogBody;
     private Button btn_insertImage,btn_post;
-    private ImageView addABlog_bg;
+    private ImageView addABlog_bg,uploaded_image;
     private String blogTitle,blogType,blogBody;
     private AddBlogsPresenter addBlogsPresenter;
     private ProgressBar progressBar;
-    private CoordinatorLayout coordinatorLayout;
 
     public AddABlog() {
         // Required empty public constructor
@@ -86,59 +85,29 @@ public class AddABlog extends BottomSheetDialogFragment implements AddABlogView{
         fragment.setArguments(args);
         return fragment;
     }
-/*
-    @Override
-    public void onStart() {
-        super.onStart();
 
-        Dialog d = getDialog();
-        if (d != null) {
-            int width = ViewGroup.LayoutParams.MATCH_PARENT;
-            int height = ViewGroup.LayoutParams.MATCH_PARENT;
-            d.getWindow().setLayout(width, height);
-        }
-
-
-    }
-*/
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-     //   setStyle(DialogFragment.STYLE_NORMAL, R.style.dialog_theme);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-/*
-    @Override
-    public void setupDialog(Dialog dialog, int style) {
-        super.setupDialog(dialog, style);
-        View view = View.inflate(getContext(),R.layout.fragment_add_ablog,null);
-        dialog.setContentView(view);
 
-        CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams) ((View) view.getParent()).getLayoutParams();
-        //CoordinatorLayout.Behavior behavior = params.getBehavior();
-
-    }
-*/
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_add_ablog, container, false);
-
         getDialog().setTitle("Add A Blog");
         editText_blogTitle = (EditText) view.findViewById(R.id.etxt_title);
-
         editText_blogBody = (EditText) view.findViewById(R.id.etxt_blogBody);
+        uploaded_image = (ImageView) view.findViewById(R.id.uploaded_img);
         addABlog_bg = (ImageView) view.findViewById(R.id.addBlog_bg);
         progressBar = (ProgressBar) view.findViewById(R.id.progressBar_blogs);
             Glide.with(getContext()).load(R.drawable.add_ablog_bg2).into(addABlog_bg);
-        //coordinatorLayout = (CoordinatorLayout) view.findViewById(R.id.coordinator_layout);
 
-
-       // Glide.with(this).load(R.drawable.add_blog_bg_white).into(addABlog_bg);
         btn_insertImage = (Button)  view.findViewById(R.id.insert_img);
         btn_insertImage.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -174,7 +143,7 @@ public class AddABlog extends BottomSheetDialogFragment implements AddABlogView{
         if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && data != null){
             Uri selected_image = data.getData();
             Toast.makeText(getContext(),"Your Image has been selected",Toast.LENGTH_SHORT).show();
-            //load_blogImage.setImageURI(selected_image);
+            uploaded_image.setImageURI(selected_image);
         }
     }
 

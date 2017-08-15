@@ -83,15 +83,26 @@
     android:layout_alignLeft="@+id/etxt_title"
     android:layout_alignStart="@+id/etxt_title" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/etxt_blogBody"
+            android:layout_marginTop="70dp"
+            android:text="Your Selected Image will be displayed here"
+            android:gravity="center"
+            />
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="160dp"
             android:id="@+id/uploaded_img"
+            android:layout_centerHorizontal="true"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="8dp"
             android:layout_marginRight="50dp"
             android:layout_below="@+id/etxt_blogBody"
             android:scaleType="fitXY"
+            android:adjustViewBounds="true"
             />
 
 <Button
