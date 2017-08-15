@@ -1,5 +1,6 @@
 package com.example.iket.ecellapp2k17.sponsors.view;
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
@@ -36,6 +38,7 @@ public class SponsEndPage_Fragment extends Fragment{
     private SponsData sponsData;
     private TextView textTitle,spons_desc,spons_body;
     private Context context;
+    private String url = "http://google.com/";
 
     public SponsEndPage_Fragment(){
         //Required empty constructor
@@ -86,7 +89,8 @@ public class SponsEndPage_Fragment extends Fragment{
             public void onClick(View v) {
                 CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
                 CustomTabsIntent customTabsIntent = builder.build();
-                customTabsIntent.launchUrl(getContext(),Uri.parse(sponsData.getWebsite_url()));
+                customTabsIntent.launchUrl(getContext(),Uri.parse(url));
+
             }
         });
 
