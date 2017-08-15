@@ -3,6 +3,15 @@
 
     <item
         is-multidex="true"
+        jar="/home/vrihas/.android/build-cache/2ad0ecbb979a869e8667b5b070bfcad171c9db39/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1c3b9743fe8bb166a90a7e98b9b9f1f8021d80cd">
+        <dex dex="/home/vrihas/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_9f7a9bc9e91f3078ca8f547422555fb68b8dd9db/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/vrihas/ECellApp2k17/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"

@@ -31,6 +31,9 @@ import com.example.iket.ecellapp2k17.blogs.presenter.AddBlogsPresenter;
 import com.example.iket.ecellapp2k17.blogs.presenter.AddBlogsPresenterImpl;
 import com.example.iket.ecellapp2k17.blogs.presenter.BlogsPresenterImpl;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 import static android.app.Activity.RESULT_OK;
 
 /**
@@ -60,6 +63,7 @@ public class AddABlog extends BottomSheetDialogFragment implements AddABlogView{
     private String blogTitle,blogType,blogBody;
     private AddBlogsPresenter addBlogsPresenter;
     private ProgressBar progressBar;
+    private CoordinatorLayout coordinatorLayout;
 
     public AddABlog() {
         // Required empty public constructor
@@ -82,7 +86,7 @@ public class AddABlog extends BottomSheetDialogFragment implements AddABlogView{
         fragment.setArguments(args);
         return fragment;
     }
-
+/*
     @Override
     public void onStart() {
         super.onStart();
@@ -96,11 +100,11 @@ public class AddABlog extends BottomSheetDialogFragment implements AddABlogView{
 
 
     }
-
+*/
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setStyle(DialogFragment.STYLE_NORMAL, R.style.dialog_theme);
+     //   setStyle(DialogFragment.STYLE_NORMAL, R.style.dialog_theme);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -123,14 +127,17 @@ public class AddABlog extends BottomSheetDialogFragment implements AddABlogView{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_add_ablog, container, false);
+
+        getDialog().setTitle("Add A Blog");
         editText_blogTitle = (EditText) view.findViewById(R.id.etxt_title);
 
         editText_blogBody = (EditText) view.findViewById(R.id.etxt_blogBody);
-       // addABlog_bg = (ImageView) view.findViewById(R.id.addBlog_bg);
+        addABlog_bg = (ImageView) view.findViewById(R.id.addBlog_bg);
         progressBar = (ProgressBar) view.findViewById(R.id.progressBar_blogs);
+            Glide.with(getContext()).load(R.drawable.add_ablog_bg2).into(addABlog_bg);
+        //coordinatorLayout = (CoordinatorLayout) view.findViewById(R.id.coordinator_layout);
 
 
-//        getDialog().setTitle("Add A Blog");
        // Glide.with(this).load(R.drawable.add_blog_bg_white).into(addABlog_bg);
         btn_insertImage = (Button)  view.findViewById(R.id.insert_img);
         btn_insertImage.setOnClickListener(new View.OnClickListener(){
