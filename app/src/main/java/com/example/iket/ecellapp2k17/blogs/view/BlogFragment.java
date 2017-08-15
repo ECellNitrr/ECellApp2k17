@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.customtabs.CustomTabsIntent;
+import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.BottomSheetDialogFragment;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.DialogFragment;
@@ -13,6 +15,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.NestedScrollView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,15 +53,16 @@ public class BlogFragment extends Fragment implements BlogsInterface {
     private String mParam2;
 
 
-    private NavigationView navigationView;
+
     VerticalViewPager verticalViewPager;
     VerticlePagerAdapter verticlePagerAdapter;
     BlogsPresenter blogsPresenter;
+    private BottomSheetBehavior bottomSheetBehavior;
+    private View bottomSheet;
 
     private FloatingActionButton fab;
 
     private OnFragmentInteractionListener mListener;
-    private FragmentManager fm = getFragmentManager();
     private Context context;
     private Home home;
     public BlogFragment() {
@@ -93,6 +97,9 @@ public class BlogFragment extends Fragment implements BlogsInterface {
         }
     }
 
+
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -102,15 +109,28 @@ public class BlogFragment extends Fragment implements BlogsInterface {
         View view= inflater.inflate(R.layout.fragment_blog, container, false);
 
 
-      //  navigationView = (NavigationView) view.findViewById(R.id.nav_view);
+        bottomSheet = view.findViewById(R.id.bottom_sheet);
+        bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet);
+        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+        bottomSheetBehavior.setPeekHeight(0);
 
+
+/*
+        CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams) ((View) view.getParent()).getLayoutParams();
+        CoordinatorLayout.Behavior behavior = params.getBehavior();
+*/
         fab = (FloatingActionButton)view.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                /*
                 FragmentManager fm = getFragmentManager();
                 AddABlog addABlog = new AddABlog();
                 addABlog.show(fm,"Add A Blog");
+                new AddABlog().show(getFragmentManager(), "Dialog");
+                */
+                BottomSheetDialogFragment bottomSheetDialogFragment = new AddABlog();
+                bottomSheetDialogFragment.show(getFragmentManager(), "Add A Blog");
             }
         });
 
