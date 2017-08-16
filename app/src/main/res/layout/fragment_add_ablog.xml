@@ -2,7 +2,7 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/coordinator_layout"
+    android:id="@+id/bottom_sheet_layout"
     app:layout_behavior="android.support.design.widget.BottomSheetBehavior"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -28,7 +28,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
+        <Button
+            android:id="@+id/exit_btn"
+            android:layout_width="33dp"
+            android:layout_height="33dp"
+            android:text="X"
+            android:layout_margin="10dp"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:background="@drawable/background_circle2"/>
 
         <TextView
     android:id="@+id/addBlog"

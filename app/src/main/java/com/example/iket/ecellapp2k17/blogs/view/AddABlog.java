@@ -44,7 +44,7 @@ import static android.app.Activity.RESULT_OK;
  * Use the {@link AddABlog#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AddABlog extends BottomSheetDialogFragment implements AddABlogView{
+public class AddABlog extends android.support.v4.app.DialogFragment implements AddABlogView{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -58,7 +58,7 @@ public class AddABlog extends BottomSheetDialogFragment implements AddABlogView{
 
     private OnFragmentInteractionListener mListener;
     private EditText editText_blogTitle,editText_blogType,editText_blogBody;
-    private Button btn_insertImage,btn_post;
+    private Button btn_insertImage,btn_post,btn_exit;
     private ImageView addABlog_bg,uploaded_image;
     private String blogTitle,blogType,blogBody;
     private AddBlogsPresenter addBlogsPresenter;
@@ -87,8 +87,22 @@ public class AddABlog extends BottomSheetDialogFragment implements AddABlogView{
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+        Dialog dialog = getDialog();
+        if (dialog != null)
+        {
+            int width = ViewGroup.LayoutParams.MATCH_PARENT;
+            int height = ViewGroup.LayoutParams.MATCH_PARENT;
+            dialog.getWindow().setLayout(width, height);
+        }
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setStyle(DialogFragment.STYLE_NORMAL,R.style.Dialog_NoTitle);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -131,6 +145,13 @@ public class AddABlog extends BottomSheetDialogFragment implements AddABlogView{
                     addBlogsPresenter = new AddBlogsPresenterImpl(AddABlog.this,new RetrofitAddBlogsProvider());
                     addBlogsPresenter.addBlogsData(blogTitle,blogType,blogBody);
                 }
+            }
+        });
+        btn_exit = (Button) view.findViewById(R.id.exit_btn);
+        btn_exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddABlog.this.dismiss();
             }
         });
 
