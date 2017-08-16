@@ -10,7 +10,7 @@
         <ImageView
             android:id="@+id/speakers_image"
             android:layout_width="250dp"
-            android:layout_height="200dp"
+            android:layout_height="210dp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"/>
         <ImageView

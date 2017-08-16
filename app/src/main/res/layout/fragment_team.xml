@@ -30,25 +30,25 @@
             android:layout_width="match_parent"
             android:layout_alignLeft="@+id/faculty"
             android:layout_alignRight="@+id/faculty"
-            android:layout_height="1sp"
+            android:layout_height="2sp"
             android:layout_below="@+id/faculty"
             android:background="@color/white"
             />
 
         <ImageView
             android:id="@+id/facultyImg"
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            android:layout_marginTop="10dp"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginTop="20dp"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/line3"/>
         <ImageView
-            android:layout_width="130dp"
-            android:layout_height="130dp"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
             android:layout_centerHorizontal="true"
             android:background="@drawable/team_gradient"
-            android:layout_below="@+id/faculty"
-            android:layout_marginTop="10dp"/>
+            android:layout_below="@+id/line3"
+            android:layout_marginTop="20dp"/>
 
         <TextView
             android:id="@+id/facultyName"
@@ -65,6 +65,7 @@
             android:id="@+id/facultyDept"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
             android:layout_below="@+id/facultyName"
             android:text="Faculty Incharge E-Cell NIT Raipur"
             android:textColor="@color/white"
@@ -89,7 +90,7 @@
             android:layout_alignLeft="@+id/Coordinators"
             android:layout_alignRight="@+id/Coordinators"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="2dp"
             android:background="@color/white"
             android:layout_below="@+id/Coordinators"/>
 

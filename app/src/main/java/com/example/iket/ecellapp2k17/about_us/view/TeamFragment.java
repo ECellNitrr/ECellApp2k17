@@ -94,6 +94,7 @@ public class TeamFragment extends Fragment  implements AboutUsInterface{
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerAdapter=new RecyclerAdapter(getContext());
         recyclerView.setAdapter(recyclerAdapter);
+        recyclerView.setNestedScrollingEnabled(false);
         Glide.with(getContext()).load(R.drawable.vision).bitmapTransform(new CropCircleTransformation(getContext())).into(faculty_image);
 
         aboutUsPresenter =new AboutUsPresenterImpl(new MockAboutUs(),this);

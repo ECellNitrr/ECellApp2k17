@@ -1,9 +1,11 @@
 package com.example.iket.ecellapp2k17.esummit.view;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -21,6 +23,7 @@ import com.example.iket.ecellapp2k17.esummit.model.data.SpeakerData;
 import com.example.iket.ecellapp2k17.esummit.presenter.EsummitPresenter;
 import com.example.iket.ecellapp2k17.esummit.presenter.EsummitPresenterImpl;
 import com.example.iket.ecellapp2k17.helper.TypewriterView;
+import com.example.iket.ecellapp2k17.home.Home;
 
 import java.util.List;
 
@@ -107,6 +110,7 @@ public class EsummitFragment extends Fragment implements ViewInterface{
         recyclerView.setLayoutManager(layoutManager);
         recyclerAdapter = new SpeakerAdapter(getContext());
         recyclerView.setAdapter(recyclerAdapter);
+        recyclerView.setNestedScrollingEnabled(false);
 
 //        esummitPresenter=new EsummitPresenterImpl(new RetrofitProviderSpeakers(),this);
         esummitPresenter=new EsummitPresenterImpl(new MockSpeakers(),this);
@@ -115,6 +119,8 @@ public class EsummitFragment extends Fragment implements ViewInterface{
         esummit_desc.setEnabled(false);
         typewriterView = (TypewriterView) view.findViewById(R.id.type_writer_text);
         setAnim();
+
+
         return view;
     }
 
@@ -175,6 +181,9 @@ public class EsummitFragment extends Fragment implements ViewInterface{
     public void ShowProgressBar(boolean show) {
 
     }
+
+
+
 
     /**
      * This interface must be implemented by activities that contain this
