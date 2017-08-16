@@ -14,20 +14,20 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#424242">
+            android:background="#212121">
             
             <ImageView
                 android:id="@+id/coordinatorImg"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:layout_marginTop="8dp"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_marginTop="20dp"
                 android:layout_centerHorizontal="true"/>
             <ImageView
-                android:layout_width="130dp"
-                android:layout_height="130dp"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
                 android:layout_centerHorizontal="true"
                 android:background="@drawable/team_gradient"
-                android:layout_marginTop="8dp"/>
+                android:layout_marginTop="20dp"/>
 
             <TextView
                 android:id="@+id/coordinatorName"

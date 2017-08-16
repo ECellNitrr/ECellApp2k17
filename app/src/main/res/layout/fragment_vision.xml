@@ -1,47 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<ScrollView android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/darkgray">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
 
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#212121">
-        <ScrollView
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:textSize="45dp"
-                    android:gravity="center"
-                    android:textColor="#ffffff"
-                    android:background="#424242"
-                    android:layout_marginBottom="10dp"
-                    android:layout_gravity="center_horizontal"
-                    android:text="VISION"
-                    android:textStyle="bold"/>
-
-
-                <TextView
-                    android:id="@+id/vision_body"
+            android:layout_height="match_parent"
+            android:background="@color/darkgray">
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="45dp"
-                    android:textSize="18dp"
-                    android:textColor="#ffffff"
-                    android:paddingLeft="20dp"
-                    android:paddingRight="20dp"
-                    android:text="@string/vision_text" />
-            </LinearLayout>
-        </ScrollView>
-    </FrameLayout>
+                    android:orientation="vertical">
 
-</LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:textSize="35dp"
+                        android:gravity="center"
+                        android:textColor="#ffffff"
+                        android:background="@color/gray"
+                        android:layout_gravity="center_horizontal"
+                        android:text="VISION"
+                        android:textStyle="bold"/>
+                    <View
+                        android:id="@+id/line3"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/white"
+                        android:layout_marginBottom="10dp"
+                        />
+
+
+                    <TextView
+                        android:id="@+id/vision_body"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="45dp"
+                        android:textSize="18dp"
+                        android:textColor="#ffffff"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:text="@string/vision_text" />
+                </LinearLayout>
+        </FrameLayout>
+
+    </LinearLayout>
+    </ScrollView>

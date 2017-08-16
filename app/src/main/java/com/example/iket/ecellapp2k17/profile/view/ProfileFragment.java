@@ -2,14 +2,12 @@ package com.example.iket.ecellapp2k17.profile.view;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.SharedPreferencesCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,13 +26,7 @@ import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.intrusoft.library.FrissonView;
 
-import org.apache.http.params.HttpParams;
-import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.io.IOException;
-
-import okhttp3.internal.http2.Header;
 
 /**
  * A simple {@link Fragment} subclass.

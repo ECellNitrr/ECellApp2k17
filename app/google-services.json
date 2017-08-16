@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "14915279342",
+    "firebase_url": "https://ecellapp2k17.firebaseio.com",
+    "project_id": "ecellapp2k17",
+    "storage_bucket": "ecellapp2k17.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:14915279342:android:c73732702c223381",
+        "android_client_info": {
+          "package_name": "com.example.iket.ecellapp2k17"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "14915279342-32ku4fbv9kuv5kmcp0t8qo6ij2377d18.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnlHRWANTrd1DQZw19_oXtdYH6jsQTu3A"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

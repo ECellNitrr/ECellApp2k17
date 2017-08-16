@@ -1,5 +1,6 @@
 package com.example.iket.ecellapp2k17.home;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -8,10 +9,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 
+import com.crashlytics.android.Crashlytics;
 import com.example.iket.ecellapp2k17.BQuizNew.view.BQuizActivity;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.about_us.view.AboutUsFragment;
@@ -23,8 +26,9 @@ import com.example.iket.ecellapp2k17.sponsors.view.SponsFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.fabric.sdk.android.Fabric;
 
-public class Home extends AppCompatActivity{
+public class Home extends AppCompatActivity {
 
     @BindView(R.id.viewPager_home)
     ViewPager viewPager;
@@ -32,11 +36,12 @@ public class Home extends AppCompatActivity{
     @BindView(R.id.tabLayout)
     TabLayout tabLayout;
 
-    private int[] tabIcons = {R.drawable.e_summit_ic,R.drawable.events_icon_white,R.drawable.blogs_icon_white,R.drawable.sponsors_icon_white,R.drawable.about_us_white,R.drawable.about_us_white,R.drawable.profile_icon_white,};
+    private int[] tabIcons = {R.drawable.e_summit_ic,R.drawable.events_icon_white,R.drawable.blogs_icon_white,R.drawable.sponsors_icon_white,R.drawable.bquiz_icon,R.drawable.about_us_white,R.drawable.profile_icon_white,};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_home);
         setFragment(new EsummitFragment());
         ButterKnife.bind(this);
@@ -83,6 +88,8 @@ public class Home extends AppCompatActivity{
 
             }
         });
+
+
     }
     private void setupTabIcons() {
         View view1;
@@ -95,7 +102,21 @@ public class Home extends AppCompatActivity{
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Are you sure you want to exit?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Home.this.finish();
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -108,6 +129,7 @@ public class Home extends AppCompatActivity{
             fragmentTransaction.commit();
         }
     }
+
 
     public void addFragment(Fragment fragment) {
         if (fragment != null) {
