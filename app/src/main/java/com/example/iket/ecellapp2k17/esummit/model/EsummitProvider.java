@@ -9,5 +9,4 @@ import com.example.iket.ecellapp2k17.esummit.view.OnSpeakersRecieved;
 public interface EsummitProvider {
 
     void requestData(OnSpeakersRecieved onSpeakersRecieved);
-
 }

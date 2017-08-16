@@ -8,16 +8,16 @@ import java.util.List;
 
 public class SponsHeading {
 
-    private List<SponsData> spons;
+    private List<SponsData> sponsors;
     private String section_name;
 
-    public SponsHeading(List<SponsData> spons, String section_name) {
-        this.spons = spons;
+    public SponsHeading(List<SponsData> sponsors, String section_name) {
+        this.sponsors = sponsors;
         this.section_name = section_name;
     }
 
-    public List<SponsData> getSpons() {
-        return spons;
+    public List<SponsData> getSponsors() {
+        return sponsors;
     }
 
     public String getSection_name() {
