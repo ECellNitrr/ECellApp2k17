@@ -1,5 +1,6 @@
 package com.example.iket.ecellapp2k17.home;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
@@ -26,7 +28,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.fabric.sdk.android.Fabric;
 
-public class Home extends AppCompatActivity{
+public class Home extends AppCompatActivity {
 
     @BindView(R.id.viewPager_home)
     ViewPager viewPager;
@@ -86,6 +88,8 @@ public class Home extends AppCompatActivity{
 
             }
         });
+
+
     }
     private void setupTabIcons() {
         View view1;
@@ -98,7 +102,21 @@ public class Home extends AppCompatActivity{
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Are you sure you want to exit?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Home.this.finish();
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -111,6 +129,7 @@ public class Home extends AppCompatActivity{
             fragmentTransaction.commit();
         }
     }
+
 
     public void addFragment(Fragment fragment) {
         if (fragment != null) {

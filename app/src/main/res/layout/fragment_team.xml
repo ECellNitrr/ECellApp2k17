@@ -30,7 +30,7 @@
             android:layout_width="match_parent"
             android:layout_alignLeft="@+id/faculty"
             android:layout_alignRight="@+id/faculty"
-            android:layout_height="1sp"
+            android:layout_height="2sp"
             android:layout_below="@+id/faculty"
             android:background="@color/white"
             />
@@ -89,7 +89,7 @@
             android:layout_alignLeft="@+id/Coordinators"
             android:layout_alignRight="@+id/Coordinators"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="2dp"
             android:background="@color/white"
             android:layout_below="@+id/Coordinators"/>
 
