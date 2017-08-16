@@ -19,7 +19,9 @@ import android.support.v4.widget.NestedScrollView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.blogs.model.BlogsProvider;
 import com.example.iket.ecellapp2k17.blogs.model.MockBlogs;
@@ -29,6 +31,7 @@ import com.example.iket.ecellapp2k17.blogs.presenter.BlogsPresenter;
 import com.example.iket.ecellapp2k17.blogs.presenter.BlogsPresenterImpl;
 import com.example.iket.ecellapp2k17.helper.VerticalViewPager;
 import com.example.iket.ecellapp2k17.home.Home;
+import com.facebook.shimmer.ShimmerFrameLayout;
 
 import java.util.List;
 
@@ -59,6 +62,7 @@ public class BlogFragment extends Fragment implements BlogsInterface {
     BlogsPresenter blogsPresenter;
     private BottomSheetBehavior bottomSheetBehavior;
     private View bottomSheet;
+    private ImageView down_arrow;
 
     private FloatingActionButton fab;
 
@@ -121,6 +125,11 @@ public class BlogFragment extends Fragment implements BlogsInterface {
         });
 
 
+        down_arrow = (ImageView) view.findViewById(R.id.down_arrow_ic);
+        Glide.with(getContext()).load(R.drawable.down).into(down_arrow);
+        ShimmerFrameLayout shimmercontainer =
+                (ShimmerFrameLayout) view.findViewById(R.id.shimmer_view_container);
+        shimmercontainer.startShimmerAnimation();
         verticalViewPager=(VerticalViewPager)view.findViewById(R.id.blogs_viewPager);
         verticlePagerAdapter=new VerticlePagerAdapter(getContext());
         verticalViewPager.setAdapter(verticlePagerAdapter);
