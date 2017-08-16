@@ -18,6 +18,7 @@ import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.home.Home;
 import com.example.iket.ecellapp2k17.sponsors.model.MockSpons;
+import com.example.iket.ecellapp2k17.sponsors.model.RetrofitSponsProvider;
 import com.example.iket.ecellapp2k17.sponsors.model.data.SponsHeading;
 import com.example.iket.ecellapp2k17.sponsors.model.data.SponsData;
 import com.example.iket.ecellapp2k17.sponsors.presenter.SponsPresenter;
@@ -93,8 +94,10 @@ public class SponsFragment extends Fragment implements SponsInterface {
         View view= inflater.inflate(R.layout.fragment_spons, container, false);
         recyclerView=(RecyclerView) view.findViewById(R.id.recycler_view_spons);
         progressBar= (ProgressBar) view.findViewById(R.id.progressBar_spons);
-        sponsPresenter=new SponsPresenterImpl(this,new MockSpons());
+//        sponsPresenter=new SponsPresenterImpl(this,new MockSpons());
+        sponsPresenter=new SponsPresenterImpl(this,new RetrofitSponsProvider());
         sectionAdapter = new SectionedRecyclerViewAdapter();
+
         glm = new GridLayoutManager(getContext(), 2);
         glm.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
@@ -154,7 +157,7 @@ public class SponsFragment extends Fragment implements SponsInterface {
     @Override
     public void setData(List<SponsHeading> sponsDataList) {
         for(int i=0;i<sponsDataList.size();i++) {
-            sectionAdapter.addSection(new SponsSection(sponsDataList.get(i).getSection_name(), sponsDataList.get(i).getSpons()));
+            sectionAdapter.addSection(new SponsSection(sponsDataList.get(i).getSection_name(), sponsDataList.get(i).getSponsors()));
         }
             sectionAdapter.notifyDataSetChanged();
     }

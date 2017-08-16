@@ -10,6 +10,8 @@
     <color name="dak_grey">#696969</color>
     <color name="charcoal">#333327</color>
     <color name="brown">#8B4513</color>
+    <color name="gray">#424242</color>
+    <color name="darkgray">#212121</color>
 
     <array name="array_dot_active">
         <item>@color/colorPrimary</item>

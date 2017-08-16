@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
+import com.example.iket.ecellapp2k17.esummit.model.RetrofitProviderSpeakers;
 import com.example.iket.ecellapp2k17.esummit.view.SpeakerAdapter;
 import com.example.iket.ecellapp2k17.esummit.model.MockSpeakers;
 import com.example.iket.ecellapp2k17.esummit.model.data.SpeakerData;
@@ -107,9 +108,9 @@ public class EsummitFragment extends Fragment implements ViewInterface{
         recyclerAdapter = new SpeakerAdapter(getContext());
         recyclerView.setAdapter(recyclerAdapter);
 
+//        esummitPresenter=new EsummitPresenterImpl(new RetrofitProviderSpeakers(),this);
         esummitPresenter=new EsummitPresenterImpl(new MockSpeakers(),this);
         esummitPresenter.requestData();
-
         esummit_title.setEnabled(false);
         esummit_desc.setEnabled(false);
         typewriterView = (TypewriterView) view.findViewById(R.id.type_writer_text);

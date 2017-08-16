@@ -29,8 +29,7 @@ public class RetrofitProviderSpeakers implements EsummitProvider{
 
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-        OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor)
-                .addInterceptor(Cache.REWRITE_CACHE_CONTROL_INTERCEPTOR).cache(Cache.provideCache()).build();
+        OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Urls.BASE_URL)
@@ -42,7 +41,8 @@ public class RetrofitProviderSpeakers implements EsummitProvider{
         call.enqueue(new Callback<SpeakerList>(){
             @Override
             public void onResponse(Call<SpeakerList> call, Response<SpeakerList> response) {
-                //    onAboutusReceived.onSuccess(response.body().getAboutUs());
+
+                onSpeakersRecieved.onSuccess(response.body().getSpeakers());
             }
 
             @Override

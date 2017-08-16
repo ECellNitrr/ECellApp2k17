@@ -9,12 +9,24 @@ import java.util.List;
 public class SpeakerList {
 
     private List<SpeakerData> speakers;
+    private boolean success;
+    private String message;
 
-    public SpeakerList(List<SpeakerData> speakers) {
+    public SpeakerList(List<SpeakerData> speakers, boolean success, String message) {
         this.speakers = speakers;
+        this.success = success;
+        this.message = message;
     }
 
-    public List<SpeakerData> getSpeakers(){
+    public List<SpeakerData> getSpeakers() {
         return speakers;
+    }
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public String getMessage() {
+        return message;
     }
 }
