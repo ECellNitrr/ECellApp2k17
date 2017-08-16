@@ -7,8 +7,17 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="016417565ea762fe580b73b90131a8dc33fa6a71">
+        sha1="42927078a31ec748ab12e3a695f61e49204e2377">
         <dex dex="/home/vrihas/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_ec7ce60115cd4db1153e8d67a4988e084b4baac1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/vrihas/.android/build-cache/d1ea9b34cedaeff59fbf5dcba22e72a23d4df51e/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="37e257a25703e692be3f9aa9c4bf7de620e9271a">
+        <dex dex="/home/vrihas/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_58ec4bb88f56e159420dbd805790432eab98138a/classes.dex" />
     </item>
     <item
         is-multidex="true"

@@ -30,9 +30,11 @@
         />
 
   -->
+
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/black">
     <com.example.iket.ecellapp2k17.helper.VerticalViewPager
         android:layout_height="match_parent"
         android:layout_width="match_parent"
@@ -55,15 +57,5 @@
 
         </com.facebook.shimmer.ShimmerFrameLayout>
         </FrameLayout>
-<!--
-    <android.support.v4.widget.NestedScrollView
-        android:id="@+id/bottom_sheet"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
 
-        <include layout="@layout/fragment_add_ablog"/>
-
-    </android.support.v4.widget.NestedScrollView>
--->
 </android.support.design.widget.CoordinatorLayout>

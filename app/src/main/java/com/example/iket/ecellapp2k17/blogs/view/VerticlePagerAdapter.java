@@ -85,7 +85,6 @@ public class VerticlePagerAdapter extends PagerAdapter {
         */
         Glide.with(mContext).load(data.getImage()).into(blogImage);
         title.setText(data.getTitle());
-//        owner.setText(data.getBlogOwner());
         date.setText(data.getDate());
         body.setText(Html.fromHtml(Html.fromHtml(data.getBody()).toString()));
         container.addView(itemView);
@@ -103,8 +102,8 @@ public class VerticlePagerAdapter extends PagerAdapter {
 
         final ToolTipsManager mToolTipsManager;
         mToolTipsManager = new ToolTipsManager();
-        final ToolTip.Builder builder = new ToolTip.Builder(mContext,blogImage,layout, "Swipe up to read next blog." , ToolTip.POSITION_BELOW);
-        builder.setBackgroundColor(R.color.dak_grey);
+        final ToolTip.Builder builder = new ToolTip.Builder(mContext,title,layout, "Swipe up to read next blog." , ToolTip.POSITION_ABOVE);
+        builder.setBackgroundColor(R.color.black);
 
         if(position==0) {
             final Handler handler = new Handler();
