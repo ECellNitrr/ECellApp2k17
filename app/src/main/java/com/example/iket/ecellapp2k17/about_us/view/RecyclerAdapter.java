@@ -6,9 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.about_us.model.data.AboutUsData;
 
@@ -18,6 +22,9 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import jp.wasabeef.glide.transformations.CropCircleTransformation;
+
+import static com.example.iket.ecellapp2k17.R.id.progressBar;
+import static com.example.iket.ecellapp2k17.R.id.progressBar_team;
 
 /**
  * Created by samveg on 3/8/17.
@@ -48,7 +55,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(RecyclerAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(final RecyclerAdapter.ViewHolder holder, int position) {
 
         AboutUsData aboutUsData =  data.get(position);
         holder.member_name.setText(aboutUsData.getMember_name());
@@ -56,7 +63,19 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         {
             holder.member_email.setText(aboutUsData.getMember_email());
         }
-        Glide.with(context).load(aboutUsData.getMember_img_url()).bitmapTransform(new CropCircleTransformation(context)).into(holder.member_image);
+        Glide.with(context).load(aboutUsData.getMember_img_url()).listener(new RequestListener<String, GlideDrawable>() {
+            @Override
+            public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
+                holder.progressBar.setVisibility(View.GONE);
+                return false;
+            }
+
+            @Override
+            public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+                holder.progressBar.setVisibility(View.GONE);
+                return false;
+            }
+        }).bitmapTransform(new CropCircleTransformation(context)).into(holder.member_image);
     }
 
     @Override
@@ -71,11 +90,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         public ImageView member_image;
         public TextView member_email;
         public TextView member_name;
+        public final ProgressBar progressBar;
         public ViewHolder(View itemView) {
             super(itemView);
             member_image = (ImageView) itemView.findViewById(R.id.coordinatorImg);
             member_email = (TextView) itemView.findViewById(R.id.coordinatorEmail);
             member_name = (TextView) itemView.findViewById(R.id.coordinatorName);
+            progressBar = (ProgressBar) itemView.findViewById(R.id.progressBar_team);
         }
     }
 }
