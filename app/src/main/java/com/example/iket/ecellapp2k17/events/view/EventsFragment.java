@@ -24,6 +24,9 @@ import com.example.iket.ecellapp2k17.events.model.data.EventsData;
 import com.example.iket.ecellapp2k17.events.presenter.EventPresenterImpl;
 import com.example.iket.ecellapp2k17.events.presenter.EventsPresenter;
 import com.example.iket.ecellapp2k17.helper.VerticalViewPager;
+import com.mikepenz.itemanimators.ScaleUpAnimator;
+import com.mikepenz.itemanimators.SlideDownAlphaAnimator;
+import com.mikepenz.itemanimators.SlideInOutBottomAnimator;
 
 import java.util.List;
 
@@ -101,6 +104,7 @@ public class EventsFragment extends Fragment implements EventsInterface {
 //        eventsPresenter=new EventPresenterImpl(this,new RetrofitEventsProvider());
         event_recyclerView.setLayoutManager(linearLayoutManager);
         event_recyclerView.setAdapter(eventsAdapter);
+        event_recyclerView.setItemAnimator(new SlideDownAlphaAnimator());
         eventsPresenter.requestEvents();
 
         return view;

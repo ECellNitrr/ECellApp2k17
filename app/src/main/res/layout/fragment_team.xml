@@ -14,13 +14,25 @@
 
         <TextView
             android:id="@+id/faculty"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Faculty Incharge"
+            android:layout_centerInParent="true"
+            android:layout_alignParentTop="true"
             android:layout_marginTop="10dp"
             android:gravity="center"
             android:textSize="28dp"
             android:textColor="@color/white" />
+
+        <View
+            android:id="@+id/line3"
+            android:layout_width="match_parent"
+            android:layout_alignLeft="@+id/faculty"
+            android:layout_alignRight="@+id/faculty"
+            android:layout_height="1sp"
+            android:layout_below="@+id/faculty"
+            android:background="@color/white"
+            />
 
         <ImageView
             android:id="@+id/facultyImg"
@@ -28,7 +40,7 @@
             android:layout_height="130dp"
             android:layout_marginTop="10dp"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/faculty"/>
+            android:layout_below="@+id/line3"/>
         <ImageView
             android:layout_width="130dp"
             android:layout_height="130dp"
@@ -60,18 +72,28 @@
 
         <TextView
             android:id="@+id/Coordinators"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/facultyDept"
             android:text="Head Coordinators"
-            android:gravity="center"
             android:textColor="@color/white"
+            android:layout_centerInParent="true"
             android:textSize="28dp"
             android:layout_marginTop="18dp"/>
 
+        <View
+            android:id="@+id/line4"
+            android:layout_alignLeft="@+id/Coordinators"
+            android:layout_alignRight="@+id/Coordinators"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white"
+            android:layout_below="@+id/Coordinators"/>
+
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view_team"
-        android:layout_below="@+id/Coordinators"
+        android:layout_below="@+id/line4"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical"

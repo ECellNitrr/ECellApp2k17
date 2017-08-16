@@ -49,6 +49,7 @@ public class SponsFragment extends Fragment implements SponsInterface {
     private String mParam1;
     private String mParam2;
     RecyclerView recyclerView;
+    GridLayoutManager glm;
     ProgressBar progressBar;
 
     private SponsPresenter sponsPresenter;
@@ -94,7 +95,7 @@ public class SponsFragment extends Fragment implements SponsInterface {
         progressBar= (ProgressBar) view.findViewById(R.id.progressBar_spons);
         sponsPresenter=new SponsPresenterImpl(this,new MockSpons());
         sectionAdapter = new SectionedRecyclerViewAdapter();
-        GridLayoutManager glm = new GridLayoutManager(getContext(), 2);
+        glm = new GridLayoutManager(getContext(), 2);
         glm.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
@@ -152,9 +153,10 @@ public class SponsFragment extends Fragment implements SponsInterface {
 
     @Override
     public void setData(List<SponsHeading> sponsDataList) {
-        for(int i=0;i<sponsDataList.size();i++)
-            sectionAdapter.addSection(new SponsSection(sponsDataList.get(i).getSection_name(),sponsDataList.get(i).getSpons()));
-        sectionAdapter.notifyDataSetChanged();
+        for(int i=0;i<sponsDataList.size();i++) {
+            sectionAdapter.addSection(new SponsSection(sponsDataList.get(i).getSection_name(), sponsDataList.get(i).getSpons()));
+        }
+            sectionAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -191,6 +193,17 @@ public class SponsFragment extends Fragment implements SponsInterface {
         public void onBindItemViewHolder(RecyclerView.ViewHolder holder, final int position) {
             final SponsItemViewholder itemHolder = (SponsItemViewholder) holder;
 
+//            if(list.size()>1) {
+//                glm.setSpanCount(2);
+//                Log.d("Spons",""+list.get(0).getSponsName());
+//                recyclerView.setLayoutManager(glm);
+//            }
+//            else
+//            {
+//                Log.d("Spons",""+list.get(0).getSponsName());
+//                glm.setSpanCount(1);
+//                recyclerView.setLayoutManager(glm);
+//            }
             String name = list.get(position).getSponsName();
             String image=list.get(position).getImage1();
             itemHolder.spons_name.setText(name);

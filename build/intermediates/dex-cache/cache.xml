@@ -3,12 +3,120 @@
 
     <item
         is-multidex="false"
-        jar="/home/iket/.android/build-cache/2c5a2dc6ce54a6a533263ce37c31a88c9d4d97c5/output/jars/classes.jar"
+        jar="/home/iket/.android/build-cache/9ebcd13ea4f12e67628cf74f971c9d7a0b49b24e/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="7ee17513c24864fccca943ea7661d8ee38867992">
-        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_2beeb48dee4f59be659d93affcd03407b1d56a9a.jar" />
+        sha1="42df48c7305b08b14fa0e84561091b0c24d70d26">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_6edd80bb21449d9bc6572342497dcd75b4c2f735.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/iket/.android/build-cache/1017b14935de9633bd809633e16ccc4cb29c843f/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="cc178928721f3222b3b06bdfbd9497378ccb9792">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_a2fbe798dd7e53285a9885e427f7f258e413916b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/iket/.android/build-cache/7587de7851eecb1a1fd1e1149d29c39caf0bd5db/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4ef8ab5fee042023018249474bc93bd4b2b9c17e">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_66456642ed4c753d1b6e2335fd86fb550271efe6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/iket/.android/build-cache/ae6d9de52b9337363cb3c47f5be1c4c798d85888/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="461929440e66685425a298693507f6fb27b0a872">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_f3b4d661f48ef7bcb470a0fc25bcd7a1d27a4ebb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/iket/.android/build-cache/65aca1b0259c722859e07f1dc3c209437b1e9f35/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="005d20a198159b87f65812fc5c51b2d84c5eba0a">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_88ca2c825c82e512b21fd4203fabfb790db7fae9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/iket/.android/build-cache/81a582947b6d42b0c304030d77fdfca24935dc8f/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="97c40cd494770cd1cdb0f879c8426269a2d76702">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_d7221f964a6d902cd59605ebb5759d6e04f4f1ab.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/iket/.android/build-cache/b55748d90f375d9cc0d6505849c03a4b8ea9dae1/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6f65c144283b31b4b9a70e6e7aa4c4a1c897d4b8">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_3c6501857a5027f8b09108713b641bdb18de8e85.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/iket/.android/build-cache/b3126119b5b5965fd197e6da005e462b1ee68223/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="204f607419af8247cc1b2a61f50663c65f841c12">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_5f54a0b4920264a8da38f1b6ecdeb17613b28480.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/iket/.android/build-cache/06a76ef34316997f69c484d1714ae52019834247/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ea4b54dcbfe5ac05efb0a314105f07258118d3a7">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_36d7aa6e06aa74d4518513abec576c5b8e6a56b5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/iket/.android/build-cache/fc690ee81fcc5b77a28498a4618f7a6c8b3ea666/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7045152f3bd1870740b9bcb1cddff495e189774e">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_a5ffa0b8e23405d5b33861ce074bbcaa72944a27.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/iket/.android/build-cache/85b473e01f6eba919f2e78097ddeb998f059e93d/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0dc8ab07eeceda5e99b305c8069765056b6e5c9d">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_4265caceb11454e351eb5c15a6d5ff63b272ad9b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/iket/.android/build-cache/562d4b836beaf7d7e751c2d873902fcd8055dac1/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1941832901fc4e7a93300b53762e9f65d7650b99">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_0e5c00ef4576f0720c0d800e26ed30c54bb89e69.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/iket/.android/build-cache/b28d0841b91fb0d5a511ec990d45fbf93c3903ec/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="646439081688c43e04ec4aa7ba6915ddfdcc337f">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_f7f49c56c206370416077ce388e63fa3b0cc385f.jar" />
     </item>
 
 </items>
