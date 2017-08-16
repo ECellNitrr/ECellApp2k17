@@ -123,7 +123,6 @@ public class BQuizActivity extends AppCompatActivity implements BQuizView {
     {
         super.onStop();
         countDownTimer.cancel();
-
         if(i==1)
         {
             countDownTimer.cancel();

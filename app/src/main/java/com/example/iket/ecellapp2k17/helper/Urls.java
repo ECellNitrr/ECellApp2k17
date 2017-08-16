@@ -11,11 +11,11 @@ public class Urls {
     public static final String REQUEST_ADD_BLOGS = "addblogs/";
     public static final String REQUEST_EVENTS = "get_events_list";
     public static final String REQUEST_ABOUTUS = "aboutus/";
-    public static final String REQUEST_SPONS = "spons/";
+    public static final String REQUEST_SPONS = "get_sponsors_list/";
     public static final String REQUEST_BQUIZ_DATA ="";
     public static final String REQUEST_SUBMIT_ANSWER ="";
     public static final String REQUEST_LOGIN ="";
     public static final String Request_VERIFY="";
-    public static final String REQUEST_SPEAKERS ="" ;
+    public static final String REQUEST_SPEAKERS ="get_speakers_list" ;
     public static final String REQUEST_CONTACTUS ="";
 }

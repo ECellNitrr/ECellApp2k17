@@ -12,7 +12,20 @@
     </item>
     <item
         is-multidex="false"
+<<<<<<< HEAD
+        jar="/home/iket/android-studio/gradle/gradle-3.2/caches/modules-2/files-2.1/com.squareup.okhttp3/logging-interceptor/3.4.1/381fc1096ba65040d8e80ea43b2e1d9bad02345e/logging-interceptor-3.4.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="381fc1096ba65040d8e80ea43b2e1d9bad02345e">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/logging-interceptor-3.4.1_ff62f2475b94299385538086cf52364597a18d7d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/iket/.android/build-cache/1017b14935de9633bd809633e16ccc4cb29c843f/output/jars/classes.jar"
+=======
         jar="/home/samveg/.android/build-cache/c373f8aa17440865ff131116eb2e6922b011d7f1/output/jars/classes.jar"
+>>>>>>> 88e2e98c04f29bf15f76220b428b63acbb54f215
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
@@ -102,7 +115,29 @@
     </item>
     <item
         is-multidex="false"
+<<<<<<< HEAD
+        jar="/home/iket/android-studio/gradle/gradle-3.2/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.4.1/c7c4f9e35c2fd5900da24f9872e3971801f08ce0/okhttp-3.4.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c7c4f9e35c2fd5900da24f9872e3971801f08ce0">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/okhttp-3.4.1_21d194fc669de18924b3ddedd5ab7898cbcb1d0c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/iket/android-studio/gradle/gradle-3.2/caches/modules-2/files-2.1/com.squareup.okio/okio/1.9.0/f824591a0016efbaeddb8300bee54832a1398cfa/okio-1.9.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f824591a0016efbaeddb8300bee54832a1398cfa">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/okio-1.9.0_4fa632fc689074b55fda09ac3d07495fce7a1f27.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/iket/.android/build-cache/562d4b836beaf7d7e751c2d873902fcd8055dac1/output/jars/classes.jar"
+=======
         jar="/home/samveg/.android/build-cache/cbefed13081993121f7b050fc526667a10805e3b/output/jars/classes.jar"
+>>>>>>> 88e2e98c04f29bf15f76220b428b63acbb54f215
         jumboMode="false"
         optimize="true"
         revision="25.0.2"

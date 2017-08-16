@@ -23,6 +23,7 @@ import com.example.iket.ecellapp2k17.events.model.RetrofitEventsProvider;
 import com.example.iket.ecellapp2k17.events.model.data.EventsData;
 import com.example.iket.ecellapp2k17.events.presenter.EventPresenterImpl;
 import com.example.iket.ecellapp2k17.events.presenter.EventsPresenter;
+import com.example.iket.ecellapp2k17.helper.Urls;
 import com.example.iket.ecellapp2k17.helper.VerticalViewPager;
 import com.mikepenz.itemanimators.ScaleUpAnimator;
 import com.mikepenz.itemanimators.SlideDownAlphaAnimator;
@@ -93,16 +94,16 @@ public class EventsFragment extends Fragment implements EventsInterface {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_events, container, false);
-        Log.d("Events",mParam1+mParam2);
         progressBar=(ProgressBar)view.findViewById(R.id.events_progressbar);
         event_recyclerView = (RecyclerView) view.findViewById(R.id.event_recycler_view);
         event_recyclerView.setHasFixedSize(true);
+
         linearLayoutManager = new LinearLayoutManager(getContext());
         eventsAdapter = new EventsAdapter(getContext());
 
         eventsPresenter=new EventPresenterImpl(this,new MockData());
-//        eventsPresenter=new EventPresenterImpl(this,new RetrofitEventsProvider());
-        event_recyclerView.setLayoutManager(linearLayoutManager);
+        eventsPresenter=new EventPresenterImpl(this,new RetrofitEventsProvider());
+//        event_recyclerView.setLayoutManager(linearLayoutManager);
         event_recyclerView.setAdapter(eventsAdapter);
         event_recyclerView.setItemAnimator(new SlideDownAlphaAnimator());
         eventsPresenter.requestEvents();
