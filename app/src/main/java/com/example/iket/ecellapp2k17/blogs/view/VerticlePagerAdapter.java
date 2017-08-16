@@ -114,6 +114,8 @@ public class VerticlePagerAdapter extends PagerAdapter {
                 }
             },3000);
         }
+
+
         return itemView;
     }
 

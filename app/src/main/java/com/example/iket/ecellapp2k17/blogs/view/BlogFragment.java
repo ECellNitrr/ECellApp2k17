@@ -29,6 +29,8 @@ import com.example.iket.ecellapp2k17.blogs.presenter.BlogsPresenter;
 import com.example.iket.ecellapp2k17.blogs.presenter.BlogsPresenterImpl;
 import com.example.iket.ecellapp2k17.helper.VerticalViewPager;
 import com.example.iket.ecellapp2k17.home.Home;
+import com.tomergoldst.tooltips.ToolTip;
+import com.tomergoldst.tooltips.ToolTipsManager;
 
 import java.util.List;
 
@@ -52,13 +54,12 @@ public class BlogFragment extends Fragment implements BlogsInterface {
     private String mParam1;
     private String mParam2;
 
-
-
     VerticalViewPager verticalViewPager;
     VerticlePagerAdapter verticlePagerAdapter;
     BlogsPresenter blogsPresenter;
 
     private FloatingActionButton fab;
+    private CoordinatorLayout layout;
 
     private OnFragmentInteractionListener mListener;
 
@@ -105,7 +106,7 @@ public class BlogFragment extends Fragment implements BlogsInterface {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_blog, container, false);
 
-
+        layout = (CoordinatorLayout) view.findViewById(R.id.coordinator_layout_blog);
         fab = (FloatingActionButton)view.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,10 +114,8 @@ public class BlogFragment extends Fragment implements BlogsInterface {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 DialogFragment newFragment = AddABlog.newInstance("","");
                 newFragment.show(ft, "dialog");
-
             }
         });
-
 
         verticalViewPager=(VerticalViewPager)view.findViewById(R.id.blogs_viewPager);
         verticlePagerAdapter=new VerticlePagerAdapter(getContext());
