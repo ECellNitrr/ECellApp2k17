@@ -17,6 +17,8 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="Faculty Incharge"
+            android:layout_centerInParent="true"
+            android:layout_alignParentTop="true"
             android:gravity="center"
             android:background="#424242"
             android:textSize="35dp"
@@ -26,7 +28,9 @@
         <View
             android:id="@+id/line3"
             android:layout_width="match_parent"
-            android:layout_height="2dp"
+            android:layout_alignLeft="@+id/faculty"
+            android:layout_alignRight="@+id/faculty"
+            android:layout_height="1sp"
             android:layout_below="@+id/faculty"
             android:background="@color/white"
             />
@@ -73,17 +77,19 @@
             android:layout_height="50dp"
             android:layout_below="@+id/facultyDept"
             android:text="Head Coordinators"
-            android:gravity="center"
             android:textColor="@color/white"
             android:textSize="35dp"
             android:textStyle="bold"
             android:background="#424242"
-            android:layout_marginTop="18dp"/>
+            android:gravity="center"
+            android:layout_centerInParent="true"/>
 
         <View
             android:id="@+id/line4"
+            android:layout_alignLeft="@+id/Coordinators"
+            android:layout_alignRight="@+id/Coordinators"
             android:layout_width="match_parent"
-            android:layout_height="2dp"
+            android:layout_height="1dp"
             android:background="@color/white"
             android:layout_below="@+id/Coordinators"/>
 
