@@ -2,36 +2,39 @@ package com.example.iket.ecellapp2k17.profile.view;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
-
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.support.v4.content.SharedPreferencesCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
-
+import com.facebook.Profile;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.helper.SharedPrefs;
 import com.example.iket.ecellapp2k17.helper.image_loaders.GlideImageLoader;
+import com.facebook.AccessToken;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
 import com.intrusoft.library.FrissonView;
+
+import org.apache.http.params.HttpParams;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+
+import okhttp3.internal.http2.Header;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -43,10 +46,9 @@ import com.intrusoft.library.FrissonView;
  */
 public class ProfileFragment extends Fragment{
 
-    private ImageView imageView;
+    private ImageView fb_image;
+    private TextView fb_username,fb_email;
     private FrissonView wave;
-
-    private SharedPrefs sharedPrefs;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -56,6 +58,7 @@ public class ProfileFragment extends Fragment{
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private SharedPrefs sharedPrefs;
 
     private OnFragmentInteractionListener mListener;
 
@@ -84,9 +87,6 @@ public class ProfileFragment extends Fragment{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        //Adding toolbar to the activi
-
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -101,12 +101,21 @@ public class ProfileFragment extends Fragment{
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             getActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
         }
-        imageView=(ImageView)view.findViewById(R.id.center_image);
+
+
+        fb_username = (TextView)view.findViewById(R.id.user_name_fb);
+        fb_email = (TextView) view.findViewById(R.id.email_fb);
+//        fb_email.setText(sharedPrefs.getEmail());
+        fb_image=(ImageView)view.findViewById(R.id.center_image);
+        Uri imageUri = Profile.getCurrentProfile().getProfilePictureUri(400, 400);
+        String image_url = imageUri.toString();
+        fb_username.setText(Profile.getCurrentProfile().getName());
+
         wave= (FrissonView) view.findViewById(R.id.wave);
         GlideImageLoader glideImageLoader=new GlideImageLoader(getContext());
-        glideImageLoader.load_circular_image("https://scontent.fbho1-1.fna.fbcdn.net/v/t1.0-9/20228230_1167680323365891_2137180005250019764_n.jpg?oh=b5be19ba7e81e5e8eceaba6d5b9aec39&oe=59F6E5E1",imageView);
+        glideImageLoader.load_circular_image(image_url,fb_image);
         Glide.with(getContext())
-                .load("https://scontent.fbho1-1.fna.fbcdn.net/v/t1.0-9/20228230_1167680323365891_2137180005250019764_n.jpg?oh=b5be19ba7e81e5e8eceaba6d5b9aec39&oe=59F6E5E1")
+                .load(imageUri)
                 .asBitmap()
                 .into(new SimpleTarget<Bitmap>(SimpleTarget.SIZE_ORIGINAL, SimpleTarget.SIZE_ORIGINAL) {
                     @Override
@@ -142,4 +151,10 @@ public class ProfileFragment extends Fragment{
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
+
+
 }
+
+//www.myc.com/wp-content/uploads/2016/07/0d36e7a476b06333d9fe9960572b66b9.jpg
+
