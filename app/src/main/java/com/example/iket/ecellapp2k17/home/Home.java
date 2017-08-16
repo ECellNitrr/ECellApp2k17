@@ -1,8 +1,10 @@
 package com.example.iket.ecellapp2k17.home;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -12,6 +14,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 
 import com.crashlytics.android.Crashlytics;
@@ -46,6 +50,7 @@ public class Home extends AppCompatActivity {
         setFragment(new EsummitFragment());
         ButterKnife.bind(this);
         setupTabIcons();
+
         tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#FF5722"));
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -139,5 +144,7 @@ public class Home extends AppCompatActivity {
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
         }
+
     }
+
 }

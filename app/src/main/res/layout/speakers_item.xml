@@ -7,6 +7,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center">
+        <ProgressBar
+            android:id="@+id/progressBar_speaker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:visibility="visible"
+            android:layout_marginTop="90dp"/>
         <ImageView
             android:id="@+id/speakers_image"
             android:layout_width="250dp"
