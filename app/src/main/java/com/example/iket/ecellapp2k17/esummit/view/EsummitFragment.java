@@ -109,6 +109,7 @@ public class EsummitFragment extends Fragment implements ViewInterface{
         recyclerView.setLayoutManager(layoutManager);
         recyclerAdapter = new SpeakerAdapter(getContext());
         recyclerView.setAdapter(recyclerAdapter);
+        recyclerView.setNestedScrollingEnabled(false);
 
         esummitPresenter=new EsummitPresenterImpl(new MockSpeakers(),this);
         esummitPresenter.requestData();
