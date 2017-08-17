@@ -15,6 +15,7 @@ import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.esummit.model.data.SpeakerData;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,13 +78,13 @@ public class SpeakerAdapter extends RecyclerView.Adapter<SpeakerAdapter.ViewHold
         public ImageView speaker_image;
         public TextView speaker_name;
         public TextView speaker_desc;
-        public final ProgressBar progressBar;
+        public final AVLoadingIndicatorView progressBar;
         public ViewHolder(View itemView) {
             super(itemView);
             speaker_image = (ImageView) itemView.findViewById(R.id.speakers_image);
             speaker_name = (TextView)itemView.findViewById(R.id.speakers_name);
             speaker_desc = (TextView) itemView.findViewById(R.id.speakers_desc);
-            progressBar= (ProgressBar) itemView.findViewById(R.id.progressBar_speaker);
+            progressBar= (AVLoadingIndicatorView) itemView.findViewById(R.id.progressBar_speaker);
         }
     }
 }

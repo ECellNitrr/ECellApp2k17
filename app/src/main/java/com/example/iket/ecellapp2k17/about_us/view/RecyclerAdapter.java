@@ -19,12 +19,7 @@ import com.example.iket.ecellapp2k17.about_us.model.data.AboutUsData;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import jp.wasabeef.glide.transformations.CropCircleTransformation;
-
-import static com.example.iket.ecellapp2k17.R.id.progressBar;
-import static com.example.iket.ecellapp2k17.R.id.progressBar_team;
 
 /**
  * Created by samveg on 3/8/17.
@@ -58,12 +53,12 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     public void onBindViewHolder(final RecyclerAdapter.ViewHolder holder, int position) {
 
         AboutUsData aboutUsData =  data.get(position);
-        holder.member_name.setText(aboutUsData.getMember_name());
+        holder.member_name.setText(aboutUsData.getName());
         if(position<4)
         {
-            holder.member_email.setText(aboutUsData.getMember_email());
+            holder.member_email.setText(aboutUsData.getLinkedIn());
         }
-        Glide.with(context).load(aboutUsData.getMember_img_url()).listener(new RequestListener<String, GlideDrawable>() {
+        Glide.with(context).load(aboutUsData.getMeta()).listener(new RequestListener<String, GlideDrawable>() {
             @Override
             public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
                 holder.progressBar.setVisibility(View.GONE);

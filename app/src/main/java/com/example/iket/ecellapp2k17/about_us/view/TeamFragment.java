@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.about_us.model.MockAboutUs;
+import com.example.iket.ecellapp2k17.about_us.model.RetrofitProviderAboutUs;
 import com.example.iket.ecellapp2k17.about_us.model.data.AboutUsData;
 import com.example.iket.ecellapp2k17.about_us.presenter.AboutUsPresenter;
 import com.example.iket.ecellapp2k17.about_us.presenter.AboutUsPresenterImpl;
@@ -97,7 +98,7 @@ public class TeamFragment extends Fragment  implements AboutUsInterface{
         recyclerView.setNestedScrollingEnabled(false);
         Glide.with(getContext()).load(R.drawable.vision).bitmapTransform(new CropCircleTransformation(getContext())).into(faculty_image);
 
-        aboutUsPresenter =new AboutUsPresenterImpl(new MockAboutUs(),this);
+        aboutUsPresenter =new AboutUsPresenterImpl(new RetrofitProviderAboutUs(),this);
         aboutUsPresenter.requestData();
 
         return view;

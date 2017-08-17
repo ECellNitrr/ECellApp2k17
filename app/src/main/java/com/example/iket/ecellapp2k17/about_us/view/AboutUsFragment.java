@@ -123,7 +123,10 @@ public class AboutUsFragment extends Fragment{
         adapterViewPager = new PagerAdapter(getActivity().getSupportFragmentManager());
         vpPager.setAdapter(adapterViewPager);
         tabLayout.setupWithViewPager(vpPager);
-        setupTabIcons();
+        tabLayout.getTabAt(0).setIcon(tabIcons[0]);
+        tabLayout.getTabAt(1).setIcon(tabIcons[1]);
+        tabLayout.getTabAt(2).setIcon(tabIcons[2]);
+       // setupTabIcons();
 /*
         team_chip.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -266,13 +269,14 @@ public class AboutUsFragment extends Fragment{
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
-    }
+    }/*
     private void setupTabIcons() {
         View view1;
         for (int i = 0; i < tabIcons.length; i++) {
             view1 = getActivity().getLayoutInflater().inflate(R.layout.custom_tab, null);
             view1.findViewById(R.id.tab_icon).setBackgroundResource(tabIcons[i]);
-            tabLayout.addTab(tabLayout.newTab().setCustomView(view1));
+            tabLayout.newTab().setCustomView(view1);
+         //   tabLayout.addTab(tabLayout.newTab().setCustomView(view1));
         }
-    }
+    }*/
 }

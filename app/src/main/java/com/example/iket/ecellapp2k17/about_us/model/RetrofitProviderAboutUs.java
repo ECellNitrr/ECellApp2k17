@@ -30,8 +30,8 @@ public class RetrofitProviderAboutUs implements AboutUsProvider{
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor)
-                .addInterceptor(Cache.REWRITE_CACHE_CONTROL_INTERCEPTOR).cache(Cache.provideCache()).build();
-
+               .build();
+// .addInterceptor(Cache.REWRITE_CACHE_CONTROL_INTERCEPTOR).cache(Cache.provideCache())
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Urls.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create(gson))
@@ -42,7 +42,7 @@ public class RetrofitProviderAboutUs implements AboutUsProvider{
         call.enqueue(new Callback<AboutUsData>(){
             @Override
             public void onResponse(Call<AboutUsData> call, Response<AboutUsData> response) {
-            //    onAboutusReceived.onSuccess(response.body().getAboutUs());
+            //    onAboutusReceived.onSuccess(response.body().getData());
             }
 
             @Override

@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -116,6 +117,7 @@ public class EsummitFragment extends Fragment implements ViewInterface{
         recyclerAdapter = new SpeakerAdapter(getContext());
         recyclerView.setAdapter(recyclerAdapter);
         recyclerView.setNestedScrollingEnabled(false);
+
 
 //        esummitPresenter=new EsummitPresenterImpl(new RetrofitProviderSpeakers(),this);
         esummitPresenter=new EsummitPresenterImpl(new MockSpeakers(),this);
