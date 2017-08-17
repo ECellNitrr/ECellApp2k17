@@ -11,6 +11,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 
 
@@ -102,6 +103,7 @@ public class Home extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        Log.d("Home",""+getFragmentManager().getBackStackEntryCount());
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("Are you sure you want to exit?")
                 .setCancelable(false)
