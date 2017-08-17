@@ -1,47 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="70sp"
-        android:orientation="horizontal"
-        android:background="#ffffff"
-        android:weightSum="3">
-        <ImageView
-            android:id="@+id/vision_img"
-            android:layout_width="80dip"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/highlight"/>
-        <ImageView
-            android:id="@+id/team_img"
-            android:layout_width="80sp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/highlight"/>
-        <ImageView
-            android:id="@+id/past_work_img"
-            android:layout_width="80sp"
-            android:visibility="gone"
-            android:layout_height="match_parent"
-            android:elevation="10dp"
-            android:background="@drawable/highlight"/>
-        <ImageView
-            android:id="@+id/contact_us_img"
-            android:layout_width="80sp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/highlight"/>
 
-    </LinearLayout>
-    <RelativeLayout
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager_aboutus"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/about_us_container"
-        >
-    </RelativeLayout>
+        android:layout_weight="1">
+
+    </android.support.v4.view.ViewPager>
+
+    <android.support.design.widget.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#e0e0e0"
+        android:layout_gravity="bottom"
+        android:id="@+id/tabLayout_aboutus"
+        app:tabGravity="fill"
+        android:elevation="2dp">
+    </android.support.design.widget.TabLayout>
 
 </LinearLayout>
