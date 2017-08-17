@@ -49,6 +49,10 @@ public class EsummitFragment extends Fragment implements ViewInterface{
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    @BindView(R.id.esummit_bg)
+    ImageView esummit_bg_img;
+
     @BindView(R.id.esummit_img)
     ImageView esummit_logo;
 
@@ -102,6 +106,7 @@ public class EsummitFragment extends Fragment implements ViewInterface{
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_esummit, container, false);
         ButterKnife.bind(this,view);
+        Glide.with(this).load(R.drawable.e_summit_bg).into(esummit_bg_img);
         Glide.with(this).load(R.drawable.esummit).into(esummit_logo);
 
         recyclerView=(RecyclerView) view.findViewById(R.id.recycler_view_speakers);

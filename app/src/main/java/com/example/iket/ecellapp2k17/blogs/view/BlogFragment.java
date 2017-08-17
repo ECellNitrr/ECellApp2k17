@@ -19,9 +19,7 @@ import android.support.v4.widget.NestedScrollView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.blogs.model.BlogsProvider;
 import com.example.iket.ecellapp2k17.blogs.model.MockBlogs;
@@ -31,7 +29,8 @@ import com.example.iket.ecellapp2k17.blogs.presenter.BlogsPresenter;
 import com.example.iket.ecellapp2k17.blogs.presenter.BlogsPresenterImpl;
 import com.example.iket.ecellapp2k17.helper.VerticalViewPager;
 import com.example.iket.ecellapp2k17.home.Home;
-import com.facebook.shimmer.ShimmerFrameLayout;
+import com.tomergoldst.tooltips.ToolTip;
+import com.tomergoldst.tooltips.ToolTipsManager;
 
 import java.util.List;
 
@@ -55,20 +54,15 @@ public class BlogFragment extends Fragment implements BlogsInterface {
     private String mParam1;
     private String mParam2;
 
-
-
     VerticalViewPager verticalViewPager;
     VerticlePagerAdapter verticlePagerAdapter;
     BlogsPresenter blogsPresenter;
-    private BottomSheetBehavior bottomSheetBehavior;
-    private View bottomSheet;
-    private ImageView down_arrow;
 
     private FloatingActionButton fab;
+    private CoordinatorLayout layout;
 
     private OnFragmentInteractionListener mListener;
-    private Context context;
-    private Home home;
+
     public BlogFragment() {
         // Required empty public constructor
     }
@@ -111,30 +105,23 @@ public class BlogFragment extends Fragment implements BlogsInterface {
 
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_blog, container, false);
-        final BottomSheetDialogFragment bottomSheetDialogFragment =  AddABlog.newInstance("","");
 
+        layout = (CoordinatorLayout) view.findViewById(R.id.coordinator_layout_blog);
         fab = (FloatingActionButton)view.findViewById(R.id.fab);
-
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                bottomSheetDialogFragment.show(getChildFragmentManager(),bottomSheetDialogFragment.getTag());
-
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                DialogFragment newFragment = AddABlog.newInstance("","");
+                newFragment.show(ft, "dialog");
             }
         });
 
-
-        down_arrow = (ImageView) view.findViewById(R.id.down_arrow_ic);
-        Glide.with(getContext()).load(R.drawable.down).into(down_arrow);
-        ShimmerFrameLayout shimmercontainer =
-                (ShimmerFrameLayout) view.findViewById(R.id.shimmer_view_container);
-        shimmercontainer.startShimmerAnimation();
         verticalViewPager=(VerticalViewPager)view.findViewById(R.id.blogs_viewPager);
         verticlePagerAdapter=new VerticlePagerAdapter(getContext());
         verticalViewPager.setAdapter(verticlePagerAdapter);
-//        blogsPresenter=new BlogsPresenterImpl(new RetrofitBlogsProvider(),this);
-        blogsPresenter=new BlogsPresenterImpl(new MockBlogs(),this);
+     //   blogsPresenter=new BlogsPresenterImpl(new RetrofitBlogsProvider(),this);
+          blogsPresenter=new BlogsPresenterImpl(new MockBlogs(),this);
         blogsPresenter.requestBlogs();
         return view;
     }

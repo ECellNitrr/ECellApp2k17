@@ -2,6 +2,7 @@ package com.example.iket.ecellapp2k17.fb;
 
 
 
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
@@ -57,7 +58,7 @@ public class fb_login extends AppCompatActivity {
     LoginButton loginButton;
     //ImageView imageView;
     ProfilePictureView profile_pic;
-    //String userName;
+    String userName;
     private SharedPrefs sharedPrefs;
     @BindView(login_background)
     ImageView lb;
@@ -91,16 +92,17 @@ public class fb_login extends AppCompatActivity {
         FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_fb_login);
 
+
+        RequestData();
+
         ButterKnife.bind(this);
         Glide.with(this).load(R.drawable.login_bg).fitCenter().into(lb);
         Glide.with(this).load(R.drawable.user_black).fitCenter().into(mi);
         Glide.with(this).load(R.drawable.password_black).fitCenter().into(oi);
         Glide.with(this).load(R.drawable.ecell_logo).fitCenter().into(ecl);
 
-        sharedPrefs = new SharedPrefs(this);
+      //  sharedPrefs = new SharedPrefs(this);
         loginButton = (LoginButton) findViewById(R.id.login_button);
-        //profile_pic = (ProfilePictureView) findViewById(R.id.picture);
-        //imageView = (ImageView) findViewById(R.id.picture);
         callbackManager = CallbackManager.Factory.create();
 
 
@@ -137,15 +139,14 @@ public class fb_login extends AppCompatActivity {
                 try {
                     if(json != null){
 
-                        String userName=json.getString("username");
-                        profile_pic.setProfileId(json.getString("id"));
-                        URL image_value= new URL("http://graph.facebook.com/" + userName + "/picture" );
-                        sharedPrefs.setPhotoUrl(image_value.toString());
+                     profile_pic.setProfileId(json.getString("id"));
+                     // URL image_value= new URL("http://graph.facebook.com/" + userName + "/picture" );
+                   //     sharedPrefs.setPhotoUrl(image_value.toString());
+                        sharedPrefs.setEmailId(json.getString("email"));
+                       // sharedPrefs.setUsername(json.getString("username"));
                     }
 
                 } catch (JSONException e) {
-                    e.printStackTrace();
-                } catch (MalformedURLException e) {
                     e.printStackTrace();
                 }
             }

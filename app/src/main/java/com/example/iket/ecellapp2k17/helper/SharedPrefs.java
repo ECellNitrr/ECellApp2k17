@@ -131,7 +131,7 @@ public class SharedPrefs {
 
     public String getEmail() {
 
-        return pref.getString(KEY_EMAIL, "Not Available");
+        return pref.getString(KEY_EMAIL, "");
     }
 
     public int getLoginType() {
