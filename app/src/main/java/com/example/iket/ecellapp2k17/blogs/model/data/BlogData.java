@@ -5,37 +5,42 @@ package com.example.iket.ecellapp2k17.blogs.model.data;
  */
 
 public class BlogData {
-    String blogTitle;
+    String title;
     String blogOwner;
-    String blogDate;
-    String blogBody;
-    String blogImage;
+    String date;
+    String body;
+    String image;
+    String url;
 
-    public BlogData(String blogTitle, String blogOwner, String blogDate, String blogBody, String blogImage) {
-        this.blogTitle = blogTitle;
+    public BlogData(String title, String blogOwner, String date, String body, String image, String url) {
+        this.title = title;
         this.blogOwner = blogOwner;
-        this.blogDate = blogDate;
-        this.blogBody = blogBody;
-        this.blogImage = blogImage;
+        this.date = date;
+        this.body = body;
+        this.image = image;
+        this.url = url;
     }
 
-    public String getBlogTitle() {
-        return blogTitle;
+    public String getTitle() {
+        return title;
     }
 
     public String getBlogOwner() {
         return blogOwner;
     }
 
-    public String getBlogDate() {
-        return blogDate;
+    public String getDate() {
+        return date;
     }
 
-    public String getBlogBody() {
-        return blogBody;
+    public String getBody() {
+        return body;
     }
 
-    public String getBlogImage() {
-        return blogImage;
+    public String getImage() {
+        return image;
+    }
+    public String getUrl(){
+        return url;
     }
 }

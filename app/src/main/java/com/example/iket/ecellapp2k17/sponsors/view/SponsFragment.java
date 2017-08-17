@@ -94,8 +94,8 @@ public class SponsFragment extends Fragment implements SponsInterface {
         View view= inflater.inflate(R.layout.fragment_spons, container, false);
         recyclerView=(RecyclerView) view.findViewById(R.id.recycler_view_spons);
         progressBar= (ProgressBar) view.findViewById(R.id.progressBar_spons);
-//        sponsPresenter=new SponsPresenterImpl(this,new MockSpons());
-        sponsPresenter=new SponsPresenterImpl(this,new RetrofitSponsProvider());
+        sponsPresenter=new SponsPresenterImpl(this,new MockSpons());
+//        sponsPresenter=new SponsPresenterImpl(this,new RetrofitSponsProvider());
         sectionAdapter = new SectionedRecyclerViewAdapter();
 
         glm = new GridLayoutManager(getContext(), 2);

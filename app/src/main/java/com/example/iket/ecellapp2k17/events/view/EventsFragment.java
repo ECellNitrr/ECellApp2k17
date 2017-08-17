@@ -1,6 +1,7 @@
 package com.example.iket.ecellapp2k17.events.view;
 
 import android.content.Context;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,10 +14,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.events.model.MockData;
 import com.example.iket.ecellapp2k17.events.model.RetrofitEventsProvider;
@@ -25,6 +28,7 @@ import com.example.iket.ecellapp2k17.events.presenter.EventPresenterImpl;
 import com.example.iket.ecellapp2k17.events.presenter.EventsPresenter;
 import com.example.iket.ecellapp2k17.helper.Urls;
 import com.example.iket.ecellapp2k17.helper.VerticalViewPager;
+//import com.facebook.shimmer.ShimmerFrameLayout;
 import com.mikepenz.itemanimators.ScaleUpAnimator;
 import com.mikepenz.itemanimators.SlideDownAlphaAnimator;
 import com.mikepenz.itemanimators.SlideInOutBottomAnimator;
@@ -54,6 +58,7 @@ public class EventsFragment extends Fragment implements EventsInterface {
     private EventsPresenter eventsPresenter;
     private EventsAdapter eventsAdapter;
     private ProgressBar progressBar;
+
 
 
     private EventsFragment.OnFragmentInteractionListener mListener;
@@ -96,14 +101,15 @@ public class EventsFragment extends Fragment implements EventsInterface {
         View view= inflater.inflate(R.layout.fragment_events, container, false);
         progressBar=(ProgressBar)view.findViewById(R.id.events_progressbar);
         event_recyclerView = (RecyclerView) view.findViewById(R.id.event_recycler_view);
+
         event_recyclerView.setHasFixedSize(true);
 
         linearLayoutManager = new LinearLayoutManager(getContext());
         eventsAdapter = new EventsAdapter(getContext());
 
         eventsPresenter=new EventPresenterImpl(this,new MockData());
-        eventsPresenter=new EventPresenterImpl(this,new RetrofitEventsProvider());
-//        event_recyclerView.setLayoutManager(linearLayoutManager);
+//        eventsPresenter=new EventPresenterImpl(this,new RetrofitEventsProvider());
+        event_recyclerView.setLayoutManager(linearLayoutManager);
         event_recyclerView.setAdapter(eventsAdapter);
         event_recyclerView.setItemAnimator(new SlideDownAlphaAnimator());
         eventsPresenter.requestEvents();

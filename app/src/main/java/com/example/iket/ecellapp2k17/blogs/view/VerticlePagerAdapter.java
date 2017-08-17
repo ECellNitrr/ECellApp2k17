@@ -4,16 +4,10 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Handler;
 import android.support.customtabs.CustomTabsIntent;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.PagerAdapter;
-import android.support.v7.view.menu.ShowableListMenu;
 import android.support.v7.widget.CardView;
-import android.support.v7.widget.ForwardingListener;
-import android.util.Log;
+import android.text.Html;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -24,17 +18,11 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.blogs.model.data.BlogData;
-import com.example.iket.ecellapp2k17.helper.SharedPrefs;
-import com.example.iket.ecellapp2k17.helper.image_loaders.GlideImageLoader;
-import com.example.iket.ecellapp2k17.helper.image_loaders.RoundedCornersTransformation;
-import com.example.iket.ecellapp2k17.home.Home;
 import com.tomergoldst.tooltips.ToolTip;
 import com.tomergoldst.tooltips.ToolTipsManager;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.example.iket.ecellapp2k17.helper.MyApplication.getContext;
 
 public class VerticlePagerAdapter extends PagerAdapter {
 
@@ -45,7 +33,7 @@ public class VerticlePagerAdapter extends PagerAdapter {
     private CardView blogCard;
     private int length;
 
-    private String url = "http://google.com/";
+   // private String url = "http://google.com/";
 
     public VerticlePagerAdapter(Context context) {
         mContext = context;
@@ -73,7 +61,7 @@ public class VerticlePagerAdapter extends PagerAdapter {
 
         blogCard = (CardView) itemView.findViewById(R.id.blogCard);
 
-        BlogData data=blogDataList.get(position);
+        final BlogData data=blogDataList.get(position);
 
         TextView title = (TextView) itemView.findViewById(R.id.blog_title);
 //        TextView owner=(TextView)itemView.findViewById(R.id.blog_owner);
@@ -83,7 +71,8 @@ public class VerticlePagerAdapter extends PagerAdapter {
         ImageView blogImage= (ImageView) itemView.findViewById(R.id.blog_image);
         RelativeLayout layout = (RelativeLayout) itemView.findViewById(R.id.blog_relative_layout);
         TextView info=(TextView)itemView.findViewById(R.id.info);
-        length = (data.getBlogBody()).length();
+        /*
+        length = (data.getBody()).length();
         if(length>370)
         {
             read_more.setVisibility(View.VISIBLE);
@@ -93,12 +82,11 @@ public class VerticlePagerAdapter extends PagerAdapter {
             read_more.setVisibility(View.GONE);
         }
         info.setVisibility(View.GONE);
-
-        Glide.with(mContext).load(data.getBlogImage()).into(blogImage);
-        title.setText(data.getBlogTitle());
-//        owner.setText(data.getBlogOwner());
-        date.setText(data.getBlogDate());
-        body.setText(data.getBlogBody());
+        */
+        Glide.with(mContext).load(data.getImage()).into(blogImage);
+        title.setText(data.getTitle());
+        date.setText(data.getDate());
+        body.setText(Html.fromHtml(Html.fromHtml(data.getBody()).toString()));
         container.addView(itemView);
 
 
@@ -107,15 +95,15 @@ public class VerticlePagerAdapter extends PagerAdapter {
             public void onClick(View v) {
                 CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
                 CustomTabsIntent customTabsIntent = builder.build();
-                customTabsIntent.launchUrl(mContext, Uri.parse(url));
+                customTabsIntent.launchUrl(mContext, Uri.parse(data.getUrl()));
             }
         });
 
 
         final ToolTipsManager mToolTipsManager;
         mToolTipsManager = new ToolTipsManager();
-        final ToolTip.Builder builder = new ToolTip.Builder(mContext,blogImage,layout, "Swipe up to read next blog." , ToolTip.POSITION_BELOW);
-        builder.setBackgroundColor(R.color.dak_grey);
+        final ToolTip.Builder builder = new ToolTip.Builder(mContext,title,layout, "Swipe up to read next blog." , ToolTip.POSITION_ABOVE);
+        builder.setBackgroundColor(R.color.black);
 
         if(position==0) {
             final Handler handler = new Handler();
@@ -126,6 +114,8 @@ public class VerticlePagerAdapter extends PagerAdapter {
                 }
             },3000);
         }
+
+
         return itemView;
     }
 

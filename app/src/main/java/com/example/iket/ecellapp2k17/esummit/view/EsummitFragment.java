@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -49,6 +50,10 @@ public class EsummitFragment extends Fragment implements ViewInterface{
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    @BindView(R.id.esummit_bg)
+    ImageView esummit_bg_img;
+
     @BindView(R.id.esummit_img)
     ImageView esummit_logo;
 
@@ -102,6 +107,7 @@ public class EsummitFragment extends Fragment implements ViewInterface{
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_esummit, container, false);
         ButterKnife.bind(this,view);
+        Glide.with(this).load(R.drawable.e_summit_bg).into(esummit_bg_img);
         Glide.with(this).load(R.drawable.esummit).into(esummit_logo);
 
         recyclerView=(RecyclerView) view.findViewById(R.id.recycler_view_speakers);
@@ -111,6 +117,7 @@ public class EsummitFragment extends Fragment implements ViewInterface{
         recyclerAdapter = new SpeakerAdapter(getContext());
         recyclerView.setAdapter(recyclerAdapter);
         recyclerView.setNestedScrollingEnabled(false);
+
 
 //        esummitPresenter=new EsummitPresenterImpl(new RetrofitProviderSpeakers(),this);
         esummitPresenter=new EsummitPresenterImpl(new MockSpeakers(),this);

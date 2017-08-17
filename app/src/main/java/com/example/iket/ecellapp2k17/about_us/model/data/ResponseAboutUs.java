@@ -8,6 +8,8 @@ import java.util.List;
 
 public class ResponseAboutUs {
     private List<AboutUsData> aboutus;
+    private boolean success;
+    private String message;
 
     public ResponseAboutUs(List<AboutUsData> aboutus) {
         this.aboutus = aboutus;

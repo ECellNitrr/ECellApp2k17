@@ -28,12 +28,8 @@ public class MockBquizProvider implements BQuizProvider {
     }
 
     BQuizData getMockData() {
-
-        BQuizData bQuizData = new BQuizData(true, "Successful", "none", 1, new QuestionData(
-
-                1, "What is your name", "none",null, null, null, null, null, 120
-        ),"rules");
-
+        QuestionData questionData=new QuestionData(1,"iket","iket","iket",2);
+        BQuizData bQuizData=new BQuizData(true,"iket","iket",30,questionData,"iket",true);
         return bQuizData;
     }
 }

@@ -2,14 +2,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/darkgray"
     tools:context="com.example.iket.ecellapp2k17.events.view.EventDetailsFragment">
 
     <android.support.v7.widget.CardView
+        android:background="@color/darkgray"
         android:layout_width="match_parent"
         android:layout_height="215dp">
 
         <RelativeLayout
             android:id="@+id/event_relativeLayout"
+            android:background="@color/darkgray"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -18,7 +21,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitXY"
-            android:adjustViewBounds="true"/>
+            android:adjustViewBounds="true"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
 
 
         <TextView
@@ -30,11 +35,8 @@
             android:textSize="30dp"
             android:textStyle="bold"
             android:layout_marginLeft="31dp"
-            android:layout_marginStart="31dp"
-            android:layout_marginBottom="23dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_marginTop="180dp"
+            android:layout_centerHorizontal="true" />
 
 
 

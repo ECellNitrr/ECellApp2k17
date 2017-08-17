@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/coordinator_layout_blog"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.iket.ecellapp2k17.blogs.view.BlogFragment">
 
@@ -13,40 +14,36 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         app:fabSize="normal"
+        app:backgroundTint="#FF5722"
         android:scaleType="fitXY"
-        android:src="@drawable/pencil_ic_black"/>
+        android:src="@drawable/ic_add_ablog_pencil"/>
 
 
-
-   <!-- <com.github.clans.fab.FloatingActionButton
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_gravity="bottom|right"
-        android:layout_marginBottom="16dp"
-        android:layout_marginRight="16dp"
-        android:src="@drawable/pencil_ic_black"
-        app:fab_size="normal"
-
-        />
-
-  -->
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/black">
     <com.example.iket.ecellapp2k17.helper.VerticalViewPager
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:id="@+id/blogs_viewPager" />
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmer_view_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="50dp"
+            >
+
+            <ImageView
+                android:id="@+id/down_arrow_ic"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                />
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
         </FrameLayout>
-<!--
-    <android.support.v4.widget.NestedScrollView
-        android:id="@+id/bottom_sheet"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
 
-        <include layout="@layout/fragment_add_ablog"/>
-
-    </android.support.v4.widget.NestedScrollView>
--->
 </android.support.design.widget.CoordinatorLayout>
