@@ -6,7 +6,7 @@ package com.example.iket.ecellapp2k17.helper;
 //All the Urls will be here in this class..!!
 public class Urls {
 
-    public static final String BASE_URL = "https://ecell.nitrr.ac.in/";
+    public static final String BASE_URL = "http://192.168.43.54:8000/";
     public static final String REQUEST_BLOGS = "blogs/";
     public static final String REQUEST_ADD_BLOGS = "addblogs/";
     public static final String REQUEST_EVENTS = "get_events_list";
@@ -17,5 +17,5 @@ public class Urls {
     public static final String REQUEST_LOGIN ="";
     public static final String Request_VERIFY="";
     public static final String REQUEST_SPEAKERS ="get_speakers_list" ;
-    public static final String REQUEST_CONTACTUS ="";
+    public static final String REQUEST_CONTACTUS ="/submit_contact_us";
 }
