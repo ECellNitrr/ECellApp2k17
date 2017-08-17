@@ -16,19 +16,8 @@
         app:fabSize="normal"
         app:backgroundTint="#FF5722"
         android:scaleType="fitXY"
-        android:src="@mipmap/ic_add_ablog_pencil"/>
-   <!-- <com.github.clans.fab.FloatingActionButton
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_gravity="bottom|right"
-        android:layout_marginBottom="16dp"
-        android:layout_marginRight="16dp"
-        android:src="@drawable/pencil_ic_black"
-        app:fab_size="normal"
+        android:src="@drawable/ic_add_ablog_pencil"/>
 
-        />
-
-  -->
 
     <FrameLayout
         android:layout_width="match_parent"

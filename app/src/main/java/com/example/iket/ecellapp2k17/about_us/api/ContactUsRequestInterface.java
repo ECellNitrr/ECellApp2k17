@@ -15,6 +15,6 @@ import retrofit2.http.POST;
 public interface ContactUsRequestInterface {
     @FormUrlEncoded
     @POST(Urls.REQUEST_CONTACTUS)
-    Call<ContactUsData> getJSON(@Field("name") String name, @Field("email") String email, @Field("body") String body);
+    Call<ContactUsData> getJSON(@Field("name") String name, @Field("email") String email, @Field("message") String body);
 
 }
