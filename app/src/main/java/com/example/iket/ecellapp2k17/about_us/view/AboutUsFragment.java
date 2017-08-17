@@ -1,12 +1,17 @@
 package com.example.iket.ecellapp2k17.about_us.view;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -47,7 +52,7 @@ public class AboutUsFragment extends Fragment{
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
+/*
     @BindView(R.id.vision_img)
     ImageView vision_chip;
 
@@ -59,7 +64,13 @@ public class AboutUsFragment extends Fragment{
 
     @BindView(R.id.past_work_img)
     ImageView past_work_chip;
+*/
+    @BindView(R.id.tabLayout_aboutus)
+    TabLayout tabLayout;
 
+    FragmentPagerAdapter adapterViewPager;
+
+    private int[] tabIcons = {R.drawable.down,R.drawable.down,R.drawable.down};
     private OnFragmentInteractionListener mListener;
     public AboutUsFragment() {
         // Required empty public constructor
@@ -98,16 +109,21 @@ public class AboutUsFragment extends Fragment{
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_about_us, container, false);
         ButterKnife.bind(this,view);
-        Glide.with(getContext()).load(R.drawable.vision).bitmapTransform(new CropCircleTransformation(getContext())).into(vision_chip);
-        Glide.with(getContext()).load(R.drawable.contact_us).bitmapTransform(new CropCircleTransformation(getContext())).into(contact_us_chip);
+ //       Glide.with(getContext()).load(R.drawable.vision).bitmapTransform(new CropCircleTransformation(getContext())).into(vision_chip);
+   //     Glide.with(getContext()).load(R.drawable.contact_us).bitmapTransform(new CropCircleTransformation(getContext())).into(contact_us_chip);
 //        Glide.with(getContext()).load(R.drawable.past_work).bitmapTransform(new CropCircleTransformation(getContext())).into(past_work_chip);
-        Glide.with(getContext()).load(R.drawable.team).bitmapTransform(new CropCircleTransformation(getContext())).into(team_chip);
+ //       Glide.with(getContext()).load(R.drawable.team).bitmapTransform(new CropCircleTransformation(getContext())).into(team_chip);
 
-        vision_chip.setPressed(true);
-        FragmentManager fragmentManager = getChildFragmentManager();
+ //       vision_chip.setPressed(true);
+       /* FragmentManager fragmentManager = getChildFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.about_us_container,new VisionFragment());
-        fragmentTransaction.commit();
+        fragmentTransaction.commit();*/
+        ViewPager vpPager = (ViewPager) view.findViewById(R.id.view_pager_aboutus);
+        adapterViewPager = new PagerAdapter(getActivity().getSupportFragmentManager());
+        vpPager.setAdapter(adapterViewPager);
+        tabLayout.setupWithViewPager(vpPager);
+        setupTabIcons();
 /*
         team_chip.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -141,7 +157,7 @@ public class AboutUsFragment extends Fragment{
                 }
         });
 */
-        team_chip.setOnTouchListener(new View.OnTouchListener() {
+ /*       team_chip.setOnTouchListener(new View.OnTouchListener() {
 
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -185,6 +201,47 @@ public class AboutUsFragment extends Fragment{
                 return true;
             }
         });
+        */
+        tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#FF5722"));
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+    /*    tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                int i=tabLayout.getSelectedTabPosition();
+                switch (i)
+                {
+                    case 0:
+                        FragmentManager fragmentManager = getChildFragmentManager();
+                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                        fragmentTransaction.replace(R.id.about_us_container,new VisionFragment());
+                        fragmentTransaction.commit();
+                        break;
+                    case 1:
+                        FragmentManager fragmentManager2 = getChildFragmentManager();
+                        FragmentTransaction fragmentTransaction2 = fragmentManager2.beginTransaction();
+                        fragmentTransaction2.replace(R.id.about_us_container,new TeamFragment());
+                        fragmentTransaction2.commit();
+                        break;
+                    case 2:
+                        FragmentManager fragmentManager3 = getChildFragmentManager();
+                        FragmentTransaction fragmentTransaction3 = fragmentManager3.beginTransaction();
+                        fragmentTransaction3.replace(R.id.about_us_container,new ContactUsFragment());
+                        fragmentTransaction3.commit();
+                        break;
+                }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+*/
         return view;
     }
 
@@ -209,5 +266,13 @@ public class AboutUsFragment extends Fragment{
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+    private void setupTabIcons() {
+        View view1;
+        for (int i = 0; i < tabIcons.length; i++) {
+            view1 = getActivity().getLayoutInflater().inflate(R.layout.custom_tab, null);
+            view1.findViewById(R.id.tab_icon).setBackgroundResource(tabIcons[i]);
+            tabLayout.addTab(tabLayout.newTab().setCustomView(view1));
+        }
     }
 }
