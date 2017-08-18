@@ -26,6 +26,7 @@ import com.example.iket.ecellapp2k17.blogs.model.BlogsProvider;
 import com.example.iket.ecellapp2k17.blogs.model.MockBlogs;
 import com.example.iket.ecellapp2k17.blogs.model.RetrofitBlogsProvider;
 import com.example.iket.ecellapp2k17.blogs.model.data.BlogData;
+import com.example.iket.ecellapp2k17.blogs.model.data.BlogFeed;
 import com.example.iket.ecellapp2k17.blogs.presenter.BlogsPresenter;
 import com.example.iket.ecellapp2k17.blogs.presenter.BlogsPresenterImpl;
 import com.example.iket.ecellapp2k17.helper.VerticalViewPager;
@@ -150,8 +151,8 @@ public class BlogFragment extends Fragment implements BlogsInterface {
     }
 
     @Override
-    public void setData(List<BlogData> blogDataList) {
-        verticlePagerAdapter.setBlogDataList(blogDataList);
+    public void setData(BlogFeed blogDataList) {
+        verticlePagerAdapter.setBlogDataList(blogDataList.getBlogs());
         verticlePagerAdapter.notifyDataSetChanged();
     }
 
