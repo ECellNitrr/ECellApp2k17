@@ -3,21 +3,12 @@
 
     <item
         is-multidex="false"
-        jar="/home/iket/.android/build-cache/e7648cd92e3bb04a9f42bcae6a82fa717415505e/output/jars/classes.jar"
+        jar="/home/samveg/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="37e257a25703e692be3f9aa9c4bf7de620e9271a">
-        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_3a28c5a019dfe656660bcc2a3958b50212bd978e.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/iket/.android/build-cache/625179686a258610b7ab1d4211e547d32bf9c6e1/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e699699fae0092703de1d02b217f43803d0f7e0a">
-        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_0d2e6808fbf56ce2f3f12aa6685e66cbb7a02d99.jar" />
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/pre-dexed/debug/picasso-2.5.2_de051b67f71d0437232a4fc6db1346a787f5d728.jar" />
     </item>
 
 </items>

@@ -52,7 +52,7 @@ public class AboutUsFragment extends Fragment{
 
     FragmentPagerAdapter adapterViewPager;
 
-    private int[] tabIcons = {R.drawable.down,R.drawable.down,R.drawable.down};
+    private int[] tabIcons = {R.drawable.vision_ic,R.drawable.team_ic,R.drawable.contact_us_ic};
     private OnFragmentInteractionListener mListener;
     public AboutUsFragment() {
         // Required empty public constructor

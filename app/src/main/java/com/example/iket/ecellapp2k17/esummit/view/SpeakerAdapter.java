@@ -15,6 +15,7 @@ import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.esummit.model.data.SpeakerData;
+import com.wang.avi.AVLoadingIndicatorView;
 //import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.ArrayList;
@@ -57,13 +58,13 @@ public class SpeakerAdapter extends RecyclerView.Adapter<SpeakerAdapter.ViewHold
         Glide.with(context).load(listData.getImage()).listener(new RequestListener<String, GlideDrawable>() {
             @Override
             public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
-//                holder.progressBar.setVisibility(View.GONE);
+                holder.progressBar.setVisibility(View.GONE);
                 return false;
             }
 
             @Override
             public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
-//                holder.progressBar.setVisibility(View.GONE);
+                holder.progressBar.setVisibility(View.GONE);
                 return false;
             }
         }).bitmapTransform(new CropCircleTransformation(context)).into(holder.speaker_image);
@@ -78,13 +79,13 @@ public class SpeakerAdapter extends RecyclerView.Adapter<SpeakerAdapter.ViewHold
         public ImageView speaker_image;
         public TextView speaker_name;
         public TextView speaker_desc;
-//        public final AVLoadingIndicatorView progressBar;
+        public final AVLoadingIndicatorView progressBar;
         public ViewHolder(View itemView) {
             super(itemView);
             speaker_image = (ImageView) itemView.findViewById(R.id.speakers_image);
             speaker_name = (TextView)itemView.findViewById(R.id.speakers_name);
             speaker_desc = (TextView) itemView.findViewById(R.id.speakers_desc);
-//            progressBar= (AVLoadingIndicatorView) itemView.findViewById(R.id.progressBar_speaker);
+            progressBar= (AVLoadingIndicatorView) itemView.findViewById(R.id.progressBar_speaker);
         }
     }
 }

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.iket.ecellapp2k17.sponsors.view.SponsEndPage_Fragment">
 
     <RelativeLayout
@@ -16,6 +17,17 @@
             android:id="@+id/bgSpons"
             android:scaleType="fitXY"
             android:adjustViewBounds="true"/>
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/progressBar_spons_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_centerHorizontal="true"
+            style="@style/AVLoadingIndicatorView"
+            android:visibility="visible"
+            app:indicatorName="BallTrianglePathIndicator"
+            app:indicatorColor="@color/white"
+            />
 
 
             <ImageView

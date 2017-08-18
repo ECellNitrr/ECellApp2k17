@@ -15,6 +15,9 @@ import android.widget.Toast;
 
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.home.Home;
 import com.example.iket.ecellapp2k17.sponsors.model.MockSpons;
@@ -25,6 +28,7 @@ import com.example.iket.ecellapp2k17.sponsors.presenter.SponsPresenter;
 import com.example.iket.ecellapp2k17.sponsors.presenter.SponsPresenterImpl;
 import com.example.iket.ecellapp2k17.sponsors.view.viewholder.HeaderViewHolder;
 import com.example.iket.ecellapp2k17.sponsors.view.viewholder.SponsItemViewholder;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.List;
 
@@ -210,7 +214,20 @@ public class SponsFragment extends Fragment implements SponsInterface {
             String name = list.get(position).getSponsName();
             String image=list.get(position).getImage1();
             itemHolder.spons_name.setText(name);
-            Glide.with(getContext()).load(list.get(position).getImage1()).into(itemHolder.imageView);
+            Glide.with(getContext()).load(list.get(position).getImage1())
+                    .listener(new RequestListener<String, GlideDrawable>() {
+                        @Override
+                        public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
+                            itemHolder.progressBar2.setVisibility(View.GONE);
+                            return false;
+                        }
+
+                        @Override
+                        public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+                            itemHolder.progressBar2.setVisibility(View.GONE);
+                            return false;
+                        }
+                    }).into(itemHolder.imageView);
             itemHolder.rootView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

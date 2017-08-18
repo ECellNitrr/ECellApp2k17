@@ -15,8 +15,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.sponsors.model.data.SponsData;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
@@ -38,6 +42,7 @@ public class SponsEndPage_Fragment extends Fragment{
     private SponsData sponsData;
     private TextView textTitle,spons_desc,spons_body;
     private Context context;
+    private AVLoadingIndicatorView progressBar;
     private String url = "http://google.com/";
 
     public SponsEndPage_Fragment(){
@@ -74,13 +79,26 @@ public class SponsEndPage_Fragment extends Fragment{
         spons_desc = (TextView) view.findViewById(R.id.sponsDesc);
         spons_body = (TextView) view.findViewById(R.id.sponsBody);
         button = (Button) view.findViewById(R.id.sponsButton);
+        progressBar = (AVLoadingIndicatorView) view.findViewById(R.id.progressBar_spons_end);
 
 
         Glide.with(this).load(R.drawable.spons_endpage).into(bg_spons);//  sponsData.getBg_spons()
         int radius = 30; // corner radius, higher value = more rounded
         int margin = 5;
         Glide.with(this)
-                .load(sponsData.getImage1())  //sponsData.getImage1
+                .load(sponsData.getImage1()) .listener(new RequestListener<String, GlideDrawable>() {
+            @Override
+            public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
+                progressBar.setVisibility(View.GONE);
+                return false;
+            }
+
+            @Override
+            public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+                progressBar.setVisibility(View.GONE);
+                return false;
+            }
+        }) //sponsData.getImage1
                 .bitmapTransform(new RoundedCornersTransformation(context, radius, margin))
                 .into(image1);
 
