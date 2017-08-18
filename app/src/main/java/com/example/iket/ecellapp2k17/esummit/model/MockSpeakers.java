@@ -1,6 +1,7 @@
 package com.example.iket.ecellapp2k17.esummit.model;
 
 import com.example.iket.ecellapp2k17.esummit.model.data.SpeakerData;
+import com.example.iket.ecellapp2k17.esummit.model.data.SpeakerList;
 import com.example.iket.ecellapp2k17.esummit.view.OnSpeakersRecieved;
 
 import java.util.ArrayList;
@@ -23,7 +24,8 @@ public class MockSpeakers implements EsummitProvider{
         speakerDataList.add(data);
         speakerDataList.add(data);
 
-        onSpeakersRecieved.onSuccess(speakerDataList);
+        SpeakerList speakerList=new SpeakerList(speakerDataList,true,"sfsd");
+        onSpeakersRecieved.onSuccess(speakerList);
 
     }
 }

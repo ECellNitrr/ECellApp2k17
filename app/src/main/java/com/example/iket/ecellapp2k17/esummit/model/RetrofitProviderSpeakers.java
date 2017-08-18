@@ -42,7 +42,7 @@ public class RetrofitProviderSpeakers implements EsummitProvider{
             @Override
             public void onResponse(Call<SpeakerList> call, Response<SpeakerList> response) {
 
-                onSpeakersRecieved.onSuccess(response.body().getSpeakers());
+                onSpeakersRecieved.onSuccess(response.body());
             }
 
             @Override
