@@ -15,7 +15,6 @@ public class SpeakerData {
         this.description = description;
         this.image = image;
     }
-
     public String getName(){return name;}
     public String getDescription(){return description;}
     public String getImage(){return image;};

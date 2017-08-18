@@ -2,6 +2,7 @@ package com.example.iket.ecellapp2k17.about_us.view;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.media.Image;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -9,7 +10,10 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
 
 import butterknife.BindView;
@@ -20,10 +24,13 @@ import butterknife.BindView;
 
 public class PagerAdapter extends FragmentPagerAdapter {
     private static int NUM_ITEMS = 3;
+    LayoutInflater mLayoutInflater;
+    public Context context;
+    private int[] tabIcons = {R.drawable.vision_ic,R.drawable.team_ic,R.drawable.contact_us_ic};
+
 
     public PagerAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
-
     }
 
     @Override
@@ -44,5 +51,4 @@ public class PagerAdapter extends FragmentPagerAdapter {
                 return new VisionFragment();
         }
     }
-
 }

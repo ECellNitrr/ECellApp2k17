@@ -103,7 +103,6 @@ public class Home extends AppCompatActivity {
         View view1;
         for (int i = 0; i < tabIcons.length; i++) {
             view1 = getLayoutInflater().inflate(R.layout.custom_tab, null);
-           // view1.findViewById(R.id.tab_icon).setBackgroundResource(tabIcons[i]);
             ImageView tab_imageView;
             tab_imageView = (ImageView) view1.findViewById(R.id.tab_icon);
             Glide.with(this).load(tabIcons[i]).into(tab_imageView);
