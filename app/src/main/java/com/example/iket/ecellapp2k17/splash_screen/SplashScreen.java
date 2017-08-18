@@ -24,7 +24,7 @@ public class SplashScreen extends Activity {
             @Override
             public void run() {
               //  updateWithToken(AccessToken.getCurrentAccessToken());
-               if(sharedPrefs.isLoggedIn() || sharedPrefs.isOtpLoggedIn()){
+               if(sharedPrefs.isLoggedIn()){
                     Intent intent = new Intent(SplashScreen.this,Home.class);
                     startActivity(intent);
                    finish();

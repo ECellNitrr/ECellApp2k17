@@ -125,9 +125,6 @@ public class ProfileFragment extends Fragment implements LoginView,OtpView{
             phoneTxt.setText(sharedPrefs.getMobile());
         }
 
-
-
-
          // fb_email.setText(sharedPrefs.getEmail());
 
         Uri imageUri = Profile.getCurrentProfile().getProfilePictureUri(400, 400);
