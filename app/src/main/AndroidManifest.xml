@@ -27,10 +27,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".BQuizNew.view.BQuizActivity" />
-        <activity android:name=".home.Home"
-
-            >
-
+        <activity android:name=".home.Home">
         </activity>
         <activity android:name=".fb.fb_login">
             android:configChanges=

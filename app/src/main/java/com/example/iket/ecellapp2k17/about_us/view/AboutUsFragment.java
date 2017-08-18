@@ -14,7 +14,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
 
 import butterknife.BindView;
@@ -37,19 +39,7 @@ public class AboutUsFragment extends Fragment{
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-/*
-    @BindView(R.id.vision_img)
-    ImageView vision_chip;
 
-    @BindView(R.id.contact_us_img)
-    ImageView contact_us_chip;
-
-    @BindView(R.id.team_img)
-    ImageView team_chip;
-
-    @BindView(R.id.past_work_img)
-    ImageView past_work_chip;
-*/
     @BindView(R.id.tabLayout_aboutus)
     TabLayout tabLayout;
 
@@ -93,99 +83,11 @@ public class AboutUsFragment extends Fragment{
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_about_us, container, false);
         ButterKnife.bind(this,view);
- //       Glide.with(getContext()).load(R.drawable.vision).bitmapTransform(new CropCircleTransformation(getContext())).into(vision_chip);
-   //     Glide.with(getContext()).load(R.drawable.contact_us).bitmapTransform(new CropCircleTransformation(getContext())).into(contact_us_chip);
-//        Glide.with(getContext()).load(R.drawable.past_work).bitmapTransform(new CropCircleTransformation(getContext())).into(past_work_chip);
- //       Glide.with(getContext()).load(R.drawable.team).bitmapTransform(new CropCircleTransformation(getContext())).into(team_chip);
-
- //       vision_chip.setPressed(true);
-       /* FragmentManager fragmentManager = getChildFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.about_us_container,new VisionFragment());
-        fragmentTransaction.commit();*/
         setupTabIcons();
         FragmentManager fragmentManager = getChildFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.about_us_container,new VisionFragment());
         fragmentTransaction.commit();
-/*
-        team_chip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                FragmentManager fragmentManager = getChildFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.about_us_container,new TeamFragment());
-                fragmentTransaction.commit();
-                }
-        });
-        contact_us_chip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                FragmentManager fragmentManager = getChildFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.about_us_container,new ContactUsFragment());
-                fragmentTransaction.commit();
-
-                }
-        });
-        vision_chip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                FragmentManager fragmentManager = getChildFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.about_us_container,new VisionFragment());
-                fragmentTransaction.commit();
-                }
-        });
-*/
- /*       team_chip.setOnTouchListener(new View.OnTouchListener() {
-
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                team_chip.setPressed(true);
-                vision_chip.setPressed(false);
-                contact_us_chip.setPressed(false);
-                FragmentManager fragmentManager = getChildFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.about_us_container,new TeamFragment());
-                fragmentTransaction.commit();
-                return true;
-            }
-        });
-
-        vision_chip.setOnTouchListener(new View.OnTouchListener() {
-
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                vision_chip.setPressed(true);
-                team_chip.setPressed(false);
-                contact_us_chip.setPressed(false);
-                FragmentManager fragmentManager = getChildFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.about_us_container,new VisionFragment());
-                fragmentTransaction.commit();
-                return true;
-            }
-        });
-
-        contact_us_chip.setOnTouchListener(new View.OnTouchListener() {
-
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                team_chip.setPressed(false);
-                vision_chip.setPressed(false);
-                contact_us_chip.setPressed(true);
-                FragmentManager fragmentManager = getChildFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.about_us_container,new ContactUsFragment());
-                fragmentTransaction.commit();
-                return true;
-            }
-        });
-        */
         tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#FF5722"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -226,6 +128,8 @@ public class AboutUsFragment extends Fragment{
             }
         });
 
+        tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#FF5722"));
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         return view;
     }
 
