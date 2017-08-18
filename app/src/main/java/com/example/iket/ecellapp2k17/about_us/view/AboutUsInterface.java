@@ -1,6 +1,7 @@
 package com.example.iket.ecellapp2k17.about_us.view;
 
-import com.example.iket.ecellapp2k17.about_us.model.data.AboutUsData;
+import com.example.iket.ecellapp2k17.about_us.model.data.TeamData;
+
 import java.util.List;
 
 /**
@@ -9,7 +10,7 @@ import java.util.List;
 
 public interface AboutUsInterface {
 
-    void setData(List<AboutUsData> aboutUsDataList);
+    void setData(List<TeamData> teamDataList);
     void showMessage(String message);
     void ShowProgressBar(boolean show);
 

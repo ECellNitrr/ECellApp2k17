@@ -14,6 +14,7 @@ import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.events.model.data.EventsData;
 import com.example.iket.ecellapp2k17.helper.image_loaders.GlideImageLoader;
 import com.example.iket.ecellapp2k17.helper.image_loaders.ImageLoader;
+import com.example.iket.ecellapp2k17.helper.image_loaders.RoundedCornersTransformation;
 import com.example.iket.ecellapp2k17.home.Home;
 
 import java.util.ArrayList;
@@ -29,7 +30,6 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
     Context context;
     private LayoutInflater layoutInflater;
     private ImageLoader imageLoader;
-    private int category_id;
 
     public EventsAdapter(Context context1) {
         context = context1;
@@ -54,8 +54,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
         final EventsData eventsData = data.get(position);
        imageLoader.loadImage(eventsData.getMeta(),holder.event_image);
-
-        Glide.with(context).load(eventsData.getMeta()).into(holder.event_image);
+        Glide.with(context).load(eventsData.getMeta()).bitmapTransform(new RoundedCornersTransformation(context,20,0)).into(holder.event_image);
         holder.event_name.setText(eventsData.getEventName());
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override

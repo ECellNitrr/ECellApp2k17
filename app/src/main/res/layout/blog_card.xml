@@ -11,7 +11,7 @@
                 android:id="@+id/blogCard"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:cardCornerRadius="22dp"
+                app:cardCornerRadius="20dp"
                 android:elevation="10dp"
                 android:background="@drawable/shape">
 
@@ -30,7 +30,7 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="240sp"
+                android:layout_height="230sp"
                 android:scaleType="fitXY"
                 android:layout_gravity="center"
                 android:id="@+id/blog_image"/>
@@ -65,8 +65,8 @@
                 android:layout_below="@+id/blog_date"
                 android:padding="4dp"
                 android:textColor="#000000"
-                android:textSize="19dp"
-                android:maxLines="12"
+                android:textSize="18dp"
+                android:layout_above="@+id/blog_read_more"
                 android:ellipsize="end"/>
             <TextView
                 android:layout_width="125dp"
@@ -78,21 +78,8 @@
                 android:background="@drawable/button_rounded_corner2"
                 android:layout_centerInParent="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="8dp"
                 android:id="@+id/blog_read_more" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:background="@drawable/rounded_corner"
-                android:text="Swipe up for next blog"
-                android:layout_centerInParent="true"
-                android:layout_margin="4dp"
-                android:id="@+id/info"
-                android:visibility="gone"
-                android:padding="8dp"
-                android:textSize="15dp"
-                android:textColor="@color/black" />
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
 

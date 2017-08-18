@@ -1,6 +1,6 @@
 package com.example.iket.ecellapp2k17.about_us.view;
 
-import com.example.iket.ecellapp2k17.about_us.model.data.AboutUsData;
+import com.example.iket.ecellapp2k17.about_us.model.data.TeamData;
 
 import java.util.List;
 
@@ -10,6 +10,6 @@ import java.util.List;
 
 public interface OnAboutusReceived {
 
-    void onSuccess(List<AboutUsData> aboutUsDataList);
+    void onSuccess(List<TeamData> teamDataList);
     void onFailure();
 }

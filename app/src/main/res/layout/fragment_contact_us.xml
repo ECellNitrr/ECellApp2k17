@@ -7,6 +7,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="8dp"
         android:orientation="vertical"
         android:background="#212121">
 
@@ -15,32 +16,33 @@
         android:layout_height="50dp"
         android:text="Let's Talk Start Up"
         android:gravity="center"
+        android:layout_marginTop="10dp"
         android:textColor="#ffffff"
         android:textSize="35dp"
-        android:textStyle="bold"
-        android:background="#424242"/>
+        android:textStyle="bold"/>
         <View
             android:id="@+id/line3"
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
+            android:layout_width="290sp"
+            android:layout_gravity="center"
+            android:layout_height="1dp"
             android:background="@color/white"
             android:layout_marginBottom="20dp"
             />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="8dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp">
         <TextView
             android:layout_width="150dp"
-            android:layout_height="35dp"
+            android:layout_height="wrap_content"
             android:drawableLeft="@drawable/address"
             android:gravity="center"
             android:textColor="@color/white"
-            android:textSize="17dp"
+            android:textSize="18dp"
             android:text="Address :"
             />
         <TextView
@@ -53,18 +55,18 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp">
         <TextView
             android:layout_width="150dp"
-            android:layout_height="35dp"
+            android:layout_height="wrap_content"
             android:drawableLeft="@drawable/phone"
             android:gravity="center"
             android:textColor="@color/white"
-            android:textSize="17dp"
+            android:textSize="18dp"
             android:text="Phone     :"
             />
         <TextView
@@ -78,18 +80,18 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp">
         <TextView
             android:layout_width="150dp"
-            android:layout_height="35dp"
+            android:layout_height="wrap_content"
             android:drawableLeft="@drawable/email"
             android:gravity="center"
             android:textColor="@color/white"
-            android:textSize="17dp"
+            android:textSize="18dp"
             android:text="Email       :"
             />
         <TextView
@@ -103,9 +105,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp">
         <TextView
@@ -114,14 +116,14 @@
             android:drawableLeft="@drawable/hours"
             android:gravity="center"
             android:textColor="@color/white"
-            android:textSize="17dp"
+            android:textSize="18dp"
             android:text="Hour        :" />
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:textColor="@color/white"
             android:textSize="17dp"
-            android:text="Monday - Friday:10AM-5PM"
+            android:text="Monday - Friday:\n10AM-5PM"
             />
     </LinearLayout>
 
@@ -140,10 +142,11 @@
             android:textSize="35dp"
             android:textStyle="bold"
             android:textColor="@color/white"
-            android:background="#424242"/>
+            />
         <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
+            android:layout_width="230sp"
+            android:layout_gravity="center"
+            android:layout_height="1dp"
             android:background="@color/white"
             android:layout_marginBottom="10dp"
             />
@@ -177,7 +180,7 @@
             android:id="@+id/etxt_msg"
             android:layout_width="match_parent"
             android:layout_height="190dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="12dp"
             android:background="@drawable/shape2"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
@@ -193,6 +196,7 @@
             android:id="@+id/btn_send"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20sp"
             android:text="Send Message"
             android:textColor="@color/white"
             android:layout_gravity="center_horizontal"

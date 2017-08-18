@@ -10,7 +10,9 @@
         android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        >
 
         <TextView
             android:id="@+id/faculty"
@@ -20,17 +22,15 @@
             android:layout_centerInParent="true"
             android:layout_alignParentTop="true"
             android:gravity="center"
-            android:background="#424242"
             android:textSize="35dp"
             android:textStyle="bold"
             android:textColor="@color/white" />
 
         <View
             android:id="@+id/line3"
-            android:layout_width="match_parent"
-            android:layout_alignLeft="@+id/faculty"
-            android:layout_alignRight="@+id/faculty"
+            android:layout_width="290dp"
             android:layout_height="2sp"
+            android:layout_centerHorizontal="true"
             android:layout_below="@+id/faculty"
             android:background="@color/white"
             />
@@ -81,15 +81,13 @@
             android:textColor="@color/white"
             android:textSize="35dp"
             android:textStyle="bold"
-            android:background="#424242"
             android:gravity="center"
             android:layout_centerInParent="true"/>
 
         <View
             android:id="@+id/line4"
-            android:layout_alignLeft="@+id/Coordinators"
-            android:layout_alignRight="@+id/Coordinators"
-            android:layout_width="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_width="300dp"
             android:layout_height="2dp"
             android:background="@color/white"
             android:layout_below="@+id/Coordinators"/>

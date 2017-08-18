@@ -120,7 +120,7 @@ public class BlogFragment extends Fragment implements BlogsInterface {
         verticalViewPager=(VerticalViewPager)view.findViewById(R.id.blogs_viewPager);
         verticlePagerAdapter=new VerticlePagerAdapter(getContext());
         verticalViewPager.setAdapter(verticlePagerAdapter);
-     //   blogsPresenter=new BlogsPresenterImpl(new RetrofitBlogsProvider(),this);
+//        blogsPresenter=new BlogsPresenterImpl(new RetrofitBlogsProvider(),this);
           blogsPresenter=new BlogsPresenterImpl(new MockBlogs(),this);
         blogsPresenter.requestBlogs();
         return view;

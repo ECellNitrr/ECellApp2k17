@@ -13,11 +13,14 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import com.bumptech.glide.Glide;
 import com.crashlytics.android.Crashlytics;
 import com.example.iket.ecellapp2k17.BQuizNew.view.BQuizActivity;
 import com.example.iket.ecellapp2k17.R;
@@ -100,28 +103,35 @@ public class Home extends AppCompatActivity {
         View view1;
         for (int i = 0; i < tabIcons.length; i++) {
             view1 = getLayoutInflater().inflate(R.layout.custom_tab, null);
-            view1.findViewById(R.id.tab_icon).setBackgroundResource(tabIcons[i]);
+           // view1.findViewById(R.id.tab_icon).setBackgroundResource(tabIcons[i]);
+            ImageView tab_imageView;
+            tab_imageView = (ImageView) view1.findViewById(R.id.tab_icon);
+            Glide.with(this).load(tabIcons[i]).into(tab_imageView);
             tabLayout.addTab(tabLayout.newTab().setCustomView(view1));
         }
     }
 
     @Override
     public void onBackPressed() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Are you sure you want to exit?")
-                .setCancelable(false)
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        Home.this.finish();
-                    }
-                })
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-        AlertDialog alert = builder.create();
-        alert.show();
+        if(getSupportFragmentManager().getBackStackEntryCount()==0) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("Are you sure you want to exit?")
+                    .setCancelable(false)
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            Home.this.finish();
+                        }
+                    })
+                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+            AlertDialog alert = builder.create();
+            alert.show();
+        }
+        else
+            super.onBackPressed();
     }
 
     @SuppressWarnings("StatementWithEmptyBody")

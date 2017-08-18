@@ -10,16 +10,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.iket.ecellapp2k17.R;
-import com.example.iket.ecellapp2k17.about_us.model.RetrofitProviderAboutUs;
 import com.example.iket.ecellapp2k17.about_us.model.RetrofitProviderContactUs;
 import com.example.iket.ecellapp2k17.about_us.presenter.ContactUsPresenter;
 import com.example.iket.ecellapp2k17.about_us.presenter.ContactUsPresenterImpl;
-
-import java.lang.reflect.Field;
 
 /**
  * A simple {@link Fragment} subclass.

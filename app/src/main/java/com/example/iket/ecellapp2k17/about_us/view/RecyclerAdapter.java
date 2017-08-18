@@ -14,17 +14,12 @@ import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.example.iket.ecellapp2k17.R;
-import com.example.iket.ecellapp2k17.about_us.model.data.AboutUsData;
+import com.example.iket.ecellapp2k17.about_us.model.data.TeamData;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import jp.wasabeef.glide.transformations.CropCircleTransformation;
-
-import static com.example.iket.ecellapp2k17.R.id.progressBar;
-import static com.example.iket.ecellapp2k17.R.id.progressBar_team;
 
 /**
  * Created by samveg on 3/8/17.
@@ -32,7 +27,7 @@ import static com.example.iket.ecellapp2k17.R.id.progressBar_team;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
 
-    private List<AboutUsData> data=new ArrayList<>();
+    private List<TeamData> data=new ArrayList<>();
     private LayoutInflater layoutInflater;
     Context context;
 
@@ -42,7 +37,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         context=context1;
         layoutInflater=LayoutInflater.from(context1);
     }
-    public void setData(List<AboutUsData> data) {
+    public void setData(List<TeamData> data) {
         this.data = data;
     }
 
@@ -57,13 +52,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     @Override
     public void onBindViewHolder(final RecyclerAdapter.ViewHolder holder, int position) {
 
-        AboutUsData aboutUsData =  data.get(position);
-        holder.member_name.setText(aboutUsData.getMember_name());
+        TeamData teamData =  data.get(position);
+        holder.member_name.setText(teamData.getName());
         if(position<4)
         {
-            holder.member_email.setText(aboutUsData.getMember_email());
+            holder.member_email.setText(teamData.getLinkedIn());
         }
-        Glide.with(context).load(aboutUsData.getMember_img_url()).listener(new RequestListener<String, GlideDrawable>() {
+        Glide.with(context).load(teamData.getMeta()).listener(new RequestListener<String, GlideDrawable>() {
             @Override
             public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
                 holder.progressBar.setVisibility(View.GONE);

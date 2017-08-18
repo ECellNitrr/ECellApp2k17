@@ -1,39 +1,21 @@
 package com.example.iket.ecellapp2k17.about_us.view;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
-import com.example.iket.ecellapp2k17.about_us.model.MockAboutUs;
-import com.example.iket.ecellapp2k17.about_us.model.data.AboutUsData;
-import com.example.iket.ecellapp2k17.about_us.presenter.AboutUsPresenter;
-import com.example.iket.ecellapp2k17.about_us.presenter.AboutUsPresenterImpl;
-import com.example.iket.ecellapp2k17.home.Home;
-
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -123,7 +105,10 @@ public class AboutUsFragment extends Fragment{
         adapterViewPager = new PagerAdapter(getActivity().getSupportFragmentManager());
         vpPager.setAdapter(adapterViewPager);
         tabLayout.setupWithViewPager(vpPager);
-        setupTabIcons();
+        tabLayout.getTabAt(0).setIcon(tabIcons[0]);
+        tabLayout.getTabAt(1).setIcon(tabIcons[1]);
+        tabLayout.getTabAt(2).setIcon(tabIcons[2]);
+       // setupTabIcons();
 /*
         team_chip.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -266,13 +251,14 @@ public class AboutUsFragment extends Fragment{
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
-    }
+    }/*
     private void setupTabIcons() {
         View view1;
         for (int i = 0; i < tabIcons.length; i++) {
             view1 = getActivity().getLayoutInflater().inflate(R.layout.custom_tab, null);
             view1.findViewById(R.id.tab_icon).setBackgroundResource(tabIcons[i]);
-            tabLayout.addTab(tabLayout.newTab().setCustomView(view1));
+            tabLayout.newTab().setCustomView(view1);
+         //   tabLayout.addTab(tabLayout.newTab().setCustomView(view1));
         }
-    }
+    }*/
 }

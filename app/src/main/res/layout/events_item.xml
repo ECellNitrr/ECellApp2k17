@@ -1,18 +1,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/darkgray"
-    tools:context="com.example.iket.ecellapp2k17.events.view.EventDetailsFragment">
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:padding="4dp"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              tools:context="com.example.iket.ecellapp2k17.events.view.EventDetailsFragment">
 
     <android.support.v7.widget.CardView
-        android:background="@color/darkgray"
         android:layout_width="match_parent"
+        android:elevation="5dp"
+        app:cardBackgroundColor="#00000000"
+        android:padding="2dp"
+        app:cardCornerRadius="20dp"
         android:layout_height="215dp">
 
         <RelativeLayout
             android:id="@+id/event_relativeLayout"
-            android:background="@color/darkgray"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -21,22 +24,20 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitXY"
-            android:adjustViewBounds="true"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
+            android:adjustViewBounds="true" />
 
 
         <TextView
             android:id="@+id/eventName"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Event Title"
+            android:background="#99212121"
             android:textColor="@color/white"
             android:textSize="30dp"
-            android:textStyle="bold"
-            android:layout_marginLeft="31dp"
-            android:layout_marginTop="180dp"
-            android:layout_centerHorizontal="true" />
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            />
 
 
 

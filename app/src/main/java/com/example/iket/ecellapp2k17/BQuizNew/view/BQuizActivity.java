@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -17,10 +18,16 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
+import com.example.iket.ecellapp2k17.BQuizNew.model.MockBquizProvider;
 import com.example.iket.ecellapp2k17.BQuizNew.model.RetrofitBquizProvider;
 import com.example.iket.ecellapp2k17.BQuizNew.model.RetrofitSubmitAnswerProvider;
 import com.example.iket.ecellapp2k17.BQuizNew.model.data.BQuizData;
@@ -34,6 +41,8 @@ import com.example.iket.ecellapp2k17.helper.SharedPrefs;
 import com.example.iket.ecellapp2k17.helper.image_loaders.GlideImageLoader;
 import com.example.iket.ecellapp2k17.helper.image_loaders.ImageLoader;
 import com.example.iket.ecellapp2k17.home.Home;
+
+import java.net.UnknownHostException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -67,6 +76,12 @@ public class BQuizActivity extends AppCompatActivity implements BQuizView {
     @BindView(R.id.image_layout)
     ScrollView image_layout;
 
+    @BindView(R.id.status_layout)
+    RelativeLayout status_layout;
+
+    @BindView(R.id.status_image)
+    ImageView status_image;
+
     @BindView(R.id.text_layout)
     ScrollView text_layout;
 
@@ -78,6 +93,7 @@ public class BQuizActivity extends AppCompatActivity implements BQuizView {
     private int data_type;
     private CountDownTimer countDownTimer;
     SharedPrefs sharedPrefs;
+    Dialog dialog;
 
         @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,34 +101,44 @@ public class BQuizActivity extends AppCompatActivity implements BQuizView {
         setContentView(R.layout.activity_bquiz__intro);
         ButterKnife.bind(this);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
-            countDown(32);
-        //    bQuizPresenter = new BQuizPresenterImpl(this, new RetrofitBquizProvider());
-            sharedPrefs = new SharedPrefs(this);
-//        bQuizPresenter.getBquizData(sharedPrefs.getAccessToken());
-
+                bQuizPresenter = new BQuizPresenterImpl(this, new MockBquizProvider());
+            //    bQuizPresenter = new BQuizPresenterImpl(this, new RetrofitBquizProvider());
+            sharedPrefs = new SharedPrefs(BQuizActivity.this);
+        bQuizPresenter.getBquizData(sharedPrefs.getAccessToken());
         //submitAnswerPresenter = new SubmitAnswerPresenterImpl(this, new RetrofitSubmitAnswerProvider());
         imageLoader = new GlideImageLoader(this);
 
         submit_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                SharedPrefs sharedPrefs = new SharedPrefs(BQuizActivity.this);
-                submitAnswerPresenter.submitAnswer(questionId, getAnswer(), sharedPrefs.getAccessToken());
                 countDownTimer.cancel();
+                submitAnswerPresenter.submitAnswer(questionId, getAnswer(), sharedPrefs.getAccessToken());
                 i=0;
-
             }
         });
     }
 
     @Override
     public void onBackPressed() {
+
+        try {
+            countDownTimer.cancel();
+        }
+        catch (Exception e)
+        {
+
+        }
+        try {
+            dialog.dismiss();
+        }
+        catch (Exception e)
+        {
+            Log.d("BQUIZ",""+e);
+        }
         super.onBackPressed();
         if(i==1)
         {
-            countDownTimer.cancel();
-            submitAnswerPresenter.submitAnswer(questionId, getAnswer(), sharedPrefs.getAccessToken());
+//            submitAnswerPresenter.submitAnswer(questionId, getAnswer(), sharedPrefs.getAccessToken());
             i=0;
         }
 
@@ -122,20 +148,27 @@ public class BQuizActivity extends AppCompatActivity implements BQuizView {
     protected void onStop()
     {
         super.onStop();
-        countDownTimer.cancel();
+        try {
+            countDownTimer.cancel();
+        }
+        catch (Exception e)
+        {
+            Log.d("BQUIZ",""+e);
+        }
+        try {
+            dialog.dismiss();
+        }
+        catch (Exception e)
+        {
+            Log.d("BQUIZ",""+e);
+        }
         if(i==1)
         {
-            countDownTimer.cancel();
-            submitAnswerPresenter.submitAnswer(questionId, getAnswer(), sharedPrefs.getAccessToken());
+//            submitAnswerPresenter.submitAnswer(questionId, getAnswer(), sharedPrefs.getAccessToken());
             i=0;
         }
     }
-    @Override
-    public void show_Image(String s)
-    {
-        question_image.setVisibility(View.VISIBLE);
-        imageLoader.loadImage(s,question_image);
-    }
+
     @Override
     public void showMessage(String message_text) {
         message.setText(message_text);
@@ -156,23 +189,28 @@ public class BQuizActivity extends AppCompatActivity implements BQuizView {
             questionId = bquizData.getQuestion_data().getQuestion_id();
             data_type = bquizData.getData_type();
 
-            final Dialog dialog = new Dialog(BQuizActivity.this);
+            dialog = new Dialog(BQuizActivity.this);
             dialog.setContentView(R.layout.activity_rules__dialog_box);
             Button btn = (Button) dialog.findViewById(R.id.dialog_button);
             TextView rules5 = (TextView) dialog.findViewById(R.id.rules5);
             rules5.setText(bquizData.getRules().toString());
-
             dialog.setTitle("Rules");
             dialog.setCancelable(false);
             dialog.show();
 
-            switch (bquizData.getData_type()) {
+            switch (data_type) {
                 case 1:
                     btn.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             i=1;
                             image_layout.setVisibility(View.GONE);
+                            status_layout.setVisibility(View.GONE);
+                            timer.setVisibility(View.VISIBLE);
+                            input_ans.setVisibility(View.VISIBLE);
+                            submit_button.setVisibility(View.VISIBLE);
+                            submit_button.setClickable(true);
+                            text_layout.setVisibility(View.VISIBLE);
                             question_text.setText(bquizData.getQuestion_data().getQuestion());
                             time = bquizData.getQuestion_data().getQuestion_duration();
                             countDown(time);
@@ -185,34 +223,60 @@ public class BQuizActivity extends AppCompatActivity implements BQuizView {
                         @Override
                         public void onClick(View v) {
                             text_layout.setVisibility(View.GONE);
+                            image_layout.setVisibility(View.VISIBLE);
+                            status_layout.setVisibility(View.GONE);
+                            timer.setVisibility(View.VISIBLE);
+                            input_ans.setVisibility(View.VISIBLE);
+                            submit_button.setVisibility(View.VISIBLE);
+                            submit_button.setClickable(true);
+
+                            i=1;
                             question_image_text.setText(bquizData.getQuestion_data().getQuestion());
                             time = bquizData.getQuestion_data().getQuestion_duration();
-                            imageLoader.loadImage(bquizData.getQuestion_data().getImage_url(),question_image);
-                            countDown(time);
+
+                            Glide.with(BQuizActivity.this)
+                                    .load(bquizData.getQuestion_data().getImage_url())
+                                    .listener(new RequestListener<String, GlideDrawable>() {
+                                        @Override
+                                        public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
+                                            if(e instanceof UnknownHostException)
+                                                Glide.clear(question_image);
+                                            return false;
+                                        }
+
+                                        @Override
+                                        public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+                                            countDown(time);
+                                            return false;
+                                        }
+                                    })
+                                    .into(question_image);
                             dialog.dismiss();
-                            i=1;
                         }
                     });
                     break;
                 default:
+                    setBquizInactive(bquizData.getMessage_image_url());
             }
         }
 
     @Override
-    public void answerSubmitted(SubmitAnswerData submitAnswerData) {
-        if (submitAnswerData.isSuccess()) {
-            setMessageLayout(submitAnswerData.getMessage_image(),submitAnswerData.getMessage_display());
-        }
+    public void setBquizInactive(String message_image) {
+        text_layout.setVisibility(View.GONE);
+        image_layout.setVisibility(View.GONE);
+        timer.setVisibility(View.GONE);
+        input_ans.setVisibility(View.INVISIBLE);
+        submit_button.setVisibility(View.INVISIBLE);
+        submit_button.setClickable(false);
+        imageLoader.loadImage(message_image,status_image);
+
     }
 
-    private void setMessageLayout(String message_image,String message_text) {
-        input_ans.setVisibility(View.GONE);
-        submit_button.setVisibility(View.GONE);
-        question_image_text.setVisibility(View.GONE);
-        timer.setVisibility(View.GONE);
-
-        message.setText(message_text);
-        imageLoader.loadImage(message_image,question_image);
+    @Override
+    public void answerSubmitted(SubmitAnswerData submitAnswerData) {
+//        if (submitAnswerData.isSuccess()) {
+//            setMessageLayout(submitAnswerData.getMessage_image(),submitAnswerData.getMessage_display());
+//        }
     }
 
     public void countDown(int time) {
@@ -220,17 +284,14 @@ public class BQuizActivity extends AppCompatActivity implements BQuizView {
            countDownTimer=new CountDownTimer(time, 1000) {
             public void onTick(long millisUntilFinished) {
                 timer.setText(""+millisUntilFinished / 60000 + " : " + (millisUntilFinished / 1000) % 60);
-
             }
 
             public void onFinish() {
-                submitAnswerPresenter.submitAnswer(questionId, getAnswer(), sharedPrefs.getAccessToken());
-                i=0;
-                    Intent in=new Intent(BQuizActivity.this,Home.class);
-                    startActivity(in);
+//                submitAnswerPresenter.submitAnswer(questionId, getAnswer(), sharedPrefs.getAccessToken());
+//                i=0;
+                countDownTimer.cancel();
             }
         }.start();
-
     }
 
     private String getAnswer() {

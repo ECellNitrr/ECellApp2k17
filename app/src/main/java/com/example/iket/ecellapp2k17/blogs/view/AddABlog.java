@@ -119,7 +119,7 @@ public class AddABlog extends android.support.v4.app.DialogFragment implements A
         uploaded_image = (ImageView) view.findViewById(R.id.uploaded_img);
         addABlog_bg = (ImageView) view.findViewById(R.id.addBlog_bg);
         progressBar = (ProgressBar) view.findViewById(R.id.progressBar_blogs);
-            Glide.with(getContext()).load(R.drawable.add_blog_bg_white).into(addABlog_bg);
+        Glide.with(getContext()).load(R.drawable.add_blog_bg_white).into(addABlog_bg);
 
         btn_insertImage = (Button)  view.findViewById(R.id.insert_img);
         btn_insertImage.setOnClickListener(new View.OnClickListener(){
