@@ -27,10 +27,12 @@ public class SplashScreen extends Activity {
                if(sharedPrefs.isLoggedIn() || sharedPrefs.isOtpLoggedIn()){
                     Intent intent = new Intent(SplashScreen.this,Home.class);
                     startActivity(intent);
+                   finish();
                 }
                 else{
                    Intent intent = new Intent(SplashScreen.this,fb_login.class);
                    startActivity(intent);
+                   finish();
                }
                 finish();
             }
