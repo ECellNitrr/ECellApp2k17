@@ -27,6 +27,7 @@ public class MockBlogs implements BlogsProvider{
         dataList.add(data);
         dataList.add(data);
         dataList.add(data);
-        onBlogsReceived.onSuccess(dataList);
+        BlogFeed blogFeed=new BlogFeed( dataList,true,"Error in Server.");
+        onBlogsReceived.onSuccess(blogFeed);
     }
 }

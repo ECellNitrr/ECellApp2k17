@@ -13,5 +13,5 @@ public interface ViewInterface {
 
     void setData(List<SpeakerData> speakerDataList);
     void showMessage(String message);
-    void ShowProgressBar(boolean show);
+    void showProgressBar(boolean show);
 }

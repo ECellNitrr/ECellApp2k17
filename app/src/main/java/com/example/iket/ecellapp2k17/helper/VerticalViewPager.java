@@ -31,15 +31,15 @@ public class VerticalViewPager extends ViewPager {
     }
 
     private class VerticalPageTransformer implements ViewPager.PageTransformer {
-        private static final float MIN_SCALE = .75f;
+        private static final float MIN_SCALE = 0.75f;
         @Override
         public void transformPage(View view, float position) {
 
-            if (position < -0.8) { // [-Infinity,-1)
+            if (position < -1.0) { // [-Infinity,-1)
                 // This page is way off-screen to the left.
                 view.setAlpha(0);
 
-            }  else if (position <= 0.80) { // [-1,0]
+            }  else if (position <= 0) { // [-1,0]
                 // Use the default slide transition when moving to the left page
                 view.setAlpha(1);
                 // Counteract the default slide transition

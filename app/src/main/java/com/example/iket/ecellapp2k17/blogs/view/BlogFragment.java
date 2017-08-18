@@ -19,12 +19,14 @@ import android.support.v4.widget.NestedScrollView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.blogs.model.BlogsProvider;
 import com.example.iket.ecellapp2k17.blogs.model.MockBlogs;
 import com.example.iket.ecellapp2k17.blogs.model.RetrofitBlogsProvider;
 import com.example.iket.ecellapp2k17.blogs.model.data.BlogData;
+import com.example.iket.ecellapp2k17.blogs.model.data.BlogFeed;
 import com.example.iket.ecellapp2k17.blogs.presenter.BlogsPresenter;
 import com.example.iket.ecellapp2k17.blogs.presenter.BlogsPresenterImpl;
 import com.example.iket.ecellapp2k17.helper.VerticalViewPager;
@@ -57,6 +59,7 @@ public class BlogFragment extends Fragment implements BlogsInterface {
     VerticalViewPager verticalViewPager;
     VerticlePagerAdapter verticlePagerAdapter;
     BlogsPresenter blogsPresenter;
+    private ProgressBar progressBar;
 
     private FloatingActionButton fab;
     private CoordinatorLayout layout;
@@ -117,11 +120,12 @@ public class BlogFragment extends Fragment implements BlogsInterface {
             }
         });
 
+        progressBar=(ProgressBar)view.findViewById(R.id.blogs_progress_bar);
         verticalViewPager=(VerticalViewPager)view.findViewById(R.id.blogs_viewPager);
         verticlePagerAdapter=new VerticlePagerAdapter(getContext());
         verticalViewPager.setAdapter(verticlePagerAdapter);
-//        blogsPresenter=new BlogsPresenterImpl(new RetrofitBlogsProvider(),this);
-          blogsPresenter=new BlogsPresenterImpl(new MockBlogs(),this);
+        blogsPresenter=new BlogsPresenterImpl(new RetrofitBlogsProvider(),this);
+//          blogsPresenter=new BlogsPresenterImpl(new MockBlogs(),this);
         blogsPresenter.requestBlogs();
         return view;
     }
@@ -147,8 +151,8 @@ public class BlogFragment extends Fragment implements BlogsInterface {
     }
 
     @Override
-    public void setData(List<BlogData> blogDataList) {
-        verticlePagerAdapter.setBlogDataList(blogDataList);
+    public void setData(BlogFeed blogDataList) {
+        verticlePagerAdapter.setBlogDataList(blogDataList.getBlogs());
         verticlePagerAdapter.notifyDataSetChanged();
     }
 
@@ -158,7 +162,11 @@ public class BlogFragment extends Fragment implements BlogsInterface {
     }
 
     @Override
-    public void ShowProgressBar(boolean show) {
+    public void showProgressBar(boolean show) {
+        if(show)
+            progressBar.setVisibility(View.VISIBLE);
+        else
+            progressBar.setVisibility(View.GONE);
 
     }
 

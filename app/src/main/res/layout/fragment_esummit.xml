@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android" >
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent" android:layout_height="match_parent"
+                xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <!--<ImageView-->
-        <!--android:id="@+id/esummit_bg"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:scaleType="fitXY"-->
-        <!--android:adjustViewBounds="true"/>-->
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/speakers_scroll"
+        >
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical" android:layout_width="match_parent"
@@ -72,6 +69,12 @@
             android:textColor="#ffffff"
             android:background="#ffffff"
             android:layout_gravity="center"/>
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/esummit_progressbar"
+            />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_view_speakers"
@@ -80,8 +83,11 @@
             android:layout_marginTop="20dp">
         </android.support.v7.widget.RecyclerView>
 
+
     </LinearLayout>
 
     </ScrollView>
+
+
 
     </RelativeLayout>

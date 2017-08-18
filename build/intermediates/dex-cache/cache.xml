@@ -2,6 +2,24 @@
 <items version="2" >
 
     <item
+<<<<<<< HEAD
+        is-multidex="false"
+        jar="/home/iket/.android/build-cache/038c622510fd069264fa9da8c3513d0145f295d6/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d91e61885c6007d48feb57a2aa5c38421cae8b87">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_ac5b1af24d20ff07fecc0ab4c2b70f130c190f69.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/iket/.android/build-cache/8f6c6fc747597fd2eb5dd77dc4e41d5d60dd5244/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a73b24a82e860ae409181afee75925a04a03aed3">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_b3086a61646f9a0ca823b8eca0c5cd9e6e9ffd0d.jar" />
+=======
         is-multidex="true"
         jar="/home/vrihas/ECellApp2k17/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
@@ -36,6 +54,7 @@
         revision="25.0.2"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
         <dex dex="/home/vrihas/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_12ef3f026be58c581be7008cf783fbdcb0c3a20d/classes.dex" />
+>>>>>>> accd1b328bfa1f1e4ca3c06db87d6317eb995fee
     </item>
 
 </items>

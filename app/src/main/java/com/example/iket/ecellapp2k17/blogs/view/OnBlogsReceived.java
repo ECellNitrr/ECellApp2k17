@@ -1,6 +1,8 @@
 package com.example.iket.ecellapp2k17.blogs.view;
 
 import com.example.iket.ecellapp2k17.blogs.model.data.BlogData;
+import com.example.iket.ecellapp2k17.blogs.model.data.BlogFeed;
+
 import java.util.List;
 
 /**
@@ -9,6 +11,6 @@ import java.util.List;
 
 public interface OnBlogsReceived {
 
-    void onSuccess(List<BlogData> blogDataList);
+    void onSuccess(BlogFeed blogFeedList);
     void onFailure();
 }
