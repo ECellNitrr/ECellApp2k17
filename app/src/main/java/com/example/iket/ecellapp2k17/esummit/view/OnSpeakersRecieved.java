@@ -1,6 +1,7 @@
 package com.example.iket.ecellapp2k17.esummit.view;
 
 import com.example.iket.ecellapp2k17.esummit.model.data.SpeakerData;
+import com.example.iket.ecellapp2k17.esummit.model.data.SpeakerList;
 
 import java.util.List;
 
@@ -9,6 +10,6 @@ import java.util.List;
  */
 
 public interface OnSpeakersRecieved {
-    void onSuccess(List<SpeakerData> speakerDataList);
+    void onSuccess(SpeakerList speakerList);
     void onFailure();
 }

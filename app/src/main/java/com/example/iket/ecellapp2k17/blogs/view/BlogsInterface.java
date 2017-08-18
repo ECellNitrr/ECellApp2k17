@@ -11,5 +11,5 @@ public interface BlogsInterface {
 
     void setData(List<BlogData> blogDataList);
     void showMessage(String message);
-    void ShowProgressBar(boolean show);
+    void showProgressBar(boolean show);
 }

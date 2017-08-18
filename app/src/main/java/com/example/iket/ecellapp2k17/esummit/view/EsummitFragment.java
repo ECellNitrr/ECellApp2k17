@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
@@ -62,6 +63,9 @@ public class EsummitFragment extends Fragment implements ViewInterface{
     @BindView(R.id.esummit_desc)
     TextView esummit_desc;
 
+    @BindView(R.id.esummit_progressbar)
+            ProgressBar progressBar;
+
     RecyclerView recyclerView;
     private SpeakerAdapter recyclerAdapter;
     private LinearLayoutManager layoutManager;
@@ -107,7 +111,6 @@ public class EsummitFragment extends Fragment implements ViewInterface{
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_esummit, container, false);
         ButterKnife.bind(this,view);
-//        Glide.with(this).load(R.drawable.e_summit_bg).into(esummit_bg_img);
         Glide.with(this).load(R.drawable.esummit).into(esummit_logo);
 
         recyclerView=(RecyclerView) view.findViewById(R.id.recycler_view_speakers);
@@ -119,8 +122,8 @@ public class EsummitFragment extends Fragment implements ViewInterface{
         recyclerView.setNestedScrollingEnabled(false);
 
 
-//        esummitPresenter=new EsummitPresenterImpl(new RetrofitProviderSpeakers(),this);
-        esummitPresenter=new EsummitPresenterImpl(new MockSpeakers(),this);
+        esummitPresenter=new EsummitPresenterImpl(new RetrofitProviderSpeakers(),this);
+//        esummitPresenter=new EsummitPresenterImpl(new MockSpeakers(),this);
         esummitPresenter.requestData();
         esummit_title.setEnabled(false);
         esummit_desc.setEnabled(false);
@@ -182,11 +185,15 @@ public class EsummitFragment extends Fragment implements ViewInterface{
     @Override
     public void showMessage(String message) {
 
+        Toast.makeText(getContext(), ""+message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    public void ShowProgressBar(boolean show) {
-
+    public void showProgressBar(boolean show) {
+        if(show)
+            progressBar.setVisibility(View.VISIBLE);
+        else
+            progressBar.setVisibility(View.GONE);
     }
 
 
