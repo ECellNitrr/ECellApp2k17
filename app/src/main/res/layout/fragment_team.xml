@@ -10,7 +10,9 @@
         android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        >
 
         <TextView
             android:id="@+id/faculty"
@@ -20,7 +22,6 @@
             android:layout_centerInParent="true"
             android:layout_alignParentTop="true"
             android:gravity="center"
-            android:background="#424242"
             android:textSize="35dp"
             android:textStyle="bold"
             android:textColor="@color/white" />
@@ -80,7 +81,6 @@
             android:textColor="@color/white"
             android:textSize="35dp"
             android:textStyle="bold"
-            android:background="#424242"
             android:gravity="center"
             android:layout_centerInParent="true"/>
 

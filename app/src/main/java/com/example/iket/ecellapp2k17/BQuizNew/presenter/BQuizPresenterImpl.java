@@ -28,18 +28,20 @@ public class BQuizPresenterImpl implements BQuizPresenter {
 
                 if (bQuizData.isSuccess()) {
                     bQuizView.showProgressbar(false);
+
+                    if(bQuizData.isBquiz_active())
                     bQuizView.setBquizData(bQuizData);
+                    else
+                        bQuizView.setBquizInactive(bQuizData.getMessage_image_url());
                 }else{
                     bQuizView.showProgressbar(false);
                     bQuizView.showMessage(bQuizData.getMessage());
-                    bQuizView.show_Image(bQuizData.getMessage_image_url());
                 }
             }
 
             @Override
             public void onFailure() {
                 bQuizView.showProgressbar(false);
-
             }
         });
 

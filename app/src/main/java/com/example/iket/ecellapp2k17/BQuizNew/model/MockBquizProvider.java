@@ -19,21 +19,15 @@ public class MockBquizProvider implements BQuizProvider {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-
                 onBQuizDataResponse.onSuccess(getMockData());
-
             }
         }, 1000);
 
     }
 
     BQuizData getMockData() {
-
-        BQuizData bQuizData = new BQuizData(true, "Successful", "none", 1, new QuestionData(
-
-                1, "What is your name", "none",null, null, null, null, null, 120
-        ),"rules");
-
+        QuestionData questionData=new QuestionData(1,"What is Ecell?","https://ecell.nitrr.ac.in/uploads/events/1502905499.png","10 Points",30);
+        BQuizData bQuizData=new BQuizData(true,"Error in server","https://ecell.nitrr.ac.in/images/ecell.png",2,questionData,"iket",true);
         return bQuizData;
     }
 }

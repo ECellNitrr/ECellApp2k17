@@ -28,7 +28,7 @@ import com.example.iket.ecellapp2k17.events.presenter.EventPresenterImpl;
 import com.example.iket.ecellapp2k17.events.presenter.EventsPresenter;
 import com.example.iket.ecellapp2k17.helper.Urls;
 import com.example.iket.ecellapp2k17.helper.VerticalViewPager;
-import com.facebook.shimmer.ShimmerFrameLayout;
+//import com.facebook.shimmer.ShimmerFrameLayout;
 import com.mikepenz.itemanimators.ScaleUpAnimator;
 import com.mikepenz.itemanimators.SlideDownAlphaAnimator;
 import com.mikepenz.itemanimators.SlideInOutBottomAnimator;

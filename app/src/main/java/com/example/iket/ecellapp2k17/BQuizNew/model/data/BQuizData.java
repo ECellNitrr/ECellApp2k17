@@ -11,21 +11,16 @@ public class BQuizData {
     private int data_type;
     private QuestionData question_data;
     private String rules;
+    private boolean bquiz_active;
 
-
-    public String getRules() {
-        return rules;
-    }
-
-    public BQuizData(boolean success, String message, String message_image_url, int data_type,
-                     QuestionData questiondata, String rules) {
+    public BQuizData(boolean success, String message, String message_image_url, int data_type, QuestionData question_data, String rules, boolean bquiz_active) {
         this.success = success;
         this.message = message;
         this.message_image_url = message_image_url;
         this.data_type = data_type;
-        question_data = questiondata;
-        this.rules=rules;
-
+        this.question_data = question_data;
+        this.rules = rules;
+        this.bquiz_active = bquiz_active;
     }
 
     public boolean isSuccess() {
@@ -46,5 +41,13 @@ public class BQuizData {
 
     public QuestionData getQuestion_data() {
         return question_data;
+    }
+
+    public String getRules() {
+        return rules;
+    }
+
+    public boolean isBquiz_active() {
+        return bquiz_active;
     }
 }

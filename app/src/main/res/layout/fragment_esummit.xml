@@ -2,12 +2,12 @@
 <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <ImageView
-        android:id="@+id/esummit_bg"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitXY"
-        android:adjustViewBounds="true"/>
+    <!--<ImageView-->
+        <!--android:id="@+id/esummit_bg"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:scaleType="fitXY"-->
+        <!--android:adjustViewBounds="true"/>-->
 
     <ScrollView
         android:layout_width="match_parent"
@@ -48,7 +48,7 @@
         <TextView
             android:id="@+id/esummit_desc"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="wrap_content"
             android:paddingLeft="20dp"
             android:textSize="16sp"
             android:gravity="center"

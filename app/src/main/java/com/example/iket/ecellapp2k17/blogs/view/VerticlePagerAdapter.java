@@ -70,19 +70,18 @@ public class VerticlePagerAdapter extends PagerAdapter {
         TextView read_more=(TextView)itemView.findViewById(R.id.blog_read_more);
         ImageView blogImage= (ImageView) itemView.findViewById(R.id.blog_image);
         RelativeLayout layout = (RelativeLayout) itemView.findViewById(R.id.blog_relative_layout);
-        TextView info=(TextView)itemView.findViewById(R.id.info);
-        /*
+
         length = (data.getBody()).length();
-        if(length>370)
+        if(length>270)
         {
             read_more.setVisibility(View.VISIBLE);
         }
         else
         {
-            read_more.setVisibility(View.GONE);
+            read_more.setVisibility(View.INVISIBLE);
+            read_more.setClickable(false);
         }
-        info.setVisibility(View.GONE);
-        */
+
         Glide.with(mContext).load(data.getImage()).into(blogImage);
         title.setText(data.getTitle());
         date.setText(data.getDate());

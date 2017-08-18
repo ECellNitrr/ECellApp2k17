@@ -11,11 +11,12 @@ public interface BQuizView {
 
 
     void showMessage(String message);
-    void show_Image(String image);
 
     void showProgressbar(boolean show);
 
     void setBquizData(BQuizData bquizData);
+
+    void setBquizInactive(String message_image);
 
     void answerSubmitted(SubmitAnswerData submitAnswerData);
 
