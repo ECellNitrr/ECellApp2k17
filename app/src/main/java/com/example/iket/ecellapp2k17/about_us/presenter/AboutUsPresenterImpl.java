@@ -23,15 +23,18 @@ public class AboutUsPresenterImpl implements AboutUsPresenter{
 
     @Override
     public void requestData() {
+        aboutUsInterface.showProgressBar(true);
         teamProvider.requestData(new OnAboutusReceived() {
             @Override
             public void onSuccess(List<TeamData> teamDataList) {
+                aboutUsInterface.showProgressBar(false);
                 aboutUsInterface.setData(teamDataList);
             }
 
             @Override
             public void onFailure() {
 
+                aboutUsInterface.showProgressBar(false);
             }
         });
     }

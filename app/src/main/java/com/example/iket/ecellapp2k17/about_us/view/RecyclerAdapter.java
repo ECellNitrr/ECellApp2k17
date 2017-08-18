@@ -79,9 +79,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         return data.size();
     }
 
-
-
-
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView member_image;
         public TextView member_email;

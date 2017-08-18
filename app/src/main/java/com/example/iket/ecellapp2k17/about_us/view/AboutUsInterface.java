@@ -12,6 +12,6 @@ public interface AboutUsInterface {
 
     void setData(List<TeamData> teamDataList);
     void showMessage(String message);
-    void ShowProgressBar(boolean show);
+    void showProgressBar(boolean show);
 
 }

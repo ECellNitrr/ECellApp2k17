@@ -92,6 +92,14 @@
             android:background="@color/white"
             android:layout_below="@+id/Coordinators"/>
 
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/team_progressbar"
+            android:layout_below="@+id/line4"
+            android:layout_centerInParent="true"
+            />
+
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view_team"

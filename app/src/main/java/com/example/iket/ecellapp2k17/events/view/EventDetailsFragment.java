@@ -115,27 +115,27 @@ public class EventDetailsFragment extends android.support.v4.app.DialogFragment 
         progressBar = (AVLoadingIndicatorView) view.findViewById(R.id.progressBar_event_details);
 
         YoYo.with(Techniques.SlideInDown)
-                .duration(800)
+                .duration(1400)
                 .repeat(0)
                 .playOn(view.findViewById(R.id.eventBody));
         YoYo.with(Techniques.SlideInDown)
-                .duration(800)
+                .duration(1200)
                 .repeat(0)
                 .playOn(view.findViewById(R.id.eventDate));
         YoYo.with(Techniques.SlideInDown)
-                .duration(800)
+                .duration(1200)
                 .repeat(0)
                 .playOn(view.findViewById(R.id.eventLocation));
         YoYo.with(Techniques.SlideInDown)
-                .duration(800)
+                .duration(1200)
                 .repeat(0)
                 .playOn(view.findViewById(R.id.eventTime));
         YoYo.with(Techniques.SlideInDown)
-                .duration(800)
+                .duration(1200)
                 .repeat(0)
                 .playOn(view.findViewById(R.id.locImage));
         YoYo.with(Techniques.SlideInDown)
-                .duration(800)
+                .duration(1000)
                 .repeat(0)
                 .playOn(view.findViewById(R.id.eventTitle));
 
