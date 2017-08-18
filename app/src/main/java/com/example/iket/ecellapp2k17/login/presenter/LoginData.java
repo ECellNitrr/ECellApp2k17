@@ -6,5 +6,5 @@ package com.example.iket.ecellapp2k17.login.presenter;
 
 public interface LoginData {
 
-    void getLoginData(String mobile);
+    void getLoginData(String name, String mobile, String email);
 }

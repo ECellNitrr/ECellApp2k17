@@ -8,5 +8,5 @@ import com.example.iket.ecellapp2k17.login.LoginCallback;
 
 public interface LoginBaseClassHelper {
 
-    void loginData(String mobile,LoginCallback loginCallback);
+    void loginData(String name,String mobile,String email,LoginCallback loginCallback);
 }

@@ -2,7 +2,6 @@ package com.example.iket.ecellapp2k17.fb;
 
 
 
-import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
@@ -12,7 +11,6 @@ import android.content.Intent;
 import android.util.Base64;
 import android.util.Log;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -28,7 +26,6 @@ import com.facebook.GraphResponse;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
-import com.facebook.login.widget.ProfilePictureView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -36,21 +33,16 @@ import org.json.JSONObject;
 
 import com.example.iket.ecellapp2k17.R;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
 import static com.example.iket.ecellapp2k17.R.id.e_cell_logo;
-import static com.example.iket.ecellapp2k17.R.id.linearLayout;
 import static com.example.iket.ecellapp2k17.R.id.login_background;
 import static com.example.iket.ecellapp2k17.R.id.mobile_img;
 import static com.example.iket.ecellapp2k17.R.id.otp_img;
-import static com.example.iket.ecellapp2k17.helper.MyApplication.getContext;
 
 public class fb_login extends AppCompatActivity {
 
@@ -86,7 +78,7 @@ public class fb_login extends AppCompatActivity {
 
         }
         FacebookSdk.sdkInitialize(getApplicationContext());
-        setContentView(R.layout.activity_fb_login);
+        setContentView(R.layout.activity_login);
         sharedPrefs = new SharedPrefs(fb_login.this);
 
         ButterKnife.bind(this);

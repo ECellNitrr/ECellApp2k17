@@ -29,17 +29,11 @@ import com.example.iket.ecellapp2k17.otp_verify.provider.RetrofitOtpVerifyHelper
 import com.example.iket.ecellapp2k17.otp_verify.view.OtpView;
 import com.facebook.Profile;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.animation.GlideAnimation;
-import com.bumptech.glide.request.target.SimpleTarget;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.helper.SharedPrefs;
-import com.example.iket.ecellapp2k17.helper.image_loaders.GlideImageLoader;
-import com.facebook.AccessToken;
-import com.facebook.GraphRequest;
-import com.facebook.GraphResponse;
-import com.intrusoft.library.FrissonView;
 
-import static android.R.id.message;
+import jp.wasabeef.glide.transformations.CropCircleTransformation;
+
 
 
 /**
@@ -52,11 +46,10 @@ import static android.R.id.message;
  */
 public class ProfileFragment extends Fragment implements LoginView,OtpView{
 
-    private ImageView fb_image;
+    private ImageView fb_image,fb_image_bg;
     private TextView fb_username,fb_email,phoneTxt,log_out_txt,verify;
     private EditText username_etxt,email_etxt,phone_etxt,card_send_phone_etxt,card_send_otp_etxt;
     private Button editButton,saveButton,card_send_otp_btn,card_verify_otp_btn;
-    private FrissonView wave;
     private CardView cardview_otp;
     private  String mobileNo,otp,message;
     private LoginData loginData;
@@ -127,34 +120,17 @@ public class ProfileFragment extends Fragment implements LoginView,OtpView{
         if(sharedPrefs.getEmail()!=null){
             fb_email.setText(sharedPrefs.getEmail());
         }
-       // else{  }
 
         if(sharedPrefs.getMobile()!=null){
             phoneTxt.setText(sharedPrefs.getMobile());
         }
 
-
-
-
          // fb_email.setText(sharedPrefs.getEmail());
 
         Uri imageUri = Profile.getCurrentProfile().getProfilePictureUri(400, 400);
         String image_url = imageUri.toString();
-
-
-        wave= (FrissonView) view.findViewById(R.id.wave);
-        GlideImageLoader glideImageLoader=new GlideImageLoader(getContext());
-        glideImageLoader.load_circular_image(image_url,fb_image);
-        Glide.with(getContext())
-                .load(imageUri)
-                .asBitmap()
-                .into(new SimpleTarget<Bitmap>(SimpleTarget.SIZE_ORIGINAL, SimpleTarget.SIZE_ORIGINAL) {
-                    @Override
-                    public void onResourceReady(Bitmap bitmap, GlideAnimation anim) {
-
-                        wave.setBitmap(bitmap);
-                    }
-                });
+        Glide.with(getContext()).load(image_url).bitmapTransform(new CropCircleTransformation(getContext())).into(fb_image);
+        Glide.with(getContext()).load(image_url).into(fb_image_bg);
 
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -283,6 +259,7 @@ public class ProfileFragment extends Fragment implements LoginView,OtpView{
         fb_username = (TextView)view.findViewById(R.id.user_name_fb);
         fb_email = (TextView) view.findViewById(R.id.email_fb);
         fb_image=(ImageView)view.findViewById(R.id.center_image);
+        fb_image_bg = (ImageView)view.findViewById(R.id.profile_pic_bg);
 
     }
 
