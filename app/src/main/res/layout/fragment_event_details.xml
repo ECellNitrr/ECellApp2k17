@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#26A69A">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -12,122 +16,123 @@
 
         <ImageView
             android:id="@+id/eventImage"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_below="@+id/eventTitle"
+            android:layout_centerHorizontal="true"
+
             android:scaleType="fitXY" />
 
         <com.wang.avi.AVLoadingIndicatorView
             android:id="@+id/progressBar_event_details"
+            style="@style/AVLoadingIndicatorView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="90dp"
+            android:layout_below="@+id/eventTitle"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            style="@style/AVLoadingIndicatorView"
+            android:layout_marginTop="100dp"
             android:visibility="visible"
-            app:indicatorName="BallTrianglePathIndicator"
             app:indicatorColor="@color/white"
-            />
+            app:indicatorName="BallTrianglePathIndicator" />
 
-        <View
+        <!--   <View
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/gradient_color">
         </View>
+        -->
 
 
-
-            <TextView
-                android:id="@+id/eventBody"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:elevation="2dp"
-                android:text="Event Body"
-                android:textColor="@color/white"
-                android:textSize="22dp"
-                android:gravity="center"
-                android:layout_below="@+id/eventTitle"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginTop="2dp" />
-
+        <TextView
+            android:id="@+id/eventBody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/eventLocation"
+            android:layout_marginTop="20dp"
+            android:elevation="2dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:gravity="center"
+            android:text="Event Body"
+            android:textColor="@color/white"
+            android:textSize="22dp" />
             <TextView
                 android:id="@+id/eventTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:elevation="2dp"
-                android:gravity="center"
-                android:padding="8dp"
                 android:text="Wallstreet"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="22dp"
+                android:elevation="2dp"
+                android:padding="8dp"
                 android:textColor="@color/white"
                 android:textSize="45dp"
-                android:textStyle="bold"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginTop="22dp" />
+                android:textStyle="bold" />
+
+
 
         <ImageView
+            android:id="@+id/locImage"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:id="@+id/locImage"
-            android:elevation="2dp"
-            android:layout_above="@+id/eventDate"
-            android:layout_marginLeft="17dp"
-            android:layout_marginStart="17dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            />
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="30dp"
+            android:layout_below="@+id/eventDate"
+            android:elevation="2dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/eventLocation"
-                android:text="Venue"
-                android:textSize="20dp"
-                android:layout_above="@+id/eventDate"
-                android:elevation="2dp"
-                android:textColor="@color/white"
-                android:layout_marginLeft="12dp"
-                android:layout_marginStart="12dp"
-                android:layout_alignBottom="@+id/locImage"
-                android:layout_toRightOf="@+id/locImage"
-                android:layout_toEndOf="@+id/locImage" />
+        <TextView
+            android:id="@+id/eventLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_below="@+id/eventDate"
+            android:layout_toRightOf="@+id/locImage"
+            android:elevation="2dp"
+            android:text="Venue"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+
         <TextView
             android:id="@+id/eventDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_below="@+id/eventImage"
+            android:layout_marginTop="12dp"
             android:text="Date"
             android:textColor="@color/white"
-            android:textSize="20dp"
-            android:layout_above="@+id/eventTime"
-            android:layout_alignLeft="@+id/eventLocation"
-            android:layout_alignStart="@+id/eventLocation" />
+            android:textSize="20dp" />
+
         <TextView
             android:id="@+id/eventTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/eventImage"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="12dp"
             android:text="Time"
-            android:layout_alignParentBottom="true"
             android:textColor="@color/white"
-            android:layout_alignLeft="@+id/eventDate"
-            android:textSize="20dp"
-            android:layout_marginBottom="12dp"
-            />
+            android:textSize="20dp" />
 
-            <Button
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/btn_eventDetails"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/button_rounded_corner_event"
-                android:text="Register"
-                android:textColor="@color/white"
-                android:visibility="invisible"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true" />
-
+<!--        <Button
+            android:id="@+id/btn_eventDetails"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/button_rounded_corner_event"
+            android:text="Register"
+            android:textColor="@color/white"
+            android:visibility="invisible" />
+-->
 
     </RelativeLayout>
 
 </LinearLayout>
+    </ScrollView>

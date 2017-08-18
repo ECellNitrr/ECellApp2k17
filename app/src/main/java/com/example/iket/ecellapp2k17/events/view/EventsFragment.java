@@ -107,8 +107,8 @@ public class EventsFragment extends Fragment implements EventsInterface {
         linearLayoutManager = new LinearLayoutManager(getContext());
         eventsAdapter = new EventsAdapter(getContext());
 
-        eventsPresenter=new EventPresenterImpl(this,new MockData());
-//        eventsPresenter=new EventPresenterImpl(this,new RetrofitEventsProvider());
+//        eventsPresenter=new EventPresenterImpl(this,new MockData());
+        eventsPresenter=new EventPresenterImpl(this,new RetrofitEventsProvider());
         event_recyclerView.setLayoutManager(linearLayoutManager);
         event_recyclerView.setAdapter(eventsAdapter);
         event_recyclerView.setItemAnimator(new SlideDownAlphaAnimator());

@@ -28,12 +28,13 @@ public class AddBlogsPresenterImpl implements AddBlogsPresenter {
             @Override
             public void onBlogSent(AddBlogsData addBlogsData) {
                 if (addBlogsData.isSuccess()){
+                    addABlogView.showProgressBar(false);
                     addABlogView.AddBlogsStatus(addBlogsData);
                 }
                 else {
+                    addABlogView.showProgressBar(false);
                     addABlogView.showMessage(addBlogsData.getMessage());
                 }
-                addABlogView.showProgressBar(false);
             }
 
             @Override

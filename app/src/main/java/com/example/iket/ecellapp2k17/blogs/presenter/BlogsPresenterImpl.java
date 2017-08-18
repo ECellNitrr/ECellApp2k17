@@ -23,15 +23,18 @@ public class BlogsPresenterImpl implements BlogsPresenter{
 
     @Override
     public void requestBlogs() {
+        blogsInterface.showProgressBar(true);
         blogsProvider.requestBlogs(new OnBlogsReceived() {
             @Override
             public void onSuccess(List<BlogData> blogDataList) {
+                blogsInterface.showProgressBar(false);
                 blogsInterface.setData(blogDataList);
             }
 
             @Override
             public void onFailure() {
-
+                blogsInterface.showProgressBar(false);
+                blogsInterface.showMessage("Please check your internet connection");
             }
         });
     }

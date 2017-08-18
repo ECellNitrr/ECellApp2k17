@@ -19,6 +19,7 @@ import android.support.v4.widget.NestedScrollView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.blogs.model.BlogsProvider;
@@ -57,6 +58,7 @@ public class BlogFragment extends Fragment implements BlogsInterface {
     VerticalViewPager verticalViewPager;
     VerticlePagerAdapter verticlePagerAdapter;
     BlogsPresenter blogsPresenter;
+    private ProgressBar progressBar;
 
     private FloatingActionButton fab;
     private CoordinatorLayout layout;
@@ -117,11 +119,12 @@ public class BlogFragment extends Fragment implements BlogsInterface {
             }
         });
 
+        progressBar=(ProgressBar)view.findViewById(R.id.blogs_progress_bar);
         verticalViewPager=(VerticalViewPager)view.findViewById(R.id.blogs_viewPager);
         verticlePagerAdapter=new VerticlePagerAdapter(getContext());
         verticalViewPager.setAdapter(verticlePagerAdapter);
-//        blogsPresenter=new BlogsPresenterImpl(new RetrofitBlogsProvider(),this);
-          blogsPresenter=new BlogsPresenterImpl(new MockBlogs(),this);
+        blogsPresenter=new BlogsPresenterImpl(new RetrofitBlogsProvider(),this);
+//          blogsPresenter=new BlogsPresenterImpl(new MockBlogs(),this);
         blogsPresenter.requestBlogs();
         return view;
     }
@@ -158,7 +161,11 @@ public class BlogFragment extends Fragment implements BlogsInterface {
     }
 
     @Override
-    public void ShowProgressBar(boolean show) {
+    public void showProgressBar(boolean show) {
+        if(show)
+            progressBar.setVisibility(View.VISIBLE);
+        else
+            progressBar.setVisibility(View.GONE);
 
     }
 

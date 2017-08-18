@@ -37,6 +37,7 @@ import io.fabric.sdk.android.Fabric;
 
 public class Home extends AppCompatActivity {
 
+    private static Context context;
     @BindView(R.id.viewPager_home)
     ViewPager viewPager;
 
@@ -49,6 +50,7 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Fabric.with(this, new Crashlytics());
+        this.context=this;
         setContentView(R.layout.activity_home);
         setFragment(new EsummitFragment());
         ButterKnife.bind(this);
@@ -154,6 +156,11 @@ public class Home extends AppCompatActivity {
             fragmentTransaction.commit();
         }
 
+    }
+
+    public static Context getContext()
+    {
+        return context;
     }
 
 }

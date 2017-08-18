@@ -6,11 +6,14 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -40,7 +43,7 @@ public class AboutUsFragment extends Fragment{
     @BindView(R.id.tabLayout_aboutus)
     TabLayout tabLayout;
 
-    FragmentPagerAdapter adapterViewPager;
+    private int[] tabIcons = {R.drawable.vision_ic,R.drawable.team_ic,R.drawable.contact_us_ic};
 
     private OnFragmentInteractionListener mListener;
     public AboutUsFragment() {
@@ -80,14 +83,51 @@ public class AboutUsFragment extends Fragment{
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_about_us, container, false);
         ButterKnife.bind(this,view);
-       /* FragmentManager fragmentManager = getChildFragmentManager();
+        setupTabIcons();
+        FragmentManager fragmentManager = getChildFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.about_us_container,new VisionFragment());
-        fragmentTransaction.commit();*/
-        ViewPager vpPager = (ViewPager) view.findViewById(R.id.view_pager_aboutus);
-        adapterViewPager = new PagerAdapter(getActivity().getSupportFragmentManager());
-        vpPager.setAdapter(adapterViewPager);
-        tabLayout.setupWithViewPager(vpPager);
+        fragmentTransaction.commit();
+        tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#FF5722"));
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                int i=tabLayout.getSelectedTabPosition();
+                switch (i)
+                {
+                    case 0:
+                        FragmentManager fragmentManager = getChildFragmentManager();
+                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                        fragmentTransaction.replace(R.id.about_us_container,new VisionFragment());
+                        fragmentTransaction.commit();
+                        break;
+                    case 1:
+                        FragmentManager fragmentManager2 = getChildFragmentManager();
+                        FragmentTransaction fragmentTransaction2 = fragmentManager2.beginTransaction();
+                        fragmentTransaction2.replace(R.id.about_us_container,new TeamFragment());
+                        fragmentTransaction2.commit();
+                        break;
+                    case 2:
+                        FragmentManager fragmentManager3 = getChildFragmentManager();
+                        FragmentTransaction fragmentTransaction3 = fragmentManager3.beginTransaction();
+                        fragmentTransaction3.replace(R.id.about_us_container,new ContactUsFragment());
+                        fragmentTransaction3.commit();
+                        break;
+                }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
         tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#FF5722"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         return view;
@@ -115,5 +155,13 @@ public class AboutUsFragment extends Fragment{
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
-
+    private void setupTabIcons() {
+        View view1;
+        for (int i = 0; i < tabIcons.length; i++) {
+            view1 = getActivity().getLayoutInflater().inflate(R.layout.custom_tab, null);
+            view1.findViewById(R.id.tab_icon).setBackgroundResource(tabIcons[i]);
+            tabLayout.newTab().setCustomView(view1);
+            tabLayout.addTab(tabLayout.newTab().setCustomView(view1));
+        }
+    }
 }

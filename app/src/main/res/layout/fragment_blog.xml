@@ -12,7 +12,7 @@
         android:elevation="2dp"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
+        android:layout_margin="12sp"
         app:fabSize="normal"
         app:backgroundTint="#FF5722"
         android:scaleType="fitXY"
@@ -22,11 +22,17 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/black">
+        >
     <com.example.iket.ecellapp2k17.helper.VerticalViewPager
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:id="@+id/blogs_viewPager" />
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/blogs_progress_bar"
+            android:layout_gravity="center"
+            />
 
         <com.facebook.shimmer.ShimmerFrameLayout
             android:id="@+id/shimmer_view_container"
