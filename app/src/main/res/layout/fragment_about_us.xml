@@ -5,14 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/view_pager_aboutus"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/about_us_container"
         android:layout_weight="1">
 
-    </android.support.v4.view.ViewPager>
+    </RelativeLayout>
 
     <android.support.design.widget.TabLayout
         android:layout_width="match_parent"

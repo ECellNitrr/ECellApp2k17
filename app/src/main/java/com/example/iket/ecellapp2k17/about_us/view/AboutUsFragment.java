@@ -6,11 +6,14 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.iket.ecellapp2k17.R;
 
@@ -50,7 +53,7 @@ public class AboutUsFragment extends Fragment{
     @BindView(R.id.tabLayout_aboutus)
     TabLayout tabLayout;
 
-    FragmentPagerAdapter adapterViewPager;
+    private int[] tabIcons = {R.drawable.vision_ic,R.drawable.team_ic,R.drawable.contact_us_ic};
 
     private OnFragmentInteractionListener mListener;
     public AboutUsFragment() {
@@ -100,15 +103,11 @@ public class AboutUsFragment extends Fragment{
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.about_us_container,new VisionFragment());
         fragmentTransaction.commit();*/
-        ViewPager vpPager = (ViewPager) view.findViewById(R.id.view_pager_aboutus);
-        adapterViewPager = new PagerAdapter(getActivity().getSupportFragmentManager());
-        vpPager.setAdapter(adapterViewPager);
-        tabLayout.setupWithViewPager(vpPager);
-        for (int i = 0; i < tabLayout.getTabCount(); i++) {
-            TabLayout.Tab tab = tabLayout.getTabAt(i);
-            //tab.setCustomView(adapterViewPager.getTabView(i));
-        }
-       // setupTabIcons();
+        setupTabIcons();
+        FragmentManager fragmentManager = getChildFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.about_us_container,new VisionFragment());
+        fragmentTransaction.commit();
 /*
         team_chip.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -189,7 +188,7 @@ public class AboutUsFragment extends Fragment{
         */
         tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#FF5722"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-    /*    tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 int i=tabLayout.getSelectedTabPosition();
@@ -226,7 +225,7 @@ public class AboutUsFragment extends Fragment{
 
             }
         });
-*/
+
         return view;
     }
 
@@ -251,14 +250,14 @@ public class AboutUsFragment extends Fragment{
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
-    }/*
+    }
     private void setupTabIcons() {
         View view1;
         for (int i = 0; i < tabIcons.length; i++) {
             view1 = getActivity().getLayoutInflater().inflate(R.layout.custom_tab, null);
             view1.findViewById(R.id.tab_icon).setBackgroundResource(tabIcons[i]);
             tabLayout.newTab().setCustomView(view1);
-         //   tabLayout.addTab(tabLayout.newTab().setCustomView(view1));
+            tabLayout.addTab(tabLayout.newTab().setCustomView(view1));
         }
-    }*/
+    }
 }

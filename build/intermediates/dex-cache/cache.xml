@@ -2,31 +2,22 @@
 <items version="2" >
 
     <item
-        is-multidex="true"
-        jar="/home/vrihas/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="/home/samveg/.android/build-cache/a63c676c820bcc8c0ae55cb401143081d01b71b0/output/jars/classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
-        <dex dex="/home/vrihas/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/picasso-2.5.2_bcda12ccfebc6eb2acfc871fabbfd4cd3b6668f5/classes.dex" />
+        sha1="a73b24a82e860ae409181afee75925a04a03aed3">
+        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_d414bac7ae3385d11f423ea86812b3dd8dedf178.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/home/vrihas/.android/build-cache/0e313d33a382b999e83bc54dc7b10382a6e937f6/output/jars/classes.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="/home/samveg/.android/build-cache/c14d676fa5cb709b0837314443c849afe3e1ca7a/output/jars/classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="e699699fae0092703de1d02b217f43803d0f7e0a">
-        <dex dex="/home/vrihas/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_3f0be4fa57101f0d95ecf198e4cf120affddc8fc/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/vrihas/ECellApp2k17/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="10a7b91ff31f9165be047902cc992b094a8cd9a4">
-        <dex dex="/home/vrihas/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_ec7ce60115cd4db1153e8d67a4988e084b4baac1/classes.dex" />
+        sha1="d91e61885c6007d48feb57a2aa5c38421cae8b87">
+        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_41fa44b6eb36c0e2b0f39da10877ef849f2d74e9.jar" />
     </item>
 
 </items>
