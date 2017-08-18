@@ -52,7 +52,6 @@ public class AboutUsFragment extends Fragment{
 
     FragmentPagerAdapter adapterViewPager;
 
-    private int[] tabIcons = {R.drawable.vision_ic,R.drawable.team_ic,R.drawable.contact_us_ic};
     private OnFragmentInteractionListener mListener;
     public AboutUsFragment() {
         // Required empty public constructor
@@ -105,9 +104,10 @@ public class AboutUsFragment extends Fragment{
         adapterViewPager = new PagerAdapter(getActivity().getSupportFragmentManager());
         vpPager.setAdapter(adapterViewPager);
         tabLayout.setupWithViewPager(vpPager);
-        tabLayout.getTabAt(0).setIcon(tabIcons[0]);
-        tabLayout.getTabAt(1).setIcon(tabIcons[1]);
-        tabLayout.getTabAt(2).setIcon(tabIcons[2]);
+        for (int i = 0; i < tabLayout.getTabCount(); i++) {
+            TabLayout.Tab tab = tabLayout.getTabAt(i);
+            //tab.setCustomView(adapterViewPager.getTabView(i));
+        }
        // setupTabIcons();
 /*
         team_chip.setOnClickListener(new View.OnClickListener() {

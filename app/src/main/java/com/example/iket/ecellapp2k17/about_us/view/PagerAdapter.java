@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.example.iket.ecellapp2k17.R;
 
@@ -20,6 +21,8 @@ import butterknife.BindView;
 
 public class PagerAdapter extends FragmentPagerAdapter {
     private static int NUM_ITEMS = 3;
+    public Context context;
+    private int[] tabIcons = {R.drawable.vision_ic,R.drawable.team_ic,R.drawable.contact_us_ic};
 
     public PagerAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
@@ -45,6 +48,12 @@ public class PagerAdapter extends FragmentPagerAdapter {
             default:
                 return new VisionFragment();
         }
+    }
+    public View getTabView(int position) {
+        View v = LayoutInflater.from(context).inflate(R.layout.custom_tab, null);
+        ImageView img = (ImageView) v.findViewById(R.id.tab_icon);
+        img.setImageResource(tabIcons[position]);
+        return v;
     }
 
 }
