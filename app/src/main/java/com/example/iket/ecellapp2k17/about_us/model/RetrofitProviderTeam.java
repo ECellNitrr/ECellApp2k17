@@ -42,7 +42,7 @@ public class RetrofitProviderTeam implements TeamProvider {
         call.enqueue(new Callback<TeamList>(){
             @Override
             public void onResponse(Call<TeamList> call, Response<TeamList> response) {
-                onAboutusReceived.onSuccess(response.body().getTeam());
+                onAboutusReceived.onSuccess(response.body());
             }
 
             @Override

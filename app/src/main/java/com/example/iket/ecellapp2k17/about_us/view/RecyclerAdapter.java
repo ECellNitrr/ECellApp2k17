@@ -32,8 +32,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     private LayoutInflater layoutInflater;
     Context context;
 
-
-
     public RecyclerAdapter(Context context1) {
         context=context1;
         layoutInflater=LayoutInflater.from(context1);
