@@ -88,7 +88,7 @@ public class fb_login extends AppCompatActivity {
         Glide.with(this).load(R.drawable.ecell_logo).fitCenter().into(ecl);
 
       //  sharedPrefs = new SharedPrefs(this);
-        loginButton = (LoginButton) findViewById(R.id.login_button);
+    //    loginButton = (LoginButton) findViewById(R.id.login_button);
         callbackManager = CallbackManager.Factory.create();
 
 

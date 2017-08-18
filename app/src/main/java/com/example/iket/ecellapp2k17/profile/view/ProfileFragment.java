@@ -190,7 +190,7 @@ public class ProfileFragment extends Fragment implements LoginView,OtpView{
 */
                     {
                         loginData = new LoginDataImp(ProfileFragment.this, new RetrofitLoginHelper());
-                        loginData.getLoginData(mobileNo);
+     //                   loginData.getLoginData(mobileNo);
                         message = "false";
                     }
                 }
