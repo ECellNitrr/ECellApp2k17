@@ -14,7 +14,7 @@ public class MockSpeakers implements EsummitProvider{
     @Override
     public void requestData(OnSpeakersRecieved onSpeakersRecieved) {
         List<SpeakerData> speakerDataList=new ArrayList<>();
-       SpeakerData data = new SpeakerData("Sundar Pichai","Pichai is the chief executive officer (CEO) of Google Inc.Formerly the Product Chief of Google, Pichai's current role was announced on 10 August 2015, as part of the restructuring process that made Alphabet Inc. into Google's parent company, and he assumed the position on 2 October 2015.","https://upload.wikimedia.org/wikipedia/commons/b/b3/Sundar_Pichai_%28cropped%29.jpg");
+       SpeakerData data = new SpeakerData("Sundar Pichai","Pichai is the chief executive officer (CEO) of Google Inc.Formerly the Product Chief of Google, Pichai's current role was announced on 10 August 2015, as part of the restructuring process that made Alphabet Inc. into Google's parent company, and he assumed the position on 2 October 2015.","https://i.ytimg.com/vi/p9LmpNH_cXM/maxresdefault.jpg");
         speakerDataList.add(data);
         speakerDataList.add(data);
         speakerDataList.add(data);

@@ -13,9 +13,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.events.model.data.EventsData;
 import com.example.iket.ecellapp2k17.events.presenter.EventsPresenter;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +43,7 @@ public class EventDetailsFragment extends android.support.v4.app.DialogFragment 
     private String mParam2;
     EventsData eventsData;
 
+    private AVLoadingIndicatorView progressBar;
 
     private ImageView event_details_bg,event_details_location_img;
     private TextView event_details_desc,event_details_loc,event_details_name,event_details_date,event_details_time;
@@ -104,13 +109,26 @@ public class EventDetailsFragment extends android.support.v4.app.DialogFragment 
         event_details_name = (TextView) view.findViewById(R.id.eventTitle);
         event_details_date = (TextView) view.findViewById(R.id.eventDate);
         event_details_time = (TextView) view.findViewById(R.id.eventTime);
+        progressBar = (AVLoadingIndicatorView) view.findViewById(R.id.progressBar_event_details);
 
         event_details_name.setText(eventsData.getEventName());
         event_details_desc.setText(eventsData.getDescription());
         event_details_loc.setText(eventsData.getVenue());
         event_details_date.setText(eventsData.getDate());
         event_details_time.setText(eventsData.getTime());
-        Glide.with(getContext()).load(eventsData.getMeta()).into(event_details_bg);
+        Glide.with(getContext()).load(eventsData.getMeta()).listener(new RequestListener<String, GlideDrawable>() {
+            @Override
+            public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
+                progressBar.setVisibility(View.GONE);
+                return false;
+            }
+
+            @Override
+            public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+                progressBar.setVisibility(View.GONE);
+                return false;
+            }
+        }).into(event_details_bg);
 
         //eventsPresenter.requestEvents();
 

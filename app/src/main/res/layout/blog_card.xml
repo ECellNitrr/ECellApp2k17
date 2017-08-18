@@ -19,13 +19,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/blog_relative_layout">
-            <ProgressBar
-                android:id="@+id/progressBar_blogs"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="visible"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="90dp"/>
+
+                    <com.wang.avi.AVLoadingIndicatorView
+                        android:id="@+id/progressBar_blogs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="90dp"
+                        android:layout_centerHorizontal="true"
+                        style="@style/AVLoadingIndicatorView"
+                        android:visibility="visible"
+                        app:indicatorName="BallTrianglePathIndicator"
+                        app:indicatorColor="@color/colorAccent"
+                        />
 
 
             <ImageView

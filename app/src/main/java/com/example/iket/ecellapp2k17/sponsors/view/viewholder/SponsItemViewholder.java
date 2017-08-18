@@ -6,6 +6,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.iket.ecellapp2k17.R;
+import com.wang.avi.AVLoadingIndicatorView;
 
 /**
  * Created by iket on 3/8/17.
@@ -16,6 +17,7 @@ public class SponsItemViewholder extends RecyclerView.ViewHolder {
     public final View rootView;
     public final TextView spons_name;
     public ImageView imageView;
+    public final AVLoadingIndicatorView progressBar2;
 
     public SponsItemViewholder(View view) {
         super(view);
@@ -23,5 +25,6 @@ public class SponsItemViewholder extends RecyclerView.ViewHolder {
         rootView = view;
         imageView=(ImageView)view.findViewById(R.id.sponsImage);
         spons_name = (TextView) view.findViewById(R.id.spons_name);
+        progressBar2 = (AVLoadingIndicatorView) view.findViewById(R.id.progressBar_spons_img);
     }
 }

@@ -15,6 +15,7 @@ import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.about_us.model.data.TeamData;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -85,13 +86,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         public ImageView member_image;
         public TextView member_email;
         public TextView member_name;
-        public final ProgressBar progressBar;
+        public final AVLoadingIndicatorView progressBar;
         public ViewHolder(View itemView) {
             super(itemView);
             member_image = (ImageView) itemView.findViewById(R.id.coordinatorImg);
             member_email = (TextView) itemView.findViewById(R.id.coordinatorEmail);
             member_name = (TextView) itemView.findViewById(R.id.coordinatorName);
-            progressBar = (ProgressBar) itemView.findViewById(R.id.progressBar_team);
+            progressBar = (AVLoadingIndicatorView) itemView.findViewById(R.id.progressBar_team);
         }
     }
 }
