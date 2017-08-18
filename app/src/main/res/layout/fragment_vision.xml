@@ -13,41 +13,47 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/darkgray">
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    >
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
+                        android:id="@+id/vision_title"
+                        android:layout_marginTop="15dp"
                         android:textSize="35dp"
                         android:gravity="center"
                         android:textColor="#ffffff"
-                        android:background="@color/gray"
-                        android:layout_gravity="center_horizontal"
                         android:text="VISION"
                         android:textStyle="bold"/>
                     <View
                         android:id="@+id/line3"
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
+                        android:layout_width="160sp"
+                        android:layout_height="1dp"
+                        android:layout_centerInParent="true"
+                        android:layout_below="@+id/vision_title"
                         android:background="@color/white"
                         android:layout_marginBottom="10dp"
                         />
 
 
                     <TextView
-                        android:id="@+id/vision_body"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="45dp"
+                        android:layout_height="wrap_content"
                         android:textSize="18dp"
+                        android:layout_marginTop="30dp"
                         android:textColor="#ffffff"
-                        android:paddingLeft="20dp"
-                        android:paddingRight="20dp"
-                        android:text="@string/vision_text" />
-                </LinearLayout>
+                        android:gravity="center"
+                        android:foregroundGravity="center"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:text="@string/vision_text"
+                        android:layout_below="@+id/line3"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"/>
+                </RelativeLayout>
         </FrameLayout>
 
     </LinearLayout>
