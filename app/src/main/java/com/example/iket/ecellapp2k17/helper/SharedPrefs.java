@@ -12,6 +12,7 @@ public class SharedPrefs {
     // Shared preferences file name
     private static final String PREF_NAME = "AndroidHiveLogin";
     private static final String KEY_IS_LOGGEDIN = "isLoggedIn";
+    private static final String KEY_IS_OTPLOGGEDIN = "isOtpLoggedIn";
     private static final String KEY_USERNAME = "username";
     private static final String KEY_MOBILE = "mobile";
     private static final String KEY_EMAIL = "email";
@@ -46,12 +47,19 @@ public class SharedPrefs {
         editor.putBoolean(KEY_IS_LOGGEDIN, isLoggedIn);
         // commit changes
         editor.commit();
-
+        Log.d(TAG, "User login session modified!");
+    }
+    public void setOtpLogin(boolean isOtpLoggedIn){
+        editor.putBoolean(KEY_IS_OTPLOGGEDIN, isOtpLoggedIn);
+        editor.commit();
         Log.d(TAG, "User login session modified!");
     }
 
     public boolean isLoggedIn() {
         return pref.getBoolean(KEY_IS_LOGGEDIN, false);
+    }
+    public boolean isOtpLoggedIn(){
+        return pref.getBoolean(KEY_IS_OTPLOGGEDIN,false);
     }
 
     public String getUsername() {
@@ -109,7 +117,7 @@ public class SharedPrefs {
 
     public String getPhotoUrl() {
 
-        return pref.getString(KEY_PHOTO_URL, "Not Available");
+        return pref.getString(KEY_PHOTO_URL, "User name not available");
     }
 
     public void setPhotoUrl(String photoUrl) {
@@ -131,7 +139,7 @@ public class SharedPrefs {
 
     public String getEmail() {
 
-        return pref.getString(KEY_EMAIL, "");
+        return pref.getString(KEY_EMAIL, "Your Email not available");
     }
 
     public int getLoginType() {
@@ -143,9 +151,10 @@ public class SharedPrefs {
         editor.commit();
     }
 
+
     public String getMobile() {
 
-        return pref.getString(KEY_MOBILE, "NA");
+        return pref.getString(KEY_MOBILE, "Phone number not available");
 
     }
 
