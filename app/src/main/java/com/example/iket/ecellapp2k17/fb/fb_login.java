@@ -56,9 +56,7 @@ public class fb_login extends AppCompatActivity {
 
     CallbackManager callbackManager;
     LoginButton loginButton;
-    //ImageView imageView;
-    ProfilePictureView profile_pic;
-    String userName;
+    String userName,userEmail;
     private SharedPrefs sharedPrefs;
     @BindView(login_background)
     ImageView lb;
@@ -87,13 +85,9 @@ public class fb_login extends AppCompatActivity {
         } catch (NoSuchAlgorithmException e) {
 
         }
-
-
         FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_fb_login);
-
-
-        RequestData();
+        sharedPrefs = new SharedPrefs(fb_login.this);
 
         ButterKnife.bind(this);
         Glide.with(this).load(R.drawable.login_bg).fitCenter().into(lb);
@@ -110,10 +104,37 @@ public class fb_login extends AppCompatActivity {
             @Override
             public void onSuccess(LoginResult loginResult) {
 
-                RequestData();
-                Toast.makeText(getApplicationContext(),"Logged in Successfully !", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(fb_login.this, Home.class);
-                startActivity(intent);
+                //if(AccessToken.getCurrentAccessToken()!=null){}
+                    sharedPrefs.setLogin(true);
+                   // RequestData();
+                    GraphRequest request = GraphRequest.newMeRequest(AccessToken.getCurrentAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
+                        @Override
+                        public void onCompleted(JSONObject object,GraphResponse response) {
+
+                            JSONObject json = response.getJSONObject();
+                            try {
+                                if(json != null){
+                                    userName = json.getString("email");
+                                    userEmail = json.getString("name");
+                                    sharedPrefs.setEmailId(userEmail);
+                                    sharedPrefs.setUsername(userName);
+
+                                }
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    });
+                  Bundle parameters = new Bundle();
+                    parameters.putString("fields", "id,name,link,email,picture");
+                    request.setParameters(parameters);
+                    request.executeAsync();
+
+                    Toast.makeText(getApplicationContext(), "Logged in Successfully !", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(fb_login.this, Home.class);
+                    startActivity(intent);
+
             }
 
             @Override
@@ -124,40 +145,11 @@ public class fb_login extends AppCompatActivity {
             @Override
             public void onError(FacebookException error) {
 
-                Toast.makeText(getApplicationContext(),"Something went wrong !!",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Something went wrong !! Check your net connection.",Toast.LENGTH_SHORT).show();
 
             }
         });
     }
-
-    public void RequestData(){
-        GraphRequest request = GraphRequest.newMeRequest(AccessToken.getCurrentAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
-            @Override
-            public void onCompleted(JSONObject object,GraphResponse response) {
-
-                JSONObject json = response.getJSONObject();
-                try {
-                    if(json != null){
-
-                     profile_pic.setProfileId(json.getString("id"));
-                     // URL image_value= new URL("http://graph.facebook.com/" + userName + "/picture" );
-                   //     sharedPrefs.setPhotoUrl(image_value.toString());
-                        sharedPrefs.setEmailId(json.getString("email"));
-                       // sharedPrefs.setUsername(json.getString("username"));
-                    }
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-        Bundle parameters = new Bundle();
-        parameters.putString("fields", "id,name,link,email,picture");
-        request.setParameters(parameters);
-        request.executeAsync();
-    }
-
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

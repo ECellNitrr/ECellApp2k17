@@ -58,7 +58,7 @@ public class ProfileFragment extends Fragment implements LoginView,OtpView{
     private Button editButton,saveButton,card_send_otp_btn,card_verify_otp_btn;
     private FrissonView wave;
     private CardView cardview_otp;
-    private  String mobile,otp,message;
+    private  String mobileNo,otp,message;
     private LoginData loginData;
     private OtpVerifyPresenter otpVerifyPresenter;
 
@@ -103,7 +103,6 @@ public class ProfileFragment extends Fragment implements LoginView,OtpView{
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-        sharedPrefs = new SharedPrefs(getContext());
     }
 
 
@@ -115,16 +114,33 @@ public class ProfileFragment extends Fragment implements LoginView,OtpView{
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             getActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
         }
+        sharedPrefs = new SharedPrefs(getContext());
             initialize(view);
-    //    if(sharedPrefs.isLoggedIn()){
-      //      verify.setVisibility(View.GONE);
-        //}
+        if(sharedPrefs.isOtpLoggedIn()){
+            verify.setVisibility(View.GONE);
+        }
+        if(sharedPrefs.getUsername()!=null){
+            fb_username.setText(sharedPrefs.getUsername());
+        }
+       // else{  fb_username.setText(Profile.getCurrentProfile().getName()); }
 
-//        fb_email.setText(sharedPrefs.getEmail());
-        fb_image=(ImageView)view.findViewById(R.id.center_image);
+        if(sharedPrefs.getEmail()!=null){
+            fb_email.setText(sharedPrefs.getEmail());
+        }
+       // else{  }
+
+        if(sharedPrefs.getMobile()!=null){
+            phoneTxt.setText(sharedPrefs.getMobile());
+        }
+
+
+
+
+         // fb_email.setText(sharedPrefs.getEmail());
+
         Uri imageUri = Profile.getCurrentProfile().getProfilePictureUri(400, 400);
         String image_url = imageUri.toString();
-        fb_username.setText(Profile.getCurrentProfile().getName());
+
 
         wave= (FrissonView) view.findViewById(R.id.wave);
         GlideImageLoader glideImageLoader=new GlideImageLoader(getContext());
@@ -163,7 +179,6 @@ public class ProfileFragment extends Fragment implements LoginView,OtpView{
                fb_username.setText(username_etxt.getText());
                 fb_email.setText(email_etxt.getText());
                 phoneTxt.setText(phone_etxt.getText());
-
                 username_etxt.setVisibility(View.GONE);
                 email_etxt.setVisibility(View.GONE);
                 phone_etxt.setVisibility(View.GONE);
@@ -174,6 +189,12 @@ public class ProfileFragment extends Fragment implements LoginView,OtpView{
                 editButton.setVisibility(View.VISIBLE);
                 log_out_txt.setVisibility(View.VISIBLE);
                 verify.setVisibility(View.VISIBLE);
+
+                sharedPrefs.setUsername(username_etxt.getText().toString());
+                sharedPrefs.setEmailId(email_etxt.getText().toString());
+                sharedPrefs.setMobile(phone_etxt.getText().toString());
+
+
             }
         });
     verify.setOnClickListener(new View.OnClickListener() {
@@ -181,19 +202,20 @@ public class ProfileFragment extends Fragment implements LoginView,OtpView{
         public void onClick(View v) {
             cardview_otp.setVisibility(View.VISIBLE);
             verify.setVisibility(View.GONE);
-            mobile =card_send_phone_etxt.getText().toString();
+            mobileNo =card_send_phone_etxt.getText().toString();
 
             card_send_otp_btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
-                    if(mobile.isEmpty()){
+/*
+                    if(mobileNo.isEmpty()){
                         showError("Fields cannot be empty");
                     }
-                    else{
+*/
+                    {
                         loginData = new LoginDataImp(ProfileFragment.this, new RetrofitLoginHelper());
-                        loginData.getLoginData(mobile);
-                        message = " ";
+                        loginData.getLoginData(mobileNo);
+                        message = "false";
                     }
                 }
             });
@@ -260,6 +282,7 @@ public class ProfileFragment extends Fragment implements LoginView,OtpView{
         phoneTxt = (TextView) view.findViewById(R.id.phone_txt);
         fb_username = (TextView)view.findViewById(R.id.user_name_fb);
         fb_email = (TextView) view.findViewById(R.id.email_fb);
+        fb_image=(ImageView)view.findViewById(R.id.center_image);
 
     }
 
@@ -289,6 +312,7 @@ public class ProfileFragment extends Fragment implements LoginView,OtpView{
     @Override
     public void OtpStatus(OtpData otpData) {
         cardview_otp.setVisibility(View.GONE);
+        sharedPrefs.setOtpLogin(true);
         Toast.makeText(getContext(),"OTP has been verified successfully",Toast.LENGTH_LONG);
     }
 }

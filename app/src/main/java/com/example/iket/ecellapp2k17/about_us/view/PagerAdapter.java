@@ -26,21 +26,19 @@ public class PagerAdapter extends FragmentPagerAdapter {
 
     }
 
-    // Returns total number of pages
     @Override
     public int getCount() {
         return NUM_ITEMS;
     }
 
-    // Returns the fragment to display for that page
     @Override
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
                 return new VisionFragment();
-            case 1: // Fragment # 0 - This will show FirstFragment different title
+            case 1:
                 return new TeamFragment();
-            case 2: // Fragment # 1 - This will show SecondFragment
+            case 2:
                 return new ContactUsFragment();
             default:
                 return new VisionFragment();

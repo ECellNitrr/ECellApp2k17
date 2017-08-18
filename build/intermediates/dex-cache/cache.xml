@@ -2,13 +2,31 @@
 <items version="2" >
 
     <item
-        is-multidex="false"
-        jar="/home/samveg/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="/home/vrihas/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
-        <dex dex="/home/samveg/ECellApp2k17/app/build/intermediates/pre-dexed/debug/picasso-2.5.2_de051b67f71d0437232a4fc6db1346a787f5d728.jar" />
+        <dex dex="/home/vrihas/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/picasso-2.5.2_bcda12ccfebc6eb2acfc871fabbfd4cd3b6668f5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/vrihas/.android/build-cache/0e313d33a382b999e83bc54dc7b10382a6e937f6/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e699699fae0092703de1d02b217f43803d0f7e0a">
+        <dex dex="/home/vrihas/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_3f0be4fa57101f0d95ecf198e4cf120affddc8fc/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/vrihas/ECellApp2k17/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="10a7b91ff31f9165be047902cc992b094a8cd9a4">
+        <dex dex="/home/vrihas/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_ec7ce60115cd4db1153e8d67a4988e084b4baac1/classes.dex" />
     </item>
 
 </items>
