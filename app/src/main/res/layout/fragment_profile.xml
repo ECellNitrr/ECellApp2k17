@@ -1,89 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:frisson="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
     >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <com.intrusoft.library.FrissonView
-        android:id="@+id/wave"
+    <ImageView
+        android:id="@+id/profile_pic_bg"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:scaleType="centerCrop"
-        frisson:tideCount="3"
-        frisson:tideHeight="50dp"
-        frisson:alphaValue="70"
-        frisson:autoTint="false"
+        android:src="@drawable/default_fb_pic"
         />
-
-
-    <android.support.v7.widget.CardView
-        android:id="@+id/meta"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="120dp"
-        frisson:cardCornerRadius="50dp">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="#95000000"/>
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
             android:id="@+id/center_image"
+            android:scaleType="centerCrop"
             android:src="@drawable/default_fb_pic"
-            />
-    </android.support.v7.widget.CardView>
+            android:layout_above="@+id/llayout"
+            android:layout_marginStart="22dp"
+            android:layout_marginBottom="78dp" />
+
 
     <TextView
         android:id="@+id/user_name_fb"
-        android:layout_width="match_parent"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/meta"
         android:layout_marginLeft="28dp"
-        android:layout_toRightOf="@+id/meta"
         android:fontFamily="sans-serif-smallcaps"
         android:text="User Name"
-        android:textColor="#ccffffff"
+        android:textColor="@color/white"
         android:textSize="22sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_alignTop="@+id/center_image"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:id="@+id/user_name_fb_etxt"
-        android:layout_width="match_parent"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/meta"
         android:layout_marginLeft="28dp"
-        android:layout_toRightOf="@+id/meta"
+        android:fontFamily="sans-serif-smallcaps"
+       android:hint="Enter Your Name"
+        android:textColorHint="@color/white"
         android:textColor="@color/white"
         android:textSize="22sp"
-        android:hint="Enter your name"
-        android:textColorHint="@color/white"
-        android:visibility="gone"/>
+        android:textStyle="bold"
+        android:visibility="gone"
+        android:layout_alignTop="@+id/center_image"
+        android:layout_alignParentEnd="true"/>
+
+
 
     <TextView
         android:id="@+id/log_out"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/user_name_fb"
         android:layout_marginLeft="28dp"
-        android:layout_marginTop="10dp"
-        android:layout_toRightOf="@+id/meta"
         android:background="@drawable/border"
         android:gravity="center"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:text="Log Out"
-        android:textColor="#ccffffff" />
+        android:textColor="#ccffffff"
+
+        android:layout_below="@+id/user_name_fb"
+        android:layout_alignStart="@+id/user_name_fb"
+        android:layout_marginTop="11dp" />
 
     <RelativeLayout
         android:id="@+id/llayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/wave"
+        android:layout_below="@id/profile_pic_bg"
         android:layout_marginTop="5dp"
         android:orientation="vertical">
 
@@ -147,8 +151,10 @@
         android:layout_below="@+id/llayout"
         android:layout_marginTop="25dp"
         android:visibility="gone"
-        frisson:cardElevation="25dp"
-       frisson:cardCornerRadius="10dp"
+        app:cardElevation="20dp"
+        app:contentPadding="2dp"
+        app:cardCornerRadius="8dp"
+        app:cardBackgroundColor="#9E9E9E"
         android:layout_centerHorizontal="true">
         <RelativeLayout
             android:layout_width="match_parent"
@@ -158,6 +164,7 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:hint="Enter your phone no."
+        android:textColorHint="@color/white"
         />
             <EditText
                 android:id="@+id/verify_otp_etxt"
@@ -165,6 +172,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:visibility="gone"
+                android:textColorHint="@color/white"
                 android:hint="Enter the OTP"
                 />
     <Button
@@ -218,9 +226,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Your no. has not been verified.Click here to verify OTP!"
+       android:layout_below="@+id/llayout"
+        android:layout_marginTop="110dp"
         android:layout_alignParentBottom="true"
         android:clickable="true"
-        android:layout_alignStart="@+id/meta"
+       android:layout_marginLeft="8dp"
         android:layout_marginBottom="18dp" />
 
+</RelativeLayout>
+
+    </ScrollView>
 </RelativeLayout>

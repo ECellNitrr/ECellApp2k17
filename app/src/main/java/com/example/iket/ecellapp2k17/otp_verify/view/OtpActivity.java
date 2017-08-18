@@ -16,8 +16,6 @@ import com.example.iket.ecellapp2k17.helper.Keys;
 import com.example.iket.ecellapp2k17.helper.SharedPrefs;
 import com.example.iket.ecellapp2k17.home.Home;
 import com.example.iket.ecellapp2k17.login.presenter.LoginData;
-import com.example.iket.ecellapp2k17.login.presenter.LoginDataImp;
-import com.example.iket.ecellapp2k17.login.provider.RetrofitLoginHelper;
 import com.example.iket.ecellapp2k17.login.view.LoginActivity;
 import com.example.iket.ecellapp2k17.otp_verify.model.OtpData;
 import com.example.iket.ecellapp2k17.otp_verify.presenter.OtpVerifyPresenter;
@@ -34,10 +32,8 @@ import static com.example.iket.ecellapp2k17.R.id.otp_img;
 
 public class OtpActivity extends AppCompatActivity implements OtpView{
 
-    private Button button;
-    private Button button2;
-    private Button button3;
-    private LoginData loginData;
+
+    private Button btn_resend_otp;
     private EditText editTextOtp;
     private ProgressBar progressBar;
     private ImageView otpImage;
@@ -45,8 +41,6 @@ public class OtpActivity extends AppCompatActivity implements OtpView{
     private OtpVerifyPresenter otpVerifyPresenter;
     private SharedPrefs sharedPrefs;
 
-    @BindView(login_background)
-    ImageView lb;
     @BindView(mobile_img)
     ImageView mi;
     @BindView(otp_img)
@@ -57,35 +51,35 @@ public class OtpActivity extends AppCompatActivity implements OtpView{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fb_login);
+        setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
-        Glide.with(this).load(R.drawable.login_bg).into(lb);
+
         Glide.with(this).load(R.drawable.user_black).into(mi);
         Glide.with(this).load(R.drawable.password_black).into(oi);
-        Glide.with(this).load(R.drawable.ecell_logo).into(ecl);
-
+        sharedPrefs = new SharedPrefs(this);
         if (getIntent() != null) {
             Bundle bundle = getIntent().getExtras();
             message = bundle.getString(Keys.KEY_MOBILE);
         }
-        sharedPrefs = new SharedPrefs(this);
+
         editTextOtp = (EditText) findViewById(R.id.input_otp);
-        button = (Button) findViewById(R.id.otpIn);
-        button2 = (Button) findViewById(R.id.logIn);
-        button3 = (Button) findViewById(R.id.resend_otp);
+        btn_resend_otp = (Button) findViewById(R.id.resend_otp);
         otpImage = (ImageView) findViewById(R.id.otp_img);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         otpImage.setVisibility(View.VISIBLE);
         editTextOtp.setVisibility(View.VISIBLE);
-        button.setVisibility(View.VISIBLE);
-        button2.setVisibility(View.GONE);
-        button3.setVisibility(View.VISIBLE);
+        btn_resend_otp.setVisibility(View.VISIBLE);
     }
 
     public void proceed_verify(View v) {
         otp_number = editTextOtp.getText().toString();
-        otpVerifyPresenter = new OtpVerifyPresenterImp(this, new RetrofitOtpVerifyHelper());
-        otpVerifyPresenter.otpData(otp_number, message);
+        if (otp_number.isEmpty()){
+            Toast.makeText(this,"Please enter the otp!",Toast.LENGTH_SHORT);
+        }
+        else {
+            otpVerifyPresenter = new OtpVerifyPresenterImp(this, new RetrofitOtpVerifyHelper());
+            otpVerifyPresenter.otpData(otp_number, message);
+        }
     }
     public void resend(View v) {
 
@@ -109,15 +103,13 @@ public class OtpActivity extends AppCompatActivity implements OtpView{
 
     @Override
     public void OtpStatus(OtpData otpData) {
-
+        sharedPrefs.setLogin(true);
         Intent i = new Intent(this, Home.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);
         sharedPrefs.setAccessToken(otpData.getAccess_token());
         sharedPrefs.setOtpLogin(true);
         finish();
-
-
     }
 
     @Override

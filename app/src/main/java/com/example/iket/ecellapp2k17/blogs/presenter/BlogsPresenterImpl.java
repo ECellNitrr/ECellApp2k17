@@ -30,7 +30,6 @@ public class BlogsPresenterImpl implements BlogsPresenter{
                 blogsInterface.showProgressBar(false);
                 blogsInterface.setData(blogDataList);
             }
-
             @Override
             public void onFailure() {
                 blogsInterface.showProgressBar(false);
