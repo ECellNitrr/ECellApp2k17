@@ -16,9 +16,12 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.events.model.data.EventsData;
 import com.example.iket.ecellapp2k17.events.presenter.EventsPresenter;
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.ArrayList;
@@ -110,6 +113,31 @@ public class EventDetailsFragment extends android.support.v4.app.DialogFragment 
         event_details_date = (TextView) view.findViewById(R.id.eventDate);
         event_details_time = (TextView) view.findViewById(R.id.eventTime);
         progressBar = (AVLoadingIndicatorView) view.findViewById(R.id.progressBar_event_details);
+
+        YoYo.with(Techniques.SlideInDown)
+                .duration(800)
+                .repeat(0)
+                .playOn(view.findViewById(R.id.eventBody));
+        YoYo.with(Techniques.SlideInDown)
+                .duration(800)
+                .repeat(0)
+                .playOn(view.findViewById(R.id.eventDate));
+        YoYo.with(Techniques.SlideInDown)
+                .duration(800)
+                .repeat(0)
+                .playOn(view.findViewById(R.id.eventLocation));
+        YoYo.with(Techniques.SlideInDown)
+                .duration(800)
+                .repeat(0)
+                .playOn(view.findViewById(R.id.eventTime));
+        YoYo.with(Techniques.SlideInDown)
+                .duration(800)
+                .repeat(0)
+                .playOn(view.findViewById(R.id.locImage));
+        YoYo.with(Techniques.SlideInDown)
+                .duration(800)
+                .repeat(0)
+                .playOn(view.findViewById(R.id.eventTitle));
 
         event_details_name.setText(eventsData.getEventName());
         event_details_desc.setText(eventsData.getDescription());

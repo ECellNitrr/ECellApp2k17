@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
@@ -112,7 +113,13 @@ public class VerticlePagerAdapter extends PagerAdapter {
             public void onClick(View v) {
                 CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
                 CustomTabsIntent customTabsIntent = builder.build();
-                customTabsIntent.launchUrl(mContext, Uri.parse(data.getUrl()));
+                try {
+                    customTabsIntent.launchUrl(mContext, Uri.parse(data.getUrl()));
+                }
+                catch (Exception e)
+                {
+                    Toast.makeText(mContext, "Error opening custom tabs", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
