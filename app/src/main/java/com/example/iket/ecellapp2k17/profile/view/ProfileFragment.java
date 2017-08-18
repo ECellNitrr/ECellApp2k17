@@ -2,6 +2,7 @@ package com.example.iket.ecellapp2k17.profile.view;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 
 import android.net.Uri;
@@ -21,16 +22,15 @@ import android.widget.Toast;
 import com.example.iket.ecellapp2k17.login.presenter.LoginData;
 import com.example.iket.ecellapp2k17.login.presenter.LoginDataImp;
 import com.example.iket.ecellapp2k17.login.provider.RetrofitLoginHelper;
+import com.example.iket.ecellapp2k17.login.view.LoginActivity;
 import com.example.iket.ecellapp2k17.login.view.LoginView;
-import com.example.iket.ecellapp2k17.otp_verify.model.OtpData;
-import com.example.iket.ecellapp2k17.otp_verify.presenter.OtpVerifyPresenter;
-import com.example.iket.ecellapp2k17.otp_verify.presenter.OtpVerifyPresenterImp;
-import com.example.iket.ecellapp2k17.otp_verify.provider.RetrofitOtpVerifyHelper;
-import com.example.iket.ecellapp2k17.otp_verify.view.OtpView;
 import com.facebook.Profile;
 import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.helper.SharedPrefs;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
@@ -44,16 +44,15 @@ import jp.wasabeef.glide.transformations.CropCircleTransformation;
  * Use the {@link ProfileFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ProfileFragment extends Fragment implements LoginView,OtpView{
+public class ProfileFragment extends Fragment implements LoginView{
 
-    private ImageView fb_image,fb_image_bg;
-    private TextView fb_username,fb_email,phoneTxt,log_out_txt,verify;
-    private EditText username_etxt,email_etxt,phone_etxt,card_send_phone_etxt,card_send_otp_etxt;
-    private Button editButton,saveButton,card_send_otp_btn,card_verify_otp_btn;
-    private CardView cardview_otp;
-    private  String mobileNo,otp,message;
+    private ImageView fb_image;
+    private TextView fb_username,fb_email,phoneTxt,log_out_txt;
+    private EditText username_etxt,email_etxt,phone_etxt;
+    private Button editButton,saveButton,cancelButton;
+    private  String edit_name,edit_mobile,edit_email;
+    private CardView card_edit_details;
     private LoginData loginData;
-    private OtpVerifyPresenter otpVerifyPresenter;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -103,19 +102,16 @@ public class ProfileFragment extends Fragment implements LoginView,OtpView{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view=inflater.inflate(R.layout.fragment_profile, container, false);
+        final View view=inflater.inflate(R.layout.fragment_profile, container, false);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             getActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
         }
         sharedPrefs = new SharedPrefs(getContext());
             initialize(view);
-        if(sharedPrefs.isOtpLoggedIn()){
-            verify.setVisibility(View.GONE);
-        }
+
         if(sharedPrefs.getUsername()!=null){
             fb_username.setText(sharedPrefs.getUsername());
         }
-       // else{  fb_username.setText(Profile.getCurrentProfile().getName()); }
 
         if(sharedPrefs.getEmail()!=null){
             fb_email.setText(sharedPrefs.getEmail());
@@ -125,26 +121,23 @@ public class ProfileFragment extends Fragment implements LoginView,OtpView{
             phoneTxt.setText(sharedPrefs.getMobile());
         }
 
-         // fb_email.setText(sharedPrefs.getEmail());
-
-        Uri imageUri = Profile.getCurrentProfile().getProfilePictureUri(400, 400);
-        String image_url = imageUri.toString();
-        Glide.with(getContext()).load(image_url).bitmapTransform(new CropCircleTransformation(getContext())).into(fb_image);
-        Glide.with(getContext()).load(image_url).into(fb_image_bg);
+        Glide.with(getContext()).load(R.drawable.default_fb_pic).bitmapTransform(new CropCircleTransformation(getContext())).into(fb_image);
 
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /*
                 fb_username.setVisibility(View.GONE);
                 fb_email.setVisibility(View.GONE);
                 phoneTxt.setVisibility(View.GONE);
                 username_etxt.setVisibility(View.VISIBLE);
                 email_etxt.setVisibility(View.VISIBLE);
-                phone_etxt.setVisibility(View.VISIBLE);
                 editButton.setVisibility(View.GONE);
                 saveButton.setVisibility(View.VISIBLE);
+                */
+                editButton.setVisibility(View.GONE);
+                card_edit_details.setVisibility(View.VISIBLE);
                 log_out_txt.setVisibility(View.GONE);
-                verify.setVisibility(View.GONE);
 
             }
         });
@@ -152,67 +145,56 @@ public class ProfileFragment extends Fragment implements LoginView,OtpView{
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               fb_username.setText(username_etxt.getText());
-                fb_email.setText(email_etxt.getText());
-                phoneTxt.setText(phone_etxt.getText());
+
+                edit_name = username_etxt.getText().toString();
+                edit_email = email_etxt.getText().toString();
+                edit_mobile = phoneTxt.getText().toString();
+/*
                 username_etxt.setVisibility(View.GONE);
                 email_etxt.setVisibility(View.GONE);
-                phone_etxt.setVisibility(View.GONE);
                 fb_username.setVisibility(View.VISIBLE);
                 fb_email.setVisibility(View.VISIBLE);
                 phoneTxt.setVisibility(View.VISIBLE);
                 saveButton.setVisibility(View.GONE);
                 editButton.setVisibility(View.VISIBLE);
+*/
                 log_out_txt.setVisibility(View.VISIBLE);
-                verify.setVisibility(View.VISIBLE);
 
                 sharedPrefs.setUsername(username_etxt.getText().toString());
                 sharedPrefs.setEmailId(email_etxt.getText().toString());
-                sharedPrefs.setMobile(phone_etxt.getText().toString());
 
-
+                if(edit_name.isEmpty() ||  edit_email.isEmpty()){
+                    Toast.makeText(getContext(),"Fields cannot be empty!",Toast.LENGTH_SHORT);
+                }
+                else if(emailInvalid(edit_email)){
+                    Toast.makeText(getContext(), "ENTER CORRECT EMAIL ID!",
+                            Toast.LENGTH_LONG).show();
+                }
+                else {
+                    loginData = new LoginDataImp(ProfileFragment.this, new RetrofitLoginHelper());
+                    loginData.getLoginData(edit_name, edit_mobile,edit_email);
+                }
             }
         });
-    verify.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            cardview_otp.setVisibility(View.VISIBLE);
-            verify.setVisibility(View.GONE);
-            mobileNo =card_send_phone_etxt.getText().toString();
 
-            card_send_otp_btn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-/*
-                    if(mobileNo.isEmpty()){
-                        showError("Fields cannot be empty");
-                    }
-*/
-                    {
-                        loginData = new LoginDataImp(ProfileFragment.this, new RetrofitLoginHelper());
-                        loginData.getLoginData(mobileNo);
-                        message = "false";
-                    }
-                }
-            });
-            card_verify_otp_btn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    otp = card_send_otp_etxt.getText().toString();
-                    if(otp.isEmpty()){
-                        showError("Fields cannot be empty");
-                    }
-                    else{
-                        cardview_otp.setVisibility(View.GONE);
-                        otpVerifyPresenter = new OtpVerifyPresenterImp(ProfileFragment.this, new RetrofitOtpVerifyHelper());
-                        otpVerifyPresenter.otpData(otp, message);
-                    }
-                }
-            });
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editButton.setVisibility(view.VISIBLE);
+                fb_username.setText(sharedPrefs.getUsername());
+                fb_email.setText(sharedPrefs.getEmail());
+                card_edit_details.setVisibility(View.GONE);
+            }
+        });
 
-
-        }
-    });
+        log_out_txt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sharedPrefs.setLogin(false);
+                Intent i = new Intent(getContext(), LoginActivity.class);
+                startActivity(i);
+            }
+        });
 
         return view;
     }
@@ -243,24 +225,17 @@ public class ProfileFragment extends Fragment implements LoginView,OtpView{
     }
 
     public void initialize(View view){
-        card_send_otp_btn = (Button) view.findViewById(R.id.btn_send_otp);
-        card_send_otp_etxt  = (EditText) view.findViewById(R.id.verify_otp_etxt);
-        card_send_phone_etxt = (EditText) view.findViewById(R.id.send_phone_etxt);
-        card_verify_otp_btn = (Button) view.findViewById(R.id.btn_verify_otp);
-        cardview_otp = (CardView) view.findViewById(R.id.card_otp);
-        verify = (TextView) view.findViewById(R.id.verify_txt);
+        card_edit_details = (CardView) view.findViewById(R.id.card_edit);
         log_out_txt = (TextView) view.findViewById(R.id.log_out);
         username_etxt = (EditText) view.findViewById(R.id.user_name_fb_etxt);
         email_etxt = (EditText) view.findViewById(R.id.email_fb_etxt);
-        phone_etxt = (EditText) view.findViewById(R.id.phone_etxt);
         editButton = (Button) view.findViewById(R.id.btn_edit);
         saveButton = (Button) view.findViewById(R.id.btn_save);
         phoneTxt = (TextView) view.findViewById(R.id.phone_txt);
         fb_username = (TextView)view.findViewById(R.id.user_name_fb);
         fb_email = (TextView) view.findViewById(R.id.email_fb);
         fb_image=(ImageView)view.findViewById(R.id.center_image);
-        fb_image_bg = (ImageView)view.findViewById(R.id.profile_pic_bg);
-
+        cancelButton = (Button) view.findViewById(R.id.btn_cancel);
     }
 
     @Override
@@ -270,10 +245,10 @@ public class ProfileFragment extends Fragment implements LoginView,OtpView{
 
     @Override
     public void showLoginStatus(boolean login) {
-        card_send_phone_etxt.setVisibility(View.GONE);
-        card_send_otp_btn.setVisibility(View.GONE);
-        card_send_otp_etxt.setVisibility(View.VISIBLE);
-        card_verify_otp_btn.setVisibility(View.VISIBLE);
+        card_edit_details.setVisibility(View.GONE);
+        fb_username.setText(username_etxt.getText());
+        fb_email.setText(email_etxt.getText());
+        Toast.makeText(getContext(),"Your Details has been Updated Successfully!",Toast.LENGTH_LONG);
     }
 
     @Override
@@ -281,18 +256,19 @@ public class ProfileFragment extends Fragment implements LoginView,OtpView{
         Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
     }
 
-    @Override
-    public void showMessage(String message) {
+    public boolean emailInvalid(String email) {
+        Pattern pattern;
+        Matcher matcher;
 
+        final String EMAIL_PATTERN =
+                "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+        pattern = Pattern.compile(EMAIL_PATTERN);
+        matcher = pattern.matcher(email);
+        boolean a = matcher.matches();
+        return !a;
     }
 
-    @Override
-    public void OtpStatus(OtpData otpData) {
-        cardview_otp.setVisibility(View.GONE);
-        sharedPrefs.setOtpLogin(true);
-        Toast.makeText(getContext(),"OTP has been verified successfully",Toast.LENGTH_LONG);
-    }
 }
 
-//www.myc.com/wp-content/uploads/2016/07/0d36e7a476b06333d9fe9960572b66b9.jpg
 

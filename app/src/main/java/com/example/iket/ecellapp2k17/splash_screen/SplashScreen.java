@@ -8,8 +8,7 @@ import android.os.Handler;
 import com.example.iket.ecellapp2k17.helper.SharedPrefs;
 import com.example.iket.ecellapp2k17.home.Home;
 import com.example.iket.ecellapp2k17.R;
-import com.example.iket.ecellapp2k17.fb.fb_login;
-import com.facebook.AccessToken;
+import com.example.iket.ecellapp2k17.login.view.LoginActivity;
 
 public class SplashScreen extends Activity {
 
@@ -23,37 +22,21 @@ public class SplashScreen extends Activity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-              //  updateWithToken(AccessToken.getCurrentAccessToken());
                if(sharedPrefs.isLoggedIn()){
                     Intent intent = new Intent(SplashScreen.this,Home.class);
                     startActivity(intent);
                    finish();
                 }
                 else{
-                   Intent intent = new Intent(SplashScreen.this,fb_login.class);
+                   Intent intent = new Intent(SplashScreen.this,LoginActivity.class);
                    startActivity(intent);
                    finish();
                }
                 finish();
             }
-        },3000);
+        },2500);
 
     }
-/*
-    private void updateWithToken(AccessToken currentAccessToken) {
-
-        if (currentAccessToken != null) {
-
-                    Intent intent = new Intent(SplashScreen.this, Home.class);
-                    startActivity(intent);
-        }
-        else {
-                    Intent intent = new Intent(SplashScreen.this, fb_login.class);
-                    startActivity(intent);
-             }
-
-        }
-*/
 }
 
 
