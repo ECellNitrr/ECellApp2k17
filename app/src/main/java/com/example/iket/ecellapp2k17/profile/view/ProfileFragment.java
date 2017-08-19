@@ -110,6 +110,7 @@ public class ProfileFragment extends Fragment implements LoginView{
 
         sharedPrefs = new SharedPrefs(getContext());
             initialize(view);
+        card_edit_details.setVisibility(View.GONE);
 
         if(sharedPrefs.getUsername()!=null){
             fb_username.setText(sharedPrefs.getUsername());
@@ -122,7 +123,7 @@ public class ProfileFragment extends Fragment implements LoginView{
         if(sharedPrefs.getMobile()!=null){
             phoneTxt.setText(sharedPrefs.getMobile());
         }
-        Glide.with(getContext()).load(R.drawable.profile_bg).into(profile_bg);
+  //      Glide.with(getContext()).load(R.drawable.profile_bg).into(profile_bg);
         Glide.with(getContext()).load(R.drawable.default_fb_pic).bitmapTransform(new CropCircleTransformation(getContext())).into(fb_image);
 
         editButton.setOnClickListener(new View.OnClickListener() {
@@ -173,8 +174,13 @@ public class ProfileFragment extends Fragment implements LoginView{
                             Toast.LENGTH_LONG).show();
                 }
                 else {
-                    loginData = new LoginDataImp(ProfileFragment.this, new RetrofitLoginHelper());
-                    loginData.getLoginData(edit_name, edit_mobile,edit_email);
+//                    loginData = new LoginDataImp(ProfileFragment.this, new RetrofitLoginHelper());
+//                    loginData.getLoginData(edit_name, edit_mobile,edit_email);
+                    Toast.makeText(getContext(), "Data Saved", Toast.LENGTH_SHORT).show();
+                    card_edit_details.setVisibility(View.GONE);
+                    fb_username.setText(edit_name);
+                    fb_email.setText(edit_email);
+                    editButton.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -193,8 +199,10 @@ public class ProfileFragment extends Fragment implements LoginView{
             @Override
             public void onClick(View v) {
                 sharedPrefs.setLogin(false);
+                getActivity().finish();
                 Intent i = new Intent(getContext(), LoginActivity.class);
                 startActivity(i);
+
             }
         });
 
@@ -238,7 +246,7 @@ public class ProfileFragment extends Fragment implements LoginView{
         fb_email = (TextView) view.findViewById(R.id.email_fb);
         fb_image=(ImageView)view.findViewById(R.id.center_image);
         cancelButton = (Button) view.findViewById(R.id.btn_cancel);
-        profile_bg = (ImageView) view.findViewById(R.id.profile_bg_img);
+       // profile_bg = (ImageView) view.findViewById(R.id.profile_bg_img);
     }
 
     @Override

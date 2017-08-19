@@ -2,6 +2,7 @@ package com.example.iket.ecellapp2k17.sponsors.model;
 
 
 import com.example.iket.ecellapp2k17.sponsors.model.data.SponsHeading;
+import com.example.iket.ecellapp2k17.sponsors.model.data.SponsParent;
 import com.example.iket.ecellapp2k17.sponsors.view.OnSponsReceived;
 import com.example.iket.ecellapp2k17.sponsors.model.data.SponsData;
 
@@ -38,6 +39,8 @@ public class MockSpons implements SponsProvider{
         dataList1.add(data1);
         spons=new SponsHeading(dataList,"Title Sponsors");
         list.add(spons);
-        onSponsReceived.onSuccess(list);
+        SponsParent sponsParent=new SponsParent(true,"Hello",list);
+        onSponsReceived.onSuccess(sponsParent);
+
     }
 }

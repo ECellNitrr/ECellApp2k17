@@ -2,6 +2,7 @@ package com.example.iket.ecellapp2k17.sponsors.api;
 
 import com.example.iket.ecellapp2k17.helper.Urls;
 import com.example.iket.ecellapp2k17.sponsors.model.data.SponsHeading;
+import com.example.iket.ecellapp2k17.sponsors.model.data.SponsParent;
 
 import java.util.List;
 
@@ -14,5 +15,5 @@ import retrofit2.http.GET;
 
 public interface RequestApiSpons {
     @GET(Urls.REQUEST_SPONS)
-    Call <List<SponsHeading>> getSpons();
+    Call <SponsParent> getSpons();
 }
