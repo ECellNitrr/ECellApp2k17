@@ -46,6 +46,7 @@ public class RetrofitBlogsProvider implements BlogsProvider{
 
         final RequestInterface request = retrofit.create(RequestInterface.class);
 
+
         Call<BlogFeed> call = request.getBlog();
 
         call.enqueue(new Callback<BlogFeed>(){
