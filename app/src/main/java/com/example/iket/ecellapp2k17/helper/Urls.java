@@ -15,7 +15,7 @@ public class Urls {
     public static final String REQUEST_SPONS = "get_sponsors_list/";
     public static final String REQUEST_BQUIZ_DATA ="";
     public static final String REQUEST_SUBMIT_ANSWER ="";
-    public static final String REQUEST_LOGIN ="";
+    public static final String REQUEST_LOGIN ="create_user";
     public static final String Request_VERIFY="";
     public static final String REQUEST_SPEAKERS ="get_speakers_list" ;
     public static final String REQUEST_CONTACTUS ="/submit_contact_us";

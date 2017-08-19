@@ -7,7 +7,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -22,6 +21,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/blog_relative_layout">
+
+            <Button
+                android:id="@+id/exit_read_more_btn"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:text="X"
+                android:layout_margin="10dp"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:background="@drawable/background_circle2"/>
+
 
             <com.wang.avi.AVLoadingIndicatorView
                 android:id="@+id/progressBar_blogs"

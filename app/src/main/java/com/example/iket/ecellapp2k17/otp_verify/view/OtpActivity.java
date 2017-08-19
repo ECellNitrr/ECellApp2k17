@@ -33,8 +33,8 @@ import static com.example.iket.ecellapp2k17.R.id.otp_img;
 public class OtpActivity extends AppCompatActivity implements OtpView{
 
 
-    private Button btn_resend_otp;
-    private EditText editTextOtp;
+    private Button btn_resend_otp,btn_verify_otp,btn_login;
+    private EditText editTextOtp,editTextMobile,editTextName,editTextEmail;
     private ProgressBar progressBar;
     private ImageView otpImage;
     private String message, otp_number;
@@ -50,13 +50,21 @@ public class OtpActivity extends AppCompatActivity implements OtpView{
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
 
-
-        Glide.with(this).load(R.drawable.password_black).into(oi);
+        //Glide.with(this).load(R.drawable.password_black).into(oi);
         sharedPrefs = new SharedPrefs(this);
         if (getIntent() != null) {
             Bundle bundle = getIntent().getExtras();
             message = bundle.getString(Keys.KEY_MOBILE);
         }
+        btn_login = (Button) findViewById(R.id.logIn);
+        btn_verify_otp = (Button) findViewById(R.id.btnVerify);
+        editTextMobile = (EditText) findViewById(R.id.input_mobile);
+        editTextName = (EditText) findViewById(R.id.input_name);
+        editTextEmail = (EditText) findViewById(R.id.input_email);
+        editTextName.setVisibility(View.GONE);
+        editTextMobile.setVisibility(View.GONE);
+        editTextEmail.setVisibility(View.GONE);
+        btn_login.setVisibility(View.GONE);
 
         editTextOtp = (EditText) findViewById(R.id.input_otp);
         btn_resend_otp = (Button) findViewById(R.id.resend_otp);
@@ -65,6 +73,7 @@ public class OtpActivity extends AppCompatActivity implements OtpView{
         otpImage.setVisibility(View.VISIBLE);
         editTextOtp.setVisibility(View.VISIBLE);
         btn_resend_otp.setVisibility(View.VISIBLE);
+        btn_verify_otp.setVisibility(View.VISIBLE);
     }
 
     public void proceed_verify(View v) {
@@ -74,7 +83,7 @@ public class OtpActivity extends AppCompatActivity implements OtpView{
         }
         else {
             otpVerifyPresenter = new OtpVerifyPresenterImp(this, new RetrofitOtpVerifyHelper());
-            otpVerifyPresenter.otpData(otp_number, message);
+            otpVerifyPresenter.otpData(otp_number, message,sharedPrefs.getAccessToken());
         }
     }
     public void resend(View v) {
@@ -102,7 +111,6 @@ public class OtpActivity extends AppCompatActivity implements OtpView{
         Intent i = new Intent(this, Home.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);
-        sharedPrefs.setAccessToken(otpData.getAccess_token());
         sharedPrefs.setLogin(true);
         finish();
     }

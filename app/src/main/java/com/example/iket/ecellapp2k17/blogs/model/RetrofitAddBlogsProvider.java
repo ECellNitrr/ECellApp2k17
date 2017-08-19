@@ -31,7 +31,7 @@ public class RetrofitAddBlogsProvider implements  AddBlogsProvider{
     private Call<AddBlogsData> call;
 
     @Override
-    public void getBlogResponse(String blogTitle, String blogBody,String file_image, final AddABlogCallback addABlogCallback) {
+    public void getBlogResponse(String blogTitle, String blogBody,String access_token,String file_image, final AddABlogCallback addABlogCallback) {
         Gson gson = new GsonBuilder()
                 .setLenient()
                 .create();
@@ -55,9 +55,9 @@ public class RetrofitAddBlogsProvider implements  AddBlogsProvider{
         MultipartBody.Part fileToUploading = MultipartBody.Part.createFormData("file", file.getName(), requestBodying);
         RequestBody blogTitle1 = RequestBody.create(MediaType.parse("text/plain"), blogTitle);
         RequestBody blogBody1 = RequestBody.create(MediaType.parse("text/plain"), blogBody);
+        RequestBody accessToken = RequestBody.create(MediaType.parse("text/plain"),access_token);
 
-
-        call = addBlogsRequestInterface.getJson(blogTitle1,blogBody1,fileToUploading);
+        call = addBlogsRequestInterface.getJson(blogTitle1,blogBody1,accessToken,fileToUploading);
         call.enqueue(new Callback<AddBlogsData>() {
             @Override
             public void onResponse(Call<AddBlogsData> call, Response<AddBlogsData> response) {

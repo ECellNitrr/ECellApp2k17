@@ -10,6 +10,7 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -46,6 +47,7 @@ public class ReadMoreBlogsFragment extends android.support.v4.app.DialogFragment
 
     private List<BlogData> blogDataList = new ArrayList<>();
     Context mContext;
+    private Button exitButton;
 
     private AVLoadingIndicatorView progressBar;
 
@@ -104,6 +106,7 @@ public class ReadMoreBlogsFragment extends android.support.v4.app.DialogFragment
         TextView title = (TextView) itemView.findViewById(R.id.blog_title);
         TextView date=(TextView)itemView.findViewById(R.id.blog_date);
         TextView body=(TextView)itemView.findViewById(R.id.blog_body);
+        exitButton = (Button) itemView.findViewById(R.id.exit_read_more_btn);
 
         ImageView blogImage= (ImageView) itemView.findViewById(R.id.blog_image);
         progressBar = (AVLoadingIndicatorView) itemView.findViewById(R.id.progressBar_blogs);
@@ -124,6 +127,13 @@ public class ReadMoreBlogsFragment extends android.support.v4.app.DialogFragment
         title.setText(data.getTitle());
         date.setText(data.getDate());
         body.setText(Html.fromHtml(Html.fromHtml(data.getBody()).toString()));
+
+        exitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ReadMoreBlogsFragment.this.dismiss();
+            }
+        });
 
         return  itemView;
     }

@@ -8,6 +8,6 @@ import com.example.iket.ecellapp2k17.otp_verify.OtpVerificationCallback;
 
 public interface OtpVerifyHelperClass {
 
-    void getOtpResponse(String otp, String mobile, OtpVerificationCallback otpVerificationCallback);
+    void getOtpResponse(String otp, String mobile, String access_token, OtpVerificationCallback otpVerificationCallback);
     void onDestroy();
 }

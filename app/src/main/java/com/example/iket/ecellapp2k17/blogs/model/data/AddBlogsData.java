@@ -9,17 +9,14 @@ public class AddBlogsData {
     private String message;
     private String access_token;
 
-    public AddBlogsData(String message, String access_token, boolean success){
+    public AddBlogsData(String message, boolean success){
         this.message = message;
         this.success = success;
-        this.access_token = access_token;
     }
     public  String getMessage(){
         return message;
     }
-    public  String getAccess_token(){
-        return access_token;
-    }
+
     public boolean isSuccess(){
         return  success;
     }

@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.iket.ecellapp2k17.login.model.LoginDataResponse;
 import com.example.iket.ecellapp2k17.login.presenter.LoginData;
 import com.example.iket.ecellapp2k17.login.presenter.LoginDataImp;
 import com.example.iket.ecellapp2k17.login.provider.RetrofitLoginHelper;
@@ -255,7 +256,7 @@ public class ProfileFragment extends Fragment implements LoginView{
     }
 
     @Override
-    public void showLoginStatus(boolean login) {
+    public void showLoginStatus(LoginDataResponse loginDataResponse) {
         card_edit_details.setVisibility(View.GONE);
         fb_username.setText(username_etxt.getText());
         fb_email.setText(email_etxt.getText());

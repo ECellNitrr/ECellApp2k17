@@ -69,89 +69,8 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="dcc8ca8416c6e7aa658fc7bd0f6dc17727768d7a">
+        sha1="6225ce95bbf7dea1dcd54196d0761bef2c7f7100">
         <dex dex="/home/vrihas/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_ec7ce60115cd4db1153e8d67a4988e084b4baac1/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/vrihas/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.2.2/d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b/jackson-core-2.2.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b">
-        <dex dex="/home/vrihas/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-core-2.2.2_df4732224a2caa3afb1a35bcfdc42f4695c47b15/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/vrihas/.gradle/caches/modules-2/files-2.1/com.firebase/tubesock/0.0.12/6ec0bbd3e161a73ed672284b587fd32309a86d7a/tubesock-0.0.12.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="6ec0bbd3e161a73ed672284b587fd32309a86d7a">
-        <dex dex="/home/vrihas/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/tubesock-0.0.12_9497c564898502dae2f834a54827f8cf0a71dc5c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/vrihas/.android/build-cache/c148dc4e90bf794cc09bf1be5d8a60b9fb649b3d/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="7a23185c9b1c100e7d1a32275017e4712e31c796">
-        <dex dex="/home/vrihas/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_9c3dd3c640eb98d544858b99c3ed97d41392d4c1/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/vrihas/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.2.2/285cb9c666f0f0f3dd8a1be04e1f457eb7b15113/jackson-annotations-2.2.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="285cb9c666f0f0f3dd8a1be04e1f457eb7b15113">
-        <dex dex="/home/vrihas/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-annotations-2.2.2_ec0d01025bf89195976849aa0073cb9c3fd23390/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/vrihas/.android/build-cache/f8c9bc3a16eb279d56297687c76f2df58aab9384/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="78ea232052df889856dcb7b7b542707c89bb3bfb">
-        <dex dex="/home/vrihas/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_26e34c252ef6645c7074098d8600d584af97d652/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/vrihas/.android/build-cache/89ade15f889b668b9209d5829e7fe5a0e2e687bf/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="005786793d72c6deacbbbfd38177ed58e1aa6653">
-        <dex dex="/home/vrihas/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_7026c51fcdb98819279cc715a58f56a72e058b2b/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/vrihas/.gradle/caches/modules-2/files-2.1/com.firebase/firebase-client-android/2.5.0/7d0473896b3b10b23a2f9812fec4316dff8afdd/firebase-client-android-2.5.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="07d0473896b3b10b23a2f9812fec4316dff8afdd">
-        <dex dex="/home/vrihas/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/firebase-client-android-2.5.0_adddc969b8876d2bd443432590083d9c0850827e/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/vrihas/.android/build-cache/5beb7efcfa5bd12b95340bd84b47da143659b4e4/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="7da84426d876216ed4cdddd85e739be5ecabdd04">
-        <dex dex="/home/vrihas/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_0c9c915c2dd5f0dc195902d847b833e3ea1a9033/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/vrihas/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.2.2/3c8f6018eaa72d43b261181e801e6f8676c16ef6/jackson-databind-2.2.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="3c8f6018eaa72d43b261181e801e6f8676c16ef6">
-        <dex dex="/home/vrihas/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-databind-2.2.2_0999be43cd7213d2fdc65d929d02fd2959a848ba/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -162,6 +81,7 @@
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
         <dex dex="/home/vrihas/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_12ef3f026be58c581be7008cf783fbdcb0c3a20d/classes.dex" />
     </item>
+<<<<<<< HEAD
     <item
         is-multidex="true"
         jar="/home/vrihas/.gradle/caches/modules-2/files-2.1/com.firebase/firebase-client-jvm/2.5.0/c0af904657634f7ab9cc21e75d80250570033321/firebase-client-jvm-2.5.0.jar"
@@ -172,5 +92,7 @@
         <dex dex="/home/vrihas/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/firebase-client-jvm-2.5.0_c2435101281072d9c7658d791b037986f52ec76e/classes.dex" />
 >>>>>>> 63cd056cca0e91b6f69ef06c7f25ef135afd59e3
     </item>
+=======
+>>>>>>> c5764527ff3b1e760c8e30abc41d9fb70f522bab
 
 </items>
