@@ -100,7 +100,7 @@
             app:cardCornerRadius="20dp"
             app:contentPadding="10dp"
             android:visibility="visible"
-            android:backgroundTint="@color/common_google_signin_btn_text_light_focused"
+            android:backgroundTint="@color/black"
             >
 
             <RelativeLayout
