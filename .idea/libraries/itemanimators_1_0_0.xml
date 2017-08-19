@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="itemanimators-1.0.0">
     <CLASSES>
-      <root url="file://$USER_HOME$/.android/build-cache/81a582947b6d42b0c304030d77fdfca24935dc8f/output/res" />
-      <root url="jar://$USER_HOME$/.android/build-cache/81a582947b6d42b0c304030d77fdfca24935dc8f/output/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.android/build-cache/b8b5f1cbb1807452ba14c524398af2bf9bff62cb/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/b8b5f1cbb1807452ba14c524398af2bf9bff62cb/output/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
