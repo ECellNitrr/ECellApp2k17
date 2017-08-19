@@ -42,6 +42,7 @@ public class AboutUsFragment extends Fragment{
 
     @BindView(R.id.tabLayout_aboutus)
     TabLayout tabLayout;
+    ViewPager viewPager;
 
     private int[] tabIcons = {R.drawable.vision_ic,R.drawable.team_ic,R.drawable.contact_us_ic};
 
@@ -83,14 +84,29 @@ public class AboutUsFragment extends Fragment{
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_about_us, container, false);
         ButterKnife.bind(this,view);
-        setupTabIcons();
-        FragmentManager fragmentManager = getChildFragmentManager();
+        viewPager = (ViewPager) view.findViewById(R.id.about_us_viewpager);
+
+        //Creating our pager adapter
+        TabsPagerAdapter adapter = new TabsPagerAdapter(getChildFragmentManager());
+
+        //Adding adapter to pager
+        viewPager.setAdapter(adapter);
+        tabLayout.setupWithViewPager(viewPager);
+
+        adapter.addFragment(new VisionFragment());
+        adapter.addFragment(new TeamFragment());
+        adapter.addFragment(new ContactUsFragment());
+        adapter.notifyDataSetChanged();
+       // tabLayout.getTabAt(0).setIcon(tabIcons[0]);
+
+       setupTabIcons();
+    /*    FragmentManager fragmentManager = getChildFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.about_us_container,new VisionFragment());
-        fragmentTransaction.commit();
+        fragmentTransaction.commit();*/
         tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#FF5722"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+/*        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 int i=tabLayout.getSelectedTabPosition();
@@ -127,7 +143,7 @@ public class AboutUsFragment extends Fragment{
 
             }
         });
-
+*/
         tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#FF5722"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         return view;
@@ -160,8 +176,12 @@ public class AboutUsFragment extends Fragment{
         for (int i = 0; i < tabIcons.length; i++) {
             view1 = getActivity().getLayoutInflater().inflate(R.layout.custom_tab, null);
             view1.findViewById(R.id.tab_icon).setBackgroundResource(tabIcons[i]);
-            tabLayout.newTab().setCustomView(view1);
-            tabLayout.addTab(tabLayout.newTab().setCustomView(view1));
+//            tabLayout.newTab().setCustomView(view1);
+//            tabLayout.addTab(tabLayout.newTab().setCustomView(view1));
+            tabLayout.getTabAt(i).setCustomView(view1);
         }
+
     }
+
+
 }

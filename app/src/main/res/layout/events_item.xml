@@ -43,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Event Title"
-            android:background="#99212121"
+            android:background="#40ffffff"
             android:textColor="@color/white"
             android:textSize="30dp"
             android:gravity="center"
