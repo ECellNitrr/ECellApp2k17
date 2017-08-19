@@ -25,6 +25,7 @@ public interface AddBlogsRequestInterface {
     Call<AddBlogsData> getJson(
             @Part("blogTitle") RequestBody blogTitle,
             @Part("blogBody") RequestBody blogBody,
+            @Part("access_token") RequestBody access_token,
             @Part MultipartBody.Part file
     );
 

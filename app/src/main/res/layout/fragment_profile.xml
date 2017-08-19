@@ -101,7 +101,7 @@
             android:layout_marginTop="30dp"
             app:cardCornerRadius="20dp"
             app:contentPadding="10dp"
-            android:visibility="visible"
+            android:visibility="gone"
             android:backgroundTint="@color/common_google_signin_btn_text_light_focused"
             >
 
