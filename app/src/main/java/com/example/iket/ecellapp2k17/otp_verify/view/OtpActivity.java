@@ -41,12 +41,8 @@ public class OtpActivity extends AppCompatActivity implements OtpView{
     private OtpVerifyPresenter otpVerifyPresenter;
     private SharedPrefs sharedPrefs;
 
-    @BindView(mobile_img)
-    ImageView mi;
     @BindView(otp_img)
     ImageView oi;
-    @BindView(e_cell_logo)
-    ImageView ecl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +50,7 @@ public class OtpActivity extends AppCompatActivity implements OtpView{
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
 
-        Glide.with(this).load(R.drawable.user_black).into(mi);
+
         Glide.with(this).load(R.drawable.password_black).into(oi);
         sharedPrefs = new SharedPrefs(this);
         if (getIntent() != null) {
@@ -82,7 +78,6 @@ public class OtpActivity extends AppCompatActivity implements OtpView{
         }
     }
     public void resend(View v) {
-
         LoginActivity loginActivity = new LoginActivity();
         loginActivity.proceed(v);
     }
@@ -108,7 +103,7 @@ public class OtpActivity extends AppCompatActivity implements OtpView{
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);
         sharedPrefs.setAccessToken(otpData.getAccess_token());
-        sharedPrefs.setOtpLogin(true);
+        sharedPrefs.setLogin(true);
         finish();
     }
 

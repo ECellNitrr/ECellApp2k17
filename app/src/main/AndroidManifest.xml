@@ -16,21 +16,20 @@
         android:supportsRtl="true"
         android:theme="@style/EcellAppTheme"
         >
-
-        <activity android:name=".BQuizNew.view.BQuizActivity" />
-        <activity android:name=".splash_screen.SplashScreen"
+        <activity
+            android:name=".splash_screen.SplashScreen"
             >
 
         </activity>
-        <activity android:name=".home.Home">
+        <activity android:name=".BQuizNew.view.BQuizActivity" />
+        <activity android:name=".home.Home"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".fb.fb_login">
-            android:configChanges=
-            "keyboard|keyboardHidden|screenLayout|screenSize|orientation"</activity>
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
