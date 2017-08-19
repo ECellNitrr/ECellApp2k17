@@ -12,6 +12,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -29,6 +30,7 @@ import java.util.regex.Pattern;
 public class LoginActivity extends AppCompatActivity implements LoginView {
 
     private EditText editTextMobile,editTextName,editTextEmail;
+    private TextView msgOtp;
     private ProgressBar progressBar;
     public String mobile,name,email;
     private LoginData loginData;
@@ -41,13 +43,14 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         setContentView(R.layout.activity_login);
         sharedPrefs = new SharedPrefs(this);
         initialise();
+
     }
 
     public void initialise() {
         editTextMobile = (EditText) findViewById(R.id.input_mobile);
-        //editTextMobile.setGravity(Gravity.CENTER);
         editTextName = (EditText) findViewById(R.id.input_name);
         editTextEmail = (EditText) findViewById(R.id.input_email);
+        msgOtp = (TextView) findViewById(R.id.otp_msg);
         ecell_logo = (ImageView) findViewById(R.id.e_cell_logo);
         login_bg = (ImageView) findViewById(R.id.login_background);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
@@ -77,6 +80,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         name = editTextName.getText().toString();
         mobile = editTextMobile.getText().toString();
         email = editTextEmail.getText().toString();
+
         if (mobile.isEmpty() || name.isEmpty() || email.isEmpty()) {
             showProgressBar(false);
             showError("Fields cannot be empty");
@@ -86,6 +90,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
                     Toast.LENGTH_LONG).show();
         }
         else {
+
             loginData = new LoginDataImp(this, new RetrofitLoginHelper());
             loginData.getLoginData(name,mobile,email);
             hideKeyboard();
@@ -105,7 +110,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     @Override
     public void showLoginStatus(boolean login) {
         if (login) {
-
+            msgOtp.setVisibility(View.VISIBLE);
             sharedPrefs.setMobile(mobile);
             sharedPrefs.setUsername(name);
             sharedPrefs.setEmailId(email);

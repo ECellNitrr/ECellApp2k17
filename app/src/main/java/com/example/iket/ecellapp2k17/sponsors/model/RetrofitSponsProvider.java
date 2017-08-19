@@ -3,6 +3,7 @@ package com.example.iket.ecellapp2k17.sponsors.model;
 import com.example.iket.ecellapp2k17.helper.Cache;
 import com.example.iket.ecellapp2k17.helper.Urls;
 import com.example.iket.ecellapp2k17.sponsors.api.RequestApiSpons;
+import com.example.iket.ecellapp2k17.sponsors.model.data.SponsParent;
 import com.example.iket.ecellapp2k17.sponsors.view.OnSponsReceived;
 import com.example.iket.ecellapp2k17.sponsors.model.data.SponsHeading;
 
@@ -36,17 +37,16 @@ public class RetrofitSponsProvider implements SponsProvider {
                 .build();
 
         final RequestApiSpons request = retrofit.create(RequestApiSpons.class);
-        Call <List<SponsHeading>> call=request.getSpons();
+        Call <SponsParent> call=request.getSpons();
 
-        call.enqueue(new Callback<List<SponsHeading>>() {
+        call.enqueue(new Callback<SponsParent>() {
             @Override
-            public void onResponse(Call<List<SponsHeading>> call, Response<List<SponsHeading>> response) {
+            public void onResponse(Call<SponsParent> call, Response<SponsParent> response) {
                 onSponsReceived.onSuccess(response.body());
             }
 
             @Override
-            public void onFailure(Call<List<SponsHeading>> call, Throwable t) {
-
+            public void onFailure(Call<SponsParent> call, Throwable t) {
                 onSponsReceived.onFailure();
                 t.printStackTrace();
             }

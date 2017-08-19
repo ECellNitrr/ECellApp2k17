@@ -2,41 +2,499 @@
 <items version="2" >
 
     <item
-<<<<<<< HEAD
-        is-multidex="false"
+        is-multidex="true"
+        jar="/home/iket/.android/build-cache/e10cb9804d9cf857a8263117fa88b44f3ec97caa/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="005786793d72c6deacbbbfd38177ed58e1aa6653">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_0a934ece35e0a1e38778c155ac8b553d49a90d07/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/.android/build-cache/625179686a258610b7ab1d4211e547d32bf9c6e1/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e699699fae0092703de1d02b217f43803d0f7e0a">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_0d2e6808fbf56ce2f3f12aa6685e66cbb7a02d99/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/iket/.android/build-cache/038c622510fd069264fa9da8c3513d0145f295d6/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="d91e61885c6007d48feb57a2aa5c38421cae8b87">
-        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_ac5b1af24d20ff07fecc0ab4c2b70f130c190f69.jar" />
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_ac5b1af24d20ff07fecc0ab4c2b70f130c190f69/classes.dex" />
     </item>
     <item
-        is-multidex="false"
+        is-multidex="true"
+        jar="/home/iket/.android/build-cache/22e4ff4411e06be34ac3dd7bee0d7e25d08c48c5/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_598406a87d15666c9da4f573da8843ccedd375aa/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/iket/.android/build-cache/8f6c6fc747597fd2eb5dd77dc4e41d5d60dd5244/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="a73b24a82e860ae409181afee75925a04a03aed3">
-        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_b3086a61646f9a0ca823b8eca0c5cd9e6e9ffd0d.jar" />
-=======
-        is-multidex="true"
-        jar="/home/vrihas/ECellApp2k17/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="66e8970cee4444d438666fbc2d9dcdc4d606db12">
-        <dex dex="/home/vrihas/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_ec7ce60115cd4db1153e8d67a4988e084b4baac1/classes.dex" />
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_b3086a61646f9a0ca823b8eca0c5cd9e6e9ffd0d/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/vrihas/ECellApp2k17/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
+        jar="/home/iket/.android/build-cache/b3126119b5b5965fd197e6da005e462b1ee68223/output/jars/classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="/home/vrihas/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_12ef3f026be58c581be7008cf783fbdcb0c3a20d/classes.dex" />
->>>>>>> accd1b328bfa1f1e4ca3c06db87d6317eb995fee
+        sha1="204f607419af8247cc1b2a61f50663c65f841c12">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_5f54a0b4920264a8da38f1b6ecdeb17613b28480/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/iket/.android/build-cache/e10cb9804d9cf857a8263117fa88b44f3ec97caa/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="005786793d72c6deacbbbfd38177ed58e1aa6653">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_0a934ece35e0a1e38778c155ac8b553d49a90d07.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/.android/build-cache/f8f721f648929b5629667d227f8d3d02c8fb1b72/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_a6f7940f98e55fb0310aa265fb02899241bae9ef/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/.android/build-cache/e7648cd92e3bb04a9f42bcae6a82fa717415505e/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="37e257a25703e692be3f9aa9c4bf7de620e9271a">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_3a28c5a019dfe656660bcc2a3958b50212bd978e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/.android/build-cache/7f770bebeccd9ca0edcc8e8fe0a10132d5d2dd73/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8caaa885c5f74a2555333b2f770b56c1a8d9aa87">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_0c3604ea867c7d481d7a87ddd3fa403872b53d72/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/android-studio/gradle/gradle-3.2/caches/modules-2/files-2.1/com.squareup.retrofit2/adapter-rxjava/2.0.2/a60c039ba54c73d1133b72178e1b04133c73d13d/adapter-rxjava-2.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a60c039ba54c73d1133b72178e1b04133c73d13d">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/adapter-rxjava-2.0.2_797913e17b175f61c30f23a426e5e612f893a437/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/iket/android-studio/gradle/gradle-3.2/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.2.2/d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b/jackson-core-2.2.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/jackson-core-2.2.2_a32d26efcd8d63a9f93beb33d19beffcbdcefc8d.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/.android/build-cache/9ebcd13ea4f12e67628cf74f971c9d7a0b49b24e/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="42df48c7305b08b14fa0e84561091b0c24d70d26">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_6edd80bb21449d9bc6572342497dcd75b4c2f735/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/.android/build-cache/e14140d3f831f4ea942139ee7f07663d60bc156e/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d5cbc9214ee567ea6ef56fb2707d48e58d240fc2">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_65cc055d4a09d0a2cf7884921efd547e313f6d33/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/iket/android-studio/gradle/gradle-3.2/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.2.2/3c8f6018eaa72d43b261181e801e6f8676c16ef6/jackson-databind-2.2.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3c8f6018eaa72d43b261181e801e6f8676c16ef6">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/jackson-databind-2.2.2_7e20498f6ae79665ae981b990638025b6ed8ba3e.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/android-studio/gradle/gradle-3.2/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.2.2/3c8f6018eaa72d43b261181e801e6f8676c16ef6/jackson-databind-2.2.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3c8f6018eaa72d43b261181e801e6f8676c16ef6">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-databind-2.2.2_7e20498f6ae79665ae981b990638025b6ed8ba3e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/android-studio/gradle/gradle-3.2/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.0/c4ba5371a29ac9b2ad6129b1d39ea38750043eff/gson-2.8.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c4ba5371a29ac9b2ad6129b1d39ea38750043eff">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/gson-2.8.0_c9f75caae66696b746a244f7e1fc34687c932df9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/.android/build-cache/f662e9d38fd119be2bd2c0baf5992270b06f2778/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="5a2386ad9bfff580b206a7fe305cdccd00798159">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_677b53819e6f36fea53a82617115e097ff3133f7/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/.android/build-cache/4c636331dda76df5119f03c17fe657350d59e993/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="807751a24cf96566fd8675517c94d8463cf364db">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_cdc3be2440ebd74660a591e297141a92e672f2c5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/.android/build-cache/b28d0841b91fb0d5a511ec990d45fbf93c3903ec/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="646439081688c43e04ec4aa7ba6915ddfdcc337f">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_f7f49c56c206370416077ce388e63fa3b0cc385f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/android-studio/gradle/gradle-3.2/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.2.2/d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b/jackson-core-2.2.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-core-2.2.2_a32d26efcd8d63a9f93beb33d19beffcbdcefc8d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/.android/build-cache/b7bcb7434c61acdea77c9666408494918953b06d/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7da84426d876216ed4cdddd85e739be5ecabdd04">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_72fbea5f23106ffde423d783b99c99f4e3c21592/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/.android/build-cache/80189bc4d2242d8f2aa1b68d3a947f99fc16fd65/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="be587097e648eabfb7f9eca23ab03369894e2d5d">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_0568a02a7b6c572b50b25a27cdfaec4508fc7857/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/.android/build-cache/b55748d90f375d9cc0d6505849c03a4b8ea9dae1/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6f65c144283b31b4b9a70e6e7aa4c4a1c897d4b8">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_3c6501857a5027f8b09108713b641bdb18de8e85/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/.android/build-cache/0f4727b08ee75bcb42ea64154e0e029468b1d886/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8a372c4191f80489770a231f7be4820b204b886a">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_e3f733b792dceca386c8c1f8d69f0850b5f4d6e8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/.android/build-cache/4e96d83be3661b20e00d2343e0220da706b07381/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_c8509ceae378cab7d65373968b0e0c24d6234c36/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/android-studio/gradle/gradle-3.2/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/bolts-tasks-1.4.0_30f9d1b93867496765b2add91ef063a2367a06ab/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/android-studio/gradle/gradle-3.2/caches/modules-2/files-2.1/com.squareup.retrofit2/converter-gson/2.0.2/f8d87f15b94b8d74e7ccf61d7eedb558811cdb30/converter-gson-2.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f8d87f15b94b8d74e7ccf61d7eedb558811cdb30">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/converter-gson-2.0.2_387e063edd7c4aa5c41dc6a33fd0324604bfed83/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/.android/build-cache/7587de7851eecb1a1fd1e1149d29c39caf0bd5db/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4ef8ab5fee042023018249474bc93bd4b2b9c17e">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_66456642ed4c753d1b6e2335fd86fb550271efe6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/.android/build-cache/06a76ef34316997f69c484d1714ae52019834247/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ea4b54dcbfe5ac05efb0a314105f07258118d3a7">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_36d7aa6e06aa74d4518513abec576c5b8e6a56b5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/.android/build-cache/11058c0a0c862a8005993e70528ccf8c73fb1d6e/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="149b55009a48ccb62c669e6d0ddfd550e96987d7">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_a05171e4d05bb3ad006559e978adbd8d161869de/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/iket/android-studio/gradle/gradle-3.2/caches/modules-2/files-2.1/com.firebase/firebase-client-android/2.5.0/7d0473896b3b10b23a2f9812fec4316dff8afdd/firebase-client-android-2.5.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="07d0473896b3b10b23a2f9812fec4316dff8afdd">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/firebase-client-android-2.5.0_766e9664425ba55ff4209a8679df2976603d642f.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/.android/build-cache/562d4b836beaf7d7e751c2d873902fcd8055dac1/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1941832901fc4e7a93300b53762e9f65d7650b99">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_0e5c00ef4576f0720c0d800e26ed30c54bb89e69/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/.android/build-cache/033fbbc8cb0e6b01ae913a6bd60e10e16204f4fc/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_a1dfaa9805a907770a413332120c335b042e63b0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/.android/build-cache/85b473e01f6eba919f2e78097ddeb998f059e93d/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0dc8ab07eeceda5e99b305c8069765056b6e5c9d">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_4265caceb11454e351eb5c15a6d5ff63b272ad9b/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/iket/.android/build-cache/ee75a318d44412e97064562bdd765473e1bda358/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6666dd525c3da197e7d07f4f23ef5fc7881a697b">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/classes_0df69e3f03aefb34a88ab650c381343d4926e99c.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/android-studio/gradle/gradle-3.2/caches/modules-2/files-2.1/com.jakewharton/butterknife-annotations/8.6.0/48efa6f14074e1a6b16e02ac05eba3fc5c7c7ec8/butterknife-annotations-8.6.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="48efa6f14074e1a6b16e02ac05eba3fc5c7c7ec8">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/butterknife-annotations-8.6.0_a08de3c096f2b01620b7e1562ad279a2ea4ed19c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/.android/build-cache/065944f3574265e16f8abf3f28f19da10973c3e9/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="eb9f1cef6b29492df701111c555908cb53dece35">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_849f89b9247de72028e9389a6d8bee3e28871923/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/android-studio/gradle/gradle-3.2/caches/modules-2/files-2.1/com.firebase/tubesock/0.0.12/6ec0bbd3e161a73ed672284b587fd32309a86d7a/tubesock-0.0.12.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6ec0bbd3e161a73ed672284b587fd32309a86d7a">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/tubesock-0.0.12_6c8a75578e5a45f10e178734550bcdfc13524dc3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/android-studio/gradle/gradle-3.2/caches/modules-2/files-2.1/com.firebase/firebase-client-android/2.5.0/7d0473896b3b10b23a2f9812fec4316dff8afdd/firebase-client-android-2.5.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="07d0473896b3b10b23a2f9812fec4316dff8afdd">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/firebase-client-android-2.5.0_766e9664425ba55ff4209a8679df2976603d642f/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/iket/android-studio/gradle/gradle-3.2/caches/modules-2/files-2.1/com.firebase/firebase-client-jvm/2.5.0/c0af904657634f7ab9cc21e75d80250570033321/firebase-client-jvm-2.5.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c0af904657634f7ab9cc21e75d80250570033321">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/firebase-client-jvm-2.5.0_1cf0d6f41bd068e226a9e9d08d5626ab8df1946c.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/.android/build-cache/db71347d57548b0e6a00974dbf332bac22480011/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_0212cc9f16dc6ed54c9fae32bfccce712c50de0d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/android-studio/gradle/gradle-3.2/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.2.2/285cb9c666f0f0f3dd8a1be04e1f457eb7b15113/jackson-annotations-2.2.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="285cb9c666f0f0f3dd8a1be04e1f457eb7b15113">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-annotations-2.2.2_fc15fe65da41708d777de533c8bf2a84e8a88658/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/.android/build-cache/0253bcab61ee1f27d2fee55a7111586a3de10ff2/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7a23185c9b1c100e7d1a32275017e4712e31c796">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_a1be409023bf9a7d1c411d2db2de0da188c3b8aa/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/iket/android-studio/gradle/gradle-3.2/caches/modules-2/files-2.1/com.firebase/tubesock/0.0.12/6ec0bbd3e161a73ed672284b587fd32309a86d7a/tubesock-0.0.12.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6ec0bbd3e161a73ed672284b587fd32309a86d7a">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/tubesock-0.0.12_6c8a75578e5a45f10e178734550bcdfc13524dc3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/iket/android-studio/gradle/gradle-3.2/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.2.2/285cb9c666f0f0f3dd8a1be04e1f457eb7b15113/jackson-annotations-2.2.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="285cb9c666f0f0f3dd8a1be04e1f457eb7b15113">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/pre-dexed/debug/jackson-annotations-2.2.2_fc15fe65da41708d777de533c8bf2a84e8a88658.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/android-studio/gradle/gradle-3.2/caches/modules-2/files-2.1/com.firebase/firebase-client-jvm/2.5.0/c0af904657634f7ab9cc21e75d80250570033321/firebase-client-jvm-2.5.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c0af904657634f7ab9cc21e75d80250570033321">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/firebase-client-jvm-2.5.0_1cf0d6f41bd068e226a9e9d08d5626ab8df1946c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/android-studio/gradle/gradle-3.2/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.0.2/43eeae0b9fb087bb3194ba59ab63a38a32fbf3e/retrofit-2.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="043eeae0b9fb087bb3194ba59ab63a38a32fbf3e">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/retrofit-2.0.2_9e00cfda4aa5e32c6123c792bf16fc7a5b5b23d7/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/.android/build-cache/81a582947b6d42b0c304030d77fdfca24935dc8f/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="97c40cd494770cd1cdb0f879c8426269a2d76702">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_d7221f964a6d902cd59605ebb5759d6e04f4f1ab/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/.android/build-cache/65aca1b0259c722859e07f1dc3c209437b1e9f35/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="005d20a198159b87f65812fc5c51b2d84c5eba0a">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_88ca2c825c82e512b21fd4203fabfb790db7fae9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/.android/build-cache/1017b14935de9633bd809633e16ccc4cb29c843f/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="cc178928721f3222b3b06bdfbd9497378ccb9792">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_a2fbe798dd7e53285a9885e427f7f258e413916b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/android-studio/gradle/gradle-3.2/caches/modules-2/files-2.1/com.parse.bolts/bolts-applinks/1.4.0/8ad21bf21784dacce5f2043afb97218cc377e835/bolts-applinks-1.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8ad21bf21784dacce5f2043afb97218cc377e835">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/bolts-applinks-1.4.0_a7a661a4406100b459bf076a116199a4846659b3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/.android/build-cache/ae6d9de52b9337363cb3c47f5be1c4c798d85888/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="461929440e66685425a298693507f6fb27b0a872">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_f3b4d661f48ef7bcb470a0fc25bcd7a1d27a4ebb/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/.android/build-cache/54ac1fed48c9ea3438d8f36902ad6eb130b1c6a9/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3305fe8fabbf56b45fa503d29d691bc84290ff23">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_81bfe86f99bcd14ed7db29238f75ff93b169fb98/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/iket/.android/build-cache/fc690ee81fcc5b77a28498a4618f7a6c8b3ea666/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7045152f3bd1870740b9bcb1cddff495e189774e">
+        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_a5ffa0b8e23405d5b33861ce074bbcaa72944a27/classes.dex" />
     </item>
 
 </items>

@@ -19,6 +19,7 @@ import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.example.iket.ecellapp2k17.R;
+import com.example.iket.ecellapp2k17.helper.image_loaders.RoundedCornersTransformation;
 import com.example.iket.ecellapp2k17.home.Home;
 import com.example.iket.ecellapp2k17.sponsors.model.MockSpons;
 import com.example.iket.ecellapp2k17.sponsors.model.RetrofitSponsProvider;
@@ -98,8 +99,8 @@ public class SponsFragment extends Fragment implements SponsInterface {
         View view= inflater.inflate(R.layout.fragment_spons, container, false);
         recyclerView=(RecyclerView) view.findViewById(R.id.recycler_view_spons);
         progressBar= (ProgressBar) view.findViewById(R.id.progressBar_spons);
-        sponsPresenter=new SponsPresenterImpl(this,new MockSpons());
-//        sponsPresenter=new SponsPresenterImpl(this,new RetrofitSponsProvider());
+//        sponsPresenter=new SponsPresenterImpl(this,new MockSpons());
+        sponsPresenter=new SponsPresenterImpl(this,new RetrofitSponsProvider());
         sectionAdapter = new SectionedRecyclerViewAdapter();
 
         glm = new GridLayoutManager(getContext(), 2);
@@ -200,21 +201,10 @@ public class SponsFragment extends Fragment implements SponsInterface {
         public void onBindItemViewHolder(RecyclerView.ViewHolder holder, final int position) {
             final SponsItemViewholder itemHolder = (SponsItemViewholder) holder;
 
-//            if(list.size()>1) {
-//                glm.setSpanCount(2);
-//                Log.d("Spons",""+list.get(0).getSponsName());
-//                recyclerView.setLayoutManager(glm);
-//            }
-//            else
-//            {
-//                Log.d("Spons",""+list.get(0).getSponsName());
-//                glm.setSpanCount(1);
-//                recyclerView.setLayoutManager(glm);
-//            }
             String name = list.get(position).getSponsName();
             String image=list.get(position).getImage1();
             itemHolder.spons_name.setText(name);
-            Glide.with(getContext()).load(list.get(position).getImage1())
+            Glide.with(getContext()).load(image).bitmapTransform(new RoundedCornersTransformation(getContext(),16,0))
                     .listener(new RequestListener<String, GlideDrawable>() {
                         @Override
                         public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {

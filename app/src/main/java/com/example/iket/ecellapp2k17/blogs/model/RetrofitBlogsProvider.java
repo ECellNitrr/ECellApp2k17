@@ -51,7 +51,7 @@ public class RetrofitBlogsProvider implements BlogsProvider{
         call.enqueue(new Callback<BlogFeed>(){
             @Override
             public void onResponse(Call<BlogFeed> call, Response<BlogFeed> response) {
-                onBlogsReceived.onSuccess(response.body().getBlogs());
+                onBlogsReceived.onSuccess(response.body());
             }
 
             @Override

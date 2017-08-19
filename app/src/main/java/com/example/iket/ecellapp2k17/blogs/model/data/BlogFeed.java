@@ -11,11 +11,21 @@ public class BlogFeed {
     private boolean success;
     private String message;
 
-    public BlogFeed(List<BlogData> blogs) {
+    public BlogFeed(List<BlogData> blogs, boolean success, String message) {
         this.blogs = blogs;
+        this.success = success;
+        this.message = message;
     }
 
     public List<BlogData> getBlogs() {
         return blogs;
+    }
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public String getMessage() {
+        return message;
     }
 }

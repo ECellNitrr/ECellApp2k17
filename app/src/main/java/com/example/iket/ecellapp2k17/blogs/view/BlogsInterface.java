@@ -1,6 +1,8 @@
 package com.example.iket.ecellapp2k17.blogs.view;
 
 import com.example.iket.ecellapp2k17.blogs.model.data.BlogData;
+import com.example.iket.ecellapp2k17.blogs.model.data.BlogFeed;
+
 import java.util.List;
 
 /**
@@ -9,7 +11,7 @@ import java.util.List;
 
 public interface BlogsInterface {
 
-    void setData(List<BlogData> blogDataList);
+    void setData(BlogFeed blogFeedList);
     void showMessage(String message);
     void showProgressBar(boolean show);
 }
