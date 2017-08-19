@@ -36,6 +36,8 @@ import com.tomergoldst.tooltips.ToolTipsManager;
 
 import java.util.List;
 
+import retrofit2.Call;
+
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
@@ -125,7 +127,7 @@ public class BlogFragment extends Fragment implements BlogsInterface {
         verticlePagerAdapter=new VerticlePagerAdapter(getContext());
         verticalViewPager.setAdapter(verticlePagerAdapter);
         blogsPresenter=new BlogsPresenterImpl(new RetrofitBlogsProvider(),this);
-//          blogsPresenter=new BlogsPresenterImpl(new MockBlogs(),this);
+  //        blogsPresenter=new BlogsPresenterImpl(new MockBlogs(),this);
         blogsPresenter.requestBlogs();
         return view;
     }
@@ -138,6 +140,11 @@ public class BlogFragment extends Fragment implements BlogsInterface {
     }
 
 
+    @Override
+    public void onStop() {
+        super.onStop();
+
+    }
 
     @Override
     public void onAttach(Context context) {

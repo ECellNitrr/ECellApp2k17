@@ -4,6 +4,10 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Handler;
 import android.support.customtabs.CustomTabsIntent;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.PagerAdapter;
 import android.support.v7.widget.CardView;
 import android.text.Html;
@@ -29,7 +33,7 @@ import com.wang.avi.AVLoadingIndicatorView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VerticlePagerAdapter extends PagerAdapter {
+public class VerticlePagerAdapter extends PagerAdapter  {
 
 
     private List<BlogData> blogDataList = new ArrayList<>();
@@ -111,6 +115,14 @@ public class VerticlePagerAdapter extends PagerAdapter {
         read_more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FragmentActivity activity = (FragmentActivity)(mContext);
+                FragmentManager fm = activity.getSupportFragmentManager();
+                ReadMoreBlogsFragment readMoreBlogsFragment = new ReadMoreBlogsFragment();
+                readMoreBlogsFragment.setData(data);
+                readMoreBlogsFragment.show(fm, "read_more");
+
+
+                /*
                 CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
                 CustomTabsIntent customTabsIntent = builder.build();
                 try {
@@ -120,6 +132,9 @@ public class VerticlePagerAdapter extends PagerAdapter {
                 {
                     Toast.makeText(mContext, "Error opening custom tabs", Toast.LENGTH_SHORT).show();
                 }
+                */
+
+
             }
         });
 

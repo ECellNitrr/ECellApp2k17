@@ -80,7 +80,7 @@ public class SponsEndPage_Fragment extends Fragment{
         spons_body = (TextView) view.findViewById(R.id.sponsBody);
         button = (Button) view.findViewById(R.id.sponsButton);
         progressBar = (AVLoadingIndicatorView) view.findViewById(R.id.progressBar_spons_end);
-
+        textTitle.setText(sponsData.getSponsName());
 
         Glide.with(this).load(R.drawable.spons_endpage).into(bg_spons);//  sponsData.getBg_spons()
         int radius = 30; // corner radius, higher value = more rounded

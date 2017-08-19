@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -140,7 +141,7 @@ public class EventDetailsFragment extends android.support.v4.app.DialogFragment 
                 .playOn(view.findViewById(R.id.eventTitle));
 
         event_details_name.setText(eventsData.getEventName());
-        event_details_desc.setText(eventsData.getDescription());
+        event_details_desc.setText(Html.fromHtml(Html.fromHtml(eventsData.getDescription()).toString()));
         event_details_loc.setText(eventsData.getVenue());
         event_details_date.setText(eventsData.getDate());
         event_details_time.setText(eventsData.getTime());

@@ -9,6 +9,9 @@ import com.example.iket.ecellapp2k17.helper.Cache;
 import com.example.iket.ecellapp2k17.helper.Urls;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+import java.util.concurrent.TimeUnit;
+
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
@@ -34,7 +37,9 @@ public class RetrofitBlogsProvider implements BlogsProvider{
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
-        OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor)
+        OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).connectTimeout(60, TimeUnit.SECONDS)
+                .writeTimeout(60, TimeUnit.SECONDS)
+                .readTimeout(60, TimeUnit.SECONDS)
                 .build();
         //.addInterceptor(Cache.REWRITE_CACHE_CONTROL_INTERCEPTOR).cache(Cache.provideCache())
 
@@ -45,6 +50,7 @@ public class RetrofitBlogsProvider implements BlogsProvider{
                 .build();
 
         final RequestInterface request = retrofit.create(RequestInterface.class);
+
 
         Call<BlogFeed> call = request.getBlog();
 
