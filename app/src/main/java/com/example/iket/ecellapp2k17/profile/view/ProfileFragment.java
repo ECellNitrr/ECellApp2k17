@@ -108,6 +108,7 @@ public class ProfileFragment extends Fragment implements LoginView{
         }
         sharedPrefs = new SharedPrefs(getContext());
             initialize(view);
+        card_edit_details.setVisibility(View.GONE);
 
         if(sharedPrefs.getUsername()!=null){
             fb_username.setText(sharedPrefs.getUsername());
@@ -164,15 +165,20 @@ public class ProfileFragment extends Fragment implements LoginView{
                 sharedPrefs.setEmailId(email_etxt.getText().toString());
 
                 if(edit_name.isEmpty() ||  edit_email.isEmpty()){
-                    Toast.makeText(getContext(),"Fields cannot be empty!",Toast.LENGTH_SHORT);
+                    Toast.makeText(getContext(),"Fields cannot be empty!",Toast.LENGTH_SHORT).show();
                 }
                 else if(emailInvalid(edit_email)){
                     Toast.makeText(getContext(), "ENTER CORRECT EMAIL ID!",
                             Toast.LENGTH_LONG).show();
                 }
                 else {
-                    loginData = new LoginDataImp(ProfileFragment.this, new RetrofitLoginHelper());
-                    loginData.getLoginData(edit_name, edit_mobile,edit_email);
+//                    loginData = new LoginDataImp(ProfileFragment.this, new RetrofitLoginHelper());
+//                    loginData.getLoginData(edit_name, edit_mobile,edit_email);
+                    Toast.makeText(getContext(), "Data Saved", Toast.LENGTH_SHORT).show();
+                    card_edit_details.setVisibility(View.GONE);
+                    fb_username.setText(edit_name);
+                    fb_email.setText(edit_email);
+                    editButton.setVisibility(view.VISIBLE);
                 }
             }
         });
@@ -191,8 +197,10 @@ public class ProfileFragment extends Fragment implements LoginView{
             @Override
             public void onClick(View v) {
                 sharedPrefs.setLogin(false);
+                getActivity().finish();
                 Intent i = new Intent(getContext(), LoginActivity.class);
                 startActivity(i);
+
             }
         });
 

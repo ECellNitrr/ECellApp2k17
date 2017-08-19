@@ -121,7 +121,6 @@ public class TeamFragment extends Fragment  implements AboutUsInterface{
         }).bitmapTransform(new CropCircleTransformation(getContext())).into(faculty_image);
 
         aboutUsPresenter =new AboutUsPresenterImpl(new MockAboutUs(),this);
-        Glide.with(getContext()).load(R.drawable.vision).bitmapTransform(new CropCircleTransformation(getContext())).into(faculty_image);
         aboutUsPresenter=new AboutUsPresenterImpl(new RetrofitProviderTeam(),this);
 //        aboutUsPresenter =new AboutUsPresenterImpl(new MockAboutUs(),this);
         aboutUsPresenter.requestData();

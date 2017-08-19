@@ -1,6 +1,7 @@
 package com.example.iket.ecellapp2k17.about_us.model;
 
 import com.example.iket.ecellapp2k17.about_us.model.data.TeamData;
+import com.example.iket.ecellapp2k17.about_us.model.data.TeamList;
 import com.example.iket.ecellapp2k17.about_us.view.OnAboutusReceived;
 
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ public class MockAboutUs implements TeamProvider {
         dataList.add(data);
         dataList.add(data);
         dataList.add(data);
-        onAboutusReceived.onSuccess(dataList);
+        TeamList teamList=new TeamList(dataList,true,"Error in server");
+        onAboutusReceived.onSuccess(teamList);
     }
 }

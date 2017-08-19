@@ -30,8 +30,8 @@ public class MyApplication extends Application{
         context=this;
         Fabric.with(this, new Crashlytics());
         FacebookSdk.sdkInitialize(getApplicationContext());
-        fcm_token = FirebaseInstanceId.getInstance().getToken();
-        Log.d("app",""+fcm_token);
+//        fcm_token = FirebaseInstanceId.getInstance().getToken();
+        Log.d("myapplication",""+fcm_token);
     }
     public static Context getContext() {
         return context;

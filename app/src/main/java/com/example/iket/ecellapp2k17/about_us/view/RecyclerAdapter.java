@@ -2,6 +2,7 @@ package com.example.iket.ecellapp2k17.about_us.view;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,8 +33,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     private LayoutInflater layoutInflater;
     Context context;
 
-
-
     public RecyclerAdapter(Context context1) {
         context=context1;
         layoutInflater=LayoutInflater.from(context1);
@@ -53,16 +52,15 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     @Override
     public void onBindViewHolder(final RecyclerAdapter.ViewHolder holder, int position) {
 
-        TeamData teamData =  data.get(position);
+        final TeamData teamData =  data.get(position);
         holder.member_name.setText(teamData.getName());
-        if(position<4)
-        {
-            holder.member_email.setText(teamData.getLinkedIn());
-        }
+        holder.member_email.setText(teamData.getLinkedIn());
+
         Glide.with(context).load(teamData.getMeta()).listener(new RequestListener<String, GlideDrawable>() {
             @Override
             public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
                 holder.progressBar.setVisibility(View.GONE);
+                Log.d("Error",e+" \n"+teamData.getName());
                 return false;
             }
 

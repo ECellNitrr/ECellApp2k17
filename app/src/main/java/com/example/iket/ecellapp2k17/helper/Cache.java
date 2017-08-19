@@ -32,7 +32,7 @@ public class Cache {
             @Override
             public Response intercept(Chain chain) throws IOException {
                 Request request = chain.request();
-                if (!isNetworkAvailable(Home.getContext())) {
+                if (!isNetworkAvailable(MyApplication.getContext())) {
                     CacheControl cacheControl = new CacheControl.Builder()
                             .maxStale(10,TimeUnit.DAYS).build();
                     request = request.newBuilder().cacheControl(cacheControl).build();
@@ -45,7 +45,7 @@ public class Cache {
 
         okhttp3.Cache cache=null;
         try {
-            cache = new okhttp3.Cache(new File(Home.getContext().getCacheDir(), "Responses"), 10 * 1024 * 1024);
+            cache = new okhttp3.Cache(new File(MyApplication.getContext().getCacheDir(), "Responses"), 10 * 1024 * 1024);
         }
         catch (Exception e){
             Log.e("Extra","Could not create cache"+e.toString());

@@ -7,15 +7,25 @@ import java.util.List;
  */
 
 public class TeamList {
-    private List<TeamData> aboutus;
+    private List<TeamData> team_members;
     private boolean success;
     private String message;
 
-    public TeamList(List<TeamData> aboutus) {
-        this.aboutus = aboutus;
+    public TeamList(List<TeamData> team_members, boolean success, String message) {
+        this.team_members = team_members;
+        this.success = success;
+        this.message = message;
     }
 
-    public List<TeamData> getTeam(){
-        return aboutus;
+    public List<TeamData> getTeam_members() {
+        return team_members;
+    }
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public String getMessage() {
+        return message;
     }
 }

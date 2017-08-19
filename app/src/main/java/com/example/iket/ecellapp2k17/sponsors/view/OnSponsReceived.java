@@ -1,6 +1,7 @@
 package com.example.iket.ecellapp2k17.sponsors.view;
 
 import com.example.iket.ecellapp2k17.sponsors.model.data.SponsHeading;
+import com.example.iket.ecellapp2k17.sponsors.model.data.SponsParent;
 
 import java.util.List;
 
@@ -10,6 +11,6 @@ import java.util.List;
 
 public interface OnSponsReceived {
     void onFailure();
-    void onSuccess(List<SponsHeading> sponsDataList);
+    void onSuccess(SponsParent sponsParent);
 }
 

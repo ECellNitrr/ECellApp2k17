@@ -29,7 +29,7 @@ public class GlideImageLoader implements ImageLoader {
 
     @Override
     public void loadImage(String url, final ImageView imageView) {
-        Log.d("Response",url);
+
 //        url = url.replace("\"", "");
 
 

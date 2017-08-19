@@ -2,6 +2,7 @@ package com.example.iket.ecellapp2k17.about_us.presenter;
 
 import com.example.iket.ecellapp2k17.about_us.model.TeamProvider;
 import com.example.iket.ecellapp2k17.about_us.model.data.TeamData;
+import com.example.iket.ecellapp2k17.about_us.model.data.TeamList;
 import com.example.iket.ecellapp2k17.about_us.view.AboutUsInterface;
 import com.example.iket.ecellapp2k17.about_us.view.OnAboutusReceived;
 
@@ -26,15 +27,18 @@ public class AboutUsPresenterImpl implements AboutUsPresenter{
         aboutUsInterface.showProgressBar(true);
         teamProvider.requestData(new OnAboutusReceived() {
             @Override
-            public void onSuccess(List<TeamData> teamDataList) {
+            public void onSuccess(TeamList teamList) {
                 aboutUsInterface.showProgressBar(false);
-                aboutUsInterface.setData(teamDataList);
+                if(teamList.isSuccess())
+                aboutUsInterface.setData(teamList.getTeam_members());
+                else
+                    aboutUsInterface.showMessage(teamList.getMessage());
             }
 
             @Override
             public void onFailure() {
-
                 aboutUsInterface.showProgressBar(false);
+                aboutUsInterface.showMessage("Please check your internet connection");
             }
         });
     }
