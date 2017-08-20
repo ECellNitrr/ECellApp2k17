@@ -36,6 +36,9 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:padding">0dp</item>
         <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+    
+    <style name="Dialog_anim">
         <item name="android:windowEnterAnimation">@anim/slide_up_anim_dialog</item>
         <item name="android:windowExitAnimation">@anim/slide_down_anim_dialog</item>
     </style>

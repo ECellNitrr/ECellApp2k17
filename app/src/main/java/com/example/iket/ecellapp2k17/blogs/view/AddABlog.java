@@ -91,13 +91,16 @@ public class AddABlog extends android.support.v4.app.DialogFragment implements A
     @Override
     public void onStart() {
         super.onStart();
+
         Dialog dialog = getDialog();
         if (dialog != null)
         {
             int width = ViewGroup.LayoutParams.MATCH_PARENT;
             int height = ViewGroup.LayoutParams.MATCH_PARENT;
             dialog.getWindow().setLayout(width, height);
+            dialog.getWindow().setWindowAnimations(R.style.Dialog_anim);
         }
+
     }
 
     @Override

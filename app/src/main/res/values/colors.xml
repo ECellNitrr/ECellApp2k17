@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimaryDark">#414141</color>
     <color name="colorAccent">#FF4025</color>
 
     <color name="white">#FFFFFF</color>
@@ -12,19 +12,5 @@
     <color name="brown">#8B4513</color>
     <color name="gray">#424242</color>
     <color name="darkgray">#212121</color>
-
-    <array name="array_dot_active">
-        <item>@color/colorPrimary</item>
-        <item>@color/colorPrimary</item>
-        <item>@color/colorPrimary</item>
-        <item>@color/colorPrimary</item>
-    </array>
-
-    <array name="array_dot_inactive">
-        <item>@color/colorAccent</item>
-        <item>@color/colorAccent</item>
-        <item>@color/colorAccent</item>
-        <item>@color/colorAccent</item>
-    </array>
 
 </resources>

@@ -1,5 +1,6 @@
 package com.example.iket.ecellapp2k17.esummit.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.net.Uri;
@@ -8,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -110,6 +112,7 @@ public class EsummitFragment extends Fragment implements ViewInterface{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_esummit, container, false);
+        Log.d("Hey","new frag");
         ButterKnife.bind(this,view);
         Glide.with(this).load(R.drawable.esummit).into(esummit_logo);
 
@@ -120,17 +123,12 @@ public class EsummitFragment extends Fragment implements ViewInterface{
         recyclerAdapter = new SpeakerAdapter(getContext());
         recyclerView.setAdapter(recyclerAdapter);
         recyclerView.setNestedScrollingEnabled(false);
-
-
         esummitPresenter=new EsummitPresenterImpl(new RetrofitProviderSpeakers(),this);
 //        esummitPresenter=new EsummitPresenterImpl(new MockSpeakers(),this);
         esummitPresenter.requestData();
-        esummit_title.setEnabled(false);
-        esummit_desc.setEnabled(false);
         typewriterView = (TypewriterView) view.findViewById(R.id.type_writer_text);
+        typewriterView.setVisibility(View.VISIBLE);
         setAnim();
-
-
         return view;
     }
 
@@ -153,7 +151,7 @@ public class EsummitFragment extends Fragment implements ViewInterface{
         mListener = null;
     }
 
-    void setAnim()
+    public void setAnim()
     {
 
         typewriterView.setText("");
@@ -164,15 +162,13 @@ public class EsummitFragment extends Fragment implements ViewInterface{
                 .type("NIT Raipur!").pause(500)
                 .delete("NIT Raipur!")
                 .type("9th-10th September,2017").pause(1000)
-                .delete("9th-10th September,2017")
+                .delete("9th-10th September,2017").pause(500)
                 .run(new Runnable() {
                     @Override
                     public void run() {
                         setAnim();
-
                     }
                 });
-
     }
 
     @Override
@@ -195,9 +191,6 @@ public class EsummitFragment extends Fragment implements ViewInterface{
         else
             progressBar.setVisibility(View.GONE);
     }
-
-
-
 
     /**
      * This interface must be implemented by activities that contain this

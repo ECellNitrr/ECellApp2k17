@@ -155,13 +155,20 @@ public class TypewriterView extends EditText {
                 return;
             }
 
+
             char last = mTextToRemove.charAt(mTextToRemove.length() - 1);
             mTextToRemove = mTextToRemove.subSequence(0, mTextToRemove.length() - 1);
 
             CharSequence text = getText();
 
-            if (text.charAt(text.length() - 1) == last) {
-                setText(text.subSequence(0, text.length() - 1));
+            try {
+                if (text.charAt(text.length() - 1) == last) {
+                    setText(text.subSequence(0, text.length() - 1));
+                }
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
             }
 
             setCursorAtEnd();
