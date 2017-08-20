@@ -38,11 +38,13 @@ import io.fabric.sdk.android.Fabric;
 public class Home extends AppCompatActivity {
 
     private static Context context;
-    @BindView(R.id.viewPager_home)
-    ViewPager viewPager;
+
 
     @BindView(R.id.tabLayout)
     TabLayout tabLayout;
+
+    @BindView(R.id.viewPager_home)
+    ViewPager viewPager;
 
     private int[] tabIcons = {R.drawable.e_summit_ic,R.drawable.events_icon_white,R.drawable.blogs_icon_white,R.drawable.sponsors_icon_white,R.drawable.bquiz_icon,R.drawable.about_us_white,R.drawable.profile_icon_white,};
 
@@ -54,10 +56,24 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         setFragment(new EsummitFragment());
         ButterKnife.bind(this);
+
+        TabsAdapter adapter = new TabsAdapter(getSupportFragmentManager());
+
+        //Adding adapter to pager
+        viewPager.setAdapter(adapter);
+        tabLayout.setupWithViewPager(viewPager);
+
+        adapter.addFragment(new EsummitFragment());
+        adapter.addFragment(new EventsFragment());
+        adapter.addFragment(new BlogFragment());
+        adapter.addFragment(new SponsFragment());
+        adapter.addFragment(new AboutUsFragment());
+        adapter.addFragment(new ProfileFragment());
+        adapter.notifyDataSetChanged();
         setupTabIcons();
 
         tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#FF5722"));
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+  /*      tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 int i=tabLayout.getSelectedTabPosition();
@@ -99,7 +115,7 @@ public class Home extends AppCompatActivity {
             }
         });
 
-
+*/
     }
     private void setupTabIcons() {
         View view1;
