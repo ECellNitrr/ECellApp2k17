@@ -56,7 +56,20 @@
         android:textColor="@color/white"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/button_rounded_corner"
+        android:visibility="gone"
+        android:textSize="20dp"
+        android:textStyle="bold"
         android:text="Play Now!" />
+    <TextView
+        android:id="@+id/comingsoon_text"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:text="Coming Soon!"/>
 
 </LinearLayout>
     </ScrollView>

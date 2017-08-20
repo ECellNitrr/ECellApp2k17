@@ -40,7 +40,7 @@ public class SponsEndPage_Fragment extends Fragment{
     private Button button;
     private ImageView image1,bg_spons;
     private SponsData sponsData;
-    private TextView textTitle,spons_desc,spons_body;
+    private TextView textTitle,spons_desc;
     private Context context;
     private AVLoadingIndicatorView progressBar;
     private String url = "http://google.com/";
@@ -77,11 +77,10 @@ public class SponsEndPage_Fragment extends Fragment{
         bg_spons = (ImageView) view.findViewById(R.id.bgSpons);
         textTitle = (TextView) view.findViewById(R.id.sponsTitle);
         spons_desc = (TextView) view.findViewById(R.id.sponsDesc);
-        spons_body = (TextView) view.findViewById(R.id.sponsBody);
         button = (Button) view.findViewById(R.id.sponsButton);
         progressBar = (AVLoadingIndicatorView) view.findViewById(R.id.progressBar_spons_end);
         textTitle.setText(sponsData.getSponsName());
-
+        spons_desc.setText(sponsData.getBody());
         Glide.with(this).load(R.drawable.spons_endpage).into(bg_spons);//  sponsData.getBg_spons()
         int radius = 30; // corner radius, higher value = more rounded
         int margin = 5;

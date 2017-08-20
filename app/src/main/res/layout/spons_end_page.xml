@@ -21,7 +21,7 @@
             android:id="@+id/progressBar_spons_end"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="110dp"
             android:layout_centerHorizontal="true"
             style="@style/AVLoadingIndicatorView"
             android:visibility="visible"
@@ -34,8 +34,8 @@
                 android:id="@+id/sponsImage"
                 android:layout_width="260sp"
                 android:layout_height="160dp"
-                android:layout_margin="16dp"
-                android:scaleType="center"
+                android:layout_marginTop="60dp"
+                android:scaleType="fitXY"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true" />
 
@@ -46,39 +46,32 @@
             android:text="Title"
             android:textColor="#B71C1C"
             android:textSize="40dp"
-            android:layout_marginTop="22dp"
-            android:layout_marginBottom="31dp"
-            android:layout_alignBottom="@+id/sponsDesc"
-            android:layout_centerHorizontal="true" />
+            android:layout_marginTop="110dp"
+            android:layout_below="@+id/sponsImage"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"/>
 
         <TextView
             android:id="@+id/sponsDesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
+            android:layout_marginTop="30dp"
+            android:maxLines="3"
             android:text="Description"
             android:textColor="#000000"
             android:textSize="25dp"
-            android:layout_above="@+id/sponsBody"
+            android:layout_below="@+id/sponsTitle"
             android:layout_centerHorizontal="true" />
 
-        <TextView
-            android:id="@+id/sponsBody"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/sponsButton"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="68dp"
-            android:text="Body"
-            android:textColor="#000000"
-            android:textSize="20sp" />
+
 
         <Button
             android:id="@+id/sponsButton"
             android:layout_width="200sp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:background="@drawable/button_rounded_corner"
+            android:background="@drawable/button_rounded_corner_spons"
             android:text="Visit Sponsor Website"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true" />

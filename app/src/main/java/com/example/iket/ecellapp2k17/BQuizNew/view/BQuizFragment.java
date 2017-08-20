@@ -17,6 +17,9 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
+import com.example.iket.ecellapp2k17.BQuizNew.model.RetrofitStatusProvider;
+import com.example.iket.ecellapp2k17.BQuizNew.presenter.BQuizFragmentPresenter;
+import com.example.iket.ecellapp2k17.BQuizNew.presenter.BQuizFragmentPresenterImpl;
 import com.example.iket.ecellapp2k17.R;
 import com.wang.avi.AVLoadingIndicatorView;
 
@@ -31,7 +34,7 @@ import butterknife.ButterKnife;
  * Use the {@link BQuizFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class BQuizFragment extends Fragment {
+public class BQuizFragment extends Fragment implements BQuizFragmentView{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -49,6 +52,10 @@ public class BQuizFragment extends Fragment {
     Button go_to_bquiz;
     @BindView(R.id.progressBar_bquiz_image)
     AVLoadingIndicatorView progressBar;
+    @BindView(R.id.comingsoon_text)
+    TextView coming_soon_text;
+
+    private BQuizFragmentPresenter bQuizFragmentPresenter;
 
     private OnFragmentInteractionListener mListener;
 
@@ -88,6 +95,7 @@ public class BQuizFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_bquiz,container,false);
         ButterKnife.bind(this,view);
+        bQuizFragmentPresenter = new BQuizFragmentPresenterImpl(this,new RetrofitStatusProvider());
         bquiz_description.setText("GET YOUR CORTEX FIXED CAUSE THIS QUIZ SPINS YOUR HEAD AROUND. LET'S EXPLORE SOME OF THE DE FACTO OF BUSINESS QUIZZING. GUIDE YOUR CEREBRUM'S WAY TO THIS B-QUIZ THAT WILL CATAPULT YOU INTO THE WORLD OF BUSINESS FACTS AND FIGURES.");
         Glide.with(getContext()).load("https://ecell.nitrr.ac.in/uploads/events/1502907861.png").listener(new RequestListener<String, GlideDrawable>() {
             @Override
@@ -133,6 +141,17 @@ public class BQuizFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void showPlayButton(boolean show) {
+
+        if(show == true)
+        {
+            go_to_bquiz.setVisibility(View.VISIBLE);
+            coming_soon_text.setVisibility(View.INVISIBLE);
+        }
+
     }
 
     /**
