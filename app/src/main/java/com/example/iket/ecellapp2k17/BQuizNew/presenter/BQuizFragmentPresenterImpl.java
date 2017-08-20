@@ -30,9 +30,14 @@ public class BQuizFragmentPresenterImpl implements BQuizFragmentPresenter{
             public void onSuccess(BQuizStatus bQuizStatus) {
 
                 if (bQuizStatus.getStatus())
+                {
                     bQuizFragmentView.showPlayButton(true);
+                }
                 else
+                {
                     bQuizFragmentView.showPlayButton(false);
+                    bQuizFragmentView.showMessage(bQuizStatus.getMessage());
+                }
 
 
             }
@@ -40,6 +45,7 @@ public class BQuizFragmentPresenterImpl implements BQuizFragmentPresenter{
             @Override
             public void onFailure() {
                 bQuizFragmentView.showPlayButton(false);
+                bQuizFragmentView.showMessage("No Internet Connection Found.");
             }
         });
 
