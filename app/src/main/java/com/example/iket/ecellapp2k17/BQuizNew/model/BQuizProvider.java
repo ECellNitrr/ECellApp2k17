@@ -9,5 +9,6 @@ import com.example.iket.ecellapp2k17.BQuizNew.OnBQuizDataResponse;
 public interface BQuizProvider {
 
     void requestBquizData(String adminToken, OnBQuizDataResponse onBQuizDataResponse);
+    void cancelCall();
 
 }
