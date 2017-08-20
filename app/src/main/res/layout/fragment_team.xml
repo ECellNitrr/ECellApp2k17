@@ -19,7 +19,7 @@
             android:id="@+id/faculty_research"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Dean Research  Consultancy "
+            android:text="Dean Research &amp; Consultancy "
             android:layout_centerInParent="true"
             android:layout_alignParentTop="true"
             android:gravity="center"

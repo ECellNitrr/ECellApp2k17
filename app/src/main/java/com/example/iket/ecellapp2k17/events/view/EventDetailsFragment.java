@@ -171,7 +171,7 @@ public class EventDetailsFragment extends android.support.v4.app.DialogFragment 
 
         //eventsPresenter.requestEvents();
 
-        Glide.with(getContext()).load(R.drawable.location_icon).into(event_details_location_img);
+        Glide.with(getContext()).load(R.drawable.ic_location_event).into(event_details_location_img);
 //        Glide.with(getContext()).load(eventsData.getImage()).into(event_details_bg);
 
           return view;
