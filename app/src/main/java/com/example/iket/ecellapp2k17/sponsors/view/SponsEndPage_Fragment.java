@@ -1,10 +1,12 @@
 package com.example.iket.ecellapp2k17.sponsors.view;
 
+import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.customtabs.CustomTabsIntent;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,7 +30,7 @@ import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
  * Created by vrihas on 6/27/2017.
  */
 
-public class SponsEndPage_Fragment extends Fragment{
+public class SponsEndPage_Fragment extends android.support.v4.app.DialogFragment{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -60,8 +62,21 @@ public class SponsEndPage_Fragment extends Fragment{
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+        Dialog d = getDialog();
+        if (d != null) {
+            int width = ViewGroup.LayoutParams.MATCH_PARENT;
+            int height = ViewGroup.LayoutParams.MATCH_PARENT;
+            d.getWindow().setLayout(width, height);
+            d.getWindow().setWindowAnimations(R.style.Dialog_anim);
+        }
+    }
+
+    @Override
     public void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setStyle(DialogFragment.STYLE_NORMAL, R.style.dialog_theme);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);

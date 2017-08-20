@@ -16,12 +16,71 @@
         >
 
         <TextView
+            android:id="@+id/faculty_research"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dean Research  Consultancy "
+            android:layout_centerInParent="true"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:textSize="35dp"
+            android:textStyle="bold"
+            android:textColor="@color/white" />
+
+        <View
+            android:id="@+id/line_research"
+            android:layout_width="290dp"
+            android:layout_height="2sp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/faculty_research"
+            android:background="@color/white"
+            />
+
+        <ImageView
+            android:id="@+id/faculty_researchImg"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/line_research"/>
+        <ImageView
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/team_gradient"
+            android:layout_below="@+id/line_research"
+            android:layout_marginTop="20dp"/>
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/progressBar_faculty_research"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:layout_below="@+id/line_research"
+            android:layout_centerHorizontal="true"
+            style="@style/AVLoadingIndicatorView"
+            android:visibility="visible"
+            app:indicatorName="BallTrianglePathIndicator"
+            app:indicatorColor="@color/white"
+            />
+        <TextView
+            android:id="@+id/facultyResearchName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/faculty_researchImg"
+            android:text="DR. S. SANYAL"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textSize="15dp"
+            android:layout_marginTop="5dp"/>
+
+
+        <TextView
             android:id="@+id/faculty"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="Faculty Incharge"
+            android:layout_below="@id/facultyResearchName"
             android:layout_centerInParent="true"
-            android:layout_alignParentTop="true"
             android:gravity="center"
             android:textSize="35dp"
             android:textStyle="bold"

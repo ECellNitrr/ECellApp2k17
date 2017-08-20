@@ -79,17 +79,6 @@ public class EventDetailsFragment extends android.support.v4.app.DialogFragment 
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setStyle(DialogFragment.STYLE_NORMAL, R.style.dialog_theme);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-
-        }
-    }
-
-    @Override
     public void onStart() {
         super.onStart();
         Dialog d = getDialog();
@@ -97,6 +86,19 @@ public class EventDetailsFragment extends android.support.v4.app.DialogFragment 
             int width = ViewGroup.LayoutParams.MATCH_PARENT;
             int height = ViewGroup.LayoutParams.MATCH_PARENT;
             d.getWindow().setLayout(width, height);
+            d.getWindow().setWindowAnimations(R.style.Dialog_anim);
+        }
+    }
+
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setStyle(DialogFragment.STYLE_NORMAL, R.style.dialog_theme);
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
+
         }
     }
 

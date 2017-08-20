@@ -47,7 +47,7 @@ public class TeamFragment extends Fragment  implements AboutUsInterface{
     private String mParam2;
 
     RecyclerView recyclerView;
-    private ImageView faculty_image;
+    private ImageView faculty_image,faculty_research_img;
     private RecyclerAdapter recyclerAdapter;
     private GridLayoutManager gridLayoutManager;
 
@@ -96,6 +96,7 @@ public class TeamFragment extends Fragment  implements AboutUsInterface{
                              Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_team, container, false);
         faculty_image = (ImageView) view.findViewById(R.id.facultyImg);
+        faculty_research_img = (ImageView) view.findViewById(R.id.faculty_researchImg);
         recyclerView=(RecyclerView) view.findViewById(R.id.recycler_view_team);
         progressBar2 = (AVLoadingIndicatorView) view.findViewById(R.id.progressBar_faculty);
         recyclerView.setHasFixedSize(true);
@@ -119,6 +120,23 @@ public class TeamFragment extends Fragment  implements AboutUsInterface{
                 return false;
             }
         }).bitmapTransform(new CropCircleTransformation(getContext())).into(faculty_image);
+
+
+        Glide.with(getContext()).load("https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/11951922_10206983648327839_2443736750288614524_n.jpg?oh=4e60c6c42cacdceea81e68424891412d&oe=5A347B31").listener(new RequestListener<String, GlideDrawable>() {
+            @Override
+            public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
+                progressBar2.setVisibility(View.GONE);
+                return false;
+            }
+
+            @Override
+            public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+                progressBar2.setVisibility(View.GONE);
+                return false;
+            }
+        }).bitmapTransform(new CropCircleTransformation(getContext())).into(faculty_research_img);
+
+
 
         aboutUsPresenter =new AboutUsPresenterImpl(new MockAboutUs(),this);
         aboutUsPresenter=new AboutUsPresenterImpl(new RetrofitProviderTeam(),this);
