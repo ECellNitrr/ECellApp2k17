@@ -28,6 +28,7 @@ import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.about_us.view.AboutUsFragment;
 import com.example.iket.ecellapp2k17.blogs.view.BlogFragment;
 import com.example.iket.ecellapp2k17.esummit.view.EsummitFragment;
+import com.example.iket.ecellapp2k17.esummit.view.ViewInterface;
 import com.example.iket.ecellapp2k17.events.view.EventsFragment;
 import com.example.iket.ecellapp2k17.profile.view.ProfileFragment;
 import com.example.iket.ecellapp2k17.sponsors.view.SponsFragment;
@@ -72,52 +73,10 @@ public class Home extends AppCompatActivity {
         adapter.addFragment(new AboutUsFragment());
         adapter.addFragment(new ProfileFragment());
         adapter.notifyDataSetChanged();
+        viewPager.setOffscreenPageLimit(7);
         setupTabIcons();
-
         tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#FF5722"));
-  /*      tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                int i=tabLayout.getSelectedTabPosition();
-                switch (i)
-                {
-                    case 0:
-                        setFragment(new EsummitFragment());
-                        break;
-                    case 1:
-                        setFragment(new EventsFragment());
-                        break;
-                    case 2:
-                        setFragment(new BlogFragment());
-                        break;
-                    case 3:
-                        setFragment(new SponsFragment());
-                        break;
-                    case 4:
-                        Intent bquiz=new Intent(Home.this, BQuizActivity.class);
-                        startActivity(bquiz);
-                        break;
-                    case 5:
-                        setFragment(new AboutUsFragment());
-                        break;
-                    case 6:
-                        setFragment(new ProfileFragment());
-                        break;
-                }
-            }
 
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
-
-*/
     }
     private void setupTabIcons() {
         View view1;

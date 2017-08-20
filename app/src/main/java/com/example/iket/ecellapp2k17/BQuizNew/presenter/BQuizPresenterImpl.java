@@ -46,4 +46,9 @@ public class BQuizPresenterImpl implements BQuizPresenter {
         });
 
     }
+
+    @Override
+    public void cancelCall() {
+        bQuizProvider.cancelCall();
+    }
 }

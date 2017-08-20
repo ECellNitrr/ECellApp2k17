@@ -22,6 +22,7 @@ public class RetrofitBquizProvider implements BQuizProvider {
 
     private Retrofit retrofit;
     private BquizRequestInterface bquizRequestInterface;
+    Call<BQuizData> bQuizDataCall;
 
     public RetrofitBquizProvider() {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
@@ -44,7 +45,7 @@ public class RetrofitBquizProvider implements BQuizProvider {
 
     @Override
     public void requestBquizData(String adminToken, final OnBQuizDataResponse onBQuizDataResponse) {
-        Call<BQuizData> bQuizDataCall = bquizRequestInterface.getBQuizData(adminToken);
+        bQuizDataCall = bquizRequestInterface.getBQuizData(adminToken);
 
         bQuizDataCall.enqueue(new Callback<BQuizData>() {
             @Override
@@ -60,5 +61,10 @@ public class RetrofitBquizProvider implements BQuizProvider {
                 t.printStackTrace();
             }
         });
+    }
+
+    @Override
+    public void cancelCall() {
+        bQuizDataCall.cancel();
     }
 }

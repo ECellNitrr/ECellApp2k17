@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
@@ -152,6 +153,11 @@ public class BQuizFragment extends Fragment implements BQuizFragmentView{
             coming_soon_text.setVisibility(View.INVISIBLE);
         }
 
+    }
+
+    @Override
+    public void showMessage(String message) {
+        Toast.makeText(getContext(), ""+message, Toast.LENGTH_SHORT).show();
     }
 
     /**

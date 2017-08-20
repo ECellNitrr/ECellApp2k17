@@ -6,4 +6,5 @@ package com.example.iket.ecellapp2k17.BQuizNew.presenter;
 public interface BQuizPresenter {
 
     void getBquizData(String adminToken);
+    void cancelCall();
 }
