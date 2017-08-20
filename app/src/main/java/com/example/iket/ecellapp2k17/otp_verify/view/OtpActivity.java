@@ -36,7 +36,7 @@ public class OtpActivity extends AppCompatActivity implements OtpView{
     private Button btn_resend_otp,btn_verify_otp,btn_login;
     private EditText editTextOtp,editTextMobile,editTextName,editTextEmail;
     private ProgressBar progressBar;
-    private ImageView otpImage;
+    private ImageView otpImage,login_bg;
     private String message, otp_number;
     private OtpVerifyPresenter otpVerifyPresenter;
     private SharedPrefs sharedPrefs;
@@ -51,6 +51,7 @@ public class OtpActivity extends AppCompatActivity implements OtpView{
         ButterKnife.bind(this);
 
         //Glide.with(this).load(R.drawable.password_black).into(oi);
+
         sharedPrefs = new SharedPrefs(this);
         if (getIntent() != null) {
             Bundle bundle = getIntent().getExtras();
@@ -61,15 +62,19 @@ public class OtpActivity extends AppCompatActivity implements OtpView{
         editTextMobile = (EditText) findViewById(R.id.input_mobile);
         editTextName = (EditText) findViewById(R.id.input_name);
         editTextEmail = (EditText) findViewById(R.id.input_email);
+        login_bg = (ImageView) findViewById(R.id.login_background);
+        editTextOtp = (EditText) findViewById(R.id.input_otp);
+        btn_resend_otp = (Button) findViewById(R.id.resend_otp);
+        otpImage = (ImageView) findViewById(R.id.otp_img);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        Glide.with(this).load(R.drawable.login_bg).into(login_bg);
+
+
         editTextName.setVisibility(View.GONE);
         editTextMobile.setVisibility(View.GONE);
         editTextEmail.setVisibility(View.GONE);
         btn_login.setVisibility(View.GONE);
 
-        editTextOtp = (EditText) findViewById(R.id.input_otp);
-        btn_resend_otp = (Button) findViewById(R.id.resend_otp);
-        otpImage = (ImageView) findViewById(R.id.otp_img);
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
         otpImage.setVisibility(View.VISIBLE);
         editTextOtp.setVisibility(View.VISIBLE);
         btn_resend_otp.setVisibility(View.VISIBLE);

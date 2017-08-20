@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context="com.example.iket.ecellapp2k17.splash_screen.SplashScreen">
+    tools:context="com.example.iket.ecellapp2k17.splash_screen.view.SplashScreen">
 
 
     <TextView

@@ -43,6 +43,7 @@ public class AboutUsFragment extends Fragment{
     @BindView(R.id.tabLayout_aboutus)
     TabLayout tabLayout;
     ViewPager viewPager;
+    private ImageView tab_icon_img;
 
     private int[] tabIcons = {R.drawable.vision_ic,R.drawable.team_ic,R.drawable.contact_us_ic};
 
@@ -175,8 +176,13 @@ public class AboutUsFragment extends Fragment{
         View view1;
         for (int i = 0; i < tabIcons.length; i++) {
             view1 = getActivity().getLayoutInflater().inflate(R.layout.custom_tab, null);
+           // tab_icon_img = (ImageView) view1.findViewById(R.id.tab_icon);
+
             view1.findViewById(R.id.tab_icon).setBackgroundResource(tabIcons[i]);
             tabLayout.getTabAt(i).setCustomView(view1);
+
+           // Glide.with(this).load(tabIcons[i]).into(tab_icon_img);
+
         }
 
     }

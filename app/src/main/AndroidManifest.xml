@@ -19,7 +19,7 @@
         android:theme="@style/EcellAppTheme"
         >
         <activity
-            android:name=".splash_screen.SplashScreen"
+            android:name=".splash_screen.view.SplashScreen"
             >
 
         </activity>

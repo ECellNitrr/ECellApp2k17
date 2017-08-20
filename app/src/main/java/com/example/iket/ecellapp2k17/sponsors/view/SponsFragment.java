@@ -4,6 +4,8 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -224,10 +226,12 @@ public class SponsFragment extends Fragment implements SponsInterface {
 //                    Toast.makeText(getContext(), String.format("Clicked on position #%s of Section %s",
 //                            sectionAdapter.getPositionInSection(itemHolder.getAdapterPosition()), title),
 //                            Toast.LENGTH_SHORT).show();
+                    FragmentManager fm = getFragmentManager();
                     SponsEndPage_Fragment sponsEndPage_fragment=new SponsEndPage_Fragment();
                     sponsEndPage_fragment.setData(list.get(position));
-                    ((Home)getContext()).addFragment(sponsEndPage_fragment);
+                    sponsEndPage_fragment.show(fm,"Sponsor_details");
                     Log.d("Spons",""+list.get(position).getWebsite_url());
+ //                   ((Home)getContext()).addFragment(sponsEndPage_fragment);
                 }
             });
         }

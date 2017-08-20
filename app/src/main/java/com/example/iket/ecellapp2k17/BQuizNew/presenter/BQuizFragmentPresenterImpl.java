@@ -1,0 +1,47 @@
+package com.example.iket.ecellapp2k17.BQuizNew.presenter;
+
+import com.example.iket.ecellapp2k17.BQuizNew.OnBQuizStatusResponse;
+import com.example.iket.ecellapp2k17.BQuizNew.model.BQuizStatusProvider;
+import com.example.iket.ecellapp2k17.BQuizNew.model.data.BQuizStatus;
+import com.example.iket.ecellapp2k17.BQuizNew.view.BQuizFragmentView;
+
+/**
+ * Created by samveg on 20/8/17.
+ */
+
+public class BQuizFragmentPresenterImpl implements BQuizFragmentPresenter{
+
+    BQuizFragmentView bQuizFragmentView;
+    BQuizStatusProvider bQuizStatusProvider;
+
+    public BQuizFragmentPresenterImpl(BQuizFragmentView bQuizFragmentView, BQuizStatusProvider bQuizStatusProvider){
+
+        this.bQuizFragmentView = bQuizFragmentView;
+        this.bQuizStatusProvider=bQuizStatusProvider;
+    }
+
+    @Override
+    public void getBquizStatus(boolean status) {
+
+        bQuizFragmentView.showPlayButton(true);
+
+        bQuizStatusProvider.requestBquizStatus(status, new OnBQuizStatusResponse() {
+            @Override
+            public void onSuccess(BQuizStatus bQuizStatus) {
+
+                if (bQuizStatus.getStatus())
+                    bQuizFragmentView.showPlayButton(true);
+                else
+                    bQuizFragmentView.showPlayButton(false);
+
+
+            }
+
+            @Override
+            public void onFailure() {
+                bQuizFragmentView.showPlayButton(false);
+            }
+        });
+
+    }
+}

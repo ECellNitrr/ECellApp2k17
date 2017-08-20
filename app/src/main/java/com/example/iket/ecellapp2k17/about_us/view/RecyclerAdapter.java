@@ -1,6 +1,8 @@
 package com.example.iket.ecellapp2k17.about_us.view;
 
 import android.content.Context;
+import android.net.Uri;
+import android.support.customtabs.CustomTabsIntent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -54,7 +56,17 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
         final TeamData teamData =  data.get(position);
         holder.member_name.setText(teamData.getName());
-        holder.member_email.setText(teamData.getLinkedIn());
+        //holder.member_email.setText(teamData.getLinkedIn());
+
+        holder.member_email.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+                CustomTabsIntent customTabsIntent = builder.build();
+                customTabsIntent.launchUrl(context, Uri.parse(teamData.getLinkedIn()));
+
+            }
+        });
 
         Glide.with(context).load(teamData.getMeta()).listener(new RequestListener<String, GlideDrawable>() {
             @Override
