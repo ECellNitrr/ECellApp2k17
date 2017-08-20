@@ -84,6 +84,7 @@ public class ReadMoreBlogsFragment extends android.support.v4.app.DialogFragment
             int width = ViewGroup.LayoutParams.MATCH_PARENT;
             int height = ViewGroup.LayoutParams.MATCH_PARENT;
             dialog.getWindow().setLayout(width, height);
+            dialog.getWindow().setWindowAnimations(R.style.Dialog_anim);
         }
     }
 
