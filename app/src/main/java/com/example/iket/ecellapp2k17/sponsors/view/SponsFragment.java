@@ -226,14 +226,12 @@ public class SponsFragment extends Fragment implements SponsInterface {
 //                    Toast.makeText(getContext(), String.format("Clicked on position #%s of Section %s",
 //                            sectionAdapter.getPositionInSection(itemHolder.getAdapterPosition()), title),
 //                            Toast.LENGTH_SHORT).show();
-                   // FragmentActivity activity = (FragmentActivity)(context);
                     FragmentManager fm = getFragmentManager();
                     SponsEndPage_Fragment sponsEndPage_fragment=new SponsEndPage_Fragment();
                     sponsEndPage_fragment.setData(list.get(position));
                     sponsEndPage_fragment.show(fm,"Sponsor_details");
-
- //                   ((Home)getContext()).addFragment(sponsEndPage_fragment);
                     Log.d("Spons",""+list.get(position).getWebsite_url());
+ //                   ((Home)getContext()).addFragment(sponsEndPage_fragment);
                 }
             });
         }

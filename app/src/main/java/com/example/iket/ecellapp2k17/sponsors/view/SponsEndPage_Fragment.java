@@ -40,7 +40,7 @@ public class SponsEndPage_Fragment extends android.support.v4.app.DialogFragment
     private String mParam1;
     private String mParam2;
     private Button button;
-    private ImageView image1,bg_spons;
+    private ImageView image1,bg_spons,downArrow;
     private SponsData sponsData;
     private TextView textTitle,spons_desc,spons_body;
     private Context context;
@@ -89,6 +89,7 @@ public class SponsEndPage_Fragment extends android.support.v4.app.DialogFragment
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.spons_end_page, container, false);
         image1 = (ImageView) view.findViewById(R.id.sponsImage);
+       // downArrow = (ImageView) view.findViewById(R.id.down_arrow);
         bg_spons = (ImageView) view.findViewById(R.id.bgSpons);
         textTitle = (TextView) view.findViewById(R.id.sponsTitle);
         spons_desc = (TextView) view.findViewById(R.id.sponsDesc);
@@ -124,6 +125,13 @@ public class SponsEndPage_Fragment extends android.support.v4.app.DialogFragment
                 CustomTabsIntent customTabsIntent = builder.build();
                 customTabsIntent.launchUrl(getContext(),Uri.parse(url));
 
+            }
+        });
+
+        downArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SponsEndPage_Fragment.this.dismiss();
             }
         });
 
