@@ -1,10 +1,12 @@
 package com.example.iket.ecellapp2k17.sponsors.view;
 
+import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.customtabs.CustomTabsIntent;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,7 +30,7 @@ import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
  * Created by vrihas on 6/27/2017.
  */
 
-public class SponsEndPage_Fragment extends Fragment{
+public class SponsEndPage_Fragment extends android.support.v4.app.DialogFragment{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -38,7 +40,7 @@ public class SponsEndPage_Fragment extends Fragment{
     private String mParam1;
     private String mParam2;
     private Button button;
-    private ImageView image1,bg_spons;
+    private ImageView image1,bg_spons,downArrow;
     private SponsData sponsData;
     private TextView textTitle,spons_desc;
     private Context context;
@@ -60,8 +62,21 @@ public class SponsEndPage_Fragment extends Fragment{
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+        Dialog d = getDialog();
+        if (d != null) {
+            int width = ViewGroup.LayoutParams.MATCH_PARENT;
+            int height = ViewGroup.LayoutParams.MATCH_PARENT;
+            d.getWindow().setLayout(width, height);
+            d.getWindow().setWindowAnimations(R.style.Dialog_anim);
+        }
+    }
+
+    @Override
     public void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setStyle(DialogFragment.STYLE_NORMAL, R.style.dialog_theme);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -74,6 +89,7 @@ public class SponsEndPage_Fragment extends Fragment{
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.spons_end_page, container, false);
         image1 = (ImageView) view.findViewById(R.id.sponsImage);
+       // downArrow = (ImageView) view.findViewById(R.id.down_arrow);
         bg_spons = (ImageView) view.findViewById(R.id.bgSpons);
         textTitle = (TextView) view.findViewById(R.id.sponsTitle);
         spons_desc = (TextView) view.findViewById(R.id.sponsDesc);
@@ -108,6 +124,13 @@ public class SponsEndPage_Fragment extends Fragment{
                 CustomTabsIntent customTabsIntent = builder.build();
                 customTabsIntent.launchUrl(getContext(),Uri.parse(url));
 
+            }
+        });
+
+        downArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SponsEndPage_Fragment.this.dismiss();
             }
         });
 

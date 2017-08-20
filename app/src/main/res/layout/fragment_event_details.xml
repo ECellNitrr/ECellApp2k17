@@ -60,6 +60,15 @@
             android:text="Event Body"
             android:textColor="@color/white"
             android:textSize="22dp" />
+
+        <ImageView
+            android:id="@+id/down_arrow_img"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_down_arrow"
+            android:layout_alignParentTop="true"
+            android:elevation="5dp" />
+
             <TextView
                 android:id="@+id/eventTitle"
                 android:layout_width="match_parent"
@@ -67,11 +76,11 @@
                 android:text="Wallstreet"
                 android:gravity="center"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="22dp"
+                android:layout_marginTop="36dp"
                 android:elevation="2dp"
                 android:padding="8dp"
                 android:textColor="@color/white"
-                android:textSize="45dp"
+                android:textSize="49dp"
                 android:textStyle="bold" />
 
 

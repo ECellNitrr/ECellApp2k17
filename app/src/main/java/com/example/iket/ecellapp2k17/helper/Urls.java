@@ -20,4 +20,5 @@ public class Urls {
     public static final String REQUEST_SPEAKERS ="get_speakers_list" ;
     public static final String REQUEST_CONTACTUS ="/submit_contact_us";
     public static final String REQUEST_BQUIZ_STATUS="";
+    public static final String REQUEST_SPLASH_SCREEN="";
 }

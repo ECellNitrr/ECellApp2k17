@@ -43,8 +43,6 @@ public class VerticlePagerAdapter extends PagerAdapter  {
     private int length;
     private AVLoadingIndicatorView progressBar;
 
-   // private String url = "http://google.com/";
-
     public VerticlePagerAdapter(Context context) {
         mContext = context;
         mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -122,7 +120,6 @@ public class VerticlePagerAdapter extends PagerAdapter  {
                     ReadMoreBlogsFragment readMoreBlogsFragment = new ReadMoreBlogsFragment();
                     readMoreBlogsFragment.setData(data);
                     readMoreBlogsFragment.show(fm, "read_more");
-
 
                 /*
                 CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();

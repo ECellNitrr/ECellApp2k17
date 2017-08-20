@@ -49,7 +49,7 @@ public class EventDetailsFragment extends android.support.v4.app.DialogFragment 
 
     private AVLoadingIndicatorView progressBar;
 
-    private ImageView event_details_bg,event_details_location_img;
+    private ImageView event_details_bg,event_details_location_img,down_arrow_image;
     private TextView event_details_desc,event_details_loc,event_details_name,event_details_date,event_details_time;
     private EventsPresenter eventsPresenter;
     private List<EventsData> data = new ArrayList<>();
@@ -79,6 +79,19 @@ public class EventDetailsFragment extends android.support.v4.app.DialogFragment 
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+        Dialog d = getDialog();
+        if (d != null) {
+            int width = ViewGroup.LayoutParams.MATCH_PARENT;
+            int height = ViewGroup.LayoutParams.MATCH_PARENT;
+            d.getWindow().setLayout(width, height);
+            d.getWindow().setWindowAnimations(R.style.Dialog_anim);
+        }
+    }
+
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setStyle(DialogFragment.STYLE_NORMAL, R.style.dialog_theme);
@@ -90,23 +103,13 @@ public class EventDetailsFragment extends android.support.v4.app.DialogFragment 
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-        Dialog d = getDialog();
-        if (d != null) {
-            int width = ViewGroup.LayoutParams.MATCH_PARENT;
-            int height = ViewGroup.LayoutParams.MATCH_PARENT;
-            d.getWindow().setLayout(width, height);
-        }
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
        View view =  inflater.inflate(R.layout.fragment_event_details, container, false);
         event_details_bg = (ImageView) view.findViewById(R.id.eventImage);
+        down_arrow_image = (ImageView) view.findViewById(R.id.down_arrow_img);
         event_details_location_img = (ImageView) view.findViewById(R.id.locImage);
         event_details_desc = (TextView) view.findViewById(R.id.eventBody);
         event_details_loc = (TextView) view.findViewById(R.id.eventLocation);
@@ -158,6 +161,13 @@ public class EventDetailsFragment extends android.support.v4.app.DialogFragment 
                 return false;
             }
         }).into(event_details_bg);
+
+        down_arrow_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EventDetailsFragment.this.dismiss();
+            }
+        });
 
         //eventsPresenter.requestEvents();
 
