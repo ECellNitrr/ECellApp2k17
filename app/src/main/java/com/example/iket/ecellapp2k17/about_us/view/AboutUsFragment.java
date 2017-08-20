@@ -176,8 +176,6 @@ public class AboutUsFragment extends Fragment{
         for (int i = 0; i < tabIcons.length; i++) {
             view1 = getActivity().getLayoutInflater().inflate(R.layout.custom_tab, null);
             view1.findViewById(R.id.tab_icon).setBackgroundResource(tabIcons[i]);
-//            tabLayout.newTab().setCustomView(view1);
-//            tabLayout.addTab(tabLayout.newTab().setCustomView(view1));
             tabLayout.getTabAt(i).setCustomView(view1);
         }
 

@@ -11,8 +11,8 @@
         android:layout_height="match_parent">
         <Button
             android:id="@+id/exit_btn"
-            android:layout_width="33dp"
-            android:layout_height="33dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:text="X"
             android:layout_margin="10dp"
             android:textColor="@color/white"
@@ -112,6 +112,7 @@
                         android:id="@+id/insert_img"
                         android:layout_width="140dp"
                         android:layout_height="35dp"
+                        android:layout_marginBottom="10dp"
                         android:layout_alignStart="@+id/txt_title"
                         android:layout_alignRight="@+id/txt_title"
                         android:layout_below="@+id/uploaded_img"
@@ -123,6 +124,7 @@
                         android:id="@+id/post_blog"
                         android:layout_width="140dp"
                         android:layout_height="35dp"
+                        android:layout_marginBottom="10dp"
                         android:layout_below="@+id/uploaded_img"
                         android:layout_alignRight="@+id/etxt_blogBody"
                         android:layout_marginLeft="3dp"

@@ -23,6 +23,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.crashlytics.android.Crashlytics;
 import com.example.iket.ecellapp2k17.BQuizNew.view.BQuizActivity;
+import com.example.iket.ecellapp2k17.BQuizNew.view.BQuizFragment;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.about_us.view.AboutUsFragment;
 import com.example.iket.ecellapp2k17.blogs.view.BlogFragment;
@@ -67,6 +68,7 @@ public class Home extends AppCompatActivity {
         adapter.addFragment(new EventsFragment());
         adapter.addFragment(new BlogFragment());
         adapter.addFragment(new SponsFragment());
+        adapter.addFragment(new BQuizFragment());
         adapter.addFragment(new AboutUsFragment());
         adapter.addFragment(new ProfileFragment());
         adapter.notifyDataSetChanged();

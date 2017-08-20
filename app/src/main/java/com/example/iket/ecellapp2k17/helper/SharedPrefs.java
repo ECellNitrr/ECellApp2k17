@@ -58,25 +58,12 @@ public class SharedPrefs {
     public boolean isLoggedIn() {
         return pref.getBoolean(KEY_IS_LOGGEDIN, false);
     }
-    public boolean isOtpLoggedIn(){
-        return pref.getBoolean(KEY_IS_OTPLOGGEDIN,false);
-    }
 
     public String getUsername() {
 
         return pref.getString(KEY_USERNAME, "Not Available");
     }
 
-    public boolean isFirstBlog() {
-
-        return pref.getBoolean(FIRSTBLOG, true);
-    }
-
-    public void setFirstblog(boolean bool)
-    {
-        editor.putBoolean(FIRSTBLOG,bool);
-        editor.commit();
-    }
 
     public void setFCM(String fcm) {
         editor.putString(KEY_FCM, fcm);
@@ -140,15 +127,6 @@ public class SharedPrefs {
     public String getEmail() {
 
         return pref.getString(KEY_EMAIL, "Your Email not available");
-    }
-
-    public int getLoginType() {
-        return pref.getInt(KEY_LOGIN_TYPE, 0);
-    }
-
-    public void setLoginType(int loginType) {
-        editor.putInt(KEY_LOGIN_TYPE, loginType);
-        editor.commit();
     }
 
 

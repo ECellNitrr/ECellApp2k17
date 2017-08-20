@@ -20,9 +20,9 @@ public class OtpVerifyPresenterImp implements OtpVerifyPresenter{
     }
 
     @Override
-    public void otpData(final String otp, String mobile) {
+    public void otpData(final String otp, String mobile, String access_token) {
         otpView.showProgressBar(true);
-        otpVerifyHelperClass.getOtpResponse(otp, mobile,new OtpVerificationCallback() {
+        otpVerifyHelperClass.getOtpResponse(otp, mobile,access_token,new OtpVerificationCallback() {
             @Override
             public void onOtpVerified(OtpData otpData) {
 

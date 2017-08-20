@@ -25,7 +25,6 @@ public class TabsPagerAdapter extends FragmentPagerAdapter{
 
     @Override
     public Fragment getItem(int position) {
-
         return fragmentList.get(position);
     }
 

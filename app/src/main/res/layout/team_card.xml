@@ -7,7 +7,7 @@
     android:layout_margin="4dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#616161">
+    android:background="#212121">
     
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"

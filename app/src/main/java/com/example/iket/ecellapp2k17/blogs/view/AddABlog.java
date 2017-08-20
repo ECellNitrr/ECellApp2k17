@@ -30,6 +30,7 @@ import com.example.iket.ecellapp2k17.blogs.model.data.BlogData;
 import com.example.iket.ecellapp2k17.blogs.presenter.AddBlogsPresenter;
 import com.example.iket.ecellapp2k17.blogs.presenter.AddBlogsPresenterImpl;
 import com.example.iket.ecellapp2k17.blogs.presenter.BlogsPresenterImpl;
+import com.example.iket.ecellapp2k17.helper.SharedPrefs;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -57,10 +58,11 @@ public class AddABlog extends android.support.v4.app.DialogFragment implements A
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
-    private EditText editText_blogTitle,editText_blogType,editText_blogBody;
+    private EditText editText_blogTitle,editText_blogBody;
     private Button btn_insertImage,btn_post,btn_exit;
     private ImageView addABlog_bg,uploaded_image;
-    private String blogTitle,blogType,blogBody;
+    private String blogTitle,blogBody;
+    private SharedPrefs sharedPrefs;
     private AddBlogsPresenter addBlogsPresenter;
     private ProgressBar progressBar;
 
@@ -89,13 +91,16 @@ public class AddABlog extends android.support.v4.app.DialogFragment implements A
     @Override
     public void onStart() {
         super.onStart();
+
         Dialog dialog = getDialog();
         if (dialog != null)
         {
             int width = ViewGroup.LayoutParams.MATCH_PARENT;
             int height = ViewGroup.LayoutParams.MATCH_PARENT;
             dialog.getWindow().setLayout(width, height);
+            dialog.getWindow().setWindowAnimations(R.style.Dialog_anim);
         }
+
     }
 
     @Override
@@ -114,6 +119,8 @@ public class AddABlog extends android.support.v4.app.DialogFragment implements A
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_add_ablog, container, false);
         getDialog().setTitle("Add A Blog");
+        sharedPrefs = new SharedPrefs(getContext());
+
         editText_blogTitle = (EditText) view.findViewById(R.id.etxt_title);
         editText_blogBody = (EditText) view.findViewById(R.id.etxt_blogBody);
         uploaded_image = (ImageView) view.findViewById(R.id.uploaded_img);
@@ -135,14 +142,13 @@ public class AddABlog extends android.support.v4.app.DialogFragment implements A
             @Override
             public void onClick(View v) {
                 blogTitle = editText_blogTitle.getText().toString();
-                blogType = editText_blogType.getText().toString();
                 blogBody = editText_blogBody.getText().toString();
-                if(blogTitle.isEmpty() || blogType.isEmpty() || blogBody.isEmpty()){
+                if(blogTitle.isEmpty() || blogBody.isEmpty()){
                     Toast.makeText(getContext(),"Fields cannot be Empty..!",Toast.LENGTH_SHORT).show();
                 }
                 else{
                     addBlogsPresenter = new AddBlogsPresenterImpl(AddABlog.this,new RetrofitAddBlogsProvider());
-                    addBlogsPresenter.addBlogsData(blogTitle,blogType,blogBody);
+                  //  addBlogsPresenter.addBlogsData(blogTitle,blogBody,sharedPrefs.getAccessToken(),);
                 }
             }
         });

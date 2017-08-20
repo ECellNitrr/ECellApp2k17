@@ -19,6 +19,7 @@ import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.helper.Keys;
 import com.example.iket.ecellapp2k17.helper.SharedPrefs;
+import com.example.iket.ecellapp2k17.login.model.LoginDataResponse;
 import com.example.iket.ecellapp2k17.login.presenter.LoginData;
 import com.example.iket.ecellapp2k17.login.presenter.LoginDataImp;
 import com.example.iket.ecellapp2k17.login.provider.RetrofitLoginHelper;
@@ -108,12 +109,13 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     }
 
     @Override
-    public void showLoginStatus(boolean login) {
-        if (login) {
+    public void showLoginStatus(LoginDataResponse loginDataResponse) {
             msgOtp.setVisibility(View.VISIBLE);
             sharedPrefs.setMobile(mobile);
             sharedPrefs.setUsername(name);
             sharedPrefs.setEmailId(email);
+            sharedPrefs.setAccessToken(loginDataResponse.getAccess_token());
+
             editTextName.setVisibility(View.GONE);
             editTextMobile.setVisibility(View.GONE);
             editTextEmail.setVisibility(View.GONE);
@@ -124,7 +126,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(i);
             finish();
-        }
+
     }
 
     @Override

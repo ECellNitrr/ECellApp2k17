@@ -1,5 +1,6 @@
 package com.example.iket.ecellapp2k17.login.presenter;
 
+import com.example.iket.ecellapp2k17.helper.SharedPrefs;
 import com.example.iket.ecellapp2k17.login.LoginCallback;
 import com.example.iket.ecellapp2k17.login.model.LoginDataResponse;
 import com.example.iket.ecellapp2k17.login.provider.LoginBaseClassHelper;
@@ -10,6 +11,7 @@ import com.example.iket.ecellapp2k17.login.view.LoginView;
  */
 
 public class LoginDataImp implements LoginData {
+
 
     private LoginBaseClassHelper loginBaseClassHelper;
     private LoginView login;
@@ -22,20 +24,23 @@ public class LoginDataImp implements LoginData {
 
     @Override
     public void getLoginData(String name,String mobile,String email) {
+
         login.showProgressBar(true);
         loginBaseClassHelper.loginData(name,mobile,email,new LoginCallback() {
             @Override
             public void onLoginSuccess(LoginDataResponse loginResponse) {
                 if(loginResponse.isSuccess()) {
                     login.showProgressBar(false);
-                    login.showLoginStatus(true);
+                    login.showLoginStatus(loginResponse);
+                }
+                else{
+                    login.showError(loginResponse.getMessage());
                 }
             }
 
             @Override
             public void onLoginFailure(String error) {
                 login.showError("Sorry!!Something went wrong");
-                login.showLoginStatus(false);
                 login.showProgressBar(false);
             }
         });

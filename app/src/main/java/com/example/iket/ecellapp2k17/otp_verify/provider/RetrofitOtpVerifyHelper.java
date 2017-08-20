@@ -23,7 +23,7 @@ public class RetrofitOtpVerifyHelper implements OtpVerifyHelperClass{
     private Call<OtpData> call;
 
     @Override
-    public void getOtpResponse(final String otp, String mobile,final OtpVerificationCallback otpVerificationCallback) {
+    public void getOtpResponse(final String otp, String mobile, String access_token,final OtpVerificationCallback otpVerificationCallback) {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
@@ -32,7 +32,7 @@ public class RetrofitOtpVerifyHelper implements OtpVerifyHelperClass{
                 addConverterFactory(GsonConverterFactory.create()).build();
         final RequestOtpVerify requestOtpVerify = retrofit.create(RequestOtpVerify.class);
 
-        call = requestOtpVerify.getJson(otp, mobile);
+        call = requestOtpVerify.getJson(otp, mobile, access_token);
         call.enqueue(new Callback<OtpData>() {
             @Override
             public void onResponse(Call<OtpData> call, Response<OtpData> response) {

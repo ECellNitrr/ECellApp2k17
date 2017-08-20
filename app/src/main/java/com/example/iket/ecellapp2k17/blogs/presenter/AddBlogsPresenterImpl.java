@@ -22,9 +22,9 @@ public class AddBlogsPresenterImpl implements AddBlogsPresenter {
     }
 
     @Override
-    public void addBlogsData(final String blogTitle,final String blogBody,final String file_image) {
+    public void addBlogsData(final String blogTitle,final String blogBody,final String access_token,final String file_image) {
         addABlogView.showProgressBar(true);
-        addBlogsProvider.getBlogResponse(blogTitle, blogBody,file_image,new AddABlogCallback() {
+        addBlogsProvider.getBlogResponse(blogTitle, blogBody,access_token,file_image,new AddABlogCallback() {
             @Override
             public void onBlogSent(AddBlogsData addBlogsData) {
                 if (addBlogsData.isSuccess()){

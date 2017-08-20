@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 
+import android.media.Image;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.iket.ecellapp2k17.login.model.LoginDataResponse;
 import com.example.iket.ecellapp2k17.login.presenter.LoginData;
 import com.example.iket.ecellapp2k17.login.presenter.LoginDataImp;
 import com.example.iket.ecellapp2k17.login.provider.RetrofitLoginHelper;
@@ -46,9 +48,9 @@ import jp.wasabeef.glide.transformations.CropCircleTransformation;
  */
 public class ProfileFragment extends Fragment implements LoginView{
 
-    private ImageView fb_image;
+    private ImageView fb_image,profile_bg;
     private TextView fb_username,fb_email,phoneTxt,log_out_txt;
-    private EditText username_etxt,email_etxt,phone_etxt;
+    private EditText username_etxt,email_etxt;
     private Button editButton,saveButton,cancelButton;
     private  String edit_name,edit_mobile,edit_email;
     private CardView card_edit_details;
@@ -106,6 +108,7 @@ public class ProfileFragment extends Fragment implements LoginView{
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             getActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
         }
+
         sharedPrefs = new SharedPrefs(getContext());
             initialize(view);
         card_edit_details.setVisibility(View.GONE);
@@ -121,7 +124,7 @@ public class ProfileFragment extends Fragment implements LoginView{
         if(sharedPrefs.getMobile()!=null){
             phoneTxt.setText(sharedPrefs.getMobile());
         }
-
+  //      Glide.with(getContext()).load(R.drawable.profile_bg).into(profile_bg);
         Glide.with(getContext()).load(R.drawable.default_fb_pic).bitmapTransform(new CropCircleTransformation(getContext())).into(fb_image);
 
         editButton.setOnClickListener(new View.OnClickListener() {
@@ -138,7 +141,7 @@ public class ProfileFragment extends Fragment implements LoginView{
                 */
                 editButton.setVisibility(View.GONE);
                 card_edit_details.setVisibility(View.VISIBLE);
-                log_out_txt.setVisibility(View.GONE);
+
 
             }
         });
@@ -178,7 +181,7 @@ public class ProfileFragment extends Fragment implements LoginView{
                     card_edit_details.setVisibility(View.GONE);
                     fb_username.setText(edit_name);
                     fb_email.setText(edit_email);
-                    editButton.setVisibility(view.VISIBLE);
+                    editButton.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -186,7 +189,7 @@ public class ProfileFragment extends Fragment implements LoginView{
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                editButton.setVisibility(view.VISIBLE);
+                editButton.setVisibility(View.VISIBLE);
                 fb_username.setText(sharedPrefs.getUsername());
                 fb_email.setText(sharedPrefs.getEmail());
                 card_edit_details.setVisibility(View.GONE);
@@ -244,6 +247,7 @@ public class ProfileFragment extends Fragment implements LoginView{
         fb_email = (TextView) view.findViewById(R.id.email_fb);
         fb_image=(ImageView)view.findViewById(R.id.center_image);
         cancelButton = (Button) view.findViewById(R.id.btn_cancel);
+       // profile_bg = (ImageView) view.findViewById(R.id.profile_bg_img);
     }
 
     @Override
@@ -252,7 +256,7 @@ public class ProfileFragment extends Fragment implements LoginView{
     }
 
     @Override
-    public void showLoginStatus(boolean login) {
+    public void showLoginStatus(LoginDataResponse loginDataResponse) {
         card_edit_details.setVisibility(View.GONE);
         fb_username.setText(username_etxt.getText());
         fb_email.setText(email_etxt.getText());
