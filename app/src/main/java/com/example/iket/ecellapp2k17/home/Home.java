@@ -55,7 +55,7 @@ public class Home extends AppCompatActivity {
         Fabric.with(this, new Crashlytics());
         this.context=this;
         setContentView(R.layout.activity_home);
-        setFragment(new EsummitFragment());
+        //setFragment(new EsummitFragment());
         ButterKnife.bind(this);
 
         TabsAdapter adapter = new TabsAdapter(getSupportFragmentManager());
@@ -123,10 +123,8 @@ public class Home extends AppCompatActivity {
         View view1;
         for (int i = 0; i < tabIcons.length; i++) {
             view1 = getLayoutInflater().inflate(R.layout.custom_tab, null);
-            ImageView tab_imageView;
-            tab_imageView = (ImageView) view1.findViewById(R.id.tab_icon);
-            Glide.with(this).load(tabIcons[i]).into(tab_imageView);
-            tabLayout.addTab(tabLayout.newTab().setCustomView(view1));
+            view1.findViewById(R.id.tab_icon).setBackgroundResource(tabIcons[i]);
+            tabLayout.getTabAt(i).setCustomView(view1);
         }
     }
 

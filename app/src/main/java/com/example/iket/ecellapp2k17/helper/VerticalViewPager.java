@@ -27,7 +27,7 @@ public class VerticalViewPager extends ViewPager {
         // The majority of the magic happens here
         setPageTransformer(true, new VerticalPageTransformer());
         // The easiest way to get rid of the overscroll drawing that happens on the left and right
-        setOverScrollMode(OVER_SCROLL_NEVER);
+        setOverScrollMode(OVER_SCROLL_ALWAYS);
     }
 
     private class VerticalPageTransformer implements ViewPager.PageTransformer {
