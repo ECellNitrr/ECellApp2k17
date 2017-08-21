@@ -56,7 +56,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
         final TeamData teamData =  data.get(position);
         holder.member_name.setText(teamData.getName());
-        //holder.member_email.setText(teamData.getLinkedIn());
+        holder.member_position.setText(teamData.getPosition());
 
         holder.member_email.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,6 +93,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         public ImageView member_image;
         public TextView member_email;
         public TextView member_name;
+        public TextView member_position;
         public final AVLoadingIndicatorView progressBar;
         public ViewHolder(View itemView) {
             super(itemView);
@@ -100,6 +101,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             member_email = (TextView) itemView.findViewById(R.id.coordinatorEmail);
             member_name = (TextView) itemView.findViewById(R.id.coordinatorName);
             progressBar = (AVLoadingIndicatorView) itemView.findViewById(R.id.progressBar_team);
+            member_position = (TextView) itemView.findViewById(R.id.position);
         }
     }
 }

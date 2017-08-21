@@ -8,12 +8,12 @@ public class TeamData {
     String name;
     String linkedIn;
     String meta;
+    String position;
 
-
-    public TeamData(String linkedIn, String meta, String name){
+    public TeamData(String linkedIn, String meta, String name, String position){
 
         this.linkedIn = linkedIn;
-
+        this.position = position;
         this.name = name;
         this.meta = meta;
     }
@@ -29,6 +29,10 @@ public class TeamData {
 
     public String getName() {
         return name;
+    }
+
+    public String getPosition(){
+        return position;
     }
 
 }

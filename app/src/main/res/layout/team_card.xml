@@ -54,13 +54,22 @@
                 android:layout_marginTop="5dp"
                 android:textColor="@color/white"
                 android:textSize="16dp" />
+            <TextView
+                android:id="@+id/position"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_below="@id/coordinatorName"
+                android:textSize="16dp"
+                android:textColor="@color/white"
+                android:text="position"/>
 
 
             <TextView
                 android:id="@+id/coordinatorEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/coordinatorName"
+                android:layout_below="@+id/position"
                 android:gravity="center"
                 android:textColor="#FFC107"
                 android:text="VIEW ON LINKEDIN"
