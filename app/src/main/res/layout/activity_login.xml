@@ -176,7 +176,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textSize="18dp"
-            android:text="An OTP has been sent to your mobile!"
+            android:text="@string/otp_msg"
             android:layout_alignParentTop="true"
             android:layout_gravity="center"
             android:visibility="gone"

@@ -54,7 +54,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="40dp"
-                        android:text="Title"
+                        android:text="@string/title_add_blog"
                         android:layout_marginBottom="8dp"
                         android:textColor="@color/black"
                         android:textSize="22dp"
@@ -64,7 +64,7 @@
                         android:id="@+id/etxt_title"
                         android:layout_width="278dp"
                         android:layout_height="35dp"
-                        android:hint="Enter the title of your blog"
+                        android:hint="@string/title_blog_hint"
                         android:paddingLeft="16dp"
                         android:textColor="@color/black"
                         android:textColorHint="@color/darkgray"
@@ -82,7 +82,7 @@
                         android:gravity="start"
                         android:textColor="@color/black"
                         android:textColorHint="@color/darkgray"
-                        android:hint="Your Blog Goes here"
+                        android:hint="@string/body_blog_hint"
                         android:inputType="textMultiLine"
                         android:paddingLeft="16dp"
                         android:paddingTop="16dp"
@@ -94,7 +94,7 @@
                         android:layout_below="@+id/etxt_blogBody"
                         android:layout_marginTop="70dp"
                         android:textColor="@color/darkgray"
-                        android:text="Your Selected Image will be displayed here"
+                        android:text="@string/insert_img_msg"
                         />
                     <ImageView
                         android:layout_width="match_parent"
@@ -154,7 +154,7 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/exit_btn"
             android:layout_centerHorizontal="true"
-            android:text="Add a Blog"
+            android:text="@string/Add_ablog_heading"
             android:textColor="#000000"
             android:textSize="20dp" />
     </RelativeLayout>

@@ -7,6 +7,18 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nitrr">NIT Raipur</string>
     <string name="ecell">The Entrepreneurship Cell</string>
+    <string name="BQuiz">B QUIZ</string>
+    <string name="timer">00:32</string>
+    <string name="warning_msg">Your session will be terminated if you switch apps</string>
+    <string name="otp_msg">An OTP has been sent to your mobile!</string>
+    <string name="rules_msg">Kindly read these rules for question 1</string>
+    <string name="Bquiz_dialog">Go to Bquiz</string>
+    <string name="read_more">Read More</string>
+    <string name="title_blog_hint">Enter the title of your blog</string>
+    <string name="body_blog_hint">Your Blog Goes here</string>
+    <string name="insert_img_msg">Your Selected Image will be displayed here</string>
+    <string name="Add_ablog_heading">Add a Blog</string>
+    <string name="title_add_blog">Title</string>
     <string name="action_settings">Settings</string>
     <string name="failure_message">Unable to connect to server ! Please check your Internet Connection .</string>
 
