@@ -7,7 +7,7 @@
     android:layout_margin="4dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#212121">
+    android:background="@color/darkgray">
     
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#212121">
+            android:background="@color/darkgray">
 
 
             <com.wang.avi.AVLoadingIndicatorView
@@ -73,7 +73,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/position"
                 android:gravity="center"
-                android:textColor="#FFC107"
+                android:textColor="@color/hyperlink_color"
                 android:text="VIEW ON LINKEDIN"
                 android:textSize="12dp"
                 android:clickable="true"
@@ -81,7 +81,7 @@
             <View
                 android:layout_width="97dp"
                 android:layout_height="1dp"
-                android:background="#FFC107"
+                android:background="@color/hyperlink_color"
                 android:layout_below="@+id/coordinatorEmail"
                 android:layout_centerHorizontal="true"
                 android:clickable="true"
