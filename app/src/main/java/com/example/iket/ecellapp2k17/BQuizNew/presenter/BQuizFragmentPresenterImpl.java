@@ -21,15 +21,15 @@ public class BQuizFragmentPresenterImpl implements BQuizFragmentPresenter{
     }
 
     @Override
-    public void getBquizStatus(boolean status) {
+    public void getBquizStatus() {
 
-        bQuizFragmentView.showPlayButton(true);
+       // bQuizFragmentView.showPlayButton(true);
 
-        bQuizStatusProvider.requestBquizStatus(status, new OnBQuizStatusResponse() {
+        bQuizStatusProvider.requestBquizStatus( new OnBQuizStatusResponse() {
             @Override
             public void onSuccess(BQuizStatus bQuizStatus) {
 
-                if (bQuizStatus.getStatus())
+                if (bQuizStatus.getSuccess())
                 {
                     bQuizFragmentView.showPlayButton(true);
                 }

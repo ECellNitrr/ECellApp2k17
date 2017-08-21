@@ -23,8 +23,15 @@ public class RetrofitStatusProvider implements BQuizStatusProvider {
 
     private Retrofit retrofit;
     private StatusRequestInterface statusRequestInterface;
-
+/*
     public RetrofitStatusProvider(){
+
+
+    }
+*/
+    @Override
+    public void requestBquizStatus(final OnBQuizStatusResponse onBQuizStatusResponse) {
+
 
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
@@ -40,13 +47,9 @@ public class RetrofitStatusProvider implements BQuizStatusProvider {
                 .build();
 
         statusRequestInterface = retrofit.create(StatusRequestInterface.class);
-    }
-
-    @Override
-    public void requestBquizStatus(Boolean status, final OnBQuizStatusResponse onBQuizStatusResponse) {
 
 
-        Call<BQuizStatus> bQuizDataCall = statusRequestInterface.getBQuizStatus(status);
+        Call<BQuizStatus> bQuizDataCall = statusRequestInterface.getBQuizStatus();
 
         bQuizDataCall.enqueue(new Callback<BQuizStatus>() {
             @Override
