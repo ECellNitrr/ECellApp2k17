@@ -16,7 +16,7 @@ public class MockAboutUs implements TeamProvider {
     @Override
     public void requestData(OnAboutusReceived onAboutusReceived) {
         List<TeamData> dataList=new ArrayList<>();
-        TeamData data = new TeamData("abc@gmail.com","https://upload.wikimedia.org/wikipedia/commons/b/b3/Sundar_Pichai_%28cropped%29.jpg","Abhik Sarkar");
+        TeamData data = new TeamData("abc@gmail.com","https://upload.wikimedia.org/wikipedia/commons/b/b3/Sundar_Pichai_%28cropped%29.jpg","Abhik Sarkar","Overall");
         dataList.add(data);
         dataList.add(data);
         dataList.add(data);
