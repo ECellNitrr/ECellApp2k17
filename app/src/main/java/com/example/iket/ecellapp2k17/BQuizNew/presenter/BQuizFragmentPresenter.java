@@ -5,5 +5,5 @@ package com.example.iket.ecellapp2k17.BQuizNew.presenter;
  */
 
 public interface BQuizFragmentPresenter {
-    void getBquizStatus(boolean status);
+    void getBquizStatus();
 }

@@ -13,12 +13,12 @@ public class Urls {
     public static final String REQUEST_EVENTS = "get_events_list";
     public static final String REQUEST_ABOUTUS = "get_team_members_list/";
     public static final String REQUEST_SPONS = "get_sponsors_list/";
-    public static final String REQUEST_BQUIZ_DATA ="";
+    public static final String REQUEST_BQUIZ_DATA ="get_live_question";
     public static final String REQUEST_SUBMIT_ANSWER ="";
     public static final String REQUEST_LOGIN ="create_user";
     public static final String REQUEST_VERIFY="verify_otp/";
     public static final String REQUEST_SPEAKERS ="get_speakers_list" ;
     public static final String REQUEST_CONTACTUS ="/submit_contact_us";
-    public static final String REQUEST_BQUIZ_STATUS="";
+    public static final String REQUEST_BQUIZ_STATUS="is_bquiz_active";
     public static final String REQUEST_SPLASH_SCREEN="";
 }

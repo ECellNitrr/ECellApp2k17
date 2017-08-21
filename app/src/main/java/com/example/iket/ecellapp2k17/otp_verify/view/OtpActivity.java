@@ -17,8 +17,12 @@ import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.helper.Keys;
 import com.example.iket.ecellapp2k17.helper.SharedPrefs;
 import com.example.iket.ecellapp2k17.home.Home;
+import com.example.iket.ecellapp2k17.login.model.LoginDataResponse;
 import com.example.iket.ecellapp2k17.login.presenter.LoginData;
+import com.example.iket.ecellapp2k17.login.presenter.LoginDataImp;
+import com.example.iket.ecellapp2k17.login.provider.RetrofitLoginHelper;
 import com.example.iket.ecellapp2k17.login.view.LoginActivity;
+import com.example.iket.ecellapp2k17.login.view.LoginView;
 import com.example.iket.ecellapp2k17.otp_verify.model.OtpData;
 import com.example.iket.ecellapp2k17.otp_verify.presenter.OtpVerifyPresenter;
 import com.example.iket.ecellapp2k17.otp_verify.presenter.OtpVerifyPresenterImp;
@@ -97,8 +101,26 @@ public class OtpActivity extends AppCompatActivity implements OtpView{
         }
     }
     public void resend(View v) {
-        LoginActivity loginActivity = new LoginActivity();
+       /* LoginActivity loginActivity = new LoginActivity();
         loginActivity.proceed(v);
+        */
+        LoginData loginData = new LoginDataImp(new LoginView() {
+            @Override
+            public void showProgressBar(boolean show) {
+
+            }
+
+            @Override
+            public void showLoginStatus(LoginDataResponse loginDataResponse) {
+
+            }
+
+            @Override
+            public void showError(String message) {
+
+            }
+        }, new RetrofitLoginHelper());
+        loginData.getLoginData(sharedPrefs.getUsername(),sharedPrefs.getMobile(),sharedPrefs.getEmail());
     }
 
     @Override
