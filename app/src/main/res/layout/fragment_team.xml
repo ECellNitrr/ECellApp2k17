@@ -19,7 +19,7 @@
             android:id="@+id/faculty_research"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Dean Research  Consultancy "
+            android:text="Dean Research &amp; Consultancy "
             android:layout_centerInParent="true"
             android:layout_alignParentTop="true"
             android:gravity="center"
@@ -149,7 +149,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_below="@+id/facultyDept"
-            android:text="Head Coordinators"
+            android:text="Team Members"
             android:textColor="@color/white"
             android:textSize="35dp"
             android:textStyle="bold"
@@ -159,7 +159,7 @@
         <View
             android:id="@+id/line4"
             android:layout_centerHorizontal="true"
-            android:layout_width="300dp"
+            android:layout_width="270dp"
             android:layout_height="2dp"
             android:background="@color/white"
             android:layout_below="@+id/Coordinators"/>
