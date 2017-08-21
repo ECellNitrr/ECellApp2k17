@@ -102,7 +102,7 @@ public class SponsFragment extends Fragment implements SponsInterface {
         recyclerView=(RecyclerView) view.findViewById(R.id.recycler_view_spons);
         progressBar= (ProgressBar) view.findViewById(R.id.progressBar_spons);
         sponsPresenter=new SponsPresenterImpl(this,new MockSpons());
-     //   sponsPresenter=new SponsPresenterImpl(this,new RetrofitSponsProvider());
+       // sponsPresenter=new SponsPresenterImpl(this,new RetrofitSponsProvider());
         sectionAdapter = new SectionedRecyclerViewAdapter();
 
         glm = new GridLayoutManager(getContext(), 2);
@@ -163,8 +163,14 @@ public class SponsFragment extends Fragment implements SponsInterface {
 
     @Override
     public void setData(List<SponsHeading> sponsDataList) {
-        for(int i=0;i<sponsDataList.size();i++) {
-            sectionAdapter.addSection(new SponsSection(sponsDataList.get(i).getSection_name(), sponsDataList.get(i).getSponsors()));
+
+        try{
+            for(int i=0;i<sponsDataList.size();i++) {
+                sectionAdapter.addSection(new SponsSection(sponsDataList.get(i).getSection_name(), sponsDataList.get(i).getSponsors()));
+            }
+        }
+        catch (Exception e){
+            Toast.makeText(getContext(),"Coming Soon !!",Toast.LENGTH_LONG).show();
         }
             sectionAdapter.notifyDataSetChanged();
     }
