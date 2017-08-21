@@ -7,7 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -34,12 +36,14 @@ public class OtpActivity extends AppCompatActivity implements OtpView{
 
 
     private Button btn_resend_otp,btn_verify_otp,btn_login;
+    private TextView otp_message;
     private EditText editTextOtp,editTextMobile,editTextName,editTextEmail;
     private ProgressBar progressBar;
     private ImageView otpImage,login_bg;
     private String message, otp_number;
     private OtpVerifyPresenter otpVerifyPresenter;
     private SharedPrefs sharedPrefs;
+    private LinearLayout otp_verify_layout;
 
     @BindView(otp_img)
     ImageView oi;
@@ -67,16 +71,17 @@ public class OtpActivity extends AppCompatActivity implements OtpView{
         btn_resend_otp = (Button) findViewById(R.id.resend_otp);
         otpImage = (ImageView) findViewById(R.id.otp_img);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        otp_message = (TextView) findViewById(R.id.otp_msg);
+        otp_verify_layout =(LinearLayout) findViewById(R.id.otp_verifyLayout);
         Glide.with(this).load(R.drawable.login_bg).into(login_bg);
-
 
         editTextName.setVisibility(View.GONE);
         editTextMobile.setVisibility(View.GONE);
         editTextEmail.setVisibility(View.GONE);
         btn_login.setVisibility(View.GONE);
-
+        otp_verify_layout.setVisibility(View.VISIBLE);
         otpImage.setVisibility(View.VISIBLE);
-        editTextOtp.setVisibility(View.VISIBLE);
+        otp_message.setVisibility(View.VISIBLE);
         btn_resend_otp.setVisibility(View.VISIBLE);
         btn_verify_otp.setVisibility(View.VISIBLE);
     }
@@ -112,7 +117,6 @@ public class OtpActivity extends AppCompatActivity implements OtpView{
 
     @Override
     public void OtpStatus(OtpData otpData) {
-        sharedPrefs.setLogin(true);
         Intent i = new Intent(this, Home.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);

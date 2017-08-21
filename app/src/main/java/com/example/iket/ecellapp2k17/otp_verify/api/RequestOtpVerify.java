@@ -15,6 +15,6 @@ import retrofit2.http.POST;
 public interface RequestOtpVerify {
 
     @FormUrlEncoded
-    @POST(Urls.Request_VERIFY)
+    @POST(Urls.REQUEST_VERIFY)
     Call<OtpData> getJson(@Field("otp") String otp, @Field("mobile") String mobile, @Field("token") String access_token);
 }

@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.Gravity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -111,20 +110,19 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     @Override
     public void showLoginStatus(LoginDataResponse loginDataResponse) {
             msgOtp.setVisibility(View.VISIBLE);
-            sharedPrefs.setMobile(mobile);
-            sharedPrefs.setUsername(name);
-            sharedPrefs.setEmailId(email);
-            sharedPrefs.setAccessToken(loginDataResponse.getAccess_token());
+
 
             editTextName.setVisibility(View.GONE);
             editTextMobile.setVisibility(View.GONE);
             editTextEmail.setVisibility(View.GONE);
             Intent i = new Intent(LoginActivity.this, OtpActivity.class);
-            i.putExtra(Keys.KEY_NAME,name);
             i.putExtra(Keys.KEY_MOBILE, mobile);
-            i.putExtra(Keys.KEY_EMAIL,email);
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(i);
+            sharedPrefs.setMobile(mobile);
+            sharedPrefs.setUsername(name);
+            sharedPrefs.setEmailId(email);
+            sharedPrefs.setAccessToken(loginDataResponse.getToken());
             finish();
 
     }
