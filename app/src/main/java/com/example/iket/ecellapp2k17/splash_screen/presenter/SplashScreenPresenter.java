@@ -6,5 +6,5 @@ package com.example.iket.ecellapp2k17.splash_screen.presenter;
 
 public interface SplashScreenPresenter {
 
-    void insertFcm(String fcm);
+    void insertFcm(String fcm, String access_token);
 }
