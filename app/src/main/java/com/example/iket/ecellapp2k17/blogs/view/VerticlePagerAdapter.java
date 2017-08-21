@@ -50,7 +50,7 @@ public class VerticlePagerAdapter extends PagerAdapter  {
 
     @Override
     public int getCount() {
-        return this.blogDataList.size()+1;
+        return this.blogDataList.size();
     }
 
     @Override
@@ -68,7 +68,7 @@ public class VerticlePagerAdapter extends PagerAdapter  {
         View itemView = mLayoutInflater.inflate(R.layout.blog_card, container, false);
 
         blogCard = (CardView) itemView.findViewById(R.id.blogCard);
-
+        final BlogData data=blogDataList.get(position);
 
 
         TextView title = (TextView) itemView.findViewById(R.id.blog_title);
@@ -80,46 +80,43 @@ public class VerticlePagerAdapter extends PagerAdapter  {
         progressBar = (AVLoadingIndicatorView) itemView.findViewById(R.id.progressBar_blogs);
         RelativeLayout layout = (RelativeLayout) itemView.findViewById(R.id.blog_relative_layout);
 
-        if(position < blogDataList.size())
+        length = (data.getBody()).length();
+        if(length>270)
         {
-            final BlogData data=blogDataList.get(position);
-            length = (data.getBody()).length();
-            if(length>270)
-            {
-                read_more.setVisibility(View.VISIBLE);
+            read_more.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            read_more.setVisibility(View.INVISIBLE);
+            read_more.setClickable(false);
+        }
+
+        Glide.with(mContext).load(data.getImage()).listener(new RequestListener<String, GlideDrawable>() {
+            @Override
+            public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
+                progressBar.setVisibility(View.GONE);
+                return false;
             }
-            else
-            {
-                read_more.setVisibility(View.INVISIBLE);
-                read_more.setClickable(false);
+
+            @Override
+            public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+                progressBar.setVisibility(View.GONE);
+                return false;
             }
-
-            Glide.with(mContext).load(data.getImage()).listener(new RequestListener<String, GlideDrawable>() {
-                @Override
-                public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
-                    progressBar.setVisibility(View.GONE);
-                    return false;
-                }
-
-                @Override
-                public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
-                    progressBar.setVisibility(View.GONE);
-                    return false;
-                }
-            }).into(blogImage);
-            title.setText(data.getTitle());
-            date.setText(data.getDate());
-            body.setText(Html.fromHtml(Html.fromHtml(data.getBody()).toString()));
+        }).into(blogImage);
+        title.setText(data.getTitle());
+        date.setText(data.getDate());
+        body.setText(Html.fromHtml(Html.fromHtml(data.getBody()).toString()));
 
 
-            read_more.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    FragmentActivity activity = (FragmentActivity)(mContext);
-                    FragmentManager fm = activity.getSupportFragmentManager();
-                    ReadMoreBlogsFragment readMoreBlogsFragment = new ReadMoreBlogsFragment();
-                    readMoreBlogsFragment.setData(data);
-                    readMoreBlogsFragment.show(fm, "read_more");
+        read_more.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentActivity activity = (FragmentActivity)(mContext);
+                FragmentManager fm = activity.getSupportFragmentManager();
+                ReadMoreBlogsFragment readMoreBlogsFragment = new ReadMoreBlogsFragment();
+                readMoreBlogsFragment.setData(data);
+                readMoreBlogsFragment.show(fm, "read_more");
 
                 /*
                 CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
@@ -134,29 +131,8 @@ public class VerticlePagerAdapter extends PagerAdapter  {
                 */
 
 
-                }
-            });
-
-        }
-        else
-        {
-            Glide.with(mContext).load("http://cdn2.hubspot.net/hub/53/file-23115630-jpg/blog/images/blogging_image.jpg").listener(new RequestListener<String, GlideDrawable>() {
-                @Override
-                public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
-                    progressBar.setVisibility(View.GONE);
-                    return false;
-                }
-                @Override
-                public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
-                    progressBar.setVisibility(View.GONE);
-                    return false;
-                }
-            }).into(blogImage);
-            body.setText("Wait for more blogs...." +
-                    "You can write your own blog by pressing the bottom-right icon.");
-            read_more.setVisibility(View.INVISIBLE);
-
-        }
+            }
+        });
         container.addView(itemView);
 
 

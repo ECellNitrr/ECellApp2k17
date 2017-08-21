@@ -9,7 +9,7 @@ public class Urls {
     public static final String BASE_URL = "http://192.168.0.112:8000/";
    // public static final String BASE_URL = "http://ecell.nitrr.ac.in/";
     public static final String REQUEST_BLOGS = "get_blogs_list/";
-    public static final String REQUEST_ADD_BLOGS = "addblogs/";
+    public static final String REQUEST_ADD_BLOGS = "submit_blog";
     public static final String REQUEST_EVENTS = "get_events_list";
     public static final String REQUEST_ABOUTUS = "get_team_members_list/";
     public static final String REQUEST_SPONS = "get_sponsors_list/";

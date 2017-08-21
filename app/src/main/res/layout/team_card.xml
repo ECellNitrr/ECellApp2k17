@@ -53,6 +53,7 @@
                 android:gravity="center"
                 android:layout_marginTop="5dp"
                 android:textColor="@color/white"
+                android:textAllCaps="true"
                 android:textSize="16dp" />
             <TextView
                 android:id="@+id/position"
@@ -62,6 +63,7 @@
                 android:layout_below="@id/coordinatorName"
                 android:textSize="16dp"
                 android:textColor="@color/white"
+                android:textAllCaps="true"
                 android:text="position"/>
 
 
