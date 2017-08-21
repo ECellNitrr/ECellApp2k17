@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:textSize="17dp"
-            android:text="NIT Raipur,G.E. Road Raipur, C.G. 492010."
+            android:text="@string/nit_adress"
             />
     </LinearLayout>
     <LinearLayout
@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:textSize="17dp"
-            android:text="8827544244"
+            android:text="@string/ecell_contact"
             />
     </LinearLayout>
 
@@ -99,7 +99,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:textSize="17dp"
-            android:text="ecell@nitrr.ac.in"
+            android:text="@string/ecell_mail"
             />
     </LinearLayout>
 
@@ -123,7 +123,7 @@
             android:layout_height="45dp"
             android:textColor="@color/white"
             android:textSize="17dp"
-            android:text="Monday - Friday:\n10AM-5PM"
+            android:text="@string/work_timing"
             />
     </LinearLayout>
 
@@ -157,7 +157,7 @@
             android:layout_height="35dp"
             android:background="@drawable/shape2"
             android:layout_marginTop="20dp"
-            android:hint="Your Name"
+            android:hint="@string/contact_us_name_hint"
             android:textColorHint="@color/white"
             android:textColor="@color/white"
             android:layout_marginLeft="20dp"
@@ -171,7 +171,7 @@
             android:layout_marginRight="20dp"
             android:layout_marginTop="12dp"
             android:background="@drawable/shape2"
-            android:hint="Your Email"
+            android:hint="@string/contact_us_mail_hint"
             android:textColorHint="@color/white"
             android:textColor="@color/white"
             android:padding="8dp" />

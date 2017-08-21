@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textColor="@color/white"
-        android:text="Hello guys"
+        android:text="@string/spons_title"
         android:layout_centerInParent="true"
         android:textStyle="bold"
         android:layout_margin="2dp"
