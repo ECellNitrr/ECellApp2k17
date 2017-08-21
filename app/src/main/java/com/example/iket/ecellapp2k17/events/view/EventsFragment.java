@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
@@ -58,6 +59,7 @@ public class EventsFragment extends Fragment implements EventsInterface {
     private EventsPresenter eventsPresenter;
     private EventsAdapter eventsAdapter;
     private ProgressBar progressBar;
+    private CardView card_default_events;
 
 
 
@@ -100,6 +102,7 @@ public class EventsFragment extends Fragment implements EventsInterface {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_events, container, false);
         progressBar=(ProgressBar)view.findViewById(R.id.events_progressbar);
+        card_default_events = (CardView) view.findViewById(R.id.card_coming_soon_events);
         event_recyclerView = (RecyclerView) view.findViewById(R.id.event_recycler_view);
 
         event_recyclerView.setHasFixedSize(true);
@@ -153,6 +156,13 @@ public class EventsFragment extends Fragment implements EventsInterface {
             progressBar.setVisibility(View.VISIBLE);
         else
             progressBar.setVisibility(View.INVISIBLE);
+    }
+
+    @Override
+    public void showDefault(boolean show) {
+        if (show){
+            card_default_events.setVisibility(View.VISIBLE);
+        }
     }
 
     public interface OnFragmentInteractionListener {

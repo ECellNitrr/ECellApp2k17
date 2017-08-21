@@ -35,4 +35,12 @@
     </LinearLayout>
   </ScrollView>
 
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progress_bar_dialog"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="75dp"
+        android:visibility="gone"/>
 </RelativeLayout>

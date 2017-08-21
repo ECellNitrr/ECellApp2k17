@@ -26,7 +26,13 @@ public class BlogsPresenterImpl implements BlogsPresenter{
             @Override
             public void onSuccess(BlogFeed blogFeedList) {
                 blogsInterface.showProgressBar(false);
-                blogsInterface.setData(blogFeedList);
+                if (blogFeedList.isSuccess()){
+                    blogsInterface.setData(blogFeedList);
+                }
+                else {
+                    blogsInterface.showDefault(true);
+                }
+
             }
             @Override
             public void onFailure() {

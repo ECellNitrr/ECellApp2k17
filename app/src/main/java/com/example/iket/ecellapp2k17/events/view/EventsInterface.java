@@ -12,4 +12,5 @@ public interface EventsInterface {
     void SetData(List<EventsData> eventDataList);
     void showMessage(String message);
     void ShowProgressBar(boolean show);
+    void showDefault(boolean show);
 }

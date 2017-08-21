@@ -28,10 +28,13 @@ public class EsummitPresenterImpl implements EsummitPresenter{
             @Override
             public void onSuccess(SpeakerList speakerList) {
                 viewInterface.showProgressBar(false);
-                if(speakerList.isSuccess())
-                viewInterface.setData(speakerList.getSpeakers());
-                else
+                if(speakerList.isSuccess()) {
+                    viewInterface.setData(speakerList.getSpeakers());
+                }
+                else {
+                    viewInterface.showDefault(true);
                     viewInterface.showMessage(speakerList.getMessage());
+                }
             }
 
             @Override
