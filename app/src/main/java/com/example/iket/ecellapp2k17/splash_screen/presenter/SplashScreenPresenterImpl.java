@@ -24,10 +24,10 @@ public class SplashScreenPresenterImpl implements SplashScreenPresenter {
     }
 
     @Override
-    public void insertFcm(String fcm) {
+    public void insertFcm(String fcm, String access_token) {
         splashScreenView.showProgressBar(true);
 
-        Observable<SplashScreenData> splashScreenDataObservable = splashScreenProvider.insertFcm(fcm);
+        Observable<SplashScreenData> splashScreenDataObservable = splashScreenProvider.insertFcm(fcm,access_token);
         splashScreenDataObservable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io()).subscribe(new Observer<SplashScreenData>() {
             @Override

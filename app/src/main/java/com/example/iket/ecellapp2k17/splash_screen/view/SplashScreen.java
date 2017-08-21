@@ -18,18 +18,23 @@ import com.example.iket.ecellapp2k17.helper.SharedPrefs;
 import com.example.iket.ecellapp2k17.home.Home;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.login.view.LoginActivity;
+import com.example.iket.ecellapp2k17.splash_screen.model.RetrofitSplashScreenProvider;
 import com.example.iket.ecellapp2k17.splash_screen.model.data.SplashScreenData;
+import com.example.iket.ecellapp2k17.splash_screen.presenter.SplashScreenPresenter;
+import com.example.iket.ecellapp2k17.splash_screen.presenter.SplashScreenPresenterImpl;
 
 public class SplashScreen extends Activity implements SplashScreenView {
 
     SharedPrefs sharedPrefs;
+    MyApplication myApplication;
     ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
         sharedPrefs = new SharedPrefs(this);
-
+        SplashScreenPresenter splashScreenPresenter = new SplashScreenPresenterImpl(this, new RetrofitSplashScreenProvider());
+        splashScreenPresenter.insertFcm(MyApplication.fcm_token,sharedPrefs.getAccessToken());
 /*
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
@@ -68,14 +73,18 @@ public class SplashScreen extends Activity implements SplashScreenView {
             Button btn = (Button) dialog.findViewById(R.id.dialog_button);
             progressBar = (ProgressBar) dialog.findViewById(R.id.progress_bar_dialog);
             TextView rules = (TextView) dialog.findViewById(R.id.rules5);
+            /*
             if (splashScreenData.getCompulsory_update() == 1) {
                 rules.setText("We've found some major improvements in our app . To enjoy ECellApp Please Update it");
                 dialog.setCancelable(false);
-            } else {
+            }*/
+            /*else {
                 rules.setText("Please Update the app for Better experience");
                 dialog.setCancelable(false);
             }
-
+            */
+            rules.setText("Please Update the app for Better experience");
+            dialog.setCancelable(false);
             dialog.setTitle("App Update");
             btn.setText("Update");
             dialog.show();

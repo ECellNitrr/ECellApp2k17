@@ -9,5 +9,5 @@ import rx.Observable;
  */
 
 public interface SplashScreenProvider {
-    Observable<SplashScreenData> insertFcm(String fcm);
+    Observable<SplashScreenData> insertFcm(String fcm,String access_token);
 }

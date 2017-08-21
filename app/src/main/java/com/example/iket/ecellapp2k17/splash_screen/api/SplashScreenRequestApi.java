@@ -15,6 +15,6 @@ import rx.Observable;
 public interface SplashScreenRequestApi {
     @FormUrlEncoded
     @POST(Urls.REQUEST_SPLASH_SCREEN)
-    Observable<SplashScreenData> insertFcm(@Field("fcm") String fcm);
+    Observable<SplashScreenData> insertFcm(@Field("fcm") String fcm, @Field("token") String access_token);
 
 }

@@ -43,7 +43,7 @@ public class RetrofitSplashScreenProvider implements SplashScreenProvider{
     }
 
     @Override
-    public Observable<SplashScreenData> insertFcm(String fcm) {
-        return splashScreenRequestApi.insertFcm(fcm);
+    public Observable<SplashScreenData> insertFcm(String fcm,String access_token) {
+        return splashScreenRequestApi.insertFcm(fcm,access_token);
     }
 }
