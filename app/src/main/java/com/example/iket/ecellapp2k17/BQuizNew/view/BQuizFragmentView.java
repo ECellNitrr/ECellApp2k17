@@ -7,5 +7,6 @@ package com.example.iket.ecellapp2k17.BQuizNew.view;
 public interface BQuizFragmentView {
 
     void showPlayButton(boolean show);
+    void showMessage(String message);
 
 }

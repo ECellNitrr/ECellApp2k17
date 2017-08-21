@@ -25,6 +25,11 @@ public class MockBquizProvider implements BQuizProvider {
 
     }
 
+    @Override
+    public void cancelCall() {
+
+    }
+
     BQuizData getMockData() {
         QuestionData questionData=new QuestionData(1,"What is Ecell?","https://ecell.nitrr.ac.in/uploads/events/1502905499.png","10 Points",30);
         BQuizData bQuizData=new BQuizData(true,"Error in server","https://ecell.nitrr.ac.in/images/ecell.png",2,questionData,"iket",true);

@@ -70,6 +70,8 @@
                 android:layout_marginRight="60sp"
                 android:layout_marginTop="8sp"
                 android:layout_weight="0.5"
+                android:inputType="number"
+                android:maxLength="10"
                 android:hint="Enter Your Mobile Number"
                 android:gravity="center"
                 android:background="@drawable/shape"/>
@@ -117,6 +119,7 @@
                 android:layout_height="40sp"
                 android:layout_marginRight="60sp"
                 android:layout_weight="0.5"
+                android:layout_marginBottom="20dp"
                 android:hint="Enter OTP"
                 android:gravity="center"
                 android:background="@drawable/shape"/>
@@ -152,6 +155,7 @@
             android:background="@drawable/button_rounded_corner2"
             android:text="Verify Otp"
             android:layout_weight="1"
+            android:padding="8dp"
             android:onClick="proceed_verify"
             android:visibility="gone"/>
         <Button

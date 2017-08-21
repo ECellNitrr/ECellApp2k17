@@ -7,12 +7,12 @@ package com.example.iket.ecellapp2k17.login.model;
 public class LoginDataResponse {
 
     private boolean success;
-    private String message,access_token;
-    public LoginDataResponse(boolean success, String message, String access_token)
+    private String message, token;
+    public LoginDataResponse(boolean success, String message, String token)
     {
         this.message=message;
         this.success=success;
-        this.access_token = access_token;
+        this.token = token;
     }
 
 
@@ -23,7 +23,7 @@ public class LoginDataResponse {
     public String getMessage() {
         return message;
     }
-    public String getAccess_token(){
-        return access_token;
+    public String getToken(){
+        return token;
     }
 }

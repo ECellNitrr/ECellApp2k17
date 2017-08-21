@@ -45,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20dp"
-        android:textColor="#ffffff"
+        android:textColor="@color/white"
         android:layout_gravity="center"/>
     <TextView
         android:id="@+id/speakers_desc"
@@ -53,10 +53,18 @@
         android:layout_height="wrap_content"
         android:textSize="15dp"
         android:gravity="center"
-        android:textColor="#ffffff"
+        android:textColor="@color/white"
         android:layout_gravity="center"
         android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:layout_marginBottom="20dp"/>
+        android:paddingRight="20dp" />
+    <TextView
+        android:id="@+id/year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/white"
+        android:textSize="15dp"
+        android:layout_marginBottom="10dp"
+        />
 
 </LinearLayout>

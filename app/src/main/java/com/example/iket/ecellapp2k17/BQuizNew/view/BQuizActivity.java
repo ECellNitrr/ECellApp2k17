@@ -121,6 +121,7 @@ public class BQuizActivity extends AppCompatActivity implements BQuizView {
     @Override
     public void onBackPressed() {
 
+        bQuizPresenter.cancelCall();
         try {
             countDownTimer.cancel();
         }
@@ -147,6 +148,7 @@ public class BQuizActivity extends AppCompatActivity implements BQuizView {
     @Override
     protected void onStop()
     {
+        bQuizPresenter.cancelCall();
         super.onStop();
         try {
             countDownTimer.cancel();

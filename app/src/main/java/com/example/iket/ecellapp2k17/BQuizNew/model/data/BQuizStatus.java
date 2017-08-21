@@ -7,11 +7,16 @@ package com.example.iket.ecellapp2k17.BQuizNew.model.data;
 public class BQuizStatus {
 
     private boolean status;
+    private String message;
 
-    public BQuizStatus(boolean status){
+    public BQuizStatus(boolean status , String message){
         this.status = status;
+        this.message = message;
     }
 
+    public String getMessage(){
+        return message;
+    }
     public boolean getStatus(){
         return status;
     }

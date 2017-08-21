@@ -19,12 +19,12 @@
         android:theme="@style/EcellAppTheme"
         >
         <activity
-            android:name=".splash_screen.view.SplashScreen"
+            android:name=".home.Home"
             >
 
         </activity>
         <activity android:name=".BQuizNew.view.BQuizActivity" />
-        <activity android:name=".home.Home"
+        <activity android:name=".splash_screen.view.SplashScreen"
                   android:windowSoftInputMode="adjustPan"
             >
             <intent-filter>
