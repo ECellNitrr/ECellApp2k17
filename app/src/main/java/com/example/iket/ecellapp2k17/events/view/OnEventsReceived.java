@@ -1,6 +1,7 @@
 package com.example.iket.ecellapp2k17.events.view;
 
 import com.example.iket.ecellapp2k17.events.model.data.EventsData;
+import com.example.iket.ecellapp2k17.events.model.data.EventsList;
 
 import java.util.List;
 
@@ -10,5 +11,6 @@ import java.util.List;
 
 public interface OnEventsReceived {
     void onFailure();
-    void onSuccess(List<EventsData> eventDataList);
+    void onSuccess(EventsList eventsList);
+
 }

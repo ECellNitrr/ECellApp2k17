@@ -16,6 +16,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.NestedScrollView;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,6 +63,7 @@ public class BlogFragment extends Fragment implements BlogsInterface {
     VerticlePagerAdapter verticlePagerAdapter;
     BlogsPresenter blogsPresenter;
     private ProgressBar progressBar;
+    private CardView card_default_blogs;
 
     private FloatingActionButton fab;
     private CoordinatorLayout layout;
@@ -121,7 +123,7 @@ public class BlogFragment extends Fragment implements BlogsInterface {
                 newFragment.show(ft, "dialog");
             }
         });
-
+        card_default_blogs = (CardView) view.findViewById(R.id.card_coming_soon_blogs);
         progressBar=(ProgressBar)view.findViewById(R.id.blogs_progress_bar);
         verticalViewPager=(VerticalViewPager)view.findViewById(R.id.blogs_viewPager);
         verticlePagerAdapter=new VerticlePagerAdapter(getContext());
@@ -174,7 +176,13 @@ public class BlogFragment extends Fragment implements BlogsInterface {
             progressBar.setVisibility(View.VISIBLE);
         else
             progressBar.setVisibility(View.GONE);
+    }
 
+    @Override
+    public void showDefault(boolean show) {
+        if (show){
+            card_default_blogs.setVisibility(View.VISIBLE);
+        }
     }
 
     /**

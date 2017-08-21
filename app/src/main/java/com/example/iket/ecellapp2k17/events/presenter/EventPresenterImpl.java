@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.example.iket.ecellapp2k17.events.model.EventsProvider;
 import com.example.iket.ecellapp2k17.events.model.data.EventsData;
+import com.example.iket.ecellapp2k17.events.model.data.EventsList;
 import com.example.iket.ecellapp2k17.events.view.EventsInterface;
 import com.example.iket.ecellapp2k17.events.view.OnEventsReceived;
 
@@ -42,12 +43,20 @@ public class EventPresenterImpl implements EventsPresenter {
 
         eventsProvider.requestEvents(new OnEventsReceived() {
             @Override
-            public void onSuccess(List<EventsData> eventDataList) {
+            public void onSuccess(EventsList eventsList) {
 
-                countDownTimer.cancel();
-                eventsInterface.SetData(eventDataList);
-                eventsInterface.ShowProgressBar(false);
-                Log.d("ResponseOtp","Success");
+                if (eventsList.isSuccess()){
+                    countDownTimer.cancel();
+                    eventsInterface.SetData(eventsList.getEvents());
+                    eventsInterface.ShowProgressBar(false);
+                    Log.d("ResponseOtp","Success");
+                }
+                else{
+                    countDownTimer.cancel();
+                    eventsInterface.showDefault(true);
+                    eventsInterface.ShowProgressBar(false);
+                }
+
             }
 
             @Override

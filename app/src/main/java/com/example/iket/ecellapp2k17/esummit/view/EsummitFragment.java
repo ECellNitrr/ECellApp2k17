@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -70,6 +71,7 @@ public class EsummitFragment extends Fragment implements ViewInterface{
 
     RecyclerView recyclerView;
     private SpeakerAdapter recyclerAdapter;
+    private CardView card_default_esummit;
     private LinearLayoutManager layoutManager;
 
     EsummitPresenter esummitPresenter;
@@ -115,7 +117,7 @@ public class EsummitFragment extends Fragment implements ViewInterface{
         Log.d("Hey","new frag");
         ButterKnife.bind(this,view);
         Glide.with(this).load(R.drawable.esummit).into(esummit_logo);
-
+        card_default_esummit = (CardView) view.findViewById(R.id.card_coming_soon_esummit);
         recyclerView=(RecyclerView) view.findViewById(R.id.recycler_view_speakers);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(getContext());
@@ -190,6 +192,13 @@ public class EsummitFragment extends Fragment implements ViewInterface{
             progressBar.setVisibility(View.VISIBLE);
         else
             progressBar.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void showDefault(boolean show) {
+        if(show){
+            card_default_esummit.setVisibility(View.VISIBLE);
+        }
     }
 
     /**
