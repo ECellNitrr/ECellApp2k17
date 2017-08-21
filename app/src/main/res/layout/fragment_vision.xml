@@ -25,8 +25,8 @@
                         android:layout_marginTop="15dp"
                         android:textSize="35dp"
                         android:gravity="center"
-                        android:textColor="#ffffff"
-                        android:text="VISION"
+                        android:textColor="@color/white"
+                        android:text="@string/vision_title"
                         android:textStyle="bold"/>
                     <View
                         android:id="@+id/line3"

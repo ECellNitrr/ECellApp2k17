@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="gpuimage-library-1.4.1">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.android/build-cache/66f4c62251e83bc408c5312a0ef14e1e2e6488ef/output/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.android/build-cache/66f4c62251e83bc408c5312a0ef14e1e2e6488ef/output/res" />
+      <root url="file://$USER_HOME$/.android/build-cache/fedacbdfb24b20e80be2ff0614d57a710c64cd86/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/fedacbdfb24b20e80be2ff0614d57a710c64cd86/output/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
