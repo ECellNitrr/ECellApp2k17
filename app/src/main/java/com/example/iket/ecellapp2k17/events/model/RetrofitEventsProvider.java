@@ -45,7 +45,7 @@ public class RetrofitEventsProvider implements EventsProvider {
         call.enqueue(new Callback<EventsList>() {
             @Override
             public void onResponse(Call<EventsList> call, Response<EventsList> response) {
-                onEventsReceived.onSuccess(response.body().getEvents());
+                onEventsReceived.onSuccess(response.body());
             }
 
             @Override

@@ -38,7 +38,7 @@
             android:textColor="@color/white"
             android:textSize="60dp"
             android:textStyle="bold"
-            android:text="B-Quiz"/>
+            android:text="@string/bquiz_heading"/>
         <TextView
             android:id="@+id/bquiz_details"
             android:layout_width="match_parent"
@@ -65,11 +65,11 @@
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:textColor="@color/white"
             android:textStyle="bold"
             android:textSize="25dp"
-            android:text="Coming Soon!"/>
+            android:text="@string/bquiz_coming_soon"/>
 
     </LinearLayout>
 </ScrollView>

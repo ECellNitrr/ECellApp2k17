@@ -34,4 +34,11 @@
         android:src="@drawable/splash_screen_logo"
         android:layout_centerInParent="true" />
 
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/splash_progress_bar"
+        android:layout_centerInParent="true"
+        />
+
 </RelativeLayout>

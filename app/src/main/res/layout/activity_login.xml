@@ -44,7 +44,7 @@
                 android:layout_marginRight="60sp"
                 android:layout_marginTop="8sp"
                 android:layout_weight="0.5"
-                android:hint="Enter Your Full Name"
+                android:hint="@string/hint_login_name"
                 android:gravity="center"
                 android:background="@drawable/shape"/>
 
@@ -72,7 +72,7 @@
                 android:layout_weight="0.5"
                 android:inputType="number"
                 android:maxLength="10"
-                android:hint="Enter Your Mobile Number"
+                android:hint="@string/hint_login_mobile"
                 android:gravity="center"
                 android:background="@drawable/shape"/>
         </LinearLayout>
@@ -93,7 +93,7 @@
                 android:layout_height="40sp"
                 android:layout_weight="0.5"
                 android:layout_marginRight="60sp"
-                android:hint="Enter Your Email"
+                android:hint="@string/hint_login_email"
                 android:layout_marginTop="8sp"
                 android:gravity="center"
                 android:background="@drawable/shape"/>
@@ -120,7 +120,7 @@
                 android:layout_marginRight="60sp"
                 android:layout_weight="0.5"
                 android:layout_marginBottom="20dp"
-                android:hint="Enter OTP"
+                android:hint="@string/hint_login_otp"
                 android:gravity="center"
                 android:background="@drawable/shape"/>
         </LinearLayout>
@@ -176,7 +176,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textSize="18dp"
-            android:text="An OTP has been sent to your mobile!"
+            android:text="@string/otp_msg"
             android:layout_alignParentTop="true"
             android:layout_gravity="center"
             android:visibility="gone"

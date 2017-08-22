@@ -21,6 +21,6 @@ public class MockData implements EventsProvider{
         list.add(data);
         list.add(data1);
         list.add(data);
-        onEventsReceived.onSuccess(list);
+       // onEventsReceived.onSuccess(list);
     }
 }

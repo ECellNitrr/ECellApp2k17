@@ -24,7 +24,6 @@ public class RetrofitSplashScreenProvider implements SplashScreenProvider{
 
     public RetrofitSplashScreenProvider(){
 
-
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
@@ -38,12 +37,11 @@ public class RetrofitSplashScreenProvider implements SplashScreenProvider{
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
-
         splashScreenRequestApi = retrofit.create(SplashScreenRequestApi.class);
     }
 
     @Override
-    public Observable<SplashScreenData> insertFcm(String fcm) {
-        return splashScreenRequestApi.insertFcm(fcm);
+    public Observable<SplashScreenData> insertFcm(String fcm,String access_token) {
+        return splashScreenRequestApi.insertFcm(fcm,access_token);
     }
 }

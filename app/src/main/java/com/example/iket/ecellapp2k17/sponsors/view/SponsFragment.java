@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -59,6 +60,7 @@ public class SponsFragment extends Fragment implements SponsInterface {
     RecyclerView recyclerView;
     GridLayoutManager glm;
     ProgressBar progressBar;
+    private CardView card_default_spons;
 
     private SponsPresenter sponsPresenter;
     private SectionedRecyclerViewAdapter sectionAdapter;
@@ -101,8 +103,11 @@ public class SponsFragment extends Fragment implements SponsInterface {
         View view= inflater.inflate(R.layout.fragment_spons, container, false);
         recyclerView=(RecyclerView) view.findViewById(R.id.recycler_view_spons);
         progressBar= (ProgressBar) view.findViewById(R.id.progressBar_spons);
-        sponsPresenter=new SponsPresenterImpl(this,new MockSpons());
+        card_default_spons = (CardView) view.findViewById(R.id.card_coming_soon_spons);
+//        sponsPresenter=new SponsPresenterImpl(this,new MockSpons());
+
 //        sponsPresenter=new SponsPresenterImpl(this,new RetrofitSponsProvider());
+        sponsPresenter=new SponsPresenterImpl(this,new RetrofitSponsProvider());
         sectionAdapter = new SectionedRecyclerViewAdapter();
 
         glm = new GridLayoutManager(getContext(), 2);
@@ -121,6 +126,13 @@ public class SponsFragment extends Fragment implements SponsInterface {
         recyclerView.setAdapter(sectionAdapter);
         sponsPresenter.requestSpons();
         return view;
+    }
+
+    @Override
+    public void showDefault(boolean show) {
+        if (show){
+            card_default_spons.setVisibility(View.VISIBLE);
+        }
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -163,8 +175,14 @@ public class SponsFragment extends Fragment implements SponsInterface {
 
     @Override
     public void setData(List<SponsHeading> sponsDataList) {
-        for(int i=0;i<sponsDataList.size();i++) {
-            sectionAdapter.addSection(new SponsSection(sponsDataList.get(i).getSection_name(), sponsDataList.get(i).getSponsors()));
+
+        try{
+            for(int i=0;i<sponsDataList.size();i++) {
+                sectionAdapter.addSection(new SponsSection(sponsDataList.get(i).getSection_name(), sponsDataList.get(i).getSponsors()));
+            }
+        }
+        catch (Exception e){
+            Toast.makeText(getContext(),"Coming Soon !!",Toast.LENGTH_LONG).show();
         }
             sectionAdapter.notifyDataSetChanged();
     }

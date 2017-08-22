@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:nestedScrollingEnabled="true">
 
     <RelativeLayout
@@ -9,8 +10,35 @@
         android:layout_height="match_parent"
         android:id="@+id/spons_relative_layout">
 
-    <android.support.v7.widget.RecyclerView
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_coming_soon_spons"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:visibility="gone"
+            app:cardBackgroundColor="@android:color/transparent">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/coming_soon_msg"
+                    android:textColor="@color/white"
+                    android:textSize="35dp"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:layout_alignParentStart="true" />
+
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+
+
+        <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view_spons"
+            android:layout_below="@+id/card_coming_soon_spons"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />

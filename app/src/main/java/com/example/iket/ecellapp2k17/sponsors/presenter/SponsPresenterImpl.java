@@ -35,8 +35,14 @@ public class SponsPresenterImpl implements SponsPresenter {
 
             @Override
             public void onSuccess(SponsParent sponsParent) {
-                sponsInterface.setData(sponsParent.getSpons());
                 sponsInterface.showLoading(false);
+                if (sponsParent.isSuccess()){
+                    sponsInterface.setData(sponsParent.getSpons());
+                }
+               else{
+                    sponsInterface.showDefault(true);
+                }
+
             }
         });
     }

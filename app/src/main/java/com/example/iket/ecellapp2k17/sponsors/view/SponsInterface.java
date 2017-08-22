@@ -12,4 +12,5 @@ public interface SponsInterface {
     void showLoading(boolean show);
     void showMessage(String message);
     void setData(List<SponsHeading> sponsDataList);
+    void showDefault(boolean show);
 }

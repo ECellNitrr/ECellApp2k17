@@ -21,7 +21,6 @@ import org.json.JSONObject;
 
 
 public class MyFirebaseService extends FirebaseMessagingService {
-    int i;
 
     private static final String TAG = "MyFirebaseMsgService";
 
@@ -39,7 +38,7 @@ public class MyFirebaseService extends FirebaseMessagingService {
         try {
             JSONObject jsonRootObject = new JSONObject(jsonStr);
 //             i=Integer.parseInt(jsonRootObject.optString("intent_id"));
-            i= Integer.parseInt(remoteMessage.getData().get("intent_id"));
+//            i= Integer.parseInt(remoteMessage.getData().get("intent_id"));
         }
         catch (JSONException e) {
             e.printStackTrace();

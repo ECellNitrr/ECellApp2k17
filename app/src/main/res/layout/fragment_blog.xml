@@ -23,6 +23,30 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_coming_soon_blogs"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:visibility="gone"
+            app:cardBackgroundColor="@android:color/transparent">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/coming_soon_msg"
+                    android:textColor="@color/white"
+                    android:textSize="35dp"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:layout_alignParentStart="true" />
+
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
     <com.example.iket.ecellapp2k17.helper.VerticalViewPager
         android:layout_height="match_parent"
         android:layout_width="match_parent"

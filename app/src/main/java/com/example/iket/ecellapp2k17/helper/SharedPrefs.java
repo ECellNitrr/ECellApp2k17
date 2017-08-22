@@ -61,7 +61,7 @@ public class SharedPrefs {
 
     public String getUsername() {
 
-        return pref.getString(KEY_USERNAME, "Not Available");
+        return pref.getString(KEY_USERNAME, "USERNAME");
     }
 
 
@@ -126,13 +126,13 @@ public class SharedPrefs {
 
     public String getEmail() {
 
-        return pref.getString(KEY_EMAIL, "Your Email not available");
+        return pref.getString(KEY_EMAIL, "Your Email Address");
     }
 
 
     public String getMobile() {
 
-        return pref.getString(KEY_MOBILE, "Phone number not available");
+        return pref.getString(KEY_MOBILE, "Your Phone Number");
 
     }
 
