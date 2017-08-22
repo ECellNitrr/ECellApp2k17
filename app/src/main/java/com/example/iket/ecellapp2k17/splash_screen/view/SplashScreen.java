@@ -33,6 +33,7 @@ public class SplashScreen extends Activity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
         sharedPrefs = new SharedPrefs(this);
+
        // SplashScreenPresenter splashScreenPresenter = new SplashScreenPresenterImpl(this, new RetrofitSplashScreenProvider());
         //splashScreenPresenter.insertFcm(MyApplication.fcm_token,sharedPrefs.getAccessToken());
 
@@ -53,8 +54,6 @@ public class SplashScreen extends Activity  {
                 finish();
             }
         },2500);
-
-
     }
 /*
 
@@ -131,8 +130,6 @@ public class SplashScreen extends Activity  {
         }
     }
 */
-
-
 }
 
 

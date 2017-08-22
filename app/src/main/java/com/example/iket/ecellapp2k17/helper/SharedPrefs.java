@@ -61,7 +61,7 @@ public class SharedPrefs {
 
     public String getUsername() {
 
-        return pref.getString(KEY_USERNAME, "USERNAME");
+        return pref.getString(KEY_USERNAME, "USER NAME");
     }
 
 

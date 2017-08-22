@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -55,6 +56,8 @@ public class BQuizFragment extends Fragment implements BQuizFragmentView{
     AVLoadingIndicatorView progressBar;
     @BindView(R.id.comingsoon_text)
     TextView coming_soon_text;
+    @BindView(R.id.swipe_layout_bquiz)
+    SwipeRefreshLayout swipeRefreshLayout;
 
     private BQuizFragmentPresenter bQuizFragmentPresenter;
 
@@ -96,7 +99,7 @@ public class BQuizFragment extends Fragment implements BQuizFragmentView{
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_bquiz,container,false);
         ButterKnife.bind(this,view);
-        bQuizFragmentPresenter = new BQuizFragmentPresenterImpl(this,new RetrofitStatusProvider());
+        bQuizFragmentPresenter = new BQuizFragmentPresenterImpl(BQuizFragment.this,new RetrofitStatusProvider());
         bQuizFragmentPresenter.getBquizStatus();
         bquiz_description.setText("GET YOUR CORTEX FIXED CAUSE THIS QUIZ SPINS YOUR HEAD AROUND. LET'S EXPLORE SOME OF THE DE FACTO OF BUSINESS QUIZZING. GUIDE YOUR CEREBRUM'S WAY TO THIS B-QUIZ THAT WILL CATAPULT YOU INTO THE WORLD OF BUSINESS FACTS AND FIGURES.");
         Glide.with(getContext()).load("https://ecell.nitrr.ac.in/uploads/events/1502907861.png").listener(new RequestListener<String, GlideDrawable>() {
@@ -112,6 +115,16 @@ public class BQuizFragment extends Fragment implements BQuizFragmentView{
                 return false;
             }
         }).into(bquiz_logo);
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                bQuizFragmentPresenter = new BQuizFragmentPresenterImpl(BQuizFragment.this,new RetrofitStatusProvider());
+                bQuizFragmentPresenter.getBquizStatus();
+
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
 
         go_to_bquiz.setOnClickListener(new View.OnClickListener() {
             @Override
