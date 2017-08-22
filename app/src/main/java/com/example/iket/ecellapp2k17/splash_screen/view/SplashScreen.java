@@ -65,7 +65,7 @@ public class SplashScreen extends Activity implements SplashScreenView {
     @Override
     public void fcmInsertStatus(SplashScreenData splashScreenData) {
 
-        int i = splashScreenData.getVersion();
+        float i = splashScreenData.getVersion();
 
         if (i > BuildConfig.VERSION_CODE) {
             final Dialog dialog = new Dialog(SplashScreen.this);
