@@ -39,6 +39,7 @@ public class OtpVerifyPresenterImp implements OtpVerifyPresenter{
             public void onFailure(String error) {
                 otpView.showProgressBar(false);
                 otpView.showMessage("Sorry!!Something went wrong");
+                otpView.checkNetwork();
             }
         });
 

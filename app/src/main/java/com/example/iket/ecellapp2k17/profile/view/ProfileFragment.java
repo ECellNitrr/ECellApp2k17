@@ -1,6 +1,7 @@
 package com.example.iket.ecellapp2k17.profile.view;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -20,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.iket.ecellapp2k17.helper.NetworkUtils;
 import com.example.iket.ecellapp2k17.login.model.LoginDataResponse;
 import com.example.iket.ecellapp2k17.login.presenter.LoginData;
 import com.example.iket.ecellapp2k17.login.presenter.LoginDataImp;
@@ -55,6 +57,8 @@ public class ProfileFragment extends Fragment implements LoginView{
     private  String edit_name,edit_mobile,edit_email;
     private CardView card_edit_details;
     private LoginData loginData;
+
+    Dialog dialog;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -175,8 +179,8 @@ public class ProfileFragment extends Fragment implements LoginView{
                             Toast.LENGTH_LONG).show();
                 }
                 else {
-//                    loginData = new LoginDataImp(ProfileFragment.this, new RetrofitLoginHelper());
-//                    loginData.getLoginData(edit_name, edit_mobile,edit_email);
+                    loginData = new LoginDataImp(ProfileFragment.this, new RetrofitLoginHelper());
+                    loginData.getLoginData(edit_name, edit_mobile,edit_email);
                     Toast.makeText(getContext(), "Data Saved", Toast.LENGTH_SHORT).show();
                     card_edit_details.setVisibility(View.GONE);
                     fb_username.setText(edit_name);
@@ -266,6 +270,30 @@ public class ProfileFragment extends Fragment implements LoginView{
     @Override
     public void showError(String message) {
         Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void checkNetwork() {
+        if(!NetworkUtils.isNetworkAvailable(getContext())){
+            dialog = new Dialog(getContext());
+            dialog.setContentView(R.layout.activity_rules__dialog_box);
+            Button btn = (Button) dialog.findViewById(R.id.dialog_button);
+            TextView rules5 = (TextView) dialog.findViewById(R.id.rules5);
+            btn.setText("Retry");
+            rules5.setText("No internet connection.Please try again.");
+            dialog.setTitle("Connectivity Failed");
+            dialog.setCancelable(false);
+            dialog.show();
+            btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    loginData = new LoginDataImp(ProfileFragment.this, new RetrofitLoginHelper());
+                    loginData.getLoginData(edit_name, edit_mobile,edit_email);
+                    dialog.dismiss();
+                }
+            });
+        }
     }
 
     public boolean emailInvalid(String email) {

@@ -1,6 +1,7 @@
 package com.example.iket.ecellapp2k17.esummit.view;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.net.Uri;
@@ -14,6 +15,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -27,6 +29,7 @@ import com.example.iket.ecellapp2k17.esummit.model.MockSpeakers;
 import com.example.iket.ecellapp2k17.esummit.model.data.SpeakerData;
 import com.example.iket.ecellapp2k17.esummit.presenter.EsummitPresenter;
 import com.example.iket.ecellapp2k17.esummit.presenter.EsummitPresenterImpl;
+import com.example.iket.ecellapp2k17.helper.NetworkUtils;
 import com.example.iket.ecellapp2k17.helper.TypewriterView;
 import com.example.iket.ecellapp2k17.home.Home;
 
@@ -77,6 +80,8 @@ public class EsummitFragment extends Fragment implements ViewInterface{
     EsummitPresenter esummitPresenter;
 
     TypewriterView typewriterView;
+
+    Dialog dialog;
 
     public EsummitFragment() {
         // Required empty public constructor
@@ -198,6 +203,30 @@ public class EsummitFragment extends Fragment implements ViewInterface{
     public void showDefault(boolean show) {
         if(show){
             card_default_esummit.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
+    public void checkNetwork() {
+        if(!NetworkUtils.isNetworkAvailable(getContext())){
+            dialog = new Dialog(getActivity());
+            dialog.setContentView(R.layout.activity_rules__dialog_box);
+            Button btn = (Button) dialog.findViewById(R.id.dialog_button);
+            TextView rules5 = (TextView) dialog.findViewById(R.id.rules5);
+            btn.setText("Retry");
+            rules5.setText("No internet connection.Please try again.");
+            dialog.setTitle("Connectivity Failed");
+            dialog.setCancelable(false);
+            dialog.show();
+            btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    esummitPresenter=new EsummitPresenterImpl(new RetrofitProviderSpeakers(),EsummitFragment.this);
+                    esummitPresenter.requestData();
+                    dialog.dismiss();
+                }
+            });
         }
     }
 

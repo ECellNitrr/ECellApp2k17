@@ -1,5 +1,6 @@
 package com.example.iket.ecellapp2k17.sponsors.view;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,7 +14,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -22,6 +25,7 @@ import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.example.iket.ecellapp2k17.R;
+import com.example.iket.ecellapp2k17.helper.NetworkUtils;
 import com.example.iket.ecellapp2k17.helper.image_loaders.RoundedCornersTransformation;
 import com.example.iket.ecellapp2k17.home.Home;
 import com.example.iket.ecellapp2k17.sponsors.model.MockSpons;
@@ -64,6 +68,9 @@ public class SponsFragment extends Fragment implements SponsInterface {
 
     private SponsPresenter sponsPresenter;
     private SectionedRecyclerViewAdapter sectionAdapter;
+
+    Dialog dialog;
+
     private OnFragmentInteractionListener mListener;
     public SponsFragment() {
         // Required empty public constructor
@@ -104,8 +111,8 @@ public class SponsFragment extends Fragment implements SponsInterface {
         recyclerView=(RecyclerView) view.findViewById(R.id.recycler_view_spons);
         progressBar= (ProgressBar) view.findViewById(R.id.progressBar_spons);
         card_default_spons = (CardView) view.findViewById(R.id.card_coming_soon_spons);
-        sponsPresenter=new SponsPresenterImpl(this,new MockSpons());
-       // sponsPresenter=new SponsPresenterImpl(this,new RetrofitSponsProvider());
+//        sponsPresenter=new SponsPresenterImpl(this,new MockSpons());
+        sponsPresenter=new SponsPresenterImpl(this,new RetrofitSponsProvider());
         sectionAdapter = new SectionedRecyclerViewAdapter();
 
         glm = new GridLayoutManager(getContext(), 2);
@@ -132,6 +139,30 @@ public class SponsFragment extends Fragment implements SponsInterface {
             card_default_spons.setVisibility(View.VISIBLE);
         }
     }
+
+    /*@Override
+    public void checkNetwork() {
+        if(!NetworkUtils.isNetworkAvailable(getContext())){
+            dialog = new Dialog(getActivity());
+            dialog.setContentView(R.layout.activity_rules__dialog_box);
+            Button btn = (Button) dialog.findViewById(R.id.dialog_button);
+            TextView rules5 = (TextView) dialog.findViewById(R.id.rules5);
+            btn.setText("Retry");
+            rules5.setText("No internet connection.Please try again.");
+            dialog.setTitle("Connectivity Failed");
+            dialog.setCancelable(false);
+            dialog.show();
+            btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    sponsPresenter=new SponsPresenterImpl(SponsFragment.this,new RetrofitSponsProvider());
+                    sponsPresenter.requestSpons();
+                    dialog.dismiss();
+                }
+            });
+        }
+    }*/
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {

@@ -1,5 +1,6 @@
 package com.example.iket.ecellapp2k17.events.view;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.media.Image;
 import android.net.Uri;
@@ -15,6 +16,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -27,6 +29,7 @@ import com.example.iket.ecellapp2k17.events.model.RetrofitEventsProvider;
 import com.example.iket.ecellapp2k17.events.model.data.EventsData;
 import com.example.iket.ecellapp2k17.events.presenter.EventPresenterImpl;
 import com.example.iket.ecellapp2k17.events.presenter.EventsPresenter;
+import com.example.iket.ecellapp2k17.helper.NetworkUtils;
 import com.example.iket.ecellapp2k17.helper.Urls;
 import com.example.iket.ecellapp2k17.helper.VerticalViewPager;
 //import com.facebook.shimmer.ShimmerFrameLayout;
@@ -61,7 +64,7 @@ public class EventsFragment extends Fragment implements EventsInterface {
     private ProgressBar progressBar;
     private CardView card_default_events;
 
-
+    Dialog dialog;
 
     private EventsFragment.OnFragmentInteractionListener mListener;
 
@@ -164,6 +167,30 @@ public class EventsFragment extends Fragment implements EventsInterface {
             card_default_events.setVisibility(View.VISIBLE);
         }
     }
+
+    /*@Override
+    public void checkNetwork() {
+        if(!NetworkUtils.isNetworkAvailable(getContext())){
+            dialog = new Dialog(getActivity());
+            dialog.setContentView(R.layout.activity_rules__dialog_box);
+            Button btn = (Button) dialog.findViewById(R.id.dialog_button);
+            TextView rules5 = (TextView) dialog.findViewById(R.id.rules5);
+            btn.setText("Retry");
+            rules5.setText("No internet connection.Please try again.");
+            dialog.setTitle("Connectivity Failed");
+            dialog.setCancelable(false);
+            dialog.show();
+            btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    eventsPresenter=new EventPresenterImpl(EventsFragment.this,new RetrofitEventsProvider());
+                    eventsPresenter.requestEvents();
+                    dialog.dismiss();
+                }
+            });
+        }
+    }*/
 
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name

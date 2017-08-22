@@ -39,6 +39,7 @@ public class AboutUsPresenterImpl implements AboutUsPresenter{
             public void onFailure() {
                 aboutUsInterface.showProgressBar(false);
                 aboutUsInterface.showMessage("Please check your internet connection");
+//                aboutUsInterface.checkNetwork();
             }
         });
     }

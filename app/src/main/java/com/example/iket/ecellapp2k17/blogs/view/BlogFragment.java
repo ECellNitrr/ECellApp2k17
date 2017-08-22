@@ -1,5 +1,6 @@
 package com.example.iket.ecellapp2k17.blogs.view;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -22,7 +23,9 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.blogs.model.BlogsProvider;
@@ -70,6 +73,7 @@ public class BlogFragment extends Fragment implements BlogsInterface {
     private FloatingActionButton fab;
     private CoordinatorLayout layout;
 
+    Dialog dialog;
     private OnFragmentInteractionListener mListener;
 
     public BlogFragment() {
@@ -114,23 +118,9 @@ public class BlogFragment extends Fragment implements BlogsInterface {
 
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_blog, container, false);
-        if(!NetworkUtils.isNetworkAvailable(getContext())){
-            AlertDialog.Builder builder1 = new AlertDialog.Builder(getContext());
-            builder1.setMessage("Internet not connected.Please switch on mobile data or wifi connection.");
-            builder1.setCancelable(true);
 
-            builder1.setPositiveButton(
-                    "Retry",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            Home home = new Home();
-                            home.addFragment(new BlogFragment());
-                            dialog.cancel();
-                        }
-                    });
-            AlertDialog alert11 = builder1.create();
-            alert11.show();
-        }
+
+
 
         layout = (CoordinatorLayout) view.findViewById(R.id.coordinator_layout_blog);
         fab = (FloatingActionButton)view.findViewById(R.id.fab);
@@ -218,5 +208,29 @@ public class BlogFragment extends Fragment implements BlogsInterface {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
+   /* public void checkNetwork()
+    {
+        if(!NetworkUtils.isNetworkAvailable(getContext())){
+            dialog = new Dialog(getActivity());
+            dialog.setContentView(R.layout.activity_rules__dialog_box);
+            Button btn = (Button) dialog.findViewById(R.id.dialog_button);
+            TextView rules5 = (TextView) dialog.findViewById(R.id.rules5);
+            btn.setText("Retry");
+            rules5.setText("No internet connection.Please try again.");
+            dialog.setTitle("Connectivity Failed");
+            dialog.setCancelable(false);
+            dialog.show();
+            btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                        blogsPresenter=new BlogsPresenterImpl(new RetrofitBlogsProvider(),BlogFragment.this);
+                        blogsPresenter.requestBlogs();
+                        dialog.dismiss();
+                }
+            });
+        }
+    }*/
 
 }

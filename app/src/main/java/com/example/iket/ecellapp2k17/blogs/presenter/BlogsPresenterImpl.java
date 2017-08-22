@@ -2,6 +2,7 @@ package com.example.iket.ecellapp2k17.blogs.presenter;
 
 import com.example.iket.ecellapp2k17.blogs.model.BlogsProvider;
 import com.example.iket.ecellapp2k17.blogs.model.data.BlogFeed;
+import com.example.iket.ecellapp2k17.blogs.view.BlogFragment;
 import com.example.iket.ecellapp2k17.blogs.view.BlogsInterface;
 import com.example.iket.ecellapp2k17.blogs.view.OnBlogsReceived;
 
@@ -38,6 +39,7 @@ public class BlogsPresenterImpl implements BlogsPresenter{
             public void onFailure() {
                 blogsInterface.showProgressBar(false);
                 blogsInterface.showMessage("Please check your internet connection");
+//                blogsInterface.checkNetwork();
             }
         });
     }

@@ -13,4 +13,5 @@ public interface SponsInterface {
     void showMessage(String message);
     void setData(List<SponsHeading> sponsDataList);
     void showDefault(boolean show);
+//    void checkNetwork();
 }
