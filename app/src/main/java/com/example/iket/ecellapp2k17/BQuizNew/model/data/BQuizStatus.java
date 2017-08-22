@@ -6,18 +6,18 @@ package com.example.iket.ecellapp2k17.BQuizNew.model.data;
 
 public class BQuizStatus {
 
-    private boolean status;
+    private boolean success;
     private String message;
 
-    public BQuizStatus(boolean status , String message){
-        this.status = status;
+    public BQuizStatus(boolean success, String message){
+        this.success = success;
         this.message = message;
     }
 
     public String getMessage(){
         return message;
     }
-    public boolean getStatus(){
-        return status;
+    public boolean getSuccess(){
+        return success;
     }
 }

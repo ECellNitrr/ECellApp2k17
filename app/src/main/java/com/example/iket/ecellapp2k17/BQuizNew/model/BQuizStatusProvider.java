@@ -8,5 +8,5 @@ import com.example.iket.ecellapp2k17.BQuizNew.OnBQuizStatusResponse;
 
 public interface BQuizStatusProvider {
 
-    void requestBquizStatus(Boolean status , OnBQuizStatusResponse onBQuizStatusResponse);
+    void requestBquizStatus(OnBQuizStatusResponse onBQuizStatusResponse);
 }

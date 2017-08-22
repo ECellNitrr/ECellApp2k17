@@ -89,7 +89,7 @@ public class SponsEndPage_Fragment extends android.support.v4.app.DialogFragment
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.spons_end_page, container, false);
         image1 = (ImageView) view.findViewById(R.id.sponsImage);
-       // downArrow = (ImageView) view.findViewById(R.id.down_arrow);
+        downArrow = (ImageView) view.findViewById(R.id.down_arrow);
         bg_spons = (ImageView) view.findViewById(R.id.bgSpons);
         textTitle = (TextView) view.findViewById(R.id.sponsTitle);
         spons_desc = (TextView) view.findViewById(R.id.sponsDesc);

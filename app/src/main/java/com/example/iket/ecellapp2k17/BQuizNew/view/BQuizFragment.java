@@ -97,6 +97,7 @@ public class BQuizFragment extends Fragment implements BQuizFragmentView{
         View view = inflater.inflate(R.layout.fragment_bquiz,container,false);
         ButterKnife.bind(this,view);
         bQuizFragmentPresenter = new BQuizFragmentPresenterImpl(this,new RetrofitStatusProvider());
+        bQuizFragmentPresenter.getBquizStatus();
         bquiz_description.setText("GET YOUR CORTEX FIXED CAUSE THIS QUIZ SPINS YOUR HEAD AROUND. LET'S EXPLORE SOME OF THE DE FACTO OF BUSINESS QUIZZING. GUIDE YOUR CEREBRUM'S WAY TO THIS B-QUIZ THAT WILL CATAPULT YOU INTO THE WORLD OF BUSINESS FACTS AND FIGURES.");
         Glide.with(getContext()).load("https://ecell.nitrr.ac.in/uploads/events/1502907861.png").listener(new RequestListener<String, GlideDrawable>() {
             @Override
@@ -147,10 +148,15 @@ public class BQuizFragment extends Fragment implements BQuizFragmentView{
     @Override
     public void showPlayButton(boolean show) {
 
-        if(show == true)
+        if(show)
         {
             go_to_bquiz.setVisibility(View.VISIBLE);
             coming_soon_text.setVisibility(View.INVISIBLE);
+        }
+        else
+        {
+            go_to_bquiz.setVisibility(View.INVISIBLE);
+            coming_soon_text.setVisibility(View.VISIBLE);
         }
 
     }

@@ -102,10 +102,10 @@ public class BQuizActivity extends AppCompatActivity implements BQuizView {
         ButterKnife.bind(this);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
                 bQuizPresenter = new BQuizPresenterImpl(this, new MockBquizProvider());
-            //    bQuizPresenter = new BQuizPresenterImpl(this, new RetrofitBquizProvider());
+                bQuizPresenter = new BQuizPresenterImpl(this, new RetrofitBquizProvider());
             sharedPrefs = new SharedPrefs(BQuizActivity.this);
         bQuizPresenter.getBquizData(sharedPrefs.getAccessToken());
-        //submitAnswerPresenter = new SubmitAnswerPresenterImpl(this, new RetrofitSubmitAnswerProvider());
+        submitAnswerPresenter = new SubmitAnswerPresenterImpl(this, new RetrofitSubmitAnswerProvider());
         imageLoader = new GlideImageLoader(this);
 
         submit_button.setOnClickListener(new View.OnClickListener() {

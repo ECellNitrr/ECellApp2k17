@@ -14,5 +14,5 @@ import retrofit2.http.Query;
 public interface StatusRequestInterface {
 
     @GET(Urls.REQUEST_BQUIZ_STATUS)
-    Call<BQuizStatus> getBQuizStatus(@Query("status") boolean status);
+    Call<BQuizStatus> getBQuizStatus();
 }

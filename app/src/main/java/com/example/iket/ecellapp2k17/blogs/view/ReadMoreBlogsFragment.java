@@ -127,7 +127,7 @@ public class ReadMoreBlogsFragment extends android.support.v4.app.DialogFragment
         }).into(blogImage);
         title.setText(data.getTitle());
         date.setText(data.getDate());
-        body.setText(Html.fromHtml(Html.fromHtml(data.getBody()).toString()));
+        body.setText(Html.fromHtml(data.getBody()));
 
         exitButton.setOnClickListener(new View.OnClickListener() {
             @Override
