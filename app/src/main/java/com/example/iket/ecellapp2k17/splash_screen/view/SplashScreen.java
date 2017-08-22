@@ -24,7 +24,7 @@ import com.example.iket.ecellapp2k17.splash_screen.model.data.SplashScreenData;
 import com.example.iket.ecellapp2k17.splash_screen.presenter.SplashScreenPresenter;
 import com.example.iket.ecellapp2k17.splash_screen.presenter.SplashScreenPresenterImpl;
 
-public class SplashScreen extends Activity implements SplashScreenView {
+public class SplashScreen extends Activity implements  SplashScreenView{
 
     SharedPrefs sharedPrefs;
     MyApplication myApplication;
@@ -35,12 +35,16 @@ public class SplashScreen extends Activity implements SplashScreenView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
         sharedPrefs = new SharedPrefs(this);
+
         splashProgressBar=(ProgressBar)findViewById(R.id.splash_progress_bar);
 
         Log.d("Splash sceen",""+MyApplication.getFcm());
         SplashScreenPresenter splashScreenPresenter = new SplashScreenPresenterImpl(this, new RetrofitSplashScreenProvider());
         splashScreenPresenter.insertFcm(MyApplication.fcm_token,sharedPrefs.getAccessToken());
+    //    SplashScreenPresenter splashScreenPresenter = new SplashScreenPresenterImpl(this, new RetrofitSplashScreenProvider());
+    //    splashScreenPresenter.insertFcm(MyApplication.fcm_token,sharedPrefs.getAccessToken());
     }
+
 
     @Override
     public void showMessage(String message) {
@@ -57,16 +61,11 @@ public class SplashScreen extends Activity implements SplashScreenView {
             Button btn = (Button) dialog.findViewById(R.id.dialog_button);
             progressBar = (ProgressBar) dialog.findViewById(R.id.progress_bar);
             TextView rules = (TextView) dialog.findViewById(R.id.rules5);
-            /*
+/*
             if (splashScreenData.getCompulsory_update() == 1) {
                 rules.setText("We've found some major improvements in our app . To enjoy ECellApp Please Update it");
                 dialog.setCancelable(false);
             }*/
-            /*else {
-                rules.setText("Please Update the app for Better experience");
-                dialog.setCancelable(false);
-            }
-            */
             rules.setText("Please Update the app for Better experience");
             dialog.setCancelable(false);
             dialog.setTitle("App Update");
@@ -110,6 +109,7 @@ public class SplashScreen extends Activity implements SplashScreenView {
             splashProgressBar.setVisibility(View.GONE);
         }
     }
+
 }
 
 

@@ -21,6 +21,7 @@
             android:name=".home.Home"
             android:windowSoftInputMode="adjustPan"
             >
+
         </activity>
 
         <activity android:name=".BQuizNew.view.BQuizActivity"
