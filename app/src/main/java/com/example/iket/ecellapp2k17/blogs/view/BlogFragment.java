@@ -1,6 +1,7 @@
 package com.example.iket.ecellapp2k17.blogs.view;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.NestedScrollView;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,13 +32,13 @@ import com.example.iket.ecellapp2k17.blogs.model.data.BlogData;
 import com.example.iket.ecellapp2k17.blogs.model.data.BlogFeed;
 import com.example.iket.ecellapp2k17.blogs.presenter.BlogsPresenter;
 import com.example.iket.ecellapp2k17.blogs.presenter.BlogsPresenterImpl;
+import com.example.iket.ecellapp2k17.helper.NetworkUtils;
 import com.example.iket.ecellapp2k17.helper.VerticalViewPager;
 import com.example.iket.ecellapp2k17.home.Home;
 import com.tomergoldst.tooltips.ToolTip;
 import com.tomergoldst.tooltips.ToolTipsManager;
 
 import java.util.List;
-
 import retrofit2.Call;
 
 /**
@@ -112,6 +114,23 @@ public class BlogFragment extends Fragment implements BlogsInterface {
 
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_blog, container, false);
+        if(!NetworkUtils.isNetworkAvailable(getContext())){
+            AlertDialog.Builder builder1 = new AlertDialog.Builder(getContext());
+            builder1.setMessage("Internet not connected.Please switch on mobile data or wifi connection.");
+            builder1.setCancelable(true);
+
+            builder1.setPositiveButton(
+                    "Retry",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            Home home = new Home();
+                            home.addFragment(new BlogFragment());
+                            dialog.cancel();
+                        }
+                    });
+            AlertDialog alert11 = builder1.create();
+            alert11.show();
+        }
 
         layout = (CoordinatorLayout) view.findViewById(R.id.coordinator_layout_blog);
         fab = (FloatingActionButton)view.findViewById(R.id.fab);
