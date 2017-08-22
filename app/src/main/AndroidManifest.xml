@@ -21,11 +21,7 @@
         <activity
             android:name=".splash_screen.view.SplashScreen"
             >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".BQuizNew.view.BQuizActivity" />
         <activity android:name=".home.Home"
