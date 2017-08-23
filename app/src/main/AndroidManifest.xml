@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.iket.ecellapp2k17">
+    package="com.esummit.nitrr.ecellapp2k17">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name=".helper.MyApplication"
+        android:name="com.esummit.nitrr.ecellapp2k17.helper.MyApplication"
         android:allowBackup="true"
         android:hardwareAccelerated="false"
         android:icon="@drawable/esummit"
@@ -17,17 +17,17 @@
         android:theme="@style/EcellAppTheme"
         >
         <activity
-            android:name=".home.Home"
+            android:name="com.esummit.nitrr.ecellapp2k17.home.Home"
             android:windowSoftInputMode="adjustPan"
             >
 
         </activity>
 
-        <activity android:name=".BQuizNew.view.BQuizActivity"
+        <activity android:name="com.esummit.nitrr.ecellapp2k17.BQuizNew.view.BQuizActivity"
                   android:windowSoftInputMode="adjustPan">
         </activity>
 
-        <activity android:name=".splash_screen.view.SplashScreen"
+        <activity android:name="com.esummit.nitrr.ecellapp2k17.splash_screen.view.SplashScreen"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -52,7 +52,7 @@
             />
 
         <service
-            android:name=".helper.MyFirebaseService"
+            android:name="com.esummit.nitrr.ecellapp2k17.helper.MyFirebaseService"
             android:label="Firebase">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
@@ -67,11 +67,11 @@
 -->
 
 
-        <activity android:name=".login.view.LoginActivity"
+        <activity android:name="com.esummit.nitrr.ecellapp2k17.login.view.LoginActivity"
             android:windowSoftInputMode="adjustPan">
 
         </activity>
-        <activity android:name=".otp_verify.view.OtpActivity" />
+        <activity android:name="com.esummit.nitrr.ecellapp2k17.otp_verify.view.OtpActivity" />
     </application>
 
 </manifest>

@@ -24,7 +24,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "com.example.iket.ecellapp2k17"
+        applicationId "com.esummit.nitrr.ecellapp2k17"
         minSdkVersion 21
         targetSdkVersion 25
         multiDexEnabled true

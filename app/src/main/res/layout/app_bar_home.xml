@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.iket.ecellapp2k17.home.Home">
+    tools:context="com.esummit.nitrr.ecellapp2k17.home.Home">
 
     <include layout="@layout/content_home"/>
 

@@ -34,7 +34,7 @@
             android:text="E-Summit'17"
             android:gravity="center"
             android:layout_gravity="center_horizontal" />
-        <com.example.iket.ecellapp2k17.helper.TypewriterView
+        <com.esummit.nitrr.ecellapp2k17.helper.TypewriterView
             android:id="@+id/type_writer_text"
             android:layout_width="wrap_content"
             android:gravity="center"
