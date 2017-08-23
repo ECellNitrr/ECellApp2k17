@@ -177,10 +177,11 @@ public class AboutUsFragment extends Fragment{
         for (int i = 0; i < tabIcons.length; i++) {
             view1 = getActivity().getLayoutInflater().inflate(R.layout.custom_tab, null);
             tab_icon_img = (ImageView) view1.findViewById(R.id.tab_icon);
-            
-//            view1.findViewById(R.id.tab_icon).setBackgroundResource(tabIcons[i]);
-       //     tabLayout.getTabAt(i).setCustomView(view1);
-            Glide.with(this).load(tabIcons[i]).into(tab_icon_img);
+
+            view1.findViewById(R.id.tab_icon).setBackgroundResource(tabIcons[i]);
+            tabLayout.getTabAt(i).setCustomView(view1);
+
+//            Glide.with(this).load(tabIcons[i]).into(tab_icon_img);
         }
 
     }

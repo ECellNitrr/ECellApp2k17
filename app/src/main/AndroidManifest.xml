@@ -13,7 +13,6 @@
         android:icon="@drawable/esummit"
         android:label="@string/app_name"
         android:largeHeap="true"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/EcellAppTheme"
         >
@@ -25,11 +24,10 @@
 
         <activity android:name=".BQuizNew.view.BQuizActivity"
                   android:windowSoftInputMode="adjustPan">
-
         </activity>
+
         <activity android:name=".splash_screen.view.SplashScreen"
             >
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
