@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -222,8 +223,11 @@ public class EsummitFragment extends Fragment implements ViewInterface{
                 @Override
                 public void onClick(View v) {
 
-                    esummitPresenter=new EsummitPresenterImpl(new RetrofitProviderSpeakers(),EsummitFragment.this);
-                    esummitPresenter.requestData();
+                    /*esummitPresenter=new EsummitPresenterImpl(new RetrofitProviderSpeakers(),EsummitFragment.this);
+                    esummitPresenter.requestData();*/
+                    Intent intent = new Intent(getActivity(),Home.class);
+                    startActivity(intent);
+                    getActivity().finish();
                     dialog.dismiss();
                 }
             });

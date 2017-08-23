@@ -48,6 +48,8 @@ public class Home extends AppCompatActivity {
     @BindView(R.id.viewPager_home)
     ViewPager viewPager;
 
+    ImageView tab_icon_img;
+
     private int[] tabIcons = {R.drawable.e_summit_ic,R.drawable.events_icon_white,R.drawable.blogs_icon_white,R.drawable.sponsors_icon_white,R.drawable.bquiz_icon,R.drawable.about_us_white,R.drawable.profile_icon_white,};
 
     @Override
@@ -82,7 +84,9 @@ public class Home extends AppCompatActivity {
         View view1;
         for (int i = 0; i < tabIcons.length; i++) {
             view1 = getLayoutInflater().inflate(R.layout.custom_tab, null);
-            view1.findViewById(R.id.tab_icon).setBackgroundResource(tabIcons[i]);
+            tab_icon_img = (ImageView) view1.findViewById(R.id.tab_icon);
+            view1.findViewById(R.id.tab_icon);
+            Glide.with(this).load(tabIcons[i]).into(tab_icon_img);
             tabLayout.getTabAt(i).setCustomView(view1);
         }
     }
