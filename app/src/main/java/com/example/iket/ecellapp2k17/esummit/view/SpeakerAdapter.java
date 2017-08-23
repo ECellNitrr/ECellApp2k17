@@ -55,7 +55,7 @@ public class SpeakerAdapter extends RecyclerView.Adapter<SpeakerAdapter.ViewHold
         SpeakerData listData = data.get(position);
         holder.speaker_name.setText(listData.getName());
         holder.speaker_desc.setText(listData.getDescription());
-        holder.speaker_year.setText("Year : "+listData.getYear());
+        holder.speaker_year.setText(listData.getYear());
         Glide.with(context).load(listData.getImage()).listener(new RequestListener<String, GlideDrawable>() {
             @Override
             public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
