@@ -20,6 +20,7 @@
             android:name=".home.Home"
             android:windowSoftInputMode="adjustPan"
             >
+
         </activity>
 
         <activity android:name=".BQuizNew.view.BQuizActivity"
@@ -28,6 +29,7 @@
 
         <activity android:name=".splash_screen.view.SplashScreen"
             >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
