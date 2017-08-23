@@ -31,6 +31,7 @@ public class OtpVerifyPresenterImp implements OtpVerifyPresenter{
 
                 } else {
                     otpView.showMessage(otpData.getMessage());
+                    otpView.verify_bttn_clickable();
                 }
                 otpView.showProgressBar(false);
             }

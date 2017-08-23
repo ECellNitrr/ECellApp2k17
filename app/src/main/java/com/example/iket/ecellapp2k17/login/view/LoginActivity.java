@@ -89,6 +89,10 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
             showProgressBar(false);
             showError("Fields cannot be empty");
         }
+        if(mobile.length()!=10){
+            Toast.makeText(LoginActivity.this, "YOU HAVE ENTERED AN INCORRECT MOBILE NUMBER!",
+                    Toast.LENGTH_LONG).show();
+        }
         else if(emailInvalid(email)){
             Toast.makeText(LoginActivity.this, "ENTER CORRECT EMAIL ID!",
                     Toast.LENGTH_LONG).show();
