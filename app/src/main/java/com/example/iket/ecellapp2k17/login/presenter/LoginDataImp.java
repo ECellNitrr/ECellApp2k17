@@ -42,6 +42,7 @@ public class LoginDataImp implements LoginData {
             public void onLoginFailure(String error) {
                 login.showError("Sorry!!Something went wrong");
                 login.showProgressBar(false);
+                login.checkNetwork();
             }
         });
     }

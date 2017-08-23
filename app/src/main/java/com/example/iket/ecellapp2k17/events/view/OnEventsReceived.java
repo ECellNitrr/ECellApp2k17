@@ -12,5 +12,4 @@ import java.util.List;
 public interface OnEventsReceived {
     void onFailure();
     void onSuccess(EventsList eventsList);
-
 }

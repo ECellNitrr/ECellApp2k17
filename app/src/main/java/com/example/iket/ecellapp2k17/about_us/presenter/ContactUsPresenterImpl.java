@@ -36,6 +36,7 @@ public class ContactUsPresenterImpl implements ContactUsPresenter {
                 contactUsView.showError("Sorry! Something went wrong");
                 contactUsView.showProgressBar(false);
                 contactUsView.showStatus(false);
+//                contactUsView.checkNetwork();
 
             }
         });

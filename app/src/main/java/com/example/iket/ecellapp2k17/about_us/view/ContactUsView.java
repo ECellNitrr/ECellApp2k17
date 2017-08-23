@@ -8,4 +8,5 @@ public interface ContactUsView {
     void showProgressBar(boolean show);
     void showStatus(boolean status);
     void showError(String message);
+//    void checkNetwork();
 }

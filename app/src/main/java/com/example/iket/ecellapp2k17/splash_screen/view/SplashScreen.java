@@ -35,14 +35,12 @@ public class SplashScreen extends Activity implements  SplashScreenView{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
         sharedPrefs = new SharedPrefs(this);
-
         splashProgressBar=(ProgressBar)findViewById(R.id.splash_progress_bar);
-
         Log.d("Splash sceen",""+MyApplication.getFcm());
         SplashScreenPresenter splashScreenPresenter = new SplashScreenPresenterImpl(this, new RetrofitSplashScreenProvider());
         splashScreenPresenter.insertFcm(MyApplication.fcm_token,sharedPrefs.getAccessToken());
-    //    SplashScreenPresenter splashScreenPresenter = new SplashScreenPresenterImpl(this, new RetrofitSplashScreenProvider());
     //    splashScreenPresenter.insertFcm(MyApplication.fcm_token,sharedPrefs.getAccessToken());
+
     }
 
 
@@ -61,18 +59,14 @@ public class SplashScreen extends Activity implements  SplashScreenView{
             Button btn = (Button) dialog.findViewById(R.id.dialog_button);
             progressBar = (ProgressBar) dialog.findViewById(R.id.progress_bar);
             TextView rules = (TextView) dialog.findViewById(R.id.rules5);
-/*
-            if (splashScreenData.getCompulsory_update() == 1) {
-                rules.setText("We've found some major improvements in our app . To enjoy ECellApp Please Update it");
-                dialog.setCancelable(false);
-            }*/
+
             rules.setText("Please Update the app for Better experience");
             dialog.setCancelable(false);
             dialog.setTitle("App Update");
             btn.setText("Update");
             dialog.show();
-            btn.setOnClickListener(new View.OnClickListener() {
 
+            btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
@@ -88,6 +82,7 @@ public class SplashScreen extends Activity implements  SplashScreenView{
         }
         else if (splashScreenData.isSuccess()) {
             sharedPrefs.setFCM(MyApplication.fcm_token);
+
             if (sharedPrefs.isLoggedIn()) {
                 Intent in = new Intent(SplashScreen.this, Home.class);
                 startActivity(in);
@@ -109,7 +104,6 @@ public class SplashScreen extends Activity implements  SplashScreenView{
             splashProgressBar.setVisibility(View.GONE);
         }
     }
-
 }
 
 

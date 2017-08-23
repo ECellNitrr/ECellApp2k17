@@ -1,5 +1,6 @@
 package com.example.iket.ecellapp2k17.otp_verify.view;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.helper.Keys;
+import com.example.iket.ecellapp2k17.helper.NetworkUtils;
 import com.example.iket.ecellapp2k17.helper.SharedPrefs;
 import com.example.iket.ecellapp2k17.home.Home;
 import com.example.iket.ecellapp2k17.login.model.LoginDataResponse;
@@ -48,6 +50,7 @@ public class OtpActivity extends AppCompatActivity implements OtpView{
     private OtpVerifyPresenter otpVerifyPresenter;
     private SharedPrefs sharedPrefs;
     private LinearLayout otp_verify_layout;
+    Dialog dialog;
 
     @BindView(otp_img)
     ImageView oi;
@@ -119,6 +122,11 @@ public class OtpActivity extends AppCompatActivity implements OtpView{
             public void showError(String message) {
 
             }
+
+            @Override
+            public void checkNetwork() {
+
+            }
         }, new RetrofitLoginHelper());
         loginData.getLoginData(sharedPrefs.getUsername(),sharedPrefs.getMobile(),sharedPrefs.getEmail());
     }
@@ -144,6 +152,30 @@ public class OtpActivity extends AppCompatActivity implements OtpView{
         startActivity(i);
         sharedPrefs.setLogin(true);
         finish();
+    }
+
+    @Override
+    public void checkNetwork() {
+        if(!NetworkUtils.isNetworkAvailable(this)){
+            dialog = new Dialog(this);
+            dialog.setContentView(R.layout.activity_rules__dialog_box);
+            Button btn = (Button) dialog.findViewById(R.id.dialog_button);
+            TextView rules5 = (TextView) dialog.findViewById(R.id.rules5);
+            btn.setText("Retry");
+            rules5.setText("No internet connection.Please try again.");
+            dialog.setTitle("Connectivity Failed");
+            dialog.setCancelable(false);
+            dialog.show();
+            btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    otpVerifyPresenter = new OtpVerifyPresenterImp(OtpActivity.this, new RetrofitOtpVerifyHelper());
+                    otpVerifyPresenter.otpData(otp_number, message,sharedPrefs.getAccessToken());
+                    dialog.dismiss();
+                }
+            });
+        }
     }
 
     @Override

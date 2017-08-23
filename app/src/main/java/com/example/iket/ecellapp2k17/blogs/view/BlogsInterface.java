@@ -15,4 +15,5 @@ public interface BlogsInterface {
     void showMessage(String message);
     void showProgressBar(boolean show);
     void showDefault(boolean show);
+    //void checkNetwork();
 }

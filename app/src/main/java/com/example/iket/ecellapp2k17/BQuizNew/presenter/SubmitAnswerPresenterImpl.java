@@ -28,6 +28,8 @@ public class SubmitAnswerPresenterImpl implements SubmitAnswerPresenter {
 
     @Override
     public void submitAnswer(int questionId, String answer, String accessToken) {
+        if(answer.isEmpty())
+            answer="null";
         bQuizView.showProgressbar(true);
         Observable<SubmitAnswerData> submitAnswerDataObservable =
                 submitAnswerProvider.submitQuestion(questionId, answer, accessToken);

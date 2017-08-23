@@ -64,6 +64,7 @@ public class EventPresenterImpl implements EventsPresenter {
                 countDownTimer.cancel();
                 eventsInterface.ShowProgressBar(false);
                 eventsInterface.showMessage("No Internet Connection Available");
+//                eventsInterface.checkNetwork();
             }
         });
     }

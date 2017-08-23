@@ -1,5 +1,6 @@
 package com.example.iket.ecellapp2k17.about_us.view;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -10,12 +11,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.about_us.model.RetrofitProviderContactUs;
 import com.example.iket.ecellapp2k17.about_us.presenter.ContactUsPresenter;
 import com.example.iket.ecellapp2k17.about_us.presenter.ContactUsPresenterImpl;
+import com.example.iket.ecellapp2k17.helper.NetworkUtils;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -44,6 +47,8 @@ public class ContactUsFragment extends Fragment implements ContactUsView{
     private String name,email,body;
 
     private OnFragmentInteractionListener mListener;
+
+    Dialog dialog;
 
     public ContactUsFragment() {
         // Required empty public constructor
@@ -127,6 +132,30 @@ public class ContactUsFragment extends Fragment implements ContactUsView{
     public void showError(String message) {
         Toast.makeText(getContext(),message,Toast.LENGTH_LONG).show();
     }
+
+    /*@Override
+    public void checkNetwork() {
+        if(!NetworkUtils.isNetworkAvailable(getContext())){
+            dialog = new Dialog(getActivity());
+            dialog.setContentView(R.layout.activity_rules__dialog_box);
+            Button btn = (Button) dialog.findViewById(R.id.dialog_button);
+            TextView rules5 = (TextView) dialog.findViewById(R.id.rules5);
+            btn.setText("Retry");
+            rules5.setText("No internet connection.Please try again.");
+            dialog.setTitle("Connectivity Failed");
+            dialog.setCancelable(false);
+            dialog.show();
+            btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    contactUsPresenter = new ContactUsPresenterImpl(ContactUsFragment.this,new RetrofitProviderContactUs());
+                    contactUsPresenter.getContactData(name,email,body);
+                    dialog.dismiss();
+                }
+            });
+        }
+    }*/
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {

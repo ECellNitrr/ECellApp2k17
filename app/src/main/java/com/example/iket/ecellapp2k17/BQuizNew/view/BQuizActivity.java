@@ -103,10 +103,11 @@ public class BQuizActivity extends AppCompatActivity implements BQuizView {
         setContentView(R.layout.activity_bquiz__intro);
         ButterKnife.bind(this);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
-                bQuizPresenter = new BQuizPresenterImpl(this, new MockBquizProvider());
-                bQuizPresenter = new BQuizPresenterImpl(this, new RetrofitBquizProvider());
-            sharedPrefs = new SharedPrefs(BQuizActivity.this);
+//        bQuizPresenter = new BQuizPresenterImpl(this, new MockBquizProvider());
+        bQuizPresenter = new BQuizPresenterImpl(this, new RetrofitBquizProvider());
+        sharedPrefs = new SharedPrefs(BQuizActivity.this);
         bQuizPresenter.getBquizData(sharedPrefs.getAccessToken());
+
         submitAnswerPresenter = new SubmitAnswerPresenterImpl(this, new RetrofitSubmitAnswerProvider());
         imageLoader = new GlideImageLoader(this);
 
@@ -123,6 +124,8 @@ public class BQuizActivity extends AppCompatActivity implements BQuizView {
     @Override
     public void onBackPressed() {
 
+        if(i==0)
+            super.onBackPressed();
         if(i==1) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setMessage("If you exit,your empty response will be submitted.\n Still want to Exit? ")
@@ -203,7 +206,7 @@ public class BQuizActivity extends AppCompatActivity implements BQuizView {
             dialog.setContentView(R.layout.activity_rules__dialog_box);
             Button btn = (Button) dialog.findViewById(R.id.dialog_button);
             TextView rules5 = (TextView) dialog.findViewById(R.id.rules5);
-            rules5.setText(bquizData.getRules().toString());
+            rules5.setText(bquizData.getRules());
             dialog.setTitle("Rules");
             dialog.setCancelable(false);
             dialog.show();

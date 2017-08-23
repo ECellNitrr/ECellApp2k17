@@ -1,5 +1,6 @@
 package com.example.iket.ecellapp2k17.login.view;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -17,6 +19,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.helper.Keys;
+import com.example.iket.ecellapp2k17.helper.NetworkUtils;
 import com.example.iket.ecellapp2k17.helper.SharedPrefs;
 import com.example.iket.ecellapp2k17.login.model.LoginDataResponse;
 import com.example.iket.ecellapp2k17.login.presenter.LoginData;
@@ -36,6 +39,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     private LoginData loginData;
     private ImageView ecell_logo,login_bg;
     private SharedPrefs sharedPrefs;
+    Dialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +59,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         login_bg = (ImageView) findViewById(R.id.login_background);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         Glide.with(this).load(R.drawable.login_bg).into(login_bg);
-        Glide.with(this).load(R.drawable.ecell_logo).into(ecell_logo);
+        Glide.with(this).load(R.drawable.esummit).into(ecell_logo);
         editTextMobile.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -130,6 +134,30 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     @Override
     public void showError(String message) {
         Toast.makeText(LoginActivity.this, message, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void checkNetwork() {
+        if(!NetworkUtils.isNetworkAvailable(this)){
+            dialog = new Dialog(this);
+            dialog.setContentView(R.layout.activity_rules__dialog_box);
+            Button btn = (Button) dialog.findViewById(R.id.dialog_button);
+            TextView rules5 = (TextView) dialog.findViewById(R.id.rules5);
+            btn.setText("Retry");
+            rules5.setText("No internet connection.Please try again.");
+            dialog.setTitle("Connectivity Failed");
+            dialog.setCancelable(false);
+            dialog.show();
+            btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    loginData = new LoginDataImp(LoginActivity.this, new RetrofitLoginHelper());
+                    loginData.getLoginData(name,mobile,email);
+                    dialog.dismiss();
+                }
+            });
+        }
     }
 
     private void hideKeyboard() {
