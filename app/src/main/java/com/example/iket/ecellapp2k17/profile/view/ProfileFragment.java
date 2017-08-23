@@ -156,19 +156,9 @@ public class ProfileFragment extends Fragment implements LoginView{
                 edit_name = username_etxt.getText().toString();
                 edit_email = email_etxt.getText().toString();
                 edit_mobile = phoneTxt.getText().toString();
-
                 log_out_txt.setVisibility(View.VISIBLE);
                 /*
-                s=username_etxt.getText().toString();
-                s.trim();
-                c=s.charAt(0);
-                l=s.indexOf(" ");
-                d=s.charAt(l+1);
-                initials = (""+c+d).toUpperCase();
-                initials_txt.setText(initials);
 
-               sharedPrefs.setUsername(username_etxt.getText().toString());
-                sharedPrefs.setEmailId(email_etxt.getText().toString());
                 */
                 if(edit_name.isEmpty() ||  edit_email.isEmpty()){
                     Toast.makeText(getContext(),"Fields cannot be empty!",Toast.LENGTH_SHORT).show();
@@ -180,10 +170,19 @@ public class ProfileFragment extends Fragment implements LoginView{
                 else {
 //                    loginData = new LoginDataImp(ProfileFragment.this, new RetrofitLoginHelper());
   //                  loginData.getLoginData(edit_name, edit_mobile,edit_email);
-                    Toast.makeText(getContext(), "Data Saved", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Your details has been updated successfull!", Toast.LENGTH_SHORT).show();
                     card_edit_details.setVisibility(View.GONE);
                     fb_username.setText(edit_name);
                     fb_email.setText(edit_email);
+                    s=username_etxt.getText().toString();
+                    s.trim();
+                    c=s.charAt(0);
+                    l=s.indexOf(" ");
+                    d=s.charAt(l+1);
+                    initials = (""+c+d).toUpperCase();
+                    initials_txt.setText(initials);
+                    sharedPrefs.setUsername(username_etxt.getText().toString());
+                    sharedPrefs.setEmailId(email_etxt.getText().toString());
                     editButton.setVisibility(View.VISIBLE);
                 }
             }
