@@ -13,4 +13,5 @@ public interface EventsInterface {
     void showMessage(String message);
     void ShowProgressBar(boolean show);
     void showDefault(boolean show);
+//    void checkNetwork();
 }

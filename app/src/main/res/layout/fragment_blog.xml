@@ -14,8 +14,8 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="12sp"
         app:fabSize="normal"
-        android:visibility="gone"
         app:backgroundTint="#FF5722"
+        android:visibility="gone"
         android:scaleType="fitXY"
         android:src="@drawable/ic_add_ablog_pencil"/>
 

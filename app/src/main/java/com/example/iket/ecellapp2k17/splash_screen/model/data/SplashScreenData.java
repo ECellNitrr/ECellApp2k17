@@ -9,18 +9,14 @@ public class SplashScreenData {
     private boolean success;
     private String message;
     private float version;
-//    private int compulsory_update;
+    private String url;
 
-    public SplashScreenData(boolean success, String message, float version/*, int compulsory_update*/) {
+    public SplashScreenData(boolean success, String message, float version, String url) {
         this.success = success;
         this.message = message;
         this.version = version;
-        /*this.compulsory_update = compulsory_update;*/
+        this.url = url;
     }
-//
-//    public int getCompulsory_update() {
-//        return compulsory_update;
-//    }
 
     public boolean isSuccess() {
         return success;
@@ -32,5 +28,9 @@ public class SplashScreenData {
 
     public float getVersion() {
         return version;
+    }
+
+    public String getUrl() {
+        return url;
     }
 }

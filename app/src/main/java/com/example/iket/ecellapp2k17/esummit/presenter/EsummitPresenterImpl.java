@@ -41,6 +41,7 @@ public class EsummitPresenterImpl implements EsummitPresenter{
             public void onFailure() {
                 viewInterface.showProgressBar(false);
                 viewInterface.showMessage("Internet not available");
+                viewInterface.checkNetwork();
             }
         } );
     }

@@ -282,6 +282,11 @@ public class ProfileFragment extends Fragment implements LoginView{
         Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
     }
 
+    @Override
+    public void checkNetwork() {
+
+    }
+
     public boolean emailInvalid(String email) {
         Pattern pattern;
         Matcher matcher;

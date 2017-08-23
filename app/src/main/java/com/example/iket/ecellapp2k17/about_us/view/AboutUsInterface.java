@@ -13,5 +13,5 @@ public interface AboutUsInterface {
     void setData(List<TeamData> teamDataList);
     void showMessage(String message);
     void showProgressBar(boolean show);
-
+    //void checkNetwork();
 }

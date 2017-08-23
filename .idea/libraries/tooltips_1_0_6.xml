@@ -6,7 +6,7 @@
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.tomergoldst.android/tooltips/1.0.6/544dcde3e9a63b472001915f79677e5c94c19e9e/tooltips-1.0.6-sources.jar!/" />
+      <root url="jar://$APPLICATION_HOME_DIR$/gradle/gradle-3.2/caches/modules-2/files-2.1/com.tomergoldst.android/tooltips/1.0.6/544dcde3e9a63b472001915f79677e5c94c19e9e/tooltips-1.0.6-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

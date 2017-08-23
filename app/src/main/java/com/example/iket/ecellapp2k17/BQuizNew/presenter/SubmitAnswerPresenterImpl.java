@@ -1,5 +1,7 @@
 package com.example.iket.ecellapp2k17.BQuizNew.presenter;
 
+import android.util.Log;
+
 import com.example.iket.ecellapp2k17.BQuizNew.model.SubmitAnswerProvider;
 import com.example.iket.ecellapp2k17.BQuizNew.model.data.SubmitAnswerData;
 import com.example.iket.ecellapp2k17.BQuizNew.view.BQuizView;
@@ -26,7 +28,8 @@ public class SubmitAnswerPresenterImpl implements SubmitAnswerPresenter {
 
     @Override
     public void submitAnswer(int questionId, String answer, String accessToken) {
-
+        if(answer.isEmpty())
+            answer="null";
         bQuizView.showProgressbar(true);
         Observable<SubmitAnswerData> submitAnswerDataObservable =
                 submitAnswerProvider.submitQuestion(questionId, answer, accessToken);
@@ -35,7 +38,6 @@ public class SubmitAnswerPresenterImpl implements SubmitAnswerPresenter {
                 .subscribe(new Observer<SubmitAnswerData>() {
                     @Override
                     public void onCompleted() {
-
                     }
 
                     @Override
@@ -46,7 +48,6 @@ public class SubmitAnswerPresenterImpl implements SubmitAnswerPresenter {
                     @Override
                     public void onNext(SubmitAnswerData submitAnswerData) {
                         bQuizView.showProgressbar(false);
-
                         if (submitAnswerData.isSuccess()) {
                             bQuizView.answerSubmitted(submitAnswerData);
                         } else {
