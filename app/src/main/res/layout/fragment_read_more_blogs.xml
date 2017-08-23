@@ -27,7 +27,7 @@
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:text="X"
-                android:layout_margin="10dp"
+                android:layout_margin="11dp"
                 android:textColor="@color/white"
                 android:textSize="20dp"
                 android:background="@drawable/background_circle2"/>

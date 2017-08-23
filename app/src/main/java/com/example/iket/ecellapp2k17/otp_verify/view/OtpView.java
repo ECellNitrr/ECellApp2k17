@@ -12,4 +12,5 @@ public interface OtpView {
     void showMessage(String message);
     void OtpStatus(OtpData otpData);
     void checkNetwork();
+    void verify_bttn_clickable();
 }

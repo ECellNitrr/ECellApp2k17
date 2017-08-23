@@ -54,8 +54,8 @@
             android:layout_below="@+id/eventLocation"
             android:layout_marginTop="20dp"
             android:elevation="2dp"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:gravity="center"
             android:text="Event Body"
             android:textColor="@color/white"
@@ -63,12 +63,12 @@
 
         <ImageView
             android:id="@+id/down_arrow_img"
-            android:layout_width="55dp"
-            android:layout_height="35dp"
+            android:layout_width="42dp"
+            android:layout_height="30dp"
             android:scaleType="centerCrop"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="20dp"
-            android:src="@drawable/ic_down_arrow_2"
+            android:src="@drawable/ic_down_arrow_grey"
             android:layout_alignParentTop="true"
             />
 

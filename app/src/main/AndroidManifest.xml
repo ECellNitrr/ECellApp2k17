@@ -29,6 +29,11 @@
 
         <activity android:name=".splash_screen.view.SplashScreen"
             >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,10 +41,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+<!--
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
+ -->     
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="46718d8d9197ffb1a01ebf20e1e4cdce7ced8b0a"
@@ -52,13 +58,17 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
+<!--
         <provider
             android:name="com.facebook.FacebookContentProvider"
             android:authorities="com.facebook.app.FacebookContentProvider1234"
             android:exported="true" />
 
-        <activity android:name=".login.view.LoginActivity" >
+-->
+
+
+        <activity android:name=".login.view.LoginActivity"
+            android:windowSoftInputMode="adjustPan">
 
         </activity>
         <activity android:name=".otp_verify.view.OtpActivity" />
