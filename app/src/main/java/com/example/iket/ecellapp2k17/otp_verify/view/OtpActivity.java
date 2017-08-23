@@ -2,6 +2,7 @@ package com.example.iket.ecellapp2k17.otp_verify.view;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -102,8 +103,17 @@ public class OtpActivity extends AppCompatActivity implements OtpView{
             otpVerifyPresenter = new OtpVerifyPresenterImp(this, new RetrofitOtpVerifyHelper());
             otpVerifyPresenter.otpData(otp_number, message,sharedPrefs.getAccessToken());
         }
+        btn_verify_otp.setClickable(false);
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                btn_verify_otp.setClickable(true);
+            }
+        },20000);
     }
     public void resend(View v) {
+        btn_resend_otp.setVisibility(View.GONE);
        /* LoginActivity loginActivity = new LoginActivity();
         loginActivity.proceed(v);
         */
@@ -129,6 +139,15 @@ public class OtpActivity extends AppCompatActivity implements OtpView{
             }
         }, new RetrofitLoginHelper());
         loginData.getLoginData(sharedPrefs.getUsername(),sharedPrefs.getMobile(),sharedPrefs.getEmail());
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                btn_resend_otp.setVisibility(View.VISIBLE);
+            }
+        },30000);
+
+
     }
 
     @Override
