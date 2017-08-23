@@ -12,6 +12,7 @@ import android.util.Log;
 
 import com.example.iket.ecellapp2k17.R;
 import com.example.iket.ecellapp2k17.home.Home;
+import com.example.iket.ecellapp2k17.splash_screen.view.SplashScreen;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
@@ -59,7 +60,7 @@ public class MyFirebaseService extends FirebaseMessagingService {
     // [END receive_message]
 
     private void sendNotification(String messageBody, String title) {
-        Intent intent=new Intent(this, Home.class);
+        Intent intent=new Intent(this, SplashScreen.class);
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this);
         Uri notification_sound= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         notificationBuilder.setSound(notification_sound);
