@@ -50,9 +50,7 @@ public class RetrofitBquizProvider implements BQuizProvider {
         bQuizDataCall.enqueue(new Callback<BQuizData>() {
             @Override
             public void onResponse(Call<BQuizData> call, Response<BQuizData> response) {
-
                 onBQuizDataResponse.onSuccess(response.body());
-
             }
 
             @Override
@@ -62,7 +60,6 @@ public class RetrofitBquizProvider implements BQuizProvider {
             }
         });
     }
-
     @Override
     public void cancelCall() {
         bQuizDataCall.cancel();

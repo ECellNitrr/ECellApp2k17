@@ -1,11 +1,13 @@
 package com.example.iket.ecellapp2k17.BQuizNew.view;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -85,7 +87,7 @@ public class BQuizActivity extends AppCompatActivity implements BQuizView {
     @BindView(R.id.text_layout)
     ScrollView text_layout;
 
-    int time,i;
+    int time,i=0;
     private BQuizPresenter bQuizPresenter;
     private ImageLoader imageLoader;
     private SubmitAnswerPresenter submitAnswerPresenter;
@@ -101,11 +103,12 @@ public class BQuizActivity extends AppCompatActivity implements BQuizView {
         setContentView(R.layout.activity_bquiz__intro);
         ButterKnife.bind(this);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
-                bQuizPresenter = new BQuizPresenterImpl(this, new MockBquizProvider());
-            //    bQuizPresenter = new BQuizPresenterImpl(this, new RetrofitBquizProvider());
-            sharedPrefs = new SharedPrefs(BQuizActivity.this);
+//        bQuizPresenter = new BQuizPresenterImpl(this, new MockBquizProvider());
+        bQuizPresenter = new BQuizPresenterImpl(this, new RetrofitBquizProvider());
+        sharedPrefs = new SharedPrefs(BQuizActivity.this);
         bQuizPresenter.getBquizData(sharedPrefs.getAccessToken());
-        //submitAnswerPresenter = new SubmitAnswerPresenterImpl(this, new RetrofitSubmitAnswerProvider());
+
+        submitAnswerPresenter = new SubmitAnswerPresenterImpl(this, new RetrofitSubmitAnswerProvider());
         imageLoader = new GlideImageLoader(this);
 
         submit_button.setOnClickListener(new View.OnClickListener() {
@@ -113,7 +116,7 @@ public class BQuizActivity extends AppCompatActivity implements BQuizView {
             public void onClick(View view) {
                 countDownTimer.cancel();
                 submitAnswerPresenter.submitAnswer(questionId, getAnswer(), sharedPrefs.getAccessToken());
-                i=0;
+
             }
         });
     }
@@ -121,26 +124,33 @@ public class BQuizActivity extends AppCompatActivity implements BQuizView {
     @Override
     public void onBackPressed() {
 
+        if(i==0)
+            super.onBackPressed();
+        if(i==1) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("If you exit,your empty response will be submitted.\n Still want to Exit? ")
+                    .setCancelable(false)
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            submitAnswerPresenter.submitAnswer(questionId, getAnswer(), sharedPrefs.getAccessToken());
+                            finish();
+                        }
+                    })
+                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+            AlertDialog alert = builder.create();
+            alert.show();
+        }
         bQuizPresenter.cancelCall();
-        try {
-            countDownTimer.cancel();
-        }
-        catch (Exception e)
-        {
-
-        }
         try {
             dialog.dismiss();
         }
         catch (Exception e)
         {
             Log.d("BQUIZ",""+e);
-        }
-        super.onBackPressed();
-        if(i==1)
-        {
-//            submitAnswerPresenter.submitAnswer(questionId, getAnswer(), sharedPrefs.getAccessToken());
-            i=0;
         }
 
     }
@@ -188,18 +198,18 @@ public class BQuizActivity extends AppCompatActivity implements BQuizView {
     @Override
     public void setBquizData(final BQuizData bquizData) {
 
+        i=1;
+
             questionId = bquizData.getQuestion_data().getQuestion_id();
             data_type = bquizData.getData_type();
-
             dialog = new Dialog(BQuizActivity.this);
             dialog.setContentView(R.layout.activity_rules__dialog_box);
             Button btn = (Button) dialog.findViewById(R.id.dialog_button);
             TextView rules5 = (TextView) dialog.findViewById(R.id.rules5);
-            rules5.setText(bquizData.getRules().toString());
+            rules5.setText(bquizData.getRules());
             dialog.setTitle("Rules");
             dialog.setCancelable(false);
             dialog.show();
-
             switch (data_type) {
                 case 1:
                     btn.setOnClickListener(new View.OnClickListener() {
@@ -276,9 +286,14 @@ public class BQuizActivity extends AppCompatActivity implements BQuizView {
 
     @Override
     public void answerSubmitted(SubmitAnswerData submitAnswerData) {
-//        if (submitAnswerData.isSuccess()) {
+        if (submitAnswerData.isSuccess()) {
+            Toast.makeText(this, "Answer Submitted", Toast.LENGTH_SHORT).show();
+            finish();
 //            setMessageLayout(submitAnswerData.getMessage_image(),submitAnswerData.getMessage_display());
-//        }
+        }
+        else
+            Toast.makeText(this, "Try again", Toast.LENGTH_SHORT).show();
+
     }
 
     public void countDown(int time) {
@@ -289,7 +304,7 @@ public class BQuizActivity extends AppCompatActivity implements BQuizView {
             }
 
             public void onFinish() {
-//                submitAnswerPresenter.submitAnswer(questionId, getAnswer(), sharedPrefs.getAccessToken());
+                submitAnswerPresenter.submitAnswer(questionId, getAnswer(), sharedPrefs.getAccessToken());
 //                i=0;
                 countDownTimer.cancel();
             }

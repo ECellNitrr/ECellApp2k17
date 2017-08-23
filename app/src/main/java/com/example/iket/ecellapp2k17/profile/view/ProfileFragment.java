@@ -48,7 +48,7 @@ import jp.wasabeef.glide.transformations.CropCircleTransformation;
  * Use the {@link ProfileFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ProfileFragment extends Fragment implements LoginView{
+public class ProfileFragment extends Fragment{
 
     private ImageView fb_image,profile_bg;
     private TextView fb_username,fb_email,phoneTxt,log_out_txt,initials_txt;
@@ -58,7 +58,6 @@ public class ProfileFragment extends Fragment implements LoginView{
     private char c,d;
     private CardView card_edit_details;
     private int l,i;
-    private LoginData loginData;
 
     Dialog dialog;
 
@@ -162,18 +161,23 @@ public class ProfileFragment extends Fragment implements LoginView{
                 edit_mobile = phoneTxt.getText().toString();
 
                 log_out_txt.setVisibility(View.VISIBLE);
-                /*
-                s=username_etxt.getText().toString();
-                s.trim();
-                c=s.charAt(0);
-                l=s.indexOf(" ");
-                d=s.charAt(l+1);
-                initials = (""+c+d).toUpperCase();
-                initials_txt.setText(initials);
 
-               sharedPrefs.setUsername(username_etxt.getText().toString());
+                sharedPrefs.setUsername(username_etxt.getText().toString());
                 sharedPrefs.setEmailId(email_etxt.getText().toString());
-                */
+
+                try {
+                    s = username_etxt.getText().toString();
+                    s.trim();
+                    c = s.charAt(0);
+                    l = s.indexOf(" ");
+                    d = s.charAt(l + 1);
+                    initials = ("" + c + d).toUpperCase();
+                    initials_txt.setText(initials);
+                }
+                catch (Exception e)
+                {
+                    e.printStackTrace();
+                }
                 if(edit_name.isEmpty() ||  edit_email.isEmpty()){
                     Toast.makeText(getContext(),"Fields cannot be empty!",Toast.LENGTH_SHORT).show();
                 }
@@ -182,8 +186,8 @@ public class ProfileFragment extends Fragment implements LoginView{
                             Toast.LENGTH_LONG).show();
                 }
                 else {
-                    loginData = new LoginDataImp(ProfileFragment.this, new RetrofitLoginHelper());
-                    loginData.getLoginData(edit_name, edit_mobile,edit_email);
+//                    loginData = new LoginDataImp(ProfileFragment.this, new RetrofitLoginHelper());
+//                    loginData.getLoginData(edit_name, edit_mobile,edit_email);
                     Toast.makeText(getContext(), "Data Saved", Toast.LENGTH_SHORT).show();
                     card_edit_details.setVisibility(View.GONE);
                     fb_username.setText(edit_name);
@@ -258,12 +262,6 @@ public class ProfileFragment extends Fragment implements LoginView{
        // profile_bg = (ImageView) view.findViewById(R.id.profile_bg_img);
     }
 
-    @Override
-    public void showProgressBar(boolean show) {
-
-    }
-
-    @Override
     public void showLoginStatus(LoginDataResponse loginDataResponse) {
         card_edit_details.setVisibility(View.GONE);
         fb_username.setText(username_etxt.getText());
@@ -280,35 +278,6 @@ public class ProfileFragment extends Fragment implements LoginView{
         initials_txt.setText(initials);
 
         Toast.makeText(getContext(),"Your Details has been Updated Successfully!",Toast.LENGTH_LONG);
-    }
-
-    @Override
-    public void showError(String message) {
-        Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
-    }
-
-    @Override
-    public void checkNetwork() {
-        if(!NetworkUtils.isNetworkAvailable(getContext())){
-            dialog = new Dialog(getContext());
-            dialog.setContentView(R.layout.activity_rules__dialog_box);
-            Button btn = (Button) dialog.findViewById(R.id.dialog_button);
-            TextView rules5 = (TextView) dialog.findViewById(R.id.rules5);
-            btn.setText("Retry");
-            rules5.setText("No internet connection.Please try again.");
-            dialog.setTitle("Connectivity Failed");
-            dialog.setCancelable(false);
-            dialog.show();
-            btn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    loginData = new LoginDataImp(ProfileFragment.this, new RetrofitLoginHelper());
-                    loginData.getLoginData(edit_name, edit_mobile,edit_email);
-                    dialog.dismiss();
-                }
-            });
-        }
     }
 
     public boolean emailInvalid(String email) {

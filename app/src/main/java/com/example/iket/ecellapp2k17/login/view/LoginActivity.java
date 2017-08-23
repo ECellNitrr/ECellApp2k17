@@ -59,7 +59,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         login_bg = (ImageView) findViewById(R.id.login_background);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         Glide.with(this).load(R.drawable.login_bg).into(login_bg);
-        Glide.with(this).load(R.drawable.ecell_logo).into(ecell_logo);
+        Glide.with(this).load(R.drawable.esummit).into(ecell_logo);
         editTextMobile.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {

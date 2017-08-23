@@ -182,7 +182,6 @@ public class AboutUsFragment extends Fragment{
             tabLayout.getTabAt(i).setCustomView(view1);
 
 //            Glide.with(this).load(tabIcons[i]).into(tab_icon_img);
-
         }
 
     }

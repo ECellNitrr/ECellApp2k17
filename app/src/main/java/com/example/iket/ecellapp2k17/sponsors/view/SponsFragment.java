@@ -112,6 +112,7 @@ public class SponsFragment extends Fragment implements SponsInterface {
         progressBar= (ProgressBar) view.findViewById(R.id.progressBar_spons);
         card_default_spons = (CardView) view.findViewById(R.id.card_coming_soon_spons);
 //        sponsPresenter=new SponsPresenterImpl(this,new MockSpons());
+
         sponsPresenter=new SponsPresenterImpl(this,new RetrofitSponsProvider());
         sectionAdapter = new SectionedRecyclerViewAdapter();
 
