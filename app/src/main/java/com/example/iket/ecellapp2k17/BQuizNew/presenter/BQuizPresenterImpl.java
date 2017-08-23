@@ -21,7 +21,6 @@ public class BQuizPresenterImpl implements BQuizPresenter {
     public void getBquizData(String adminToken) {
 
         bQuizView.showProgressbar(true);
-
         bQuizProvider.requestBquizData(adminToken, new OnBQuizDataResponse() {
             @Override
             public void onSuccess(BQuizData bQuizData) {
