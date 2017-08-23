@@ -63,8 +63,12 @@
             android:name="com.facebook.FacebookContentProvider"
             android:authorities="com.facebook.app.FacebookContentProvider1234"
             android:exported="true" />
+
 -->
-        <activity android:name=".login.view.LoginActivity" >
+
+
+        <activity android:name=".login.view.LoginActivity"
+            android:windowSoftInputMode="adjustPan">
 
         </activity>
         <activity android:name=".otp_verify.view.OtpActivity" />

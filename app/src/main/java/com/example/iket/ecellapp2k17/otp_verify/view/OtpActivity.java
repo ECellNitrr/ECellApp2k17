@@ -104,13 +104,6 @@ public class OtpActivity extends AppCompatActivity implements OtpView{
             otpVerifyPresenter.otpData(otp_number, message,sharedPrefs.getAccessToken());
         }
         btn_verify_otp.setClickable(false);
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                btn_verify_otp.setClickable(true);
-            }
-        },20000);
     }
     public void resend(View v) {
         btn_resend_otp.setVisibility(View.GONE);
@@ -195,6 +188,11 @@ public class OtpActivity extends AppCompatActivity implements OtpView{
                 }
             });
         }
+    }
+
+    @Override
+    public void verify_bttn_clickable() {
+        btn_verify_otp.setClickable(true);
     }
 
     @Override
