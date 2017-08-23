@@ -18,8 +18,6 @@ import com.google.firebase.messaging.RemoteMessage;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-
-
 public class MyFirebaseService extends FirebaseMessagingService {
 
     private static final String TAG = "MyFirebaseMsgService";
@@ -37,13 +35,10 @@ public class MyFirebaseService extends FirebaseMessagingService {
         String jsonStr=remoteMessage.getData().toString();
         try {
             JSONObject jsonRootObject = new JSONObject(jsonStr);
-//             i=Integer.parseInt(jsonRootObject.optString("intent_id"));
-//            i= Integer.parseInt(remoteMessage.getData().get("intent_id"));
         }
         catch (JSONException e) {
             e.printStackTrace();
         }
-
 
         sendNotification(""+remoteMessage.getData().get("body"),""+
                 remoteMessage.getData().get("title"));
@@ -57,6 +52,7 @@ public class MyFirebaseService extends FirebaseMessagingService {
             Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
         }
 
+
         // Also if you intend on generating your own notifications as a result of a received FCM
         // message, here is where that should be initiated. See sendNotification method below.
     }
@@ -64,9 +60,7 @@ public class MyFirebaseService extends FirebaseMessagingService {
 
     private void sendNotification(String messageBody, String title) {
         Intent intent=new Intent(this, Home.class);
-        int flag=0;
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this);
-
         Uri notification_sound= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         notificationBuilder.setSound(notification_sound);
         notificationBuilder .setSmallIcon(R.drawable.esummit)
@@ -85,6 +79,5 @@ public class MyFirebaseService extends FirebaseMessagingService {
         PendingIntent.FLAG_ONE_SHOT);
         notificationBuilder.setContentIntent(pendingIntent);
         startActivity(intent);
-
     }
 }
