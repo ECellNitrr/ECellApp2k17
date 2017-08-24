@@ -18,6 +18,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bquiz.raipur.ecellapp2k17.BQuizNew.model.MockBquizProvider;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
@@ -34,6 +35,7 @@ import com.bquiz.raipur.ecellapp2k17.R;
 import com.bquiz.raipur.ecellapp2k17.helper.SharedPrefs;
 import com.bquiz.raipur.ecellapp2k17.helper.image_loaders.GlideImageLoader;
 import com.bquiz.raipur.ecellapp2k17.helper.image_loaders.ImageLoader;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import java.net.UnknownHostException;
 
@@ -58,7 +60,7 @@ public class BQuizActivity extends AppCompatActivity implements BQuizView {
     Button submit_button;
 
     @BindView(R.id.bquiz_progressbar)
-    ProgressBar progressbar;
+    AVLoadingIndicatorView progressbar;
 
     @BindView(R.id.bquiz_title)
     TextView message;
@@ -271,7 +273,8 @@ public class BQuizActivity extends AppCompatActivity implements BQuizView {
         input_ans.setVisibility(View.INVISIBLE);
         submit_button.setVisibility(View.INVISIBLE);
         submit_button.setClickable(false);
-        imageLoader.loadImage(message_image,status_image);
+//        Glide.with(BQuizActivity.this).load(message_image).into(status_image);
+        imageLoader.loadImage(message_image,status_image,progressbar);
 
     }
 
@@ -282,8 +285,18 @@ public class BQuizActivity extends AppCompatActivity implements BQuizView {
             finish();
 //            setMessageLayout(submitAnswerData.getMessage_image(),submitAnswerData.getMessage_display());
         }
-        else
-            Toast.makeText(this, "Try again", Toast.LENGTH_SHORT).show();
+        else {
+            Toast.makeText(this, "Try again\n"+submitAnswerData.getMessage(), Toast.LENGTH_SHORT).show();
+
+            try {
+                countDownTimer.start();
+            }
+            catch (Exception e)
+            {
+                finish();
+            }
+            Toast.makeText(this, "Try again\n"+submitAnswerData.getMessage(), Toast.LENGTH_SHORT).show();
+        }
 
     }
 

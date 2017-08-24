@@ -31,9 +31,9 @@ public class RetrofitProviderTeam implements TeamProvider {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor)
-                .connectTimeout(60, TimeUnit.SECONDS)
-                .writeTimeout(60, TimeUnit.SECONDS)
-                .readTimeout(60, TimeUnit.SECONDS)
+                .connectTimeout(1200, TimeUnit.SECONDS)
+                .writeTimeout(1200, TimeUnit.SECONDS)
+                .readTimeout(1200, TimeUnit.SECONDS)
                .build();
 
 // .addInterceptor(Cache.REWRITE_CACHE_CONTROL_INTERCEPTOR).cache(Cache.provideCache())

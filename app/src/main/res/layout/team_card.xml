@@ -74,10 +74,11 @@
                 android:layout_below="@+id/position"
                 android:gravity="center"
                 android:textColor="@color/hyperlink_color"
-                android:text="VIEW ON LINKEDIN"
+                android:text="@string/view_on_linkedin"
                 android:textSize="12dp"
                 android:clickable="true"
                 />
+
             <View
                 android:layout_width="97dp"
                 android:layout_height="1dp"
@@ -85,7 +86,7 @@
                 android:layout_below="@+id/coordinatorEmail"
                 android:layout_centerHorizontal="true"
                 android:clickable="true"
-                ></View>
+                />
 
             
         </RelativeLayout>

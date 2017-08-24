@@ -19,6 +19,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bquiz.raipur.ecellapp2k17.helper.image_loaders.GlideImageLoader;
 import com.bumptech.glide.Glide;
 import com.bquiz.raipur.ecellapp2k17.R;
 import com.bquiz.raipur.ecellapp2k17.esummit.model.RetrofitProviderSpeakers;

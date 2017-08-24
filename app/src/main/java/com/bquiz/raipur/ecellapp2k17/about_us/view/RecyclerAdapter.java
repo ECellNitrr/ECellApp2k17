@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bquiz.raipur.ecellapp2k17.helper.image_loaders.GlideImageLoader;
+import com.bquiz.raipur.ecellapp2k17.helper.image_loaders.ImageLoader;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
@@ -32,11 +34,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     private List<TeamData> data=new ArrayList<>();
     private LayoutInflater layoutInflater;
+    private ImageLoader imageLoader;
     Context context;
 
     public RecyclerAdapter(Context context1) {
         context=context1;
         layoutInflater=LayoutInflater.from(context1);
+        imageLoader=new GlideImageLoader(context);
     }
     public void setData(List<TeamData> data) {
         this.data = data;
@@ -56,7 +60,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         final TeamData teamData =  data.get(position);
         holder.member_name.setText(teamData.getName());
         holder.member_position.setText(teamData.getPosition());
-
         holder.member_email.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,25 +70,31 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             }
         });
 
-        Glide.with(context).load(teamData.getMeta()).listener(new RequestListener<String, GlideDrawable>() {
-            @Override
-            public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
-                holder.progressBar.setVisibility(View.GONE);
-                Log.d("Error",e+" \n"+teamData.getName());
-                return false;
-            }
+        imageLoader.load_circular_image(teamData.getMeta(),holder.member_image,holder.progressBar);
 
-            @Override
-            public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
-                holder.progressBar.setVisibility(View.GONE);
-                return false;
-            }
-        }).bitmapTransform(new CropCircleTransformation(context)).into(holder.member_image);
+
+
+//        Glide.with(context).load(teamData.getMeta()).listener(new RequestListener<String, GlideDrawable>() {
+//            @Override
+//            public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
+////                holder.progressBar.setVisibility(View.GONE);
+//                Log.d("Error",e+" \n"+teamData.getName());
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+//                holder.progressBar.setVisibility(View.GONE);
+//                return false;
+//            }
+//        }).bitmapTransform(new CropCircleTransformation(context)).into(holder.member_image);
     }
 
     @Override
     public int getItemCount() {
-        return data.size();
+        if(data.size()>13)
+            return 13;
+        else return data.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

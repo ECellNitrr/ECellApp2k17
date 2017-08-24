@@ -15,6 +15,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bquiz.raipur.ecellapp2k17.helper.image_loaders.GlideImageLoader;
+import com.bquiz.raipur.ecellapp2k17.helper.image_loaders.ImageLoader;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
@@ -34,6 +36,7 @@ public class VerticlePagerAdapter extends PagerAdapter  {
     private List<BlogData> blogDataList = new ArrayList<>();
     Context mContext;
     LayoutInflater mLayoutInflater;
+    private ImageLoader imageLoader;
     private CardView blogCard;
     private int length;
     private AVLoadingIndicatorView progressBar;
@@ -41,6 +44,7 @@ public class VerticlePagerAdapter extends PagerAdapter  {
     public VerticlePagerAdapter(Context context) {
         mContext = context;
         mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        imageLoader=new GlideImageLoader(mContext);
     }
 
     @Override
@@ -86,19 +90,7 @@ public class VerticlePagerAdapter extends PagerAdapter  {
             read_more.setClickable(false);
         }
 
-        Glide.with(mContext).load(data.getImage()).listener(new RequestListener<String, GlideDrawable>() {
-            @Override
-            public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
-                progressBar.setVisibility(View.GONE);
-                return false;
-            }
-
-            @Override
-            public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
-                progressBar.setVisibility(View.GONE);
-                return false;
-            }
-        }).into(blogImage);
+        imageLoader.loadImage(data.getImage(),blogImage,progressBar);
         title.setText(data.getTitle());
         date.setText(data.getDate());
         body.setText(Html.fromHtml(Html.fromHtml(data.getBody()).toString()));

@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bquiz.raipur.ecellapp2k17.BQuizNew.model.MockDataStatus;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
@@ -98,6 +99,7 @@ public class BQuizFragment extends Fragment implements BQuizFragmentView{
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_bquiz,container,false);
         ButterKnife.bind(this,view);
+//        bQuizFragmentPresenter = new BQuizFragmentPresenterImpl(BQuizFragment.this,new MockDataStatus());
         bQuizFragmentPresenter = new BQuizFragmentPresenterImpl(BQuizFragment.this,new RetrofitStatusProvider());
         bQuizFragmentPresenter.getBquizStatus();
         bquiz_description.setText("GET YOUR CORTEX FIXED CAUSE THIS QUIZ SPINS YOUR HEAD AROUND. LET'S EXPLORE SOME OF THE DE FACTO OF BUSINESS QUIZZING. GUIDE YOUR CEREBRUM'S WAY TO THIS B-QUIZ THAT WILL CATAPULT YOU INTO THE WORLD OF BUSINESS FACTS AND FIGURES.");

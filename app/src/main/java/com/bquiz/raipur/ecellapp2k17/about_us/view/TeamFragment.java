@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
+import com.bquiz.raipur.ecellapp2k17.helper.image_loaders.GlideImageLoader;
+import com.bquiz.raipur.ecellapp2k17.helper.image_loaders.ImageLoader;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
@@ -50,6 +52,7 @@ public class TeamFragment extends Fragment  implements AboutUsInterface{
     private ImageView faculty_image,faculty_research_img;
     private RecyclerAdapter recyclerAdapter;
     private GridLayoutManager gridLayoutManager;
+    private ImageLoader imageLoader;
 
     private AVLoadingIndicatorView progressBar2,progressBar3;
 
@@ -99,6 +102,7 @@ public class TeamFragment extends Fragment  implements AboutUsInterface{
         faculty_image = (ImageView) view.findViewById(R.id.facultyImg);
         faculty_research_img = (ImageView) view.findViewById(R.id.faculty_researchImg);
         recyclerView=(RecyclerView) view.findViewById(R.id.recycler_view_team);
+        imageLoader=new GlideImageLoader(getContext());
         progressBar2 = (AVLoadingIndicatorView) view.findViewById(R.id.progressBar_faculty);
         progressBar3 = (AVLoadingIndicatorView) view.findViewById(R.id.progressBar_faculty_research);
         recyclerView.setHasFixedSize(true);
@@ -109,36 +113,8 @@ public class TeamFragment extends Fragment  implements AboutUsInterface{
         recyclerAdapter=new RecyclerAdapter(getContext());
         recyclerView.setAdapter(recyclerAdapter);
         recyclerView.setNestedScrollingEnabled(false);
-        Glide.with(getContext()).load("https://ecell.nitrr.ac.in/images/incharge.jpg").listener(new RequestListener<String, GlideDrawable>() {
-            @Override
-            public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
-                progressBar2.setVisibility(View.GONE);
-                return false;
-            }
-
-            @Override
-            public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
-                progressBar2.setVisibility(View.GONE);
-                return false;
-            }
-        }).bitmapTransform(new CropCircleTransformation(getContext())).into(faculty_image);
-
-
-        Glide.with(getContext()).load("https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/11951922_10206983648327839_2443736750288614524_n.jpg?oh=4e60c6c42cacdceea81e68424891412d&oe=5A347B31").listener(new RequestListener<String, GlideDrawable>() {
-            @Override
-            public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
-                progressBar3.setVisibility(View.GONE);
-                return false;
-            }
-
-            @Override
-            public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
-                progressBar3.setVisibility(View.GONE);
-                return false;
-            }
-        }).bitmapTransform(new CropCircleTransformation(getContext())).into(faculty_research_img);
-
-
+        imageLoader.load_circular_image("https://ecell.nitrr.ac.in/images/incharge.jpg",faculty_image,progressBar2);
+        imageLoader.load_circular_image("https://ecell.nitrr.ac.in/images/sanyal_dean.jpg",faculty_research_img,progressBar3);
 
  //       aboutUsPresenter =new AboutUsPresenterImpl(new MockAboutUs(),this);
         aboutUsPresenter=new AboutUsPresenterImpl(new RetrofitProviderTeam(),this);

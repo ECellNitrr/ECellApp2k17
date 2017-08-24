@@ -134,8 +134,6 @@ public class ProfileFragment extends Fragment implements LoginView{
 
                 editButton.setVisibility(View.GONE);
                 card_edit_details.setVisibility(View.VISIBLE);
-
-
             }
         });
 

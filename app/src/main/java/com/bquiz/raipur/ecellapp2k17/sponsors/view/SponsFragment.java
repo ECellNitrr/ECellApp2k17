@@ -17,6 +17,9 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 
+import com.bquiz.raipur.ecellapp2k17.helper.image_loaders.GlideImageLoader;
+import com.bquiz.raipur.ecellapp2k17.helper.image_loaders.ImageLoader;
+import com.bquiz.raipur.ecellapp2k17.sponsors.model.MockSpons;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
@@ -50,13 +53,13 @@ public class SponsFragment extends Fragment implements SponsInterface {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
     RecyclerView recyclerView;
     GridLayoutManager glm;
     ProgressBar progressBar;
+    private ImageLoader imageLoader;
     private CardView card_default_spons;
 
     private SponsPresenter sponsPresenter;
@@ -102,10 +105,10 @@ public class SponsFragment extends Fragment implements SponsInterface {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_spons, container, false);
         recyclerView=(RecyclerView) view.findViewById(R.id.recycler_view_spons);
+        imageLoader=new GlideImageLoader(getContext());
         progressBar= (ProgressBar) view.findViewById(R.id.progressBar_spons);
         card_default_spons = (CardView) view.findViewById(R.id.card_coming_soon_spons);
 //        sponsPresenter=new SponsPresenterImpl(this,new MockSpons());
-
         sponsPresenter=new SponsPresenterImpl(this,new RetrofitSponsProvider());
         sectionAdapter = new SectionedRecyclerViewAdapter();
 
@@ -133,30 +136,6 @@ public class SponsFragment extends Fragment implements SponsInterface {
             card_default_spons.setVisibility(View.VISIBLE);
         }
     }
-
-    /*@Override
-    public void checkNetwork() {
-        if(!NetworkUtils.isNetworkAvailable(getContext())){
-            dialog = new Dialog(getActivity());
-            dialog.setContentView(R.layout.activity_rules__dialog_box);
-            Button btn = (Button) dialog.findViewById(R.id.dialog_button);
-            TextView rules5 = (TextView) dialog.findViewById(R.id.rules5);
-            btn.setText("Retry");
-            rules5.setText("No internet connection.Please try again.");
-            dialog.setTitle("Connectivity Failed");
-            dialog.setCancelable(false);
-            dialog.show();
-            btn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    sponsPresenter=new SponsPresenterImpl(SponsFragment.this,new RetrofitSponsProvider());
-                    sponsPresenter.requestSpons();
-                    dialog.dismiss();
-                }
-            });
-        }
-    }*/
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
@@ -247,32 +226,15 @@ public class SponsFragment extends Fragment implements SponsInterface {
             String name = list.get(position).getSponsName();
             String image=list.get(position).getImage1();
             itemHolder.spons_name.setText(name);
-            Glide.with(getContext()).load(image).bitmapTransform(new RoundedCornersTransformation(getContext(),16,0))
-                    .listener(new RequestListener<String, GlideDrawable>() {
-                        @Override
-                        public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
-                            itemHolder.progressBar2.setVisibility(View.GONE);
-                            return false;
-                        }
-
-                        @Override
-                        public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
-                            itemHolder.progressBar2.setVisibility(View.GONE);
-                            return false;
-                        }
-                    }).into(itemHolder.imageView);
+            imageLoader.loadImage(image,itemHolder.imageView,itemHolder.progressBar2);
             itemHolder.rootView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    Toast.makeText(getContext(), String.format("Clicked on position #%s of Section %s",
-//                            sectionAdapter.getPositionInSection(itemHolder.getAdapterPosition()), title),
-//                            Toast.LENGTH_SHORT).show();
                     FragmentManager fm = getFragmentManager();
                     SponsEndPage_Fragment sponsEndPage_fragment=new SponsEndPage_Fragment();
                     sponsEndPage_fragment.setData(list.get(position));
                     sponsEndPage_fragment.show(fm,"Sponsor_details");
                     Log.d("Spons",""+list.get(position).getWebsite_url());
- //                   ((Home)getContext()).addFragment(sponsEndPage_fragment);
                 }
             });
         }

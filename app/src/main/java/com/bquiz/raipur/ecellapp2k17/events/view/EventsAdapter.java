@@ -58,20 +58,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
         final EventsData eventsData = data.get(position);
-       imageLoader.loadImage(eventsData.getBg_image(),holder.event_image);
-        Glide.with(context).load(eventsData.getBg_image()).listener(new RequestListener<String, GlideDrawable>() {
-            @Override
-            public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
-                holder.progressBar.setVisibility(View.GONE);
-                return false;
-            }
-
-            @Override
-            public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
-                holder.progressBar.setVisibility(View.GONE);
-                return false;
-            }
-        }).bitmapTransform(new RoundedCornersTransformation(context,20,0)).into(holder.event_image);
+        imageLoader.loadImage(eventsData.getBg_image(),holder.event_image,holder.progressBar);
         holder.event_name.setText(eventsData.getEventName());
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override

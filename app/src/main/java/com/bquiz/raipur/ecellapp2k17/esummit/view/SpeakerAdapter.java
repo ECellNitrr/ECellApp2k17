@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bquiz.raipur.ecellapp2k17.helper.image_loaders.GlideImageLoader;
+import com.bquiz.raipur.ecellapp2k17.helper.image_loaders.ImageLoader;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
@@ -30,11 +32,13 @@ public class SpeakerAdapter extends RecyclerView.Adapter<SpeakerAdapter.ViewHold
 
     private List<SpeakerData> data=new ArrayList<>();
     private LayoutInflater layoutInflater;
+    private ImageLoader imageLoader;
     Context context;
 
     public SpeakerAdapter(Context context1) {
         context=context1;
         layoutInflater=LayoutInflater.from(context1);
+        imageLoader=new GlideImageLoader(context1);
     }
 
     public void setData(List<SpeakerData> data) {
@@ -53,19 +57,7 @@ public class SpeakerAdapter extends RecyclerView.Adapter<SpeakerAdapter.ViewHold
         holder.speaker_name.setText(listData.getName());
         holder.speaker_desc.setText(listData.getDescription());
         holder.speaker_year.setText(listData.getYear()+" ");
-        Glide.with(context).load(listData.getImage()).listener(new RequestListener<String, GlideDrawable>() {
-            @Override
-            public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
-                holder.progressBar.setVisibility(View.GONE);
-                return false;
-            }
-
-            @Override
-            public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
-                holder.progressBar.setVisibility(View.GONE);
-                return false;
-            }
-        }).bitmapTransform(new CropCircleTransformation(context)).into(holder.speaker_image);
+        imageLoader.load_circular_image(listData.getImage(),holder.speaker_image,holder.progressBar);
     }
 
     @Override

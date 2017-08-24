@@ -56,7 +56,7 @@ public class SplashScreen extends Activity implements  SplashScreenView{
             final Dialog dialog = new Dialog(SplashScreen.this);
             dialog.setContentView(R.layout.activity_rules__dialog_box);
             Button btn = (Button) dialog.findViewById(R.id.dialog_button);
-            progressBar = (ProgressBar) dialog.findViewById(R.id.progress_bar);
+            progressBar = (ProgressBar) dialog.findViewById(R.id.progress_bar_dialog);
             TextView rules = (TextView) dialog.findViewById(R.id.rules5);
 
             rules.setText("Please Update the app for Better experience");
