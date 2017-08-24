@@ -52,6 +52,7 @@ public class SplashScreen extends Activity implements  SplashScreenView{
     public void fcmInsertStatus(final SplashScreenData splashScreenData) {
 
         float i = splashScreenData.getVersion();
+        Log.d("log",""+BuildConfig.VERSION_CODE);
         if (i > BuildConfig.VERSION_CODE) {
             final Dialog dialog = new Dialog(SplashScreen.this);
             dialog.setContentView(R.layout.activity_rules__dialog_box);

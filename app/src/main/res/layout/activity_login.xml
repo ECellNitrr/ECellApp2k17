@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/login_bg"
+     android:layout_height="match_parent"
+     android:layout_width="match_parent">
 
 <RelativeLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
     tools:context="com.bquiz.raipur.ecellapp2k17.login.view.LoginActivity">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/login_background"
-        />
+        android:visibility="gone"
+        android:layout_alignParentTop="true"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,8 +27,9 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="75sp"
+            android:layout_height="100dp"
             android:layout_marginBottom="20sp"
+            android:layout_marginTop="60dp"
             android:layout_weight="2"
             android:id="@+id/e_cell_logo" />
 
@@ -129,8 +137,11 @@
 
         <Button
             android:id="@+id/logIn"
-            android:layout_width="180dp"
-            android:layout_height="15dp"
+            android:layout_width="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_margin="20dp"
+            android:layout_height="wrap_content"
             android:textSize="20dp"
             android:background="@drawable/button_rounded_corner2"
             android:text="Log In"
@@ -151,7 +162,7 @@
         <Button
             android:id="@+id/btnVerify"
             android:layout_width="180sp"
-            android:layout_height="15sp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textSize="20sp"
             android:background="@drawable/button_rounded_corner2"
@@ -163,7 +174,7 @@
         <Button
             android:id="@+id/resend_otp"
             android:layout_width="wrap_content"
-            android:layout_height="12sp"
+            android:layout_height="50dp"
             android:text="Resend Otp?"
             android:textSize="12sp"
             android:layout_gravity="center"
@@ -189,3 +200,4 @@
 
 
     </RelativeLayout>
+</ScrollView>

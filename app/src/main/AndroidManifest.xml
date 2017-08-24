@@ -18,7 +18,7 @@
         >
         <activity
             android:name="com.bquiz.raipur.ecellapp2k17.home.Home"
-            android:windowSoftInputMode="adjustPan"
+            android:windowSoftInputMode="adjustNothing"
             >
 
         </activity>
@@ -60,7 +60,7 @@
 -->
 
         <activity android:name="com.bquiz.raipur.ecellapp2k17.login.view.LoginActivity"
-            android:windowSoftInputMode="adjustPan">
+            android:windowSoftInputMode="">
         </activity>
         <activity android:name="com.bquiz.raipur.ecellapp2k17.otp_verify.view.OtpActivity" />
     </application>
