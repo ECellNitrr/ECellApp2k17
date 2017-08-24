@@ -20,7 +20,11 @@
             android:name="com.esummit.nitrr.ecellapp2k17.home.Home"
             android:windowSoftInputMode="adjustPan"
             >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity android:name="com.esummit.nitrr.ecellapp2k17.BQuizNew.view.BQuizActivity"
@@ -29,11 +33,7 @@
 
         <activity android:name="com.esummit.nitrr.ecellapp2k17.splash_screen.view.SplashScreen"
             >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
