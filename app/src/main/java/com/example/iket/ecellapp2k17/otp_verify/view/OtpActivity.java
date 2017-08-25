@@ -24,7 +24,6 @@ import com.example.iket.ecellapp2k17.login.model.LoginDataResponse;
 import com.example.iket.ecellapp2k17.login.presenter.LoginData;
 import com.example.iket.ecellapp2k17.login.presenter.LoginDataImp;
 import com.example.iket.ecellapp2k17.login.provider.RetrofitLoginHelper;
-import com.example.iket.ecellapp2k17.login.view.LoginActivity;
 import com.example.iket.ecellapp2k17.login.view.LoginView;
 import com.example.iket.ecellapp2k17.otp_verify.model.OtpData;
 import com.example.iket.ecellapp2k17.otp_verify.presenter.OtpVerifyPresenter;
@@ -53,8 +52,6 @@ public class OtpActivity extends AppCompatActivity implements OtpView{
     private LinearLayout otp_verify_layout;
     Dialog dialog;
 
-    @BindView(otp_img)
-    ImageView oi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

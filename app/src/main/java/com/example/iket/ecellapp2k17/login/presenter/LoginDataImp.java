@@ -12,10 +12,8 @@ import com.example.iket.ecellapp2k17.login.view.LoginView;
 
 public class LoginDataImp implements LoginData {
 
-
     private LoginBaseClassHelper loginBaseClassHelper;
     private LoginView login;
-
     public LoginDataImp(LoginView login, LoginBaseClassHelper loginBaseClassHelper) {
         this.login = login;
         this.loginBaseClassHelper = loginBaseClassHelper;
