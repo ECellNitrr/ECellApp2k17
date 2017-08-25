@@ -20,6 +20,9 @@ import com.example.iket.ecellapp2k17.about_us.presenter.ContactUsPresenter;
 import com.example.iket.ecellapp2k17.about_us.presenter.ContactUsPresenterImpl;
 import com.example.iket.ecellapp2k17.helper.NetworkUtils;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
@@ -102,6 +105,10 @@ public class ContactUsFragment extends Fragment implements ContactUsView{
                     showProgressBar(false);
                     showError("Fields cannot be empty");
                 }
+                else if (emailInvalid(email)){
+                    Toast.makeText(getContext(), "ENTER CORRECT EMAIL ID!",
+                            Toast.LENGTH_LONG).show();
+                }
                 else {
                     contactUsPresenter = new ContactUsPresenterImpl(ContactUsFragment.this,new RetrofitProviderContactUs());
                     contactUsPresenter.getContactData(name,email,body);
@@ -124,6 +131,9 @@ public class ContactUsFragment extends Fragment implements ContactUsView{
     @Override
     public void showStatus(boolean status) {
         if (status){
+            user_name.setText("");
+            user_msg.setText("");
+            user_email.setText("");
             Toast.makeText(getContext(),"Your Message has been sent successfully !",Toast.LENGTH_LONG).show();
         }
     }
@@ -190,4 +200,18 @@ public class ContactUsFragment extends Fragment implements ContactUsView{
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
+    public boolean emailInvalid(String email) {
+        Pattern pattern;
+        Matcher matcher;
+
+        final String EMAIL_PATTERN =
+                "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+        pattern = Pattern.compile(EMAIL_PATTERN);
+        matcher = pattern.matcher(email);
+        boolean a = matcher.matches();
+        return !a;
+    }
+
 }

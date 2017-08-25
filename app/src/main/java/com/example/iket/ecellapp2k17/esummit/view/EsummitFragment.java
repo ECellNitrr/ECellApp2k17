@@ -39,6 +39,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.example.iket.ecellapp2k17.R.id.esummit_img;
+
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
@@ -62,7 +64,7 @@ public class EsummitFragment extends Fragment implements ViewInterface{
 //    @BindView(R.id.esummit_bg)
 //    ImageView esummit_bg_img;
 
-    @BindView(R.id.esummit_img)
+    @BindView(esummit_img)
     ImageView esummit_logo;
 
     @BindView(R.id.esummit_title)

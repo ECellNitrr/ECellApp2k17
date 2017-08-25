@@ -29,7 +29,7 @@ public class MyApplication extends Application{
         super.onCreate();
         context=this;
         Fabric.with(this, new Crashlytics());
-        FacebookSdk.sdkInitialize(getApplicationContext());
+//        FacebookSdk.sdkInitialize(getApplicationContext());
             fcm_token = FirebaseInstanceId.getInstance().getToken();
         Log.d("myapplication",""+fcm_token);
     }

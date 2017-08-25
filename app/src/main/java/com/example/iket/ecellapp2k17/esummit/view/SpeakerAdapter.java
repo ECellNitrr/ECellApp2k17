@@ -55,7 +55,7 @@ public class SpeakerAdapter extends RecyclerView.Adapter<SpeakerAdapter.ViewHold
         SpeakerData listData = data.get(position);
         holder.speaker_name.setText(listData.getName());
         holder.speaker_desc.setText(listData.getDescription());
-        holder.speaker_year.setText(listData.getYear());
+        holder.speaker_year.setText(listData.getYear()+" ");
         Glide.with(context).load(listData.getImage()).listener(new RequestListener<String, GlideDrawable>() {
             @Override
             public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
@@ -76,12 +76,16 @@ public class SpeakerAdapter extends RecyclerView.Adapter<SpeakerAdapter.ViewHold
         return data.size();
     }
 
+
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView speaker_image;
         public TextView speaker_name;
         public TextView speaker_desc;
         public TextView speaker_year;
         public final AVLoadingIndicatorView progressBar;
+
+
         public ViewHolder(View itemView) {
             super(itemView);
             speaker_image = (ImageView) itemView.findViewById(R.id.speakers_image);
