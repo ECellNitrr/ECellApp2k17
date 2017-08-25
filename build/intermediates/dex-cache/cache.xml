@@ -3,12 +3,11 @@
 
     <item
         is-multidex="true"
-<<<<<<< HEAD
         jar="/home/vrihas/ECellApp2k17/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="660060b3483b513521625f16f4fadd2f34956eae">
+        sha1="d88b75c4c3c90d83a9c963286a9412f0e89b9118">
         <dex dex="/home/vrihas/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_ec7ce60115cd4db1153e8d67a4988e084b4baac1/classes.dex" />
     </item>
     <item
@@ -19,14 +18,6 @@
         revision="25.0.2"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
         <dex dex="/home/vrihas/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_12ef3f026be58c581be7008cf783fbdcb0c3a20d/classes.dex" />
-=======
-        jar="/home/iket/.android/build-cache/8dcfcaa3d5e8294a328f0495e2d137aa62f56983/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="914f5d3e3ace66080e59613708f06d129a222e25">
-        <dex dex="/home/iket/Projects/ECellApp2k17/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_6d3c486dd45269f3cb160eee75578ce47666d455/classes.dex" />
->>>>>>> fc5cc48b671c475e377ccea838b160313c547e8f
     </item>
 
 </items>

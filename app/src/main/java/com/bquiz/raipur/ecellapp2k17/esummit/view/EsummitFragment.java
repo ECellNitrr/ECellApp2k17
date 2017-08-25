@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -70,6 +71,8 @@ public class EsummitFragment extends Fragment implements ViewInterface{
 
     @BindView(R.id.esummit_progressbar)
             ProgressBar progressBar;
+    @BindView(R.id.swipe_layout_esummit)
+    SwipeRefreshLayout swipeRefreshLayout;
 
     RecyclerView recyclerView;
     private SpeakerAdapter recyclerAdapter;
@@ -135,6 +138,14 @@ public class EsummitFragment extends Fragment implements ViewInterface{
         typewriterView = (TypewriterView) view.findViewById(R.id.type_writer_text);
         typewriterView.setVisibility(View.VISIBLE);
         setAnim();
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                esummitPresenter=new EsummitPresenterImpl(new RetrofitProviderSpeakers(),EsummitFragment.this);
+                esummitPresenter.requestData();
+            }
+        });
         return view;
     }
 
