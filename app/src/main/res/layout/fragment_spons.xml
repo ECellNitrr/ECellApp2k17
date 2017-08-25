@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swipe_layout_spons"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:nestedScrollingEnabled="true">
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:nestedScrollingEnabled="true">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -51,4 +57,6 @@
 
     </RelativeLayout>
 
-</ScrollView>
+    </ScrollView>
+
+</android.support.v4.widget.SwipeRefreshLayout>

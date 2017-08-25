@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:14915279342:android:c73732702c223381",
+        "mobilesdk_app_id": "1:14915279342:android:f10d07bb66e0b13d",
         "android_client_info": {
-          "package_name": "com.example.iket.ecellapp2k17"
+          "package_name": "com.bquiz.raipur.ecellapp2k17"
         }
       },
       "oauth_client": [

@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+<android.support.v4.widget.SwipeRefreshLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipe_layout_esummit"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -21,6 +27,7 @@
         <ImageView
             android:id="@+id/esummit_img"
             android:layout_width="200dp"
+            android:background="#00000000"
             android:layout_height="150dp"
             android:layout_gravity="center_horizontal"
             android:backgroundTint="@android:color/transparent"
@@ -34,7 +41,7 @@
             android:text="E-Summit'17"
             android:gravity="center"
             android:layout_gravity="center_horizontal" />
-        <com.example.iket.ecellapp2k17.helper.TypewriterView
+        <com.bquiz.raipur.ecellapp2k17.helper.TypewriterView
             android:id="@+id/type_writer_text"
             android:layout_width="wrap_content"
             android:gravity="center"
@@ -114,6 +121,6 @@
 
     </ScrollView>
 
-
-
     </RelativeLayout>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
