@@ -22,9 +22,9 @@
     <string name="Add_ablog_heading">Add a Blog</string>
     <string name="title_add_blog">Title</string>
     <string name="coming_soon_msg">Coming Soon!</string>
-    <string name="hint_login_name">Enter Your Full Name</string>
-    <string name="hint_login_mobile">Enter Your Mobile Number</string>
-    <string name="hint_login_email">Enter Your Email</string>
+    <string name="hint_login_name">Full Name</string>
+    <string name="hint_login_mobile">Mobile Number</string>
+    <string name="hint_login_email">Email</string>
     <string name="hint_login_otp">Enter OTP</string>
     <string name="action_settings">Settings</string>
     <string name="failure_message">Unable to connect to server ! Please check your Internet Connection .</string>

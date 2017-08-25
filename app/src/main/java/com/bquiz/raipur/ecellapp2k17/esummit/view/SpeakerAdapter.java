@@ -65,12 +65,16 @@ public class SpeakerAdapter extends RecyclerView.Adapter<SpeakerAdapter.ViewHold
         return data.size();
     }
 
+
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView speaker_image;
         public TextView speaker_name;
         public TextView speaker_desc;
         public TextView speaker_year;
         public final AVLoadingIndicatorView progressBar;
+
+
         public ViewHolder(View itemView) {
             super(itemView);
             speaker_image = (ImageView) itemView.findViewById(R.id.speakers_image);

@@ -87,14 +87,16 @@ public class OtpActivity extends AppCompatActivity implements OtpView{
 
     public void proceed_verify(View v) {
         otp_number = editTextOtp.getText().toString();
+        btn_verify_otp.setClickable(false);
         if (otp_number.isEmpty()){
-            Toast.makeText(this,"Please enter the otp!",Toast.LENGTH_SHORT);
+            Toast.makeText(this,"This field cannot be empty!",Toast.LENGTH_SHORT).show();
+            btn_verify_otp.setClickable(true);
         }
         else {
             otpVerifyPresenter = new OtpVerifyPresenterImp(this, new RetrofitOtpVerifyHelper());
             otpVerifyPresenter.otpData(otp_number, message,sharedPrefs.getAccessToken());
         }
-        btn_verify_otp.setClickable(false);
+
     }
     public void resend(View v) {
         btn_resend_otp.setVisibility(View.GONE);

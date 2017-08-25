@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -56,6 +57,8 @@ public class SponsFragment extends Fragment implements SponsInterface {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private SwipeRefreshLayout swipeRefreshLayout;
     RecyclerView recyclerView;
     GridLayoutManager glm;
     ProgressBar progressBar;
@@ -108,9 +111,12 @@ public class SponsFragment extends Fragment implements SponsInterface {
         imageLoader=new GlideImageLoader(getContext());
         progressBar= (ProgressBar) view.findViewById(R.id.progressBar_spons);
         card_default_spons = (CardView) view.findViewById(R.id.card_coming_soon_spons);
+        swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_layout_spons);
 //        sponsPresenter=new SponsPresenterImpl(this,new MockSpons());
         sponsPresenter=new SponsPresenterImpl(this,new RetrofitSponsProvider());
         sectionAdapter = new SectionedRecyclerViewAdapter();
+
+
 
         glm = new GridLayoutManager(getContext(), 2);
         glm.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
@@ -127,6 +133,15 @@ public class SponsFragment extends Fragment implements SponsInterface {
         recyclerView.setLayoutManager(glm);
         recyclerView.setAdapter(sectionAdapter);
         sponsPresenter.requestSpons();
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                sponsPresenter=new SponsPresenterImpl(SponsFragment.this,new RetrofitSponsProvider());
+                sponsPresenter.requestSpons();
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
         return view;
     }
 

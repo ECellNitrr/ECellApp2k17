@@ -5,6 +5,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -49,6 +50,7 @@ public class TeamFragment extends Fragment  implements AboutUsInterface{
     private String mParam2;
 
     RecyclerView recyclerView;
+    private SwipeRefreshLayout swipeRefreshLayout;
     private ImageView faculty_image,faculty_research_img;
     private RecyclerAdapter recyclerAdapter;
     private GridLayoutManager gridLayoutManager;
@@ -101,6 +103,7 @@ public class TeamFragment extends Fragment  implements AboutUsInterface{
         View view= inflater.inflate(R.layout.fragment_team, container, false);
         faculty_image = (ImageView) view.findViewById(R.id.facultyImg);
         faculty_research_img = (ImageView) view.findViewById(R.id.faculty_researchImg);
+        swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_layout_team);
         recyclerView=(RecyclerView) view.findViewById(R.id.recycler_view_team);
         imageLoader=new GlideImageLoader(getContext());
         progressBar2 = (AVLoadingIndicatorView) view.findViewById(R.id.progressBar_faculty);
@@ -120,6 +123,14 @@ public class TeamFragment extends Fragment  implements AboutUsInterface{
         aboutUsPresenter=new AboutUsPresenterImpl(new RetrofitProviderTeam(),this);
 //        aboutUsPresenter =new AboutUsPresenterImpl(new MockAboutUs(),this);
         aboutUsPresenter.requestData();
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                aboutUsPresenter=new AboutUsPresenterImpl(new RetrofitProviderTeam(),TeamFragment.this);
+                aboutUsPresenter.requestData();
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
 
         return view;
 
