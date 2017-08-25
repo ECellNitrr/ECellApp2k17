@@ -24,13 +24,13 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "com.example.iket.ecellapp2k17"
-        minSdkVersion 21
+        applicationId "com.bquiz.raipur.ecellapp2k17"
+        minSdkVersion 16
         targetSdkVersion 25
         multiDexEnabled true
-        versionCode 1
-        versionName "1.0"
+        versionName '1.4'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        versionCode 5
     }
 //    packagingOptions {
 //        exclude 'META-INF/DEPENDENCIES.txt'
@@ -50,6 +50,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    productFlavors {
+    }
 }
 
 repositories {
@@ -57,16 +59,13 @@ repositories {
 }
 
 dependencies {
-
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-
     compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
         transitive = true;
     }
-
     compile 'com.mikepenz:itemanimators:1.0.0@aar'
     compile 'com.wang.avi:library:2.1.3'
     compile 'com.daimajia.easing:library:2.0@aar'
@@ -74,10 +73,10 @@ dependencies {
     compile 'com.facebook.shimmer:shimmer:0.1.0@aar'
     compile 'com.android.support:multidex:1.0.1'
     compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.android.support:cardview-v7:25.3.1'
     compile 'com.tomergoldst.android:tooltips:1.0.6'
     compile 'com.android.support:support-v4:25.3.1'
     compile 'com.android.support:customtabs:25.3.1'
-    compile 'com.facebook.android:facebook-android-sdk:4.22.1'
     compile 'com.google.code.gson:gson:2.8.0'
     compile 'com.squareup.okhttp3:okhttp:3.4.1'
     compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
@@ -87,8 +86,7 @@ dependencies {
     compile 'io.reactivex:rxjava:1.1.6'
     compile 'com.google.firebase:firebase-core:10.2.0'
     compile 'com.google.firebase:firebase-messaging:10.2.0'
-//    compile 'com.firebase:firebase-client-android:2.5.0'
-
+    //    compile 'com.firebase:firebase-client-android:2.5.0'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:design:25.3.1'

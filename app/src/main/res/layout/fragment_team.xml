@@ -4,7 +4,7 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              android:background="#212121"
-             tools:context="com.example.iket.ecellapp2k17.about_us.view.TeamFragment">
+             tools:context="com.bquiz.raipur.ecellapp2k17.about_us.view.TeamFragment">
 
     <ScrollView
         android:layout_width="match_parent"

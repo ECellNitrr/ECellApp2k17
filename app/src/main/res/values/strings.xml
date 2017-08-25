@@ -3,12 +3,14 @@
     <string name="facebook_app_id">1900474613529065</string>
     <string name="fb_login_protocol_scheme">fb1900474613529065</string>
 
+    <string name="faculty">https://ecell.nitrr.ac.in/images/incharge.jpg</string>
+    <string name="dean_rc">https://ecell.nitrr.ac.in/images/sanyal_dean.jpg</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nitrr">NIT Raipur</string>
     <string name="ecell">The Entrepreneurship Cell</string>
     <string name="BQuiz">B QUIZ</string>
-    <string name="timer">00:32</string>
+    <string name="timer">00:00</string>
     <string name="warning_msg">Your session will be terminated if you switch apps</string>
     <string name="otp_msg">An OTP has been sent to your mobile!</string>
     <string name="rules_msg">Kindly read these rules for question 1</string>
@@ -59,4 +61,6 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="view_on_linkedin">VIEW ON LINKEDIN</string>
+    <string name="log_out">Log Out</string>
 </resources>

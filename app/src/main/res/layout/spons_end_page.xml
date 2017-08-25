@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.example.iket.ecellapp2k17.sponsors.view.SponsEndPage_Fragment">
+    tools:context="com.bquiz.raipur.ecellapp2k17.sponsors.view.SponsEndPage_Fragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
