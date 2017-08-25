@@ -25,12 +25,12 @@ android {
     buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "com.bquiz.raipur.ecellapp2k17"
-        minSdkVersion 21
+        minSdkVersion 16
         targetSdkVersion 25
         multiDexEnabled true
-        versionName '1.2'
+        versionName '1.4'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        versionCode 3
+        versionCode 5
     }
 //    packagingOptions {
 //        exclude 'META-INF/DEPENDENCIES.txt'
