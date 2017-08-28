@@ -35,7 +35,7 @@ public class SplashScreen extends Activity implements  SplashScreenView{
         setContentView(R.layout.activity_splash_screen);
         sharedPrefs = new SharedPrefs(this);
         splashProgressBar=(ProgressBar)findViewById(R.id.splash_progress_bar);
-        Log.d("Splash sceen",""+MyApplication.getFcm());
+        Log.d("Splash sceen",""+MyApplication.fcm_token);
         SplashScreenPresenter splashScreenPresenter = new SplashScreenPresenterImpl(this, new RetrofitSplashScreenProvider());
         splashScreenPresenter.insertFcm(MyApplication.fcm_token,sharedPrefs.getAccessToken());
     //    splashScreenPresenter.insertFcm(MyApplication.fcm_token,sharedPrefs.getAccessToken());

@@ -144,8 +144,11 @@ public class EsummitFragment extends Fragment implements ViewInterface{
             public void onRefresh() {
                 esummitPresenter=new EsummitPresenterImpl(new RetrofitProviderSpeakers(),EsummitFragment.this);
                 esummitPresenter.requestData();
+                swipeRefreshLayout.setRefreshing(false);
             }
         });
+
+
         return view;
     }
 

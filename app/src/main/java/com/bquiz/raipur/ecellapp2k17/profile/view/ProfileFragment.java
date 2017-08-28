@@ -116,14 +116,15 @@ public class ProfileFragment extends Fragment implements LoginView{
         if(sharedPrefs.getMobile()!=null){
             phoneTxt.setText(sharedPrefs.getMobile());
         }
-        s=fb_username.getText().toString();
-        s.trim();
-        s.toUpperCase();
-        c=s.charAt(0);
-        l=s.indexOf(" ");
-        d=s.charAt(l+1);
-        initials = (""+c+d).toUpperCase();
-        initials_txt.setText(initials);
+
+            s = fb_username.getText().toString();
+            c = s.charAt(0);
+            l = s.indexOf(" ");
+            d = s.charAt(l + 1);
+            initials = ("" + c + d).toUpperCase();
+            initials_txt.setText(initials);
+
+
 
   //      Glide.with(getContext()).load(R.drawable.profile_bg).into(profile_bg);
   //      Glide.with(getContext()).load(R.drawable.default_fb_pic).bitmapTransform(new CropCircleTransformation(getContext())).into(fb_image);
@@ -141,38 +142,46 @@ public class ProfileFragment extends Fragment implements LoginView{
             @Override
             public void onClick(View v) {
 
-                edit_name = username_etxt.getText().toString();
-                edit_email = email_etxt.getText().toString();
-                edit_mobile = phoneTxt.getText().toString();
-                log_out_txt.setVisibility(View.VISIBLE);
+                try {
+                    edit_name = username_etxt.getText().toString();
+                    edit_email = email_etxt.getText().toString();
+                    edit_mobile = phoneTxt.getText().toString();
+                    log_out_txt.setVisibility(View.VISIBLE);
                 /*
 
                 */
-                if(edit_name.isEmpty() ||  edit_email.isEmpty()){
-                    Toast.makeText(getContext(),"Fields cannot be empty!",Toast.LENGTH_SHORT).show();
-                }
-                else if(emailInvalid(edit_email)){
-                    Toast.makeText(getContext(), "ENTER CORRECT EMAIL ID!",
-                            Toast.LENGTH_LONG).show();
-                }
-                else {
+                    if (edit_name.isEmpty() || edit_email.isEmpty()) {
+                        Toast.makeText(getContext(), "Fields cannot be empty!", Toast.LENGTH_SHORT).show();
+                    } else if (emailInvalid(edit_email)) {
+                        Toast.makeText(getContext(), "ENTER CORRECT EMAIL ID!",
+                                Toast.LENGTH_LONG).show();
+                    } else {
 //                    loginData = new LoginDataImp(ProfileFragment.this, new RetrofitLoginHelper());
-  //                  loginData.getLoginData(edit_name, edit_mobile,edit_email);
-                    Toast.makeText(getContext(), "Your details has been updated successfull!", Toast.LENGTH_SHORT).show();
+                        //                  loginData.getLoginData(edit_name, edit_mobile,edit_email);
+                        Toast.makeText(getContext(), "Your details has been updated successfull!", Toast.LENGTH_SHORT).show();
+                        card_edit_details.setVisibility(View.GONE);
+                        fb_username.setText(edit_name);
+                        fb_email.setText(edit_email);
+                        s = username_etxt.getText().toString();
+                        c = s.charAt(0);
+                        l = s.indexOf(" ");
+                        d = s.charAt(l + 1);
+                        initials = ("" + c + d).toUpperCase();
+                        initials_txt.setText(initials);
+                        sharedPrefs.setUsername(username_etxt.getText().toString());
+                        sharedPrefs.setEmailId(email_etxt.getText().toString());
+                        editButton.setVisibility(View.VISIBLE);
+                    }
+                }
+                catch (Exception e){
+
+                    initials_txt.setText("EC");
                     card_edit_details.setVisibility(View.GONE);
-                    fb_username.setText(edit_name);
-                    fb_email.setText(edit_email);
-                    s=username_etxt.getText().toString();
-                    s.trim();
-                    c=s.charAt(0);
-                    l=s.indexOf(" ");
-                    d=s.charAt(l+1);
-                    initials = (""+c+d).toUpperCase();
-                    initials_txt.setText(initials);
-                    sharedPrefs.setUsername(username_etxt.getText().toString());
-                    sharedPrefs.setEmailId(email_etxt.getText().toString());
+                    fb_username.setText(sharedPrefs.getUsername());
+                    fb_email.setText(sharedPrefs.getEmail());
                     editButton.setVisibility(View.VISIBLE);
                 }
+
             }
         });
 

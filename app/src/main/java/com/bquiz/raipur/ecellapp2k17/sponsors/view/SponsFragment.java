@@ -111,7 +111,7 @@ public class SponsFragment extends Fragment implements SponsInterface {
         imageLoader=new GlideImageLoader(getContext());
         progressBar= (ProgressBar) view.findViewById(R.id.progressBar_spons);
         card_default_spons = (CardView) view.findViewById(R.id.card_coming_soon_spons);
-        swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_layout_spons);
+//        swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_layout_spons);
 //        sponsPresenter=new SponsPresenterImpl(this,new MockSpons());
         sponsPresenter=new SponsPresenterImpl(this,new RetrofitSponsProvider());
         sectionAdapter = new SectionedRecyclerViewAdapter();
@@ -134,14 +134,14 @@ public class SponsFragment extends Fragment implements SponsInterface {
         recyclerView.setAdapter(sectionAdapter);
         sponsPresenter.requestSpons();
 
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                sponsPresenter=new SponsPresenterImpl(SponsFragment.this,new RetrofitSponsProvider());
-                sponsPresenter.requestSpons();
-                swipeRefreshLayout.setRefreshing(false);
-            }
-        });
+//        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+//            @Override
+//            public void onRefresh() {
+//                sponsPresenter=new SponsPresenterImpl(SponsFragment.this,new RetrofitSponsProvider());
+//                sponsPresenter.requestSpons();
+//                swipeRefreshLayout.setRefreshing(false);
+//            }
+//        });
         return view;
     }
 
