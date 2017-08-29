@@ -143,9 +143,9 @@ public class ProfileFragment extends Fragment implements LoginView{
             public void onClick(View v) {
 
                 try {
-                    edit_name = username_etxt.getText().toString();
-                    edit_email = email_etxt.getText().toString();
-                    edit_mobile = phoneTxt.getText().toString();
+                    edit_name = username_etxt.getText().toString().trim();
+                    edit_email = email_etxt.getText().toString().trim();
+                    edit_mobile = phoneTxt.getText().toString().trim();
                     log_out_txt.setVisibility(View.VISIBLE);
                 /*
 
