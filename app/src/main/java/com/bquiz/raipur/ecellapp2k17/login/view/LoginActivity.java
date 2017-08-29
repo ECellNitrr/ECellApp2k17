@@ -81,9 +81,9 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     }
 
     public void proceed(View v) {
-        name = editTextName.getText().toString();
-        mobile = editTextMobile.getText().toString();
-        email = editTextEmail.getText().toString();
+        name = editTextName.getText().toString().trim();
+        mobile = editTextMobile.getText().toString().trim();
+        email = editTextEmail.getText().toString().trim();
 
         if (mobile.isEmpty() || name.isEmpty() || email.isEmpty()) {
             showProgressBar(false);

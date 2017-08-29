@@ -151,27 +151,11 @@ public class BQuizActivity extends AppCompatActivity implements BQuizView {
     @Override
     protected void onStop()
     {
+        if(i==1) {
+                            submitAnswerPresenter.submitAnswer(questionId, getAnswer(), sharedPrefs.getAccessToken());
+        }
         bQuizPresenter.cancelCall();
         super.onStop();
-        try {
-            countDownTimer.cancel();
-        }
-        catch (Exception e)
-        {
-            Log.d("BQUIZ",""+e);
-        }
-        try {
-            dialog.dismiss();
-        }
-        catch (Exception e)
-        {
-            Log.d("BQUIZ",""+e);
-        }
-        if(i==1)
-        {
-//            submitAnswerPresenter.submitAnswer(questionId, getAnswer(), sharedPrefs.getAccessToken());
-            i=0;
-        }
     }
 
     @Override

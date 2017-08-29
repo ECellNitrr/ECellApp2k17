@@ -31,10 +31,10 @@ public class LoginDataImp implements LoginData {
                     login.showLoginStatus(loginResponse);
                 }
                 else{
+                    login.showProgressBar(false);
                     login.showError(loginResponse.getMessage());
                 }
             }
-
             @Override
             public void onLoginFailure(String error) {
                 login.showError("Sorry!!Something went wrong");

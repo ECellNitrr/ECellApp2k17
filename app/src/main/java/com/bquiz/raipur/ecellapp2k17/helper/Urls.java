@@ -6,9 +6,9 @@ package com.bquiz.raipur.ecellapp2k17.helper;
 //All the Urls will be here in this class..!!
 public class Urls {
 
-    public static final String BASE_URL = "http://192.168.0.115:8000/";
- //   public static final String BASE_URL = "https://ecell.nitrr.ac.in/";
-//    public static final String BASE_URL = "http://192.168.43.54:8000/";
+ //   public static final String BASE_URL = "http://192.168.0.115:8000/";
+    public static final String BASE_URL = "https://ecell.nitrr.ac.in/";
+ //   public static final String BASE_URL = "http://192.168.43.54:8000/";
     public static final String REQUEST_BLOGS = "get_blogs_list/";
     public static final String REQUEST_ADD_BLOGS = "submit_blog";
     public static final String REQUEST_EVENTS = "get_events_list";
