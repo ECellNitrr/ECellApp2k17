@@ -59,7 +59,7 @@
             android:gravity="center"
             android:text="Event Body"
             android:textColor="@color/white"
-            android:textSize="22dp" />
+            android:textSize="18dp" />
 
         <ImageView
             android:id="@+id/down_arrow_img"

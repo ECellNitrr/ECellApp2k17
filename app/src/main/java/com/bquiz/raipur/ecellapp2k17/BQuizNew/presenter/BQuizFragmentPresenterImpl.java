@@ -1,5 +1,7 @@
 package com.bquiz.raipur.ecellapp2k17.BQuizNew.presenter;
 
+import android.widget.Toast;
+
 import com.bquiz.raipur.ecellapp2k17.BQuizNew.OnBQuizStatusResponse;
 import com.bquiz.raipur.ecellapp2k17.BQuizNew.model.BQuizStatusProvider;
 import com.bquiz.raipur.ecellapp2k17.BQuizNew.model.data.BQuizStatus;
@@ -36,7 +38,13 @@ public class BQuizFragmentPresenterImpl implements BQuizFragmentPresenter{
                 else
                 {
                     bQuizFragmentView.showPlayButton(false);
-                    bQuizFragmentView.showMessage(bQuizStatus.getMessage());
+                    try{
+                        bQuizFragmentView.showMessage(bQuizStatus.getMessage());
+                    }
+                    catch(Exception e){
+                        bQuizFragmentView.showMessage("An error ocurred!!Please try again later.");
+                        e.printStackTrace();
+                    }
                 }
 
 

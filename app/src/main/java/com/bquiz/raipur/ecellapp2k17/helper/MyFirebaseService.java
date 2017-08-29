@@ -59,13 +59,19 @@ public class MyFirebaseService extends FirebaseMessagingService {
     // [END receive_message]
 
     private void sendNotification(String messageBody, String title) {
+
         Intent intent=new Intent(this, SplashScreen.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(intent.FLAG_ACTIVITY_NEW_TASK);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 , intent,
+                PendingIntent.FLAG_ONE_SHOT);
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this);
         Uri notification_sound= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         notificationBuilder.setSound(notification_sound);
         notificationBuilder .setSmallIcon(R.drawable.esummit)
                 .setContentTitle(title)
                 .setContentText(messageBody)
+                .setContentIntent(pendingIntent)
                 .setStyle(new NotificationCompat.BigTextStyle().bigText(messageBody))
                 .setAutoCancel(true);
         notificationBuilder.setDefaults(Notification.DEFAULT_LIGHTS| Notification.DEFAULT_VIBRATE);
@@ -73,11 +79,7 @@ public class MyFirebaseService extends FirebaseMessagingService {
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(0 , notificationBuilder.build());
 
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.addFlags(intent.FLAG_ACTIVITY_NEW_TASK);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 , intent,
-        PendingIntent.FLAG_ONE_SHOT);
-        notificationBuilder.setContentIntent(pendingIntent);
-        startActivity(intent);
+
+//        startActivity(intent);
     }
 }

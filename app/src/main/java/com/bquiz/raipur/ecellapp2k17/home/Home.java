@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 
+import com.bquiz.raipur.ecellapp2k17.bmodel.view.BModelFragment;
 import com.bumptech.glide.Glide;
 import com.crashlytics.android.Crashlytics;
 import com.bquiz.raipur.ecellapp2k17.BQuizNew.view.BQuizFragment;
@@ -43,7 +44,7 @@ public class Home extends AppCompatActivity {
 
     ImageView tab_icon_img;
 
-    private int[] tabIcons = {R.drawable.e_summit_ic,R.drawable.events_icon_white,R.drawable.blogs_icon_white,R.drawable.sponsors_icon_white,R.drawable.bquiz_icon,R.drawable.about_us_white,R.drawable.profile_icon_white,};
+    private int[] tabIcons = {R.drawable.e_summit_ic,R.drawable.events_icon_white,R.drawable.blogs_icon_white,R.drawable.sponsors_icon_white,R.drawable.bquiz_icon,R.drawable.about_us_white,R.drawable.profile_icon_white,R.drawable.profile_icon_white};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +68,7 @@ public class Home extends AppCompatActivity {
         adapter.addFragment(new BQuizFragment());
         adapter.addFragment(new AboutUsFragment());
         adapter.addFragment(new ProfileFragment());
+        adapter.addFragment(new BModelFragment());
         adapter.notifyDataSetChanged();
         viewPager.setOffscreenPageLimit(7);
         setupTabIcons();
